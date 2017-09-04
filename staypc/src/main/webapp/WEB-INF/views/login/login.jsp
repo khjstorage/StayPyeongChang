@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>login</title>
     <script src="/resources/js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script language="javascript">
     $(document).ready(function() {
