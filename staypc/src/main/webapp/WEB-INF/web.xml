@@ -45,5 +45,12 @@
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<include-prelude>/WEB-INF/views/home/top.jsp</include-prelude>
+			<include-coda>/WEB-INF/views/home/bottom.jsp</include-coda>
+		</jsp-property-group>
+	</jsp-config>
 
 </web-app>

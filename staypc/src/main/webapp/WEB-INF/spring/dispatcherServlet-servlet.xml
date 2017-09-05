@@ -8,8 +8,6 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
     <mvc:annotation-driven/>
 
-
-
     <context:component-scan base-package="com.staypc" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
@@ -22,7 +20,6 @@
         <property name="order" value="1"/>
     </bean>
 
-
     <bean id="urlFilenameViewController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
@@ -31,5 +28,11 @@
         <property name="order" value="1"/>
     </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/member/modify.do"/>
+            <bean class="com.staypc.interceptor.InterCeptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

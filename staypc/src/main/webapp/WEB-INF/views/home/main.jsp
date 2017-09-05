@@ -2,9 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>session</title>
+    <title>Title</title>
 </head>
 <body>
+<h1>평창스테이</h1>
 <c:choose>
     <c:when test="${sessionScope.userId == null }">
         <a href='<c:url value="/login/login.do"></c:url>'>로그인</a>

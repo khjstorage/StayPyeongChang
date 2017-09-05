@@ -44,6 +44,8 @@ public class LoginServiceImpl implements LoginService{
     }
 
     public void logout(HttpSession session) {
+        session.removeAttribute("userId");
+        session.removeAttribute("userEmail");
         session.invalidate();
     }
 
@@ -55,11 +57,15 @@ public class LoginServiceImpl implements LoginService{
         return dao.duplicate_email(email);
     }
 
+    public LoginVO getMember(String userId) {
+        return dao.getMember(userId);
+    }
+
     public void changePassword(LoginVO vo) {
         dao.changePassword(vo);
     }
 
-
-
-
+    public void modify(LoginVO vo) {
+        dao.modify(vo);
+    }
 }

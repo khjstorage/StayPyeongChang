@@ -15,4 +15,6 @@ public interface LoginService {
     String duplicate_id(String id);
     void changePassword(LoginVO vo);
     String duplicate_email(String email);
+    LoginVO getMember(String userId);
+    void modify(LoginVO vo);
 }

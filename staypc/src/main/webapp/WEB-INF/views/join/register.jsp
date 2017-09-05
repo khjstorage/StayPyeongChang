@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html>
 <head>
     <title>joinMembership</title>
@@ -39,16 +41,12 @@
     &nbsp;&nbsp;<button id="duplicationEmailBtn">이메일확인</button><br>
     <br>
     이름 : <input type="text" name="name" id="name"><br>
-    생일 : <input type="date" name="birth_date" id="birth_date"><br>
-    사진 : <input type="file" name="uploadFile"><br>
-    핸드폰 : <input type="text" name="phone" id="phone">하이픈(-)은 입력하지 마세요.<br>
-    성별 :  <input type="radio" name="gender" value="M" checked> 남자
-           <input type="radio" name="gender" value="F"> 여자 <br>
-    도시 : <input type="text" name="city" id="city"><br>
-    소개 : <br><textarea cols="100" rows="10" name="introduction" id="introduction"></textarea><br>
+    사진 : <input type="file" name="uploadFile" accept="image/*"><br>
     <input type="submit" value="회원가입">
     <input type="button" id="cancle" value="회원가입 취소">
 </form>
 
 </body>
+
 </html>
+

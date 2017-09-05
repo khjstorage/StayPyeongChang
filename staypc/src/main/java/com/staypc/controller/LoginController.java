@@ -1,6 +1,5 @@
 package com.staypc.controller;
 
-
 import com.staypc.service.LoginService;
 import com.staypc.utility.FileRename;
 import com.staypc.utility.MailUtility;
@@ -26,12 +25,18 @@ public class LoginController {
 	@Autowired
 	private MailUtility mailUtility;
 
+	@RequestMapping("/")
+	public String main(){
+		System.out.println("홈");
+		return "/home/main";
+	}
+
 	/********************
 	 *     회원가입     *
 	 ********************/
 	@RequestMapping(value = "join/joinMembership.do", method = RequestMethod.GET)
 	public String joinMembershipForm(){
-		return "join/joinMembership";
+		return "join/register";
 	}
 
 	@RequestMapping("join/duplicateId.do")
@@ -75,6 +80,7 @@ public class LoginController {
 	/*****************************
 	 *         메일보내기        *
 	 *****************************/
+	//승인메일 다시 보낼때
 	@RequestMapping(value = "join/mail.do")
 	public String joinMail(LoginVO vo){
 		mailUtility.joinMail(vo.getEmail());
@@ -126,18 +132,48 @@ public class LoginController {
 	public ModelAndView login(ModelAndView mav, LoginVO vo, HttpSession session){
 		boolean loginresult = service.loginCheck(vo, session);
 		if (loginresult == true) {
-			mav.setViewName("login/session");
-			mav.addObject("msg", "success");
+			mav.setViewName("home/main");
 		} else {
 			mav.setViewName("login/login");
 			mav.addObject("msg", "failure");
 		}
 		return mav;
 	}
+
 	@RequestMapping("login/logout.do")
 	public String logout(HttpSession session) {
 		service.logout(session);
 		return "redirect:/";
 	}
 
+
+	/*****************************
+	 *     회원정보수정/탈퇴     *
+	 *****************************/
+	@RequestMapping(value = "/member/modify.do", method = RequestMethod.GET)
+	public ModelAndView modifyForm(ModelAndView mv, HttpSession session){
+		LoginVO member = service.getMember((String)session.getAttribute("userId"));
+		mv.addObject("member",member);
+		mv.setViewName("member/modify");
+		return mv;
+	}
+
+	@RequestMapping(value = "/member/modify.do",method = RequestMethod.POST)
+	public String modify(LoginVO vo, HttpSession session, HttpServletRequest request, @RequestParam String originFile) throws IOException {
+		MultipartFile multipartFile = vo.getUploadFile();
+		if(!multipartFile.isEmpty()){
+			String fileNmae = multipartFile.getOriginalFilename();
+			String realPath = request.getServletContext().getRealPath("/resources/profile_photo/");
+			File file = new File(realPath, fileNmae);
+			FileRename rename = new FileRename();
+			rename.renameFile(file);
+			vo.setPicture(rename.getRenameFile());
+			multipartFile.transferTo(new File(realPath+rename.getRenameFile()));
+		}else{
+			vo.setPicture(originFile);
+		}
+		vo.setId((String)session.getAttribute("userId"));
+		service.modify(vo);
+		return "redirect:/";
+	}
 }

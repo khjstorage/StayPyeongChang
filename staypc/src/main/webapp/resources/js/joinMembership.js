@@ -1,7 +1,6 @@
 $(document).ready(function(){
     var re_id = /^[a-z0-9_-]{5,16}$/;
     var re_pw = /^[a-z0-9_-]{6,18}$/;
-    var re_phone = /^[0-9]{8,11}$/;
 
     var agreement1 = $('#agreement1'),
         agreement2 = $('#agreement2'),
@@ -15,10 +14,6 @@ $(document).ready(function(){
         email3 = $('#email3'),
         name = $('#name'),
         birth_date = $('#birth_date'),
-        gender = $('#gender'),
-        city = $('#city'),
-        introduction = $('#introduction'),
-        phone = $('#phone'),
         allCheckAgree = $('#allCheckAgree'),
         duplicationIdBtn = $('#duplicationIdBtn'),
         duplicationEmailBtn = $('#duplicationEmailBtn');
@@ -42,13 +37,6 @@ $(document).ready(function(){
             s.text('너무 길어요.'); // strong 요소에 문자 출력
         } else { // 입력 값이 6 이상 18 이하일 때
             s.text('적당해요.'); // strong 요소에 문자 출력
-        }
-    });
-
-
-    phone.keydown( function() {
-        if(event.keyCode==109 || event.keyCode==189) {
-            return false;
         }
     });
 
@@ -100,7 +88,6 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
-
     email3.on("change", function () {
         $("#email3 option:selected").each(function () {
             if($(this).val()=='self'){
@@ -113,7 +100,6 @@ $(document).ready(function(){
         });
     });
 
-
     joinForm.on("submit", function() {
         if(agreement1.is(":checked")==false){
             alert('서비스 이용약관에 동의해 주세요');
@@ -123,18 +109,15 @@ $(document).ready(function(){
             alert('개인정보 수집 및 필수목적에 동의해 주세요');
             return false;
         }
-
         if(id_isCheck.val()=='N'){
             alert("아이디 확인을 해주세요");
             return false;
         }
-
         if (re_id.test(id.val()) != true) {
             alert('[ID 입력 오류] 유효한 ID를 입력해 주세요.');
             id.focus();
             return false;
         }
-
         if(re_pw.test(password.val()) != true) {
             alert('[PW 입력 오류] 유효한 PW를 입력해 주세요.');
             password.focus();
@@ -154,37 +137,10 @@ $(document).ready(function(){
             alert("이메일을 확인해주세요");
             return false;
         }
-
         if(name.val()==""){
             alert("이름을 적어주세요");
             name.focus();
             return false;
-        }
-        if(birth_date.val()==""){
-            alert("생일 입력해주세요");
-            birth_date.focus();
-            return false;
-        }
-        if(re_phone.test(phone.val()) != true) {
-            alert('[Tel 입력 오류] 유효한 전화번호를 입력해 주세요.');
-            phone.focus();
-            return false;
-        }
-        if(gender.val()==""){
-            alert("성별 체크해주세요");
-            gender.focus();
-            return false;
-        }
-        if(city.val()==""){
-            alert("도시 적어주세요");
-            city.focus();
-            return false;
-        }
-        if(introduction.val()==""){
-            alert("자기소개를 적어주세요");
-            introduction.focus();
-            return false;
-
         }
 
         joinForm.attr("action", "/join/joinMembership.do");

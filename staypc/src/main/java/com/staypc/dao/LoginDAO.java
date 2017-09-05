@@ -53,4 +53,11 @@ public class LoginDAO {
         mybatis.update("member.changePassword",vo);
     }
 
+    public LoginVO getMember(String userId) {
+        return mybatis.selectOne("member.getMember", userId);
+    }
+
+    public void modify(LoginVO vo) {
+        mybatis.update("member.modify", vo);
+    }
 }

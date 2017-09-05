@@ -14,7 +14,7 @@ public class LoginVO {
     private String picture;
     private MultipartFile uploadFile;
     private String phone;
-    private char gender;
+    private String gender;
     private String city;
     private String introduction;
     private Date regdate;
@@ -109,11 +109,11 @@ public class LoginVO {
         this.phone = phone;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

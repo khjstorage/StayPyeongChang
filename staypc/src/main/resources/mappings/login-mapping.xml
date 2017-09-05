@@ -13,8 +13,8 @@
 
     <insert id="insert" parameterType="login">
         <![CDATA[
-        INSERT into STAYPC_MEMBER(id, password, name, email, birth_date, picture, phone, gender, city, introduction, regdate, VERIFY_EMAIL, VERIFY_PHONE, VERIFY_HOST, CREDIT)
-        VALUES (#{id}, #{password}, #{name}, #{email}, #{birth_date}, #{picture}, #{phone}, #{gender}, #{city},#{introduction}, sysdate ,'N','N','N',0)
+        INSERT into STAYPC_MEMBER(id, password, email, name, picture, regdate, VERIFY_EMAIL, CREDIT)
+        VALUES (#{id}, #{password}, #{email}, #{name}, #{picture}, sysdate ,'N', 0)
         ]]>
     </insert>
 
@@ -41,4 +41,13 @@
         update STAYPC_MEMBER set PASSWORD = #{password} WHERE EMAIL=#{email}
     </update>
 
+    <select id="getMember" resultType="login">
+        SELECT * FROM STAYPC_MEMBER WHERE id=#{userId}
+    </select>
+
+    <update id="modify">
+        UPDATE STAYPC_MEMBER
+        SET PASSWORD=#{password}, name=#{name}, birth_date=#{birth_date}, picture=#{picture}, phone=#{phone}, gender=#{gender}, city=#{city}, introduction=#{introduction}
+        WHERE id=#{id}
+    </update>
 </mapper>
