@@ -111,6 +111,8 @@
     <!-- ì¬ê¸°ìë¶í° ì¬ê¸°ê°  -->
     <!-- ê²ìë° (ìì¹, ë ì§, ì¸ì) -->
     <table  id="search">
+    <tr>
+        <td>
        <form name="form1" method="post" action='<c:url value="/staypc/list.do"></c:url>'>
        <input type="text" id="sdate" name="sdate" value="">~<input type="text" id="edate" name="edate" value="">
        <input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
@@ -128,8 +130,37 @@
           <option value="10" <c:out value="${map.num=='10'?'selected':'' }"/>>10명</option>
         </select>
         <input type="submit" value="검색">
-    </form>
+        </form>
+        </td>
+    </tr>
     </table>
+    <table border="1" width="800px">
+        
+        <tr>
+            <c:forEach var="row" items="${map.list }" varStatus="status">
+            <td align="center">
+                <a href="view.do?lno=${row.lno }" style="text-decoration: none;">
+                    <img src="../MBoard/resources/picture/${row.picture }" width="150">
+                <br>
+                \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>
+                      ${row.title }
+                <!-- 후기 있으면 게시글 이름 옆에 후기갯수 출력 -->
+                <%-- <c:if test="${row.recnt>0 }">
+                    <span style="color:red;">(${row.recnt})</span>
+                </c:if> --%>
+                </a>
+            </td>
+                 <c:if test="${status.count % 3 == 0}">
+                    </tr>
+                    <c:if test="${status.count % 3 != 9 }">
+                    <tr>
+                    </c:if>
+                 </c:if>
+            </c:forEach>
+    </table>
+    <div style="width: 800px;"align="center">
+       <a href='<c:url value="/staypc/list.do"></c:url>'>전체보기</a>
+    </div>
 
 
 
