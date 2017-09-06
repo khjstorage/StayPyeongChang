@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>profile page</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/profile_style.css" rel="stylesheet" type="text/css">
 </head>
 	
 <body>
