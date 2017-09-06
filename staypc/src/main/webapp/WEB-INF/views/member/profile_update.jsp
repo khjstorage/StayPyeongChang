@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>profile page</title>
-<link href="css/profile_style.css" rel="stylesheet" type="text/css">
+<link href="../../../css/profile_style.css" rel="stylesheet" type="text/css">
 </head>
 	
 <body>
@@ -26,7 +24,7 @@
 		<div id="profileImg">			
 			<label>프로필 사진</label>
 				<td>
-				<input type="image" src="images/user_pic.png" id="user_proPic" style="margin-left:15px; width:200px; height:200px; margin-top:30px;">
+				<input type="image" src="../../../images/user_pic.png" id="user_proPic" style="margin-left:15px; width:200px; height:200px; margin-top:30px;">
 				</td>	
 			<div id="proPicBtn">			
 				<td>
