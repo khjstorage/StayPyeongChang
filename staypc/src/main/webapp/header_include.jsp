@@ -13,14 +13,14 @@
 	<!-- header -->
 	<div id="header">
 		<div id="logo">
-		  <img src="image/logo.png"  alt="" />
+		  <img src="images/logo.png"  alt="" />
 	  	</div>
  	 	<div id="nav">
 	  		<ul id="menu">
 				<li><a href="#">호스팅하기</a></li>
 				<li><a href="">도움말</a></li>
 				<li><a href="">로그인</a></li>
-				<li id="profile_icon"><a href=""><img src="image/profile.png"></a></li>		
+				<li id="profile_icon"><a href=""><img src="images/profile.png"></a></li>		
 		  </ul>
 	  </div>
 

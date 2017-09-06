@@ -46,8 +46,8 @@
 <!--TITLE_BX_SLIDER -->
 <div>
 <ul class="bxslider">
-  		<li><img src="image/bxtest02.png" width="1920" height="700"/></li>
-  		<li><img src="image/bxtest01.png" width="1920" height="700"/></li>
+  		<li><img src="images/bxtest02.png" width="1920" height="700"/></li>
+  		<li><img src="images/bxtest01.png" width="1920" height="700"/></li>
   </ul>
 </div>
 
@@ -58,7 +58,7 @@
  <table>
   <tbody>
     <tr>
-      <td>&nbsp;<img src="image/info.png" width="130" height="30" alt="" /> </td>               
+      <td>&nbsp;<img src="images/info.png" width="130" height="30" alt="" /> </td>               
     </tr>
   </tbody>
 </table>
@@ -111,7 +111,7 @@
 
  여기까지 슬기가  -->
 
-
+<!--  test -->
 
 <div id="image_layout">
 	<div id="image_box">
@@ -143,7 +143,7 @@
 			<td>
  				<iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0"
   					frameborder="0" ></iframe></td>
- 			<td>	<img src="image/schedule.png" ></td>
+ 			<td>	<img src="images/schedule.png" ></td>
  			
  		</tr>
  	</table>
