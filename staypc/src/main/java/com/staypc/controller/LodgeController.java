@@ -1,63 +1,107 @@
 package com.staypc.controller;
-import com.staypc.service.LodgeService;
-import com.staypc.service.LoginService;
-import com.staypc.utility.FileRename;
-import com.staypc.utility.MailUtility;
-import com.staypc.utility.Utility;
-import com.staypc.vo.LodgeVO;
-import com.staypc.vo.LoginVO;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.staypc.service.LodgeService;
+import com.staypc.utility.BoardPager;
+import com.staypc.vo.LodgeVO;
+
+
 
 @Controller
 public class LodgeController {
-
 	@Autowired
-	private LodgeService service;
+	LodgeService Service;
+	
+	@RequestMapping("main.do")
+	public ModelAndView main(HttpSession session, HttpServletRequest request) throws Exception{
 
-	
-	
-	@RequestMapping(value = "kkj_test/main.do", method = RequestMethod.GET)
-	public String registerHoteForml(){
-		return "kkj_test/main";
-	}
-	
 		
-	
-	//임시로 제작했기에 수정 필요
-	@RequestMapping(value = "kkj_test/main.do", method = RequestMethod.POST)
-	public String registerHotelProc(ModelAndView mav, LodgeVO vo, HttpServletRequest request) throws IOException {
-		System.out.println(">>>");
-		service.insert(vo);
-		System.out.println("<<<");
-		return "redirect:/";
+		
+		List<LodgeVO> list = Service.listMain();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("map", map);
+		mav.setViewName("staypc/main");
+		
+		return mav;
 	}
 	
+	@RequestMapping("list.do")
+	public ModelAndView list(@RequestParam(defaultValue="") String num,
+							 @RequestParam(defaultValue="") String keyword,
+							 @RequestParam(defaultValue="1") int curPage, 
+							 @RequestParam(defaultValue="") String sdate, 
+							 @RequestParam(defaultValue="") String edate) throws Exception{
+		System.out.println("시작과 끝날:"+sdate+"+"+edate);
+		System.out.println("결과값:"+ num+"/"+keyword+"/"+sdate+"/"+edate);
+		// 레코드 객수 계산
+		int count = Service.countArticle(num, keyword, sdate, edate);
+		
+		// 페이지 나누기 처리
+		BoardPager boardPager = new BoardPager(count, curPage);
+		int start = boardPager.getPageBegin();
+		int end = boardPager.getPageEnd();
+		
+		
+		
+		List<LodgeVO> list = Service.listAll(start, end, num, keyword, sdate, edate);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		System.out.println("list값"+list);
+		map.put("list", list);
+		map.put("count", count);
+		map.put("num", num);
+		map.put("keyword", keyword);
+		map.put("boardPager", boardPager);
+		map.put("sdate", sdate);
+		map.put("edate", edate);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("map", map);
+		mav.setViewName("staypc/list");
+		
+		return mav;
+	}
 	
+	@RequestMapping("write.do")
+	public ModelAndView write(HttpSession session, HttpServletRequest request) throws Exception{
+
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("staypc/write");
+		
+		return mav;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping(value="insert.do", method=RequestMethod.POST)
+	public String insert(@ModelAttribute LodgeVO vo, HttpSession session) throws Exception{
+		
+		
+		Service.insert(vo);
+		
+		return "redirect:list.do";
+	}
+
 }
-
-
 
 
 
