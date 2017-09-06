@@ -27,7 +27,7 @@ public class LodgeController {
 	@Autowired
 	LodgeService Service;
 	
-	@RequestMapping("main.do")
+	@RequestMapping("/main.do")
 	public ModelAndView main(HttpSession session, HttpServletRequest request) throws Exception{
 
 		
@@ -39,7 +39,7 @@ public class LodgeController {
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("map", map);
-		mav.setViewName("staypc/main");
+		mav.setViewName("home/main");
 		
 		return mav;
 	}
