@@ -123,7 +123,7 @@
         <table>
             <tr>
                 <td>
-                    <iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0" frameborder="0" ></iframe></td
+                    <iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0" frameborder="0" ></iframe></td>
                 <td><img src="/resources/images/schedule.png" ></td>
 
             </tr>
