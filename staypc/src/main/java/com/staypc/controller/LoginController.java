@@ -25,11 +25,7 @@ public class LoginController {
 	@Autowired
 	private MailUtility mailUtility;
 
-	@RequestMapping("/")
-	public String main(){
-		System.out.println("홈");
-		return "/home/main";
-	}
+
 
 	/********************
 	 *     회원가입     *

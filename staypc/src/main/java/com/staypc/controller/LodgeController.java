@@ -27,11 +27,9 @@ public class LodgeController {
 	@Autowired
 	LodgeService Service;
 	
-	@RequestMapping("/main.do")
-	public ModelAndView main(HttpSession session, HttpServletRequest request) throws Exception{
 
-		
-		
+	@RequestMapping("/")
+	public ModelAndView main() throws Exception{
 		List<LodgeVO> list = Service.listMain();
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -41,6 +39,7 @@ public class LodgeController {
 		mav.addObject("map", map);
 		mav.setViewName("home/main");
 		
+		System.out.println("홈");
 		return mav;
 	}
 	

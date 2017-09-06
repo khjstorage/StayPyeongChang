@@ -1,21 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="lodge">
-  
+<mapper namespace="staypc">
+	
+	<!-- 메인페잊이 -->
+	<select id="listMain" resultType="staypc_lodgeDTO">
+		SELECT picture, charge, title FROM staypc_lodge 
+		where lno > (SELECT MAX(lno)-9 from staypc_lodge)
+		order by lno DESC
+	</select>
+	
+	<select id="count" resultType="int">
+        SELECT COUNT(*) 
+         FROM  staypc_lodge l, staypc_lodge_date d
+        <include refid="search"></include>
+    </select>
+    
+    
+    
+   <select id="listAll" resultType="staypc_lodgeDTO">
+       <include refid="pagingHeader"></include>
+        SELECT l.lno, l.title, l.charge, l.picture
+        FROM  staypc_lodge l, staypc_lodge_date d
+       <include refid="search"></include>
+        order by lno DESC
+        <include refid="pagingFooter"></include>
+    </select>
+	
+	<sql id="search">
+                WHERE num  like '%'||#{num}||'%' and 
+                location   like '%'||#{keyword}||'%' and
+                l.lno = d.lno and 
+                d.available = 'Y' 
+               
+                <if test="sdate!=''">
+                <![CDATA[
+                and d.check_in_date <= #{sdate}
+                and d.check_out_date >= #{edate}
+                ]]>
+                </if>
+    </sql>
 
-
-   <!-- 이곳은 제가 DB쪽 정보에 대해 잘 모르므로 누가 수정해주세요 -->
-    <insert id="insert" parameterType="lodge">  
-        <![CDATA[
-        INSERT into STAYPC_LODGE(lno, charge, location, location_detail, num, title, room_type, building_type, guest_only, bedroom_cnt, bed_cnt, bed_type, 
-        bathroom_cnt, bath_guest_only, convenient, secure, picture, content, summary, contact, regdate, check_in_time, check_out_time, res_deadline, email)
-        VALUES (#{lno}, #{charge}, #{location}, #{location_detail}, #{num}, #{title}, #{room_type}, #{building_type}, #{guest_only},#{bedroom_cnt}, #{bed_cnt},#{bed_type},
-        #{bathroom_cnt},#{bath_guest_only},#{convenient},#{secure},#{picture},#{content},#{summary},#{contact},sysdate,#{check_in_time},#{check_out_time},#{res_deadline},#{email})
-        ]]>
-    </insert>
-
-
-
+    
+    <sql id="pagingHeader">
+        SELECT * FROM (
+           SELECT ROWNUM AS rn, A.* FROM (
+    </sql>
+    
+    <sql id="pagingFooter">
+           ) A
+        ) WHERE rn BETWEEN #{start} AND #{end}
+    </sql> 
+	
 </mapper>
+

@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,20 +100,7 @@
 
     <!--  test -->
 
-    <div id="image_layout">
-        <div id="image_box">
 
-        </div>
-
-        <div id="image_box">
-
-        </div>
-
-        <div id="image_box">
-
-        </div>
-
-    </div>
 
 
     <!--동영상재생 / 경기일정  -->
@@ -120,7 +108,7 @@
         <table>
             <tr>
                 <td>
-                    <iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0" frameborder="0" ></iframe></td
+                    <iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0" frameborder="0" ></iframe></td>
                 <td><img src="/resources/images/schedule.png" ></td>
             </tr>
         </table>
