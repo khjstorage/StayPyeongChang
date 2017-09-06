@@ -30,7 +30,7 @@
     <div class="top_bn_zone">
         <header>
             <div class="navbar-brand">
-                <a href="/.do"><img class="img" src="/resources/images/logo.png" alt="" /></a>
+                <a href="/.do"><img class="img" src="/resources/images/logo_kr.png" alt="" /></a>
             </div>
         </header>
     </div>
