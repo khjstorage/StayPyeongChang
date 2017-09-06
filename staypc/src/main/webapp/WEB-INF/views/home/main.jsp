@@ -3,23 +3,7 @@
 <html>
 <head>
     <title>stay_main</title>
-    <!-- jQuery library (served from Google) -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!-- bxSlider Javascript file -->
-    <script src="../../../resources/js/jquery.bxslider.min.js"></script>
-    <!-- bxSlider CSS file -->
-    <link href="css/jquery.bxslider.css" rel="stylesheet" />
-
     <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
-    <script>
-        $(document).ready(function(){
-            $('.bxslider').bxSlider({
-                mode:'horizontal',
-                auto:true,
-                controls:false
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -31,15 +15,6 @@
 
 
 <div id="main">
-
-    <!--TITLE_BX_SLIDER -->
-    <div>
-        <ul class="bxslider">
-            <li><img src="/resources/images/bxtest02.png" width="1920" height="700"/></li>
-            <li><img src="/resources/images/bxtest01.png" width="1920" height="700"/></li>
-        </ul>
-    </div>
-
 
     <!--숙박정보  -->
     <div id="info">
@@ -123,7 +98,7 @@
         <table>
             <tr>
                 <td>
-                    <iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0" frameborder="0" ></iframe></td>
+                    <iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0" frameborder="0" ></iframe></td
                 <td><img src="/resources/images/schedule.png" ></td>
 
             </tr>

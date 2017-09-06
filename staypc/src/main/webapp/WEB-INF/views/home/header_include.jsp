@@ -6,29 +6,52 @@
 <head>
     <script src="/resources/js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <link href="/resources/css/header.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var topBar = $("#topBar").offset();
+            $(window).scroll(function(){
+                var docScrollY = $(document).scrollTop()
+                var barThis = $("#topBar")
+                var fixNext = $("#fixNextTag")
+
+                if( docScrollY > topBar.top ) {
+                    barThis.addClass("top_bar_fix");
+                    fixNext.addClass("pd_top_80");
+                }else{
+                    barThis.removeClass("top_bar_fix");
+                    fixNext.removeClass("pd_top_80");
+                }
+            });
+        })
+    </script>
 </head>
 <body>
-<!-- header -->
-<div id="header">
-    <div id="logo">
-        <img src="/resources/images/logo.png" alt="" />
+<div class="wrap">
+    <div class="top_bn_zone">
+        <header>
+            <div class="navbar-brand">
+                <img class="img" src="/resources/images/logo.png" alt="" />
+            </div>
+        </header>
     </div>
-    <div id="nav">
-        <ul id="menu">
-            <li><a href="#">호스팅하기</a></li>
-            <li><a href="">도움말</a></li>
-            <c:choose>
-                <c:when test="${sessionScope.userId == null }">
-                    <li><a href='<c:url value="/login/login.do"></c:url>'>로그인</a></li>
-                </c:when>
-                <c:otherwise>
-                    <%--<h2>${sessionScope.userId } (${sessionScope.userEmail })님 환영합니다.</h2>--%>
-                    <li><a href="<c:url value="/member/modify.do"></c:url>">회원정보수정</a></li>
-                    <li><a href='<c:url value="/login/logout.do"></c:url>'>로그아웃</a></li>
-                </c:otherwise>
-            </c:choose>
-            <li id="profile_icon"><a href=""><img src="/resources/images/profile.png"></a></li>
-        </ul>
+
+    <div class="top_fix_zone" id="topBar">
+        <nav>
+            <ul class="menu">
+                <c:choose>
+                    <c:when test="${sessionScope.userId == null }">
+                        <li><a href="#">호스팅하기</a></li>
+                        <li><a href="#">도움말</a></li>
+                        <li><a href='<c:url value="/login/login.do"></c:url>'>로그인</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="<c:url value="/member/modify.do"></c:url>">회원정보수정</a></li>
+                        <li><a href='<c:url value="/login/logout.do"></c:url>'>로그아웃</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <li id="profile_icon"><a href=""><img src="/resources/images/profile.png"></a></li>
+            </ul>
+        </nav>
     </div>
 </div>
 </body>

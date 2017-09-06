@@ -1,4 +1,5 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>회원정보수정</title>

@@ -1,11 +1,11 @@
 package com.staypc.vo;
 
 public class LodgeVO {
-	private int lno; 				      // 숙소번호
+	private int lno; 				         // 숙소번호
 	private int charge; 			     // 1박당 숙박료
-	private int num; 				     // 최대 인원수
 	private String location; 		     // 군, 면, 읍, 리까지 주소 ex) 강원 평창군 대관령면 횡계리 
 	private String location_detail;    // 리 이하 상세주소 ex) 57-1번지 201호
+	private int num; 				     // 최대 인원수
 	private String title; 			     // 숙소 제목
 	private String room_type;        // 룸타입 ex) 집전체, 개인실, 다인실 중 택1
 	private String building_type;     // 건물타입 ex) 주택, 빌딩, 기타 중 택1
@@ -24,9 +24,8 @@ public class LodgeVO {
 	private String regdate;            // 숙소 등록일
 	private String check_in_time;    // 숙소 입실시간 ex) 16:00
 	private String check_out_time;  // 숙소 퇴실시간 ex) 12:00
-	private int res_deadline;          // 숙소 예약기한 ex) 2 일전
+	private int res_deadline;          // 숙소 예약기한 ex) 2 일전 예약기한은 0일(당일)~7일까지 설정가능
 	private String email;               // 호스트 이메일
-	
 	
 	public int getLno() {
 		return lno;
@@ -40,12 +39,6 @@ public class LodgeVO {
 	public void setCharge(int charge) {
 		this.charge = charge;
 	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
-	}
 	public String getLocation() {
 		return location;
 	}
@@ -57,6 +50,12 @@ public class LodgeVO {
 	}
 	public void setLocation_detail(String location_detail) {
 		this.location_detail = location_detail;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 	public String getTitle() {
 		return title;
@@ -178,18 +177,17 @@ public class LodgeVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Staypc_lodgeVO [lno=" + lno + ", charge=" + charge + ", num=" + num + ", location=" + location
-				+ ", location_detail=" + location_detail + ", title=" + title + ", room_type=" + room_type
+		return "Staypc_lodgeVO [lno=" + lno + ", charge=" + charge + ", location=" + location + ", location_detail="
+				+ location_detail + ", num=" + num + ", title=" + title + ", room_type=" + room_type
 				+ ", building_type=" + building_type + ", guest_only=" + guest_only + ", bedroom_cnt=" + bedroom_cnt
 				+ ", bed_cnt=" + bed_cnt + ", bed_type=" + bed_type + ", bathroom_cnt=" + bathroom_cnt
 				+ ", bath_guest_only=" + bath_guest_only + ", convenient=" + convenient + ", secure=" + secure
 				+ ", picture=" + picture + ", content=" + content + ", summary=" + summary + ", contact=" + contact
 				+ ", regdate=" + regdate + ", check_in_time=" + check_in_time + ", check_out_time=" + check_out_time
-		        + ", res_deadline=" + res_deadline + ", email=" + email + "]";
+				+ ", res_deadline=" + res_deadline + ", email=" + email + "]";
 	}
-	
 	
 }
