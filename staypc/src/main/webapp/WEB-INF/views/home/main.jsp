@@ -1,101 +1,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>stay_main</title>
-  <script type="text/javascript" src="../script/jquery-3.2.1.min.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        
-    <!-- jQuery library (served from Google) -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!-- bxSlider Javascript file -->
-    <script src="../../../resources/js/jquery.bxslider.min.js"></script>
-    
-    <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
-    
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-    <!-- bxSlider CSS file -->
-
-    
-
-  
-  
-    <script>
-        $(document).ready(function(){
-            $('.bxslider').bxSlider({
-                mode:'horizontal',
-                auto:true,
-                controls:false
-            });
-        });
-      </script>
-  <script type="text/javascript">
-        function list(page){
-            location.href="list.do?curPage="+page+"&num=${map.num}"+"&keyword=${map.keyword}";
-        }
-        
-          $(document).ready(function () {
-                $.datepicker.regional['ko'] = {
-                    closeText: '닫기',
-                    prevText: '이전달',
-                    nextText: '다음달',
-                    currentText: '오늘',
-                   
-                    weekHeader: 'Wk',
-                    dateFormat: 'yy-mm-dd',
-                    firstDay: 0,
-                    isRTL: false,
-                    showMonthAfterYear: true,
-                    yearSuffix: '',
-         
-         
-                    changeMonth: true,
-                    changeYear: true,
-                    showButtonPanel: true,
-                    yearRange: 'c-99:c+99',
-                };
-                $.datepicker.setDefaults($.datepicker.regional['ko']);
-             
-                $('#sdate').datepicker();
-                $('#sdate').datepicker("option", "maxDate", $("#edate").val());
-                $('#sdate').datepicker("option", "onClose", function ( selectedDate ) {
-                    $("#edate").datepicker( "option", "minDate", selectedDate );
-                });
-             
-                $('#edate').datepicker();
-                $('#edate').datepicker("option", "minDate", $("#sdate").val());
-                $('#edate').datepicker("option", "onClose", function ( selectedDate ) {
-                    $("#sdate").datepicker( "option", "maxDate", selectedDate );
-                });
-            });
-    </script>
 </head>
 
 <body>
 
 <!--
 	<center>
-	<a href='<c:url value="/board/boardList.do"/>'>ëµë³í ê²ìí</a>
+	<a href='<c:url value="/board/boardList.do"/>'>답변형 게시판</a>
 	</center> -->
 
 
 <div id="main">
 
-    <!--TITLE_BX_SLIDER -->
-    <div>
-        <ul class="bxslider">
-            <li><img src="/resources/images/bxtest02.png" width="1920" height="700"/></li>
-            <li><img src="/resources/images/bxtest01.png" width="1920" height="700"/></li>
-        </ul>
-    </div>
-
-
-    <!--ìë°ì ë³´  -->
+    <!--숙박정보  -->
     <div id="info">
 
         <table>
@@ -108,8 +29,8 @@
     </div>
 
 
-    <!-- ì¬ê¸°ìë¶í° ì¬ê¸°ê°  -->
-    <!-- ê²ìë° (ìì¹, ë ì§, ì¸ì) -->
+    <!-- 여기서부터 슬기가  -->
+    <!-- 검색바 (위치, 날짜, 인원) -->
     <table  id="search">
     <tr>
         <td>
@@ -163,18 +84,44 @@
     </div>
 
 
+    <!-- 숙소 썸네일, 전체보기
+    <div id="imglayout">
+       <img src="image/imglayout.png" width="1388" height="800" alt=""/>
+
+      <table id="whole_view">
+          <tr>
+              <td>&nbsp;<a href="#">전체보기</a></td>
+          </tr>
+      </table>
+    </div>
+
+     여기까지 슬기가  -->
+
+    <!--  test -->
+
+    <div id="image_layout">
+        <div id="image_box">
+
+        </div>
+
+        <div id="image_box">
+
+        </div>
+
+        <div id="image_box">
+
+        </div>
+
+    </div>
 
 
-
-
-    <!--ëììì¬ì / ê²½ê¸°ì¼ì   -->
+    <!--동영상재생 / 경기일정  -->
     <div id="section4">
         <table>
             <tr>
                 <td>
-                    <iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0" frameborder="0" ></iframe></td>
+                    <iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0" frameborder="0" ></iframe></td
                 <td><img src="/resources/images/schedule.png" ></td>
-
             </tr>
         </table>
     </div>
