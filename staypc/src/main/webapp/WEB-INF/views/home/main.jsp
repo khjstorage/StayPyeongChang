@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,34 +33,56 @@
     <!-- 여기서부터 슬기가  -->
     <!-- 검색바 (위치, 날짜, 인원) -->
     <table  id="search">
-        <!--
-         <tbody>
-
-             <tr>
-             <td>&nbsp;</td>
-            <td> <img src="../icon/search.png" width="30" height="30" alt=""/></td>
-               <td><input type="text" placeholder="위치"></input></td>
-
-             <td>&nbsp;<p>날짜 <input type="text" id="datepicker"></p></td>
-             <td>&nbsp;
-                   <select>
-                         <option selected="selected" disabled="disabled">인원</option>
-                       <option value="1">1인</option>
-                       <option value="2">2인</option>
-                       <option value="3">3인</option>
-                       <option value="4">4인</option>
-                       <option value="5">5인</option>
-                       <option value="6">6인</option>
-                       <option value="7">7인</option>
-                       <option value="8">8인</option>
-                       <option value="9">9인</option>
-                       <option value="10">10인</option>
-                 </select>
-            </td>
-             <td>&nbsp;4</td>
-           </tr>
-         </tbody>  -->
+    <tr>
+        <td>
+       <form name="form1" method="post" action='<c:url value="/staypc/list.do"></c:url>'>
+       <input type="text" id="sdate" name="sdate" value="">~<input type="text" id="edate" name="edate" value="">
+       <input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
+        <select name="num">
+          <option value="" >전체</option>
+          <option value="1" <c:out value="${map.num=='1'?'selected':'' }"/>>1명</option>
+          <option value="2" <c:out value="${map.num=='2'?'selected':'' }"/>>2명</option>
+          <option value="3" <c:out value="${map.num=='3'?'selected':'' }"/>>3명</option>
+          <option value="4" <c:out value="${map.num=='4'?'selected':'' }"/>>4명</option>
+          <option value="5" <c:out value="${map.num=='5'?'selected':'' }"/>>5명</option>
+          <option value="6" <c:out value="${map.num=='6'?'selected':'' }"/>>6명</option>
+          <option value="7" <c:out value="${map.num=='7'?'selected':'' }"/>>7명</option>
+          <option value="8" <c:out value="${map.num=='8'?'selected':'' }"/>>8명</option>
+          <option value="9" <c:out value="${map.num=='9'?'selected':'' }"/>>9명</option>
+          <option value="10" <c:out value="${map.num=='10'?'selected':'' }"/>>10명</option>
+        </select>
+        <input type="submit" value="검색">
+        </form>
+        </td>
+    </tr>
     </table>
+    <table border="1" width="800px">
+        
+        <tr>
+            <c:forEach var="row" items="${map.list }" varStatus="status">
+            <td align="center">
+                <a href="view.do?lno=${row.lno }" style="text-decoration: none;">
+                    <img src="../MBoard/resources/picture/${row.picture }" width="150">
+                <br>
+                \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>
+                      ${row.title }
+                <!-- 후기 있으면 게시글 이름 옆에 후기갯수 출력 -->
+                <%-- <c:if test="${row.recnt>0 }">
+                    <span style="color:red;">(${row.recnt})</span>
+                </c:if> --%>
+                </a>
+            </td>
+                 <c:if test="${status.count % 3 == 0}">
+                    </tr>
+                    <c:if test="${status.count % 3 != 9 }">
+                    <tr>
+                    </c:if>
+                 </c:if>
+            </c:forEach>
+    </table>
+    <div style="width: 800px;"align="center">
+       <a href='<c:url value="/staypc/list.do"></c:url>'>전체보기</a>
+    </div>
 
 
     <!-- 숙소 썸네일, 전체보기
@@ -77,20 +100,7 @@
 
     <!--  test -->
 
-    <div id="image_layout">
-        <div id="image_box">
 
-        </div>
-
-        <div id="image_box">
-
-        </div>
-
-        <div id="image_box">
-
-        </div>
-
-    </div>
 
 
     <!--동영상재생 / 경기일정  -->
@@ -101,7 +111,6 @@
                     <iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0"  ></iframe>
                     </td>
                 <td><img src="/resources/images/schedule.png" ></td>
-
             </tr>
         </table>
     </div>

@@ -6,7 +6,7 @@
         <typeAlias alias="login" type="com.staypc.vo.LoginVO" />
         
         <!-- 갑중씨수정 -->
-        <typeAlias alias="lodge" type="com.staypc.vo.LodgeVO" />
+        <typeAlias alias="staypc_lodgeDTO" type="com.staypc.vo.LodgeVO" />
         
         
     </typeAliases>
