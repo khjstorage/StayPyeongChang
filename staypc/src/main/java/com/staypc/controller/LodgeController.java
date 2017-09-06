@@ -43,7 +43,7 @@ public class LodgeController {
 		return mav;
 	}
 	
-	@RequestMapping("list.do")
+	@RequestMapping("lodge/list.do")
 	public ModelAndView list(@RequestParam(defaultValue="") String num,
 							 @RequestParam(defaultValue="") String keyword,
 							 @RequestParam(defaultValue="1") int curPage, 
@@ -76,17 +76,17 @@ public class LodgeController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("map", map);
-		mav.setViewName("staypc/list");
+		mav.setViewName("lodge/list");
 		
 		return mav;
 	}
 	
-	@RequestMapping("write.do")
+	@RequestMapping("lodge/write.do")
 	public ModelAndView write(HttpSession session, HttpServletRequest request) throws Exception{
 
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("staypc/write");
+		mav.setViewName("lodge/write");
 		
 		return mav;
 	}

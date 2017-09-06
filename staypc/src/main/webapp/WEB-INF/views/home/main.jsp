@@ -80,8 +80,8 @@
     <table  id="search">
     <tr>
         <td>
-       <form name="form1" method="post" action='<c:url value="/staypc/list.do"></c:url>'>
-       <input type="text" id="sdate" name="sdate" value="">~<input type="text" id="edate" name="edate" value="">
+       <form name="form1" method="post" action='<c:url value="/lodge/list.do"></c:url>'>
+       <input type="text" id="sdate" name="sdate" value="${map.sdate }">~<input type="text" id="edate" name="edate" value="${map.edate }">
        <input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
         <select name="num">
           <option value="" >전체</option>
@@ -126,7 +126,7 @@
             </c:forEach>
     </table>
     <div style="width: 800px;"align="center">
-       <a href='<c:url value="/staypc/list.do"></c:url>'>전체보기</a>
+       <a href='<c:url value="/lodge/list.do"></c:url>'>전체보기</a>
     </div>
 
 
