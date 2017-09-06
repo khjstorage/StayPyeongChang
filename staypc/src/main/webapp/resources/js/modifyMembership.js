@@ -61,4 +61,9 @@ $(document).ready(function(){
         e.preventDefault();
         location.href = "/";
     });
+
+    $("#drop").on("click", function (e) {
+        e.preventDefault();
+        location.href = "/member/drop.do?";
+    });
 });

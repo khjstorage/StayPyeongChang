@@ -1,6 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>회원정보수정</title>
@@ -26,6 +25,7 @@
     소개 : <br><textarea cols="100" rows="10" name="introduction" id="introduction">${member.introduction}</textarea><br>
     포인트 : ${member.credit} <br>
     <input type="submit" value="수정">
+    <input type="button" id="drop" value="회원탈퇴">
     <input type="button" id="cancle" value="취소">
 </form>
 </body>

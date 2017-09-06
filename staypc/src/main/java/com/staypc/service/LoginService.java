@@ -17,4 +17,5 @@ public interface LoginService {
     String duplicate_email(String email);
     LoginVO getMember(String userId);
     void modify(LoginVO vo);
+    void drop(LoginVO vo);
 }

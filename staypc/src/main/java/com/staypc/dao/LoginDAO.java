@@ -60,4 +60,8 @@ public class LoginDAO {
     public void modify(LoginVO vo) {
         mybatis.update("member.modify", vo);
     }
+
+    public void drop(LoginVO vo) {
+        mybatis.delete("member.drop",vo);
+    }
 }

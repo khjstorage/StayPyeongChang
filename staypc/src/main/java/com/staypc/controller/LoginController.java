@@ -46,7 +46,6 @@ public class LoginController {
 
 	@RequestMapping("join/duplicateEmail.do")
 	public @ResponseBody String duplicate_email(@RequestParam String email){
-		System.out.println(email);
 		return service.duplicate_email(email);
 	}
 
@@ -128,6 +127,7 @@ public class LoginController {
 	public String loginForm() {
 		return "login/login";
 	}
+
 	@RequestMapping(value = "login/login.do", method = RequestMethod.POST)
 	public ModelAndView login(ModelAndView mav, LoginVO vo, HttpSession session){
 		boolean loginresult = service.loginCheck(vo, session);
@@ -176,4 +176,27 @@ public class LoginController {
 		service.modify(vo);
 		return "redirect:/";
 	}
+
+	@RequestMapping(value = "/member/drop.do", method = RequestMethod.GET)
+	public String dropForm(LoginVO vo, HttpSession session, HttpServletRequest request){
+		return "member/drop";
+	}
+
+
+	@RequestMapping(value = "/member/dropcheck.do")
+	public @ResponseBody LoginVO dropcheck(LoginVO vo, HttpSession session){
+		vo.setId((String)session.getAttribute("userId"));
+		LoginVO member = service.viewMember(vo);
+		return member;
+	}
+
+	@RequestMapping(value = "/member/dropProc.do", method = RequestMethod.POST)
+	public String dropProc(LoginVO vo, HttpSession session){
+		vo.setId((String)session.getAttribute("userId"));
+		service.drop(vo);
+		service.logout(session);
+		return "redirect:/";
+	}
+
+
 }

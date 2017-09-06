@@ -68,4 +68,9 @@ public class LoginServiceImpl implements LoginService{
     public void modify(LoginVO vo) {
         dao.modify(vo);
     }
+
+    @Override
+    public void drop(LoginVO vo) {
+        dao.drop(vo);
+    }
 }

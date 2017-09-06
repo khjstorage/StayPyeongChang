@@ -50,4 +50,9 @@
         SET PASSWORD=#{password}, name=#{name}, birth_date=#{birth_date}, picture=#{picture}, phone=#{phone}, gender=#{gender}, city=#{city}, introduction=#{introduction}
         WHERE id=#{id}
     </update>
+
+    <delete id="drop">
+       DELETE STAYPC_MEMBER WHERE ID=#{id} and PASSWORD=#{password}
+    </delete>
+
 </mapper>
