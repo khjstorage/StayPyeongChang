@@ -28,7 +28,7 @@ public class LoginController {
 	@RequestMapping("/")
 	public String main(){
 		System.out.println("홈");
-		return "/home/index";
+		return "/home/main";
 	}
 
 	/********************

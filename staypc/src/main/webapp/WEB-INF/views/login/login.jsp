@@ -1,8 +1,6 @@
-
 <html>
 <head>
     <title>login</title>
-    <script src="/resources/js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script language="javascript">
     $(document).ready(function() {
         $("#find").on("click", function (e) {
