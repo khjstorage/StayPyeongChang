@@ -1,53 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>footer_include</title>
-<link href="css/footer_include.css" rel="stylesheet" type="text/css"/>
+    <link href="/resources/css/footer_include.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <!-- footer -->
 <div id="footer">
-	<div id="copyright">
-		<div id="service">
-			<ul>
-						
-			</ul>
-		</div>
-		<div id="stay_pc">
-			<ul>
-				<li>(ÁÖ)°©Áß¾¾¿©±â¾î¶§</li>
-				<li>´ëÇ¥ÀÌ»ç:°©Áß¾¾</li>
-				<li>ÁÖ¼Ò:¼­¿ïÆ¯º°½Ã Á¾·Î±¸ Á¾·Î12±æ 15</li>	
-				<li><a href="#">È¸»ç¼Ò°³</a></li>
-				<li><a href="#">ÀÌ¿ë¾à°ü</a></li>
-				<li><a href="#">°³ÀÎÁ¤º¸Ã³¸®¹æÄ§</a></li>							
-			</ul>
-		</div>
-		<div id="cs_center">
-			<ul>
-				<li>°í°´¼¾ÅÍ:1688-9562|</li>
-				<li>»ó´ã½Ã°£:¿ÀÀü:09:30~¿ÀÈÄ:06:00</li>						
-			</ul>
-		</div>
-		
-		<div id="number">
-			<ul>
-				<li>Åë½ÅÆÇ¸Å¹øÈ£ : 2017-¼­¿ïÁ¾·Î-#### |</li>
-		 		<li>°ü±¤»ç¾÷ÀÚ µî·Ï¹øÈ£: Á¦0000-00È£</li>
-			</ul>
-		</div>
-		
-		<div id="copy">
-			<ul>
-				<li>COPYRIGHT ¨Ï°©Áß¾¾¿©±â¾î¶§ ALL RIGHTS RESERVED</li>
-			</ul>
-		</div>
-		
-   		
-   	</div>
+    <div id="copyright">
+        <div id="service">
+            <ul>
+
+            </ul>
+        </div>
+        <div id="stay_pc">
+            <ul>
+                <li>(ì£¼)ê°‘ì¤‘ì”¨ì—¬ê¸°ì–´ë•Œ</li>
+                <li>ëŒ€í‘œì´ì‚¬:ê°‘ì¤‘ì”¨</li>
+                <li>ì£¼ì†Œ:ì„œìš¸íŠ¹ë³„ì‹œ ì¢…ë¡œêµ¬ ì¢…ë¡œ12ê¸¸ 15</li>
+                <li><a href="#">íšŒì‚¬ì†Œê°œ</a></li>
+                <li><a href="#">ì´ìš©ì•½ê´€</a></li>
+                <li><a href="#">ê°œì¸ì •ë³´ì²˜ë¦¬ë°©ì¹¨</a></li>
+            </ul>
+        </div>
+        <div id="cs_center">
+            <ul>
+                <li>ê³ ê°ì„¼í„°:1688-9562|</li>
+                <li>ìƒë‹´ì‹œê°„:ì˜¤ì „:09:30~ì˜¤í›„:06:00</li>
+            </ul>
+        </div>
+
+        <div id="number">
+            <ul>
+                <li>í†µì‹ íŒë§¤ë²ˆí˜¸ : 2017-ì„œìš¸ì¢…ë¡œ-#### |</li>
+                <li>ê´€ê´‘ì‚¬ì—…ìž ë“±ë¡ë²ˆí˜¸: ì œ0000-00í˜¸</li>
+            </ul>
+        </div>
+
+        <div id="copy">
+            <ul>
+                <li>COPYRIGHT â“’ê°‘ì¤‘ì”¨ì—¬ê¸°ì–´ë•Œ ALL RIGHTS RESERVED</li>
+            </ul>
+        </div>
+
+
+    </div>
 </div>
 
 </body>

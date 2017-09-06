@@ -1,11 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>stay_main</title>
 <!-- jQuery library (served from Google) -->
 				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -14,8 +11,8 @@
 				<!-- bxSlider CSS file -->
 				<link href="css/jquery.bxslider.css" rel="stylesheet" />
 				
-<link href="css/style.css" rel="stylesheet" type="text/css"/>
-<script>
+<link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+				<script>
 				$(document).ready(function(){
 					$('.bxslider').bxSlider({
 						mode:'horizontal',
@@ -25,15 +22,9 @@
 					  });  
 				});
 				</script>
-				
-
-
-
 </head>
 
 <body>
-
-
 
 	<!-- 
 	<center>
@@ -46,8 +37,13 @@
 <!--TITLE_BX_SLIDER -->
 <div>
 <ul class="bxslider">
+<<<<<<< HEAD:staypc/src/main/webapp/staypc_main.jsp
   		<li><img src="images/bxtest02.png" width="1920" height="700"/></li>
   		<li><img src="images/bxtest01.png" width="1920" height="700"/></li>
+=======
+  		<li><img src="/resources/images/bxtest02.png" width="1920" height="700"/></li>
+  		<li><img src="/resources/images/bxtest01.png" width="1920" height="700"/></li>
+>>>>>>> 2ccd66abde7399ffb31cdec2f59ae845ab932b2b:staypc/src/main/webapp/WEB-INF/views/home/index.jsp
   </ul>
 </div>
 
@@ -58,7 +54,11 @@
  <table>
   <tbody>
     <tr>
+<<<<<<< HEAD:staypc/src/main/webapp/staypc_main.jsp
       <td>&nbsp;<img src="images/info.png" width="130" height="30" alt="" /> </td>               
+=======
+      <td>&nbsp;<img src="/resources/images/info.png" width="130" height="30" alt="" /> </td>
+>>>>>>> 2ccd66abde7399ffb31cdec2f59ae845ab932b2b:staypc/src/main/webapp/WEB-INF/views/home/index.jsp
     </tr>
   </tbody>
 </table>
@@ -143,7 +143,11 @@
 			<td>
  				<iframe width="694" height="500" src="https://www.youtube.com/embed/ZgDvhixeQg0"
   					frameborder="0" ></iframe></td>
+<<<<<<< HEAD:staypc/src/main/webapp/staypc_main.jsp
  			<td>	<img src="images/schedule.png" ></td>
+=======
+ 			<td>	<img src="/resources/images/schedule.png" ></td>
+>>>>>>> 2ccd66abde7399ffb31cdec2f59ae845ab932b2b:staypc/src/main/webapp/WEB-INF/views/home/index.jsp
  			
  		</tr>
  	</table>

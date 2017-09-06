@@ -1,3 +1,4 @@
+@ -1,130 +0,0 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,16 +24,16 @@
  
 <p>최대 인원수</p>
 <select  name="num">
-<option>1명</option>
-<option>2명</option>
-<option>3명</option>
-<option>4명</option>
-<option>5명</option>
-<option>6명</option>
-<option>7명</option>
-<option>8명</option>
-<option>9명</option>
-<option>10명</option>
+<option value="1">1명</option>
+<option value="2">2명</option>
+<option value="3">3명</option>
+<option value="4">4명</option>
+<option value="5">5명</option>
+<option value="6">6명</option>
+<option value="7">7명</option>
+<option value="8">8명</option>
+<option value="9">9명</option>
+<option value="10">10명</option>
 </select>
 <br>
  
@@ -46,23 +47,23 @@
 <br>
  
 <p>방타입</p>
-<p>집 전체 : <input type="radio" name="room_type"></p>
-<p>개인실 : <input type="radio" name="room_type"></p>
-<p>다인실 : <input type="radio" name="room_type"></p>
+<p>집 전체 : <input type="radio" name="room_type" value="집 전체"></p>
+<p>개인실 : <input type="radio" name="room_type" value="개인실"></p>
+<p>다인실 : <input type="radio" name="room_type" value="다인실"></p>
  
 <br>
  
 <p>건물타입</p>
-<p>주택 : <input type="radio" name="building_type"></p>
-<p>빌딩 : <input type="radio" name="building_type"></p>
-<p>기타 : <input type="radio" name="building_type"></p>
+<p>주택 : <input type="radio" name="building_type"  value="주택"></p>
+<p>빌딩 : <input type="radio" name="building_type"  value="빌딩"></p>
+<p>기타 : <input type="radio" name="building_type"  value="기타"></p>
  
  
 <br>
  
 <p>게스트 전용 숙소입니까?</p>
-<p>예 : <input type="radio" name="guest_only"></p>
-<p>아니오 : <input type="radio" name="guest_only"></p>
+<p>예 : <input type="radio" name="guest_only" value="Y"></p>
+<p>아니오 : <input type="radio" name="guest_only" value="N"></p>
  
 <br>
  
@@ -74,10 +75,10 @@
 <br>
 <p>침대유형</p>
 <select  name="bed_type">
-<option>침대없음</option>
-<option>1인용</option>
-<option>2인용</option>
-<option>2층침대</option>
+<option value="침대없음">침대없음</option>
+<option value="1인용">1인용</option>
+<option value="2인용">2인용</option>
+<option value="2층침대">2층침대</option>
 </select>
 <br>
 <br>
@@ -86,8 +87,8 @@
 <br>
  
 <p>게스트 전용 욕실입니까?</p>
-<p>예 : <input type="radio" name="bath_guest_only"></p>
-<p>아니오 : <input type="radio" name="bath_guest_only"></p>
+<p>예 : <input type="radio" name="bath_guest_only" value="Y"></p>
+<p>아니오 : <input type="radio" name="bath_guest_only" value="N"></p>
 <br>
  
  
@@ -116,7 +117,7 @@
 <br>
  
  
-<p>이 곳은 숙소사진업로드가 이루어지는 곳입니다(picture,일단 킵)</p>
+
 <p>숙소사진 : <input type="file" name="picture"></p>
  
 <br>

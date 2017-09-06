@@ -28,7 +28,7 @@ public class LoginController {
 	@RequestMapping("/")
 	public String main(){
 		System.out.println("홈");
-		return "/home/main";
+		return "/home/index";
 	}
 
 	/********************
@@ -61,7 +61,7 @@ public class LoginController {
 			vo.setPicture(rename.getRenameFile());
 			multipartFile.transferTo(new File(realPath+rename.getRenameFile()));
 		}else{
-			vo.setPicture("");
+			vo.setPicture("basic_profile.jpg");
 		}
 		service.insert(vo);
 		mailUtility.joinMail(vo.getEmail());

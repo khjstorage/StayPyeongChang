@@ -48,8 +48,8 @@
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>
-			<include-prelude>/WEB-INF/views/home/top.jsp</include-prelude>
-			<include-coda>/WEB-INF/views/home/bottom.jsp</include-coda>
+			<include-prelude>/WEB-INF/views/home/header_include.jsp</include-prelude>
+			<include-coda>/WEB-INF/views/home/footer_include.jsp</include-coda>
 		</jsp-property-group>
 	</jsp-config>
 
