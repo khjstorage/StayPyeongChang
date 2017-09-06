@@ -74,7 +74,7 @@
 <br>
 <p>침대유형</p>
 <select  name="bed_type">
-<option>침대없음</option>
+<option value="">침대없음</option>
 <option>1인용</option>
 <option>2인용</option>
 <option>2층침대</option>
