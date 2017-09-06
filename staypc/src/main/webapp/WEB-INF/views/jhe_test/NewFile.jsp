@@ -13,7 +13,7 @@
 <body>
 <div class="top_con_zone" id="fixNextTag">
     네 알겠습니다.123
-    123
+    환영합니다. 커밋하실때는 조심하자
 </div>
 </body>
 </html>
