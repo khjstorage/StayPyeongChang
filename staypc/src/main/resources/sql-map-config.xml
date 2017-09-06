@@ -4,10 +4,16 @@
 <configuration>
     <typeAliases>
         <typeAlias alias="login" type="com.staypc.vo.LoginVO" />
+        
+        <!-- 갑중씨수정 -->
+        <typeAlias alias="lodge" type="com.staypc.vo.LodgeVO" />
+        
+        
     </typeAliases>
 
     <mappers>
         <mapper resource="mappings/login-mapping.xml" />
+        <mapper resource="mappings/lodge-mapping.xml" />
     </mappers>
 </configuration>
 

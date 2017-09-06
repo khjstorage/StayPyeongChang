@@ -1,3 +1,4 @@
+@ -1,130 +0,0 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -74,7 +75,7 @@
 <br>
 <p>침대유형</p>
 <select  name="bed_type">
-<option>침대없음</option>
+<option value="">침대없음</option>
 <option>1인용</option>
 <option>2인용</option>
 <option>2층침대</option>
