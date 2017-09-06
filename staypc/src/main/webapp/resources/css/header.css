@@ -38,3 +38,7 @@ td{font-family: 'Noto Sans KR', snas-serif,NanumGothic, NanumBarungothic;}
     text-decoration:none;
 }
 ul,ol,li { list-style-type:none;}
+
+#profile_icon {
+	margin-top:8px;
+}
