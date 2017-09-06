@@ -5,6 +5,51 @@
 <head>
     <title>stay_main</title>
     <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../script/jquery-3.2.1.min.js"></script>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    function list(page){
+        location.href="list.do?curPage="+page+"&num=${map.num}"+"&keyword=${map.keyword}";
+    }
+    
+      $(document).ready(function () {
+            $.datepicker.regional['ko'] = {
+                closeText: '닫기',
+                prevText: '이전달',
+                nextText: '다음달',
+                currentText: '오늘',
+               
+                weekHeader: 'Wk',
+                dateFormat: 'yy-mm-dd',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: true,
+                yearSuffix: '',
+     
+     
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                yearRange: 'c-99:c+99',
+            };
+            $.datepicker.setDefaults($.datepicker.regional['ko']);
+         
+            $('#sdate').datepicker();
+            $('#sdate').datepicker("option", "maxDate", $("#edate").val());
+            $('#sdate').datepicker("option", "onClose", function ( selectedDate ) {
+                $("#edate").datepicker( "option", "minDate", selectedDate );
+            });
+         
+            $('#edate').datepicker();
+            $('#edate').datepicker("option", "minDate", $("#sdate").val());
+            $('#edate').datepicker("option", "onClose", function ( selectedDate ) {
+                $("#sdate").datepicker( "option", "maxDate", selectedDate );
+            });
+        });
+</script>
 </head>
 
 <body>
@@ -62,7 +107,7 @@
             <c:forEach var="row" items="${map.list }" varStatus="status">
             <td align="center">
                 <a href="view.do?lno=${row.lno }" style="text-decoration: none;">
-                    <img src="../MBoard/resources/picture/${row.picture }" width="150">
+                    <img src="../resources/picture/${row.picture }" width="150">
                 <br>
                 \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>
                       ${row.title }
