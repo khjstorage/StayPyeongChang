@@ -11,7 +11,7 @@ public interface LodgeService {
 	public List<LodgeVO> listAll(int start, int end, String num, String keyword, String sdate, String edate) throws Exception;
 	public void insert(LodgeVO vo) throws Exception;
 	//추가부분 시작
-	public LodgeVO read(int lno) throws Exception;
+	public LodgeVO read(int  lodge_Code) throws Exception;
 	//추가부분 끝
 
 }
