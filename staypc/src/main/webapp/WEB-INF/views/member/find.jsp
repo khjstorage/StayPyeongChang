@@ -6,7 +6,7 @@
     <script src="/resources/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 </head>
 <body>
-<div>
+<div class="top_con_zone" id="fixNextTag">
     <form action="/member/find.do" method="post">
         <h1>계정 찾기</h1>
         <h2>이메일 주소를 입력해 주세요.</h2>

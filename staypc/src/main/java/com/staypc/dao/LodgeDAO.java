@@ -17,7 +17,6 @@ public class LodgeDAO {
 	SqlSessionTemplate sqlSession;
 	
 	public List<LodgeVO> listMain() throws Exception{
-	
 		return sqlSession.selectList("staypc.listMain");
 	}
 	
