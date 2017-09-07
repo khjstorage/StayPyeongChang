@@ -80,11 +80,12 @@
     <table  id="search">
     <tr>
         <td>
+        
        <form name="form1" method="post" action='<c:url value="/lodge/list.do"></c:url>'>
        <input type="text" id="sdate" name="sdate" value="${map.sdate }">~<input type="text" id="edate" name="edate" value="${map.edate }">
        <input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
         <select name="num">
-          <option value="" >전체</option>
+          <option value="" >인원</option>
           <option value="1" <c:out value="${map.num=='1'?'selected':'' }"/>>1명</option>
           <option value="2" <c:out value="${map.num=='2'?'selected':'' }"/>>2명</option>
           <option value="3" <c:out value="${map.num=='3'?'selected':'' }"/>>3명</option>
