@@ -83,7 +83,7 @@
 		<tr>
 		<c:forEach var="row" items="${map.list }" varStatus="status">
 			<td align="center">
-				<a href="read.do?lno=${row.lno }" style="text-decoration: none;">
+				<a href="../read.do?lno=${row.lno }" style="text-decoration: none;">
 				<img src="../resources/picture/${row.picture }" width="150">
                     <br>
                     \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>

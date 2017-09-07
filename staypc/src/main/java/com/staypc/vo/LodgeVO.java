@@ -1,7 +1,7 @@
 package com.staypc.vo;
 
 public class LodgeVO {
-	private int lno=1; 			         // 숙소번호
+	private int lno; 			         // 숙소번호
 	private int charge; 			     // 1박당 숙박료
 	private String location; 		     // 군, 면, 읍, 리까지 주소 ex) 강원 평창군 대관령면 횡계리 
 	private String location_detail;    // 리 이하 상세주소 ex) 57-1번지 201호
