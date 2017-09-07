@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE>
@@ -55,32 +54,37 @@
 </head>
 <body>
 
-	<h2>숙소 리스트</h2>
-	<form name="form1" method="post" action='<c:url value="/staypc/list.do"></c:url>'>
-	   <input type="text" id="sdate" name="sdate" value="${map.sdate }">~<input type="text" id="edate" name="edate" value="${map.edate }">
-	   <input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
-		<select name="num">
-		  <option value="" >전체</option>
-		  <option value="1" <c:out value="${map.num=='1'?'selected':'' }"/>>1명</option>
-		  <option value="2" <c:out value="${map.num=='2'?'selected':'' }"/>>2명</option>
-		  <option value="3" <c:out value="${map.num=='3'?'selected':'' }"/>>3명</option>
-		  <option value="4" <c:out value="${map.num=='4'?'selected':'' }"/>>4명</option>
-		  <option value="5" <c:out value="${map.num=='5'?'selected':'' }"/>>5명</option>
-		  <option value="6" <c:out value="${map.num=='6'?'selected':'' }"/>>6명</option>
-		  <option value="7" <c:out value="${map.num=='7'?'selected':'' }"/>>7명</option>
-		  <option value="8" <c:out value="${map.num=='8'?'selected':'' }"/>>8명</option>
-		  <option value="9" <c:out value="${map.num=='9'?'selec ted':'' }"/>>9명</option>
-		  <option value="10" <c:out value="${map.num=='10'?'selected':'' }"/>>10명</option>
-		</select>
-		<input type="submit" value="검색">
-	</form>
+	    <table  id="search">
+    <tr>
+        <td>
+       <form name="form1" method="post" action='<c:url value="/lodge/list.do"></c:url>'>
+       <input type="text" id="sdate" name="sdate" value="${map.sdate }">~<input type="text" id="edate" name="edate" value="${map.edate }">
+       <input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
+        <select name="num">
+          <option value="" >전체</option>
+          <option value="1" <c:out value="${map.num=='1'?'selected':'' }"/>>1명</option>
+          <option value="2" <c:out value="${map.num=='2'?'selected':'' }"/>>2명</option>
+          <option value="3" <c:out value="${map.num=='3'?'selected':'' }"/>>3명</option>
+          <option value="4" <c:out value="${map.num=='4'?'selected':'' }"/>>4명</option>
+          <option value="5" <c:out value="${map.num=='5'?'selected':'' }"/>>5명</option>
+          <option value="6" <c:out value="${map.num=='6'?'selected':'' }"/>>6명</option>
+          <option value="7" <c:out value="${map.num=='7'?'selected':'' }"/>>7명</option>
+          <option value="8" <c:out value="${map.num=='8'?'selected':'' }"/>>8명</option>
+          <option value="9" <c:out value="${map.num=='9'?'selected':'' }"/>>9명</option>
+          <option value="10" <c:out value="${map.num=='10'?'selected':'' }"/>>10명</option>
+        </select>
+        <input type="submit" value="검색">
+        </form>
+        </td>
+    </tr>
+    </table>
 	총 ${map.count }개의 게시물이 있습니다.
 	<table border="1" width="800px">
 		<tr>
 		<c:forEach var="row" items="${map.list }" varStatus="status">
 			<td align="center">
 				<a href="read.do?lno=${row.lno }" style="text-decoration: none;">
-				<img src="../MBoard/resources/picture/${row.picture }" width="150">
+				<img src="../resources/picture/${row.picture }" width="150">
                     <br>
                     \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>
                     ${row.title }

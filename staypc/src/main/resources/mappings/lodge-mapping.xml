@@ -35,13 +35,13 @@
 	<sql id="search">
                 WHERE num  like '%'||#{num}||'%' and 
                 location   like '%'||#{keyword}||'%' and
-                l.lno = d.lno and 
-                d.available = 'Y' 
-               
+                l.lno = d.lno  
+               and d.available = 'Y'
                 <if test="sdate!=''">
                 <![CDATA[
                 and d.check_in_date <= #{sdate}
                 and d.check_out_date >= #{edate}
+                
                 ]]>
                 </if>
     </sql>
