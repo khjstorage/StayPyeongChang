@@ -2,8 +2,6 @@ package com.staypc.service;
 
 import java.util.List;
 
-import com.staypc.vo.LodgeVO;
-
 
 public interface LodgeService {
 	public List<LodgeVO> listMain() throws Exception;

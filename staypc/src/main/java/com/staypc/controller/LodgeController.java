@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.staypc.service.LodgeService;
 import com.staypc.utility.BoardPager;
-import com.staypc.vo.LodgeVO;
-
 
 
 @Controller
@@ -82,21 +79,13 @@ public class LodgeController {
 	}
 	
 	@RequestMapping("lodge/write.do")
-	public ModelAndView write(HttpSession session, HttpServletRequest request) throws Exception{
-
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("lodge/write");
-		
-		return mav;
+	public String write(HttpSession session){
+			return "lodge/write";
 	}
 	
 	@RequestMapping(value="insert.do", method=RequestMethod.POST)
 	public String insert(@ModelAttribute LodgeVO vo, HttpSession session) throws Exception{
-		
-		
 		Service.insert(vo);
-		
 		return "redirect:list.do";
 	}
 
