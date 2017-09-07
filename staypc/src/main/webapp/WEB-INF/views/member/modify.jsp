@@ -16,7 +16,7 @@
     <form method="post" id="modifyForm" enctype="multipart/form-data">
         <div id="profilePage">
             <!-- profile page -->
-            <div id="sidemenu">
+            <div>
                 <ul>
                     <li style="margin-top:40px;"><a href="#">프로필 수정</a></li>
                     <br>
@@ -70,10 +70,8 @@
                 <div>
                     <label>성별</label>
                     <td>
-                        <label>남자</label> <input type="radio" name="gender" value="M"
-                                                 <c:if test="${member.gender eq 'M'}">checked</c:if>>
-                        <label>여자</label> <input type="radio" name="gender" value="F"
-                                                 <c:if test="${member.gender eq 'F'}">checked</c:if>>
+                        <label>남자</label> <input type="radio" name="gender" value="M" <c:if test="${member.gender eq 'M'}">checked</c:if>>
+                        <label>여자</label> <input type="radio" name="gender" value="F" <c:if test="${member.gender eq 'F'}">checked</c:if>>
                     </td>
                 </div>
                 <br>
@@ -81,8 +79,7 @@
                 <div>
                     <label>생년월일</label>
                     <fmt:parseDate value="${member.birth_date}" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
-                    <input type="text" name="birth_date" id="birth_date" class="datepicker" <fmt:formatDate
-                            value='${dateFmt}' pattern="yyyy-MM-dd"/>> <br>
+                    <input type="text" name="birth_date" id="birth_date" class="datepicker" <fmt:formatDate value='${dateFmt}' pattern="yyyy-MM-dd"/>> <br>
                     <input type="radio" id="unlock" value="Y" name="birth_yn" style="margin-left:5px;"> 공개
                     <input type="radio" id="lock" value="N" name="birth_yn" style="margin-left:5px;"> 비공개
                     </td>
@@ -95,7 +92,7 @@
                         ${member.email}
                     </td>
                     <td>
-                        <input type="radio" id="unlock" value="Y" name="email_yn" style="margin-left:10px;"> 공개
+                        <input type="radio" id="unlock" value="Y" name="email_yn"  style="margin-left:10px;"> 공개
                         <input type="radio" id="lock" value="N" name="email_yn" style="margin-left:10px;"> 비공개
                     </td>
                 </div>
@@ -128,8 +125,7 @@
                 <div>
                     <label>자기소개</label>
                     <td>
-                    <textarea cols="100" rows="10" name="introduction"
-                              id="introduction">${member.introduction}</textarea>
+                    <textarea cols="100" rows="10" name="introduction" id="introduction">${member.introduction}</textarea>
                     </td>
                 </div>
                 <br>
