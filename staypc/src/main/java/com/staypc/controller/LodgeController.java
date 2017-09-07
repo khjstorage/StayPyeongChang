@@ -89,6 +89,18 @@ public class LodgeController {
 		return "redirect:list.do";
 	}
 
+	//추가 시작 
+	@RequestMapping(value="read.do", method=RequestMethod.GET)
+	public ModelAndView read(@RequestParam int lno, HttpSession session, HttpServletRequest request) throws Exception{
+		
+		LodgeVO vo = Service.read(lno);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("vo", vo);
+		mav.setViewName("lodge/houseread");
+		
+		return mav;
+	}	
+	//추가 끝
 }
 
 
