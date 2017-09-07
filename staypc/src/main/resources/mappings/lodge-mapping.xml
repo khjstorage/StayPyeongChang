@@ -16,8 +16,12 @@
          FROM  staypc_lodge l, staypc_lodge_date d
         <include refid="search"></include>
     </select>
-    
-    
+        
+	<!-- 페이지 읽기 추가 시작 -->
+	<select id="read" resultType="staypc_lodgeDTO">
+		SELECT *FROM staypc_lodge WHERE LNO=#{lno}
+	</select>
+	<!-- 페이지 읽기 추가 끝 -->
     
    <select id="listAll" resultType="staypc_lodgeDTO">
        <include refid="pagingHeader"></include>

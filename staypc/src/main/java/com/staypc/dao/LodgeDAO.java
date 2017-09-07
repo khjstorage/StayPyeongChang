@@ -46,6 +46,11 @@ public class LodgeDAO {
 
 	}
 	
+	//추가부분 시작
+	public LodgeVO read(int lno) throws Exception{	
+		return sqlSession.selectOne("staypc.read", lno);
+	}
+	//추가 부분 끝
 }
 
 
