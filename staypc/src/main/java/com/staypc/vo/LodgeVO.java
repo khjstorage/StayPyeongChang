@@ -66,6 +66,18 @@ public class LodgeVO {
 
     //  체크아웃
     private Date check_Out;
+    
+    // 이미지
+    private String image;
+
+    
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public Integer getLodge_Code() {
 		return lodge_Code;
@@ -243,8 +255,10 @@ public class LodgeVO {
 				+ ", bulid_Type=" + bulid_Type + ", room_Num=" + room_Num + ", bed_Num=" + bed_Num + ", convenient="
 				+ convenient + ", secure=" + secure + ", room_Explain=" + room_Explain + ", refund_Provision="
 				+ refund_Provision + ", reg_Date=" + reg_Date + ", update_Date=" + update_Date + ", check_In="
-				+ check_In + ", check_Out=" + check_Out + "]";
+				+ check_In + ", check_Out=" + check_Out + ", image=" + image + "]";
 	}
+
+	
 
 
     
