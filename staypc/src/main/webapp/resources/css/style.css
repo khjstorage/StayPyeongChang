@@ -19,7 +19,7 @@ text-decoration:none;
 /*main*/
 
 #main {
-	
+	width:100%; border:solid 1px #000000;
 }
 #info{
 	margin:100px 0px 14px 250px;
