@@ -114,7 +114,7 @@ public class LoginController {
 				vo.setPassword(temporaryPassword);
 				service.changePassword(vo);
 				mav.addObject("email", vo.getEmail());
-				mav.setViewName("member/message");
+				mav.setViewName("member/member_message");
 			}
 		}
 		return mav;

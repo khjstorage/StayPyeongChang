@@ -11,12 +11,30 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <style>
+        .fileDrop{
+            width: 300px;
+            height: 200px;
+            border: 1px dotted blue;
+        }
+    </style>
+
     <script>
         $(document).ready(function () {
             $('#enter_Time').timepicker();
             $('#out_Time').timepicker();
             $('#check_In').datepicker();
             $('#check_Out').datepicker();
+
+            $(".fileDrop").on("dragenter dragover", function (event) {
+                event.preventDefault();
+            })
+            $(".fileDrop").on("drop", function (event) {
+                event.preventDefault();
+                var files = event.originalEvent.dataTransfer.files;
+                var file = files[0];
+                console.log(file);
+            })
         });
     </script>
 </head>
@@ -106,9 +124,9 @@
             환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision">안돼</textarea><br>
         </div>
 
-        <div>
-            숙소사진등록
-        </div>
+        <h3>숙소 사진 업로드</h3>
+        <div class="fileDrop"></div>
+        <div class="uploadedList"></div>
 
         <input type="submit" value="숙소등록">
         <button type="button">취소</button>

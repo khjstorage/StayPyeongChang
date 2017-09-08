@@ -8,6 +8,9 @@ import com.staypc.vo.LodgeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.HashMap;
+
 @Service
 public class HostingServiceImpl implements HostingService {
 
@@ -18,4 +21,11 @@ public class HostingServiceImpl implements HostingService {
     public void hostinsert(LodgeVO vo) {
         dao.hostinsert(vo);
     }
+
+    @Override
+    public String daycal(HashMap daycalMap) {
+        return dao.daycal(daycalMap);
+    }
+
+
 }

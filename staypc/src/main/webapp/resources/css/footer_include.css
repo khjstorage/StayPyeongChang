@@ -13,36 +13,47 @@ text-decoration:none;
 #footer{
 	width:100%;  background-color:#F6F6F6; 
 	font-size:12px;
+	
 }
 
 #copyright{ 
-	margin:0 660px;width:1388px; height:150px; padding:10px;
+	
+ height:150px; padding:10px;
+	text-align:center;
+	
+	    margin: auto;
 	
 }
 
  #copyright li{
 	float:left; 
+	
+	
 }
-#copyright a{ padding: 0 6px; display: block;}
+#copyright a{ }
 
-#service{ width:1388px; height:30px; }
+#service{ width:1388px; height:30px;     text-align: center; }
 
 #stay_pc{
-	 width:1388px; height:30px; 
+	 height:30px; 
+	  text-align: center;
 }
 
 #stya_pc li{padding: 0 6px;}
 
 #cs_center{
-	 width:1388px; height:30px; 
+	 height:30px; 
+	     text-align: center;
 }
 
 #number{
-	; width:1388px; height:30px; 
+	 height:30px; 
+	    text-align: center;
 }
 
 #copy{
-	 width:1388px; height:30px; 
+	 height:30px; 
+	     text-align: center;
 }
 
 

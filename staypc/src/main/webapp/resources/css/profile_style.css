@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+/* CSS Document */
+
+/* CSS reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, 
+address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, 
+var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, 
+input, label {margin:0; padding:0;  font-weight:inherit; font-style:inherit; font-family:inherit; 
+vertical-align:baseline; color:#535353;}
+html { overflow-y:scroll; background-color:#fff;}
+body, table, input, select, textarea, button, a, p, div, span {font-family:'Noto Sans KR', snas-serif, NanumGothic, NanumBarungothic;}
+td{font-family: 'Noto Sans KR', snas-serif,NanumGothic, NanumBarungothic;}
+
+
 /**/ 
 ul,ol,li { list-style-type:none;}
 
@@ -8,15 +21,41 @@ text-decoration:none;
 }
 
 
-/* profile page */
+/*header include*/
 
-#profilePage {
-	margin-left : 300px;
-	margin-top : 30px;	
+#header{
+	width:100%; height:110px; 
+	position: fixed; z-index: 9999; top: 0; left: 0; background-color:#ffffff;
 }
 
-#sidemenu {
+#logo{
+	 width:260px;  float:left;
+	margin: 0 0 0 800px;
+}
+
+#nav{
+	
+}
+
+#menu{float: right;margin:50px 40px 0 0; }
+#menu li{float: left;}
+#menu a{ padding: 0 6px; display: block;}
+#profile_icon{margin-top:-10px;}
+
+
+/* profile update page */
+
+.profileUpdatePage {
+	width : 100%;
+	margin-left : 340px;
+	margin-top : 120px;
+	margin-bottom : 50px;	
+}
+
+.sidemenu {
 	border : solid 1px;
+	border-color : #b2b2b2;
+	border-radius: 10px;
 	width : 150px;
 	heigth : 300px;
 	text-align : center;	
@@ -24,99 +63,277 @@ text-decoration:none;
 	
 }
 
-#profileUpdate {
-	border : solid 1px;	
-	margin-left : 200px;
-	width : 800px;
-	height : 1100px;
-	
-}
-
-#profileUpdate_header {
+.profileUpdate {
 	border : solid 1px;
-	padding : 20px;
-}
-
-#profileImg {
+	border-color : #b2b2b2;	
+	margin-left : 250px;
+	margin-top : -250px;
+	width : 800px;
+	height : 1000px;
+	
 	
 }
 
+.user_profile {
+	margin-top : 15px;	
+}
 
-#profileImg label {	
-	padding : 15px; 
+.picture {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.file {
+	margin-left : 130px;
+}
+
+.profileUpdate_header {	
+	padding : 20px;	
+	background-color : #d0d0d0;
+}
+
+.profilePic label {	
+	padding : 15px;
+}
+
+
+.id label{
+	padding : 15px;		
+}
+
+.user_id {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.password label {
+	padding : 15px;
+}
+
+.user_password {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.name label {
+	padding : 15px;
+}
+
+.user_name {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.gender label {
+	padding : 15px;
+}
+
+.user_gender {
+	margin-left : 115px;
+	margin-top : -20px;
+}
+
+.birthDate label {
+	padding : 15px;
+}
+
+.user_birthDate {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.radio_birthDate {
+	margin-left : 160px;
+	margin-top : -18px;
+	font-size : 13px;	
+}
+
+.email label {
+	padding : 15px;
+}
+
+.user_email {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.radio_email {
+	margin-left : 330px;
+	margin-top : -18px;
+	font-size : 13px;	
+}
+
+.phone label {
+	padding : 15px;
+}
+
+.user_phone {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.radio_phone {
+	margin-left : 280px;
+	margin-top : -18px;
+	font-size : 13px;	
+}
+
+.city label {
+	padding : 15px;
+}
+
+.user_city {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.radio_city {
+	margin-left : 280px;
+	margin-top : -18px;
+	font-size : 13px;	
+}
+
+.introduction label {	
+	padding : 15px;
+}
+
+.user_introduction {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.creadit label {	
+	padding : 15px;
+}
+
+.user_creadit {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+#save {
+	margin-left:350px;
+	width:200px;
+	height:50px;
+	font-size:16px;
+	background-color : #c4c4c4;
+	border-radius:10px;
+}
+
+#drop {
+	width:200px;
+	height:50px;
+	background-color:#ff5a5f;
+	color:#ffffff;
+	font-size:16px;
+	border-radius:10px;
 	
 }
 
-#lastName {
-
+/* profile page */
+.userInfo {
+	border : solid 1px;
+	border-color : #b2b2b2;
+	width:200px;
+	height:200px;
 }
 
-#lastName label {
+.userInfo ul{
 	padding : 15px;
 }
 
-
-#firstName {
-
+.userInfo {
+	font-color : #676767;
 }
 
-#firstName label {
+.user_Info {
 	padding : 15px;
+	background-color : #d0d0d0;	
 }
 
-#sex {
-
+.userId {
+	font-size : 12px;
+	font-family: Dotum, 돋움;
+	padding-bottom : 1px;
+	color : #808080;	
+    line-height: 20px;
 }
 
-#sex label {
-	padding : 15px;
+.userName {
+	font-size : 12px;
+	font-family: Dotum, 돋움;
+	padding-bottom: 1px;
+	line-height: 20px;
 }
 
-#birthDate {
-
+.userGender {
+	font-size : 12px;
+	font-family: Dotum, 돋움;
+	padding-bottom: 1px;
+	line-height: 20px;
 }
 
-#birthDate label {
-	padding : 15px;
+.userBirthDate {
+	font-size : 12px;
+	font-family: Dotum, 돋움;
+	padding-bottom: 1px;
+	line-height: 20px;
 }
 
-
-#email {
-
+.userEmail {
+	font-size : 12px;
+	font-family: Dotum, 돋움;
+	padding-bottom: 1px;
+	line-height: 20px;
 }
 
-#email label {
-	padding : 15px;
+.userPhone {
+	font-size : 12px;
+	font-family: Dotum, 돋움;
+	padding-bottom: 1px;
+	line-height: 20px;
 }
 
-#phone {
-
+.userInformation {
+	font-size : 12px;
+	font-family: Dotum, 돋움;
+	padding-bottom: 1px;
+	line-height: 20px;
 }
 
-#phone label {
-	padding : 15px;
+/*footer include*/
+#footer{
+	width:100%;  height:200spx;  background-color:#F6F6F6; 
+	font-size:12px;
 }
 
-#address {
-
-}
-
-#address label {
-	padding : 15px;
-}
-
-#profileInfo {
+#copyright{ 
+	margin:0 660px;width:1388px; height:150px; padding:10px;
 	
 }
 
-#profileInfo label {	
-	padding : 15px;
+ #copyright li{
+	float:left; 
+}
+#copyright a{ padding: 0 6px; display: block;}
+
+#service{ width:1388px; height:30px; }
+
+#stay_pc{
+	 width:1388px; height:30px; 
 }
 
-#creadit {
-	
+#stya_pc li{padding: 0 6px;}
+
+#cs_center{
+	 width:1388px; height:30px; 
 }
 
-#creadit label {	
-	padding : 15px;
+#number{
+	; width:1388px; height:30px; 
 }
+
+#copy{
+	 width:1388px; height:30px; 
+}
+
