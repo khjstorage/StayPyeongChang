@@ -16,9 +16,22 @@ text-decoration:none;
 }
 
 #id{
-	border: solid 1px #c0c0c0;  
+	margin:15px  35px;
+	  
+	  letter-spacing:0.2em;
 }
 
 #password{
-	border: solid 1px #c0c0c0;  
+
+}
+
+
+.login_input{	
+	 margin-top:10px;
+	 
+}
+
+
+.input_box{
+	 margin-top:20px;
 }
