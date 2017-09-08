@@ -24,6 +24,7 @@ import com.staypc.vo.LodgeVO;
 
 @Controller
 public class LodgeController {
+
 	@Autowired
 	LodgeService Service;
 	

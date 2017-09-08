@@ -3,7 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="hosting">
-    <insert id="write" parameterType="HashMap">
-        INSERT INTO TEST_TIME(S_DATE, D_DATE) VALUES (#{s_date}, #{d_date});
+    <insert id="write" parameterType="staypc_lodgeDTO">
+    INSERT INTO STAYPC_LODGE(LODGE_CODE, TITLE, ROOM_NAME, LOCATION, ENTER_TIME, OUT_TIME, CHARGE, ROOM_PHONE, MAX_PEOPLE, ROOM_TYPE, BULID_TYPE,
+                         ROOM_NUM, BED_NUM, CONVENIENT, SECURE, ROOM_EXPLAIN, REFUND_PROVISION, REG_DATE, UPDATE_DATE, CHECK_IN, CHECK_OUT, IMAGE, BED_TYPE, ID)
+    VALUES ( (SELECT (max(LODGE_CODE)+1) FROM STAYPC_LODGE), #{title}, #{room_Name}, #{location}, #{enter_Time}, #{out_Time}, #{charge}, #{room_Phone}, #{max_People}, #{room_Type}, #{bulid_Type},
+               #{room_Num}, #{bed_Num}, #{convenient}, #{secure}, #{room_Explain}, #{refund_Provision}, sysdate, null, #{check_In}, #{check_Out}, NULL, #{bed_Type}, #{id))
     </insert>
 </mapper>

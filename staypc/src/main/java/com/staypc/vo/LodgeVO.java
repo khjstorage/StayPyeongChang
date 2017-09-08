@@ -17,10 +17,10 @@ public class LodgeVO {
     private String location;
 
     //  숙소입실시간
-    private Timestamp enter_Time;
+    private String enter_Time;
 
     //  숙소퇴실시간
-    private Timestamp out_Time;
+    private String out_Time;
 
     //  1박당 숙박료
     private Integer charge;
@@ -42,6 +42,9 @@ public class LodgeVO {
 
     //  침대개수
     private Integer bed_Num;
+
+    // 침대유형
+	private String bed_Type;
 
     //  편의시설
     private String convenient;
@@ -66,6 +69,9 @@ public class LodgeVO {
 
     //  체크아웃
     private Date check_Out;
+
+    // 유저아이디
+	private String id;
 
 	public Integer getLodge_Code() {
 		return lodge_Code;
@@ -99,19 +105,19 @@ public class LodgeVO {
 		this.location = location;
 	}
 
-	public Timestamp getEnter_Time() {
+	public String getEnter_Time() {
 		return enter_Time;
 	}
 
-	public void setEnter_Time(Timestamp enter_Time) {
+	public void setEnter_Time(String enter_Time) {
 		this.enter_Time = enter_Time;
 	}
 
-	public Timestamp getOut_Time() {
+	public String getOut_Time() {
 		return out_Time;
 	}
 
-	public void setOut_Time(Timestamp out_Time) {
+	public void setOut_Time(String out_Time) {
 		this.out_Time = out_Time;
 	}
 
@@ -169,6 +175,14 @@ public class LodgeVO {
 
 	public void setBed_Num(Integer bed_Num) {
 		this.bed_Num = bed_Num;
+	}
+
+	public String getBed_Type() {
+		return bed_Type;
+	}
+
+	public void setBed_Type(String bed_Type) {
+		this.bed_Type = bed_Type;
 	}
 
 	public String getConvenient() {
@@ -235,17 +249,40 @@ public class LodgeVO {
 		this.check_Out = check_Out;
 	}
 
-	@Override
-	public String toString() {
-		return "LodgeVO [lodge_Code=" + lodge_Code + ", title=" + title + ", room_Name=" + room_Name + ", location="
-				+ location + ", enter_Time=" + enter_Time + ", out_Time=" + out_Time + ", charge=" + charge
-				+ ", room_Phone=" + room_Phone + ", max_People=" + max_People + ", room_Type=" + room_Type
-				+ ", bulid_Type=" + bulid_Type + ", room_Num=" + room_Num + ", bed_Num=" + bed_Num + ", convenient="
-				+ convenient + ", secure=" + secure + ", room_Explain=" + room_Explain + ", refund_Provision="
-				+ refund_Provision + ", reg_Date=" + reg_Date + ", update_Date=" + update_Date + ", check_In="
-				+ check_In + ", check_Out=" + check_Out + "]";
+	public String getId() {
+		return id;
 	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    
+	@Override
+	public String toString() {
+		return "LodgeVO{" +
+				"lodge_Code=" + lodge_Code +
+				", title='" + title + '\'' +
+				", room_Name='" + room_Name + '\'' +
+				", location='" + location + '\'' +
+				", enter_Time=" + enter_Time +
+				", out_Time=" + out_Time +
+				", charge=" + charge +
+				", room_Phone='" + room_Phone + '\'' +
+				", max_People=" + max_People +
+				", room_Type='" + room_Type + '\'' +
+				", bulid_Type='" + bulid_Type + '\'' +
+				", room_Num=" + room_Num +
+				", bed_Num=" + bed_Num +
+				", bed_Type='" + bed_Type + '\'' +
+				", convenient='" + convenient + '\'' +
+				", secure='" + secure + '\'' +
+				", room_Explain='" + room_Explain + '\'' +
+				", refund_Provision='" + refund_Provision + '\'' +
+				", reg_Date=" + reg_Date +
+				", update_Date=" + update_Date +
+				", check_In=" + check_In +
+				", check_Out=" + check_Out +
+				", id='" + id + '\'' +
+				'}';
+	}
 }
