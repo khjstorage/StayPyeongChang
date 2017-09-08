@@ -35,7 +35,7 @@ public class HostingController {
         System.out.println("시작날짜와 끝날짜"+vo.getCheck_In() + "/"+ vo.getCheck_Out());
         
         String strFormat = "MM/dd/yyyy";    //strStartDate 와 strEndDate 의 format
-        
+
         //SimpleDateFormat 을 이용하여 startDate와 endDate의 Date 객체를 생성한다.
         SimpleDateFormat sdf = new SimpleDateFormat(strFormat);
         try{
