@@ -6,41 +6,41 @@
 	
 	<!-- 메인페잊이 -->
 	<select id="listMain" resultType="staypc_lodgeDTO">
-		SELECT picture, charge, title FROM staypc_lodge 
-		where lno > (SELECT MAX(lno)-9 from staypc_lodge)
-		order by lno DESC
+		SELECT lodge_code, image, charge, title FROM staypc_lodge 
+		where lodge_code > (SELECT MAX(lodge_code)-9 from staypc_lodge)
+		order by lodge_code DESC
 	</select>
 	
 	<select id="count" resultType="int">
-        SELECT COUNT(*) 
-         FROM  staypc_lodge l, staypc_lodge_date d
+        SELECT COUNT(distinct l.lodge_code) 
+         FROM  staypc_lodge l, staypc_lodge_book d
         <include refid="search"></include>
     </select>
         
 	<!-- 페이지 읽기 추가 시작 -->
 	<select id="read" resultType="staypc_lodgeDTO">
-		SELECT *FROM staypc_lodge WHERE LNO=#{lno}
+		SELECT *FROM staypc_lodge WHERE lodge_code=#{lodge_code}
 	</select>
 	<!-- 페이지 읽기 추가 끝 -->
     
    <select id="listAll" resultType="staypc_lodgeDTO">
        <include refid="pagingHeader"></include>
-        SELECT l.lno, l.title, l.charge, l.picture
-        FROM  staypc_lodge l, staypc_lodge_date d
+        SELECT DISTINCT l.lodge_code, l.title, l.charge, l.image
+        FROM  staypc_lodge l, staypc_lodge_book d
        <include refid="search"></include>
-        order by lno DESC
+        order by lodge_code DESC
         <include refid="pagingFooter"></include>
     </select>
 	
 	<sql id="search">
-                WHERE num  like '%'||#{num}||'%' and 
+                WHERE max_people  like '%'||#{num}||'%' and 
                 location   like '%'||#{keyword}||'%' and
-                l.lno = d.lno  
-               and d.available = 'Y'
+                l.lodge_code = d.lodge_code
+               
                 <if test="sdate!=''">
                 <![CDATA[
-                and d.check_in_date <= #{sdate}
-                and d.check_out_date >= #{edate}
+                and d.available = 'Y'
+                and d.book_date between #{sdate} and TO_DATE(#{edate})-1
                 
                 ]]>
                 </if>
