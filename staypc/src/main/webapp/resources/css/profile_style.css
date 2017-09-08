@@ -21,15 +21,41 @@ text-decoration:none;
 }
 
 
-/* profile page */
+/*header include*/
 
-#profilePage {
-	margin-left : 300px;
-	margin-top : 30px;	
+#header{
+	width:100%; height:110px; 
+	position: fixed; z-index: 9999; top: 0; left: 0; background-color:#ffffff;
 }
 
-#sidemenu {
+#logo{
+	 width:260px;  float:left;
+	margin: 0 0 0 800px;
+}
+
+#nav{
+	
+}
+
+#menu{float: right;margin:50px 40px 0 0; }
+#menu li{float: left;}
+#menu a{ padding: 0 6px; display: block;}
+#profile_icon{margin-top:-10px;}
+
+
+/* profile update page */
+
+.profileUpdatePage {
+	width : 100%;
+	margin-left : 300px;
+	margin-top : 120px;
+	margin-bottom : 50px;	
+}
+
+.sidemenu {
 	border : solid 1px;
+	border-color : #b2b2b2;
+	border-radius: 10px;
 	width : 150px;
 	heigth : 300px;
 	text-align : center;	
@@ -37,99 +63,235 @@ text-decoration:none;
 	
 }
 
-#profileUpdate {
-	border : solid 1px;	
-	margin-left : 200px;
-	width : 800px;
-	height : 1100px;
-	
-}
-
-#profileUpdate_header {
+.profileUpdate {
 	border : solid 1px;
-	padding : 20px;
+	border-color : #b2b2b2;	
+	margin-left : 250px;
+	margin-top : -250px;
+	width : 800px;
+	height : 1160px;
+	
+	
 }
 
-#profileImg {
+.user_profile {
+	margin-top : 15px;	
+}
+
+.picture {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.file {
+	margin-left : 130px;
+}
+
+.profileUpdate_header {	
+	padding : 20px;	
+	background-color : #d0d0d0;
+}
+
+.profilePic label {	
+	padding : 15px;
+}
+
+
+.id label{
+	padding : 15px;		
+}
+
+.user_id {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.password label {
+	padding : 15px;
+}
+
+.user_password {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.name label {
+	padding : 15px;
+}
+
+.user_name {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.gender label {
+	padding : 15px;
+}
+
+.user_gender {
+	margin-left : 115px;
+	margin-top : -20px;
+}
+
+.birthDate label {
+	padding : 15px;
+}
+
+.user_birthDate {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.radio_birthDate {
+	margin-left : 160px;
+	margin-top : -18px;
+	font-size : 13px;	
+}
+
+.email label {
+	padding : 15px;
+}
+
+.user_email {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.radio_email {
+	margin-left : 330px;
+	margin-top : -18px;
+	font-size : 13px;	
+}
+
+.phone label {
+	padding : 15px;
+}
+
+.user_phone {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.radio_phone {
+	margin-left : 280px;
+	margin-top : -18px;
+	font-size : 13px;	
+}
+
+.city label {
+	padding : 15px;
+}
+
+.user_city {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.radio_city {
+	margin-left : 280px;
+	margin-top : -18px;
+	font-size : 13px;	
+}
+
+.introduction label {	
+	padding : 15px;
+}
+
+.user_introduction {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+.creadit label {	
+	padding : 15px;
+}
+
+.user_creadit {
+	margin-left : 130px;
+	margin-top : -20px;
+}
+
+#save {
+	margin-left:350px;
+	width:200px;
+	height:50px;
+	font-size:16px;
+	background-color : #c4c4c4;
+	border-radius:10px;
+}
+
+#drop {
+	width:200px;
+	height:50px;
+	background-color:#ff5a5f;
+	color:#ffffff;
+	font-size:16px;
+	border-radius:10px;
+	
+}
+
+/* profile page */
+#userInfo {
+	border : solid 1px;
+	border-color : #b2b2b2;
+	width:200px;
+	height:200px;
+}
+
+#userInfo ul{
+	padding : 15px;
+}
+
+#userInfo {
+	font-color : #676767;
+}
+
+#user_Info {
+	padding : 15px;
+	background-color : #d0d0d0;
+	
+}
+
+#userInfo label {
+	font-size : 15px;
+	padding : 10px;		
 	
 }
 
 
-#profileImg label {	
-	padding : 15px; 
+/*footer include*/
+#footer{
+	width:100%;  height:200spx;  background-color:#F6F6F6; 
+	font-size:12px;
+}
+
+#copyright{ 
+	margin:0 660px;width:1388px; height:150px; padding:10px;
 	
 }
 
-#lastName {
+ #copyright li{
+	float:left; 
+}
+#copyright a{ padding: 0 6px; display: block;}
 
+#service{ width:1388px; height:30px; }
+
+#stay_pc{
+	 width:1388px; height:30px; 
 }
 
-#lastName label {
-	padding : 15px;
+#stya_pc li{padding: 0 6px;}
+
+#cs_center{
+	 width:1388px; height:30px; 
 }
 
-
-#firstName {
-
+#number{
+	; width:1388px; height:30px; 
 }
 
-#firstName label {
-	padding : 15px;
+#copy{
+	 width:1388px; height:30px; 
 }
 
-#sex {
-
-}
-
-#sex label {
-	padding : 15px;
-}
-
-#birthDate {
-
-}
-
-#birthDate label {
-	padding : 15px;
-}
-
-
-#email {
-
-}
-
-#email label {
-	padding : 15px;
-}
-
-#phone {
-
-}
-
-#phone label {
-	padding : 15px;
-}
-
-#address {
-
-}
-
-#address label {
-	padding : 15px;
-}
-
-#profileInfo {
-	
-}
-
-#profileInfo label {	
-	padding : 15px;
-}
-
-#creadit {
-	
-}
-
-#creadit label {	
-	padding : 15px;
-}
