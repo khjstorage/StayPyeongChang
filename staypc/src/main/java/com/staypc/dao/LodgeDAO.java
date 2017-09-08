@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.staypc.vo.LodgeVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.staypc.vo.LodgeVO;
 
 
 @Repository
@@ -44,8 +47,8 @@ public class LodgeDAO {
 	}
 	
 	//추가부분 시작
-	public LodgeVO read(int lno) throws Exception{	
-		return sqlSession.selectOne("staypc.read", lno);
+	public LodgeVO read(int  lodge_Code) throws Exception{	
+		return sqlSession.selectOne("staypc.read",  lodge_Code);
 	}
 	//추가 부분 끝
 }
