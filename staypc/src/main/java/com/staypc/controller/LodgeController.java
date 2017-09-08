@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.staypc.service.LodgeService;
 import com.staypc.utility.BoardPager;
+import com.staypc.vo.LodgeVO;
 
 
 @Controller
