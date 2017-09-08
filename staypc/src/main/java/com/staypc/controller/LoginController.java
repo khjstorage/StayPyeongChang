@@ -68,7 +68,7 @@ public class LoginController {
 		service.insert(vo);
 		mailUtility.joinMail(vo.getEmail());
 		mav.addObject("id", vo.getId());
-		mav.setViewName("join/message");
+		mav.setViewName("join/join_message");
 		return mav;
 	}
 
