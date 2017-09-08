@@ -3,7 +3,8 @@
 <html>
 <head>
     <title>회원정보수정</title>
-    <link href="/resources/css/profile_style.css" rel="stylesheet" type="text/css">    
+    <link href="/resources/css/profile_style.css" rel="stylesheet" type="text/css">
+    <link href="css/profile_style.css" rel="stylesheet" type="text/css">
     <script src="/resources/js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="/resources/js/modifyMembership.js" type="text/javascript"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -12,10 +13,9 @@
 </head>
 
 <body>
-<div class="top_con_zone" id="fixNextTag">
+<div class="profileUpdatePage">
     <form method="post" id="modifyForm" enctype="multipart/form-data">
-    <!-- profile page -->
-        <div class="profileUpdatePage">
+    <!-- profile page -->        
             
             <div class="sidemenu">
                 <ul>
@@ -45,7 +45,7 @@
 	                <div class="id">                    
 	                    <label>아이디</label>
 	                    <div class="user_id">
-	                        ${member.id}samsooni96
+	                        ${member.id}
 	                    </div>
 	                </div>
 	                <br><br>
@@ -70,6 +70,7 @@
 	                <div class="gender">
 	                    <label>성별</label>
 	                    <div class="user_gender">
+	                    
 	                    	<c:choose>
 	                    		<c:when test="${member.gender eq 'M'}">
 	                       			<label>남자</label><input type="radio" name="gender" value="M" checked="checked">
@@ -139,12 +140,7 @@
 	                    <textarea cols="80" rows="10" name="introduction" id="introduction">${member.introduction}</textarea>
 	                    </div>
 	                </div>
-	                <br><br>
-	
-	                <div class="creadit">
-	                    <label>크레딧</label>
-	                    <div class="user_creadit">${member.credit}</div>
-	                </div>
+	                
 	                <br><br><br><br><br><br>
 	
 	                <div>
@@ -154,8 +150,7 @@
 	                    </div>
 	                </div>
             </div>
-            </div>
-        </div>
+         </div>        
     </form>
 </div>
 </body>
