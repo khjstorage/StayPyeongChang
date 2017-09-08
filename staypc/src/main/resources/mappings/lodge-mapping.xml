@@ -22,6 +22,18 @@
 		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
 	</select>
 	<!-- 페이지 읽기 추가 끝 -->
+	
+	
+	<!-- 숙소 게시판 기능
+	<select id="read" resultType="staypc_lodgeReviewDTO">
+		SELECT *FROM staypc_review WHERE LODGE_CODE=#{review_num}
+	</select>
+	
+	<insert id="insert" resultType="staypc_lodgeReviewDTO">
+	insert 
+	  -->
+	
+	
     
    <select id="listAll" resultType="staypc_lodgeDTO">
        <include refid="pagingHeader"></include>
