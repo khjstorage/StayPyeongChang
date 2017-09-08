@@ -27,7 +27,7 @@ public class HostingController {
         vo.setId((String)session.getAttribute("userId"));
         System.out.println(vo);
         service.hostinsert(vo);
-        return "host/write";
+        return "redirect:/";
     }
 
 

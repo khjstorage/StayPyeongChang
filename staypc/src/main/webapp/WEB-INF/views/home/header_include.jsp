@@ -45,7 +45,7 @@
                         <li><a href='<c:url value="/login/login.do"></c:url>'>로그인</a></li>
                     </c:when>
                     <c:otherwise>
-                        <%--<li><a href="<c:url value="/lodge/write.do"></c:url>">호스팅</a></li>--%>
+                        <li><a href="<c:url value="/host/write.do"></c:url>">호스팅</a></li>
                         <li><a href="<c:url value="/member/modify.do"></c:url>">회원정보수정</a></li>
                         <li><a href='<c:url value="/login/logout.do"></c:url>'>로그아웃</a></li>
                     </c:otherwise>

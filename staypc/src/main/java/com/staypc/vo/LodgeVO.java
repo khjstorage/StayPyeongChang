@@ -5,80 +5,68 @@ import java.util.Date;
 
 public class LodgeVO {
     //  숙소코드
-    private Integer lodge_Code;
-
+    private int lodge_Code;
+	// 유저아이디
+	private String id;
     //  타이틀
     private String title;
-
     //  숙소명
     private String room_Name;
-
     //  주소
     private String location;
-
     //  숙소입실시간
     private String enter_Time;
-
     //  숙소퇴실시간
     private String out_Time;
-
+	//  체크인
+	private Date check_In;
+	//  체크아웃
+	private Date check_Out;
     //  1박당 숙박료
-    private Integer charge;
-
+    private int charge;
     //  숙소연락처
     private String room_Phone;
-
     //  최대인원수
-    private Integer max_People;
-
+    private String max_People;
     //  방타입
     private String room_Type;
-
     //  건물타입
     private String bulid_Type;
-
     //  침실개수
     private Integer room_Num;
-
     //  침대개수
     private Integer bed_Num;
-
     // 침대유형
 	private String bed_Type;
-
     //  편의시설
     private String convenient;
-
     //  안전시설
     private String secure;
-
     //  숙소설명
     private String room_Explain;
-
     //  환불규정
     private String refund_Provision;
-
+    // 이미지
+	private String image;
     //  생성일
     private Date reg_Date;
-
     //  수정일
     private Date update_Date;
 
-    //  체크인
-    private Date check_In;
-
-    //  체크아웃
-    private Date check_Out;
-
-    // 유저아이디
-	private String id;
-
-	public Integer getLodge_Code() {
+	public int getLodge_Code() {
 		return lodge_Code;
 	}
 
-	public void setLodge_Code(Integer lodge_Code) {
+	public void setLodge_Code(int lodge_Code) {
 		this.lodge_Code = lodge_Code;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -121,11 +109,27 @@ public class LodgeVO {
 		this.out_Time = out_Time;
 	}
 
-	public Integer getCharge() {
+	public Date getCheck_In() {
+		return check_In;
+	}
+
+	public void setCheck_In(Date check_In) {
+		this.check_In = check_In;
+	}
+
+	public Date getCheck_Out() {
+		return check_Out;
+	}
+
+	public void setCheck_Out(Date check_Out) {
+		this.check_Out = check_Out;
+	}
+
+	public int getCharge() {
 		return charge;
 	}
 
-	public void setCharge(Integer charge) {
+	public void setCharge(int charge) {
 		this.charge = charge;
 	}
 
@@ -137,11 +141,11 @@ public class LodgeVO {
 		this.room_Phone = room_Phone;
 	}
 
-	public Integer getMax_People() {
+	public String getMax_People() {
 		return max_People;
 	}
 
-	public void setMax_People(Integer max_People) {
+	public void setMax_People(String max_People) {
 		this.max_People = max_People;
 	}
 
@@ -217,6 +221,14 @@ public class LodgeVO {
 		this.refund_Provision = refund_Provision;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public Date getReg_Date() {
 		return reg_Date;
 	}
@@ -233,42 +245,21 @@ public class LodgeVO {
 		this.update_Date = update_Date;
 	}
 
-	public Date getCheck_In() {
-		return check_In;
-	}
-
-	public void setCheck_In(Date check_In) {
-		this.check_In = check_In;
-	}
-
-	public Date getCheck_Out() {
-		return check_Out;
-	}
-
-	public void setCheck_Out(Date check_Out) {
-		this.check_Out = check_Out;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	@Override
 	public String toString() {
 		return "LodgeVO{" +
 				"lodge_Code=" + lodge_Code +
+				", id='" + id + '\'' +
 				", title='" + title + '\'' +
 				", room_Name='" + room_Name + '\'' +
 				", location='" + location + '\'' +
-				", enter_Time=" + enter_Time +
-				", out_Time=" + out_Time +
+				", enter_Time='" + enter_Time + '\'' +
+				", out_Time='" + out_Time + '\'' +
+				", check_In=" + check_In +
+				", check_Out=" + check_Out +
 				", charge=" + charge +
 				", room_Phone='" + room_Phone + '\'' +
-				", max_People=" + max_People +
+				", max_People='" + max_People + '\'' +
 				", room_Type='" + room_Type + '\'' +
 				", bulid_Type='" + bulid_Type + '\'' +
 				", room_Num=" + room_Num +
@@ -278,11 +269,9 @@ public class LodgeVO {
 				", secure='" + secure + '\'' +
 				", room_Explain='" + room_Explain + '\'' +
 				", refund_Provision='" + refund_Provision + '\'' +
+				", image='" + image + '\'' +
 				", reg_Date=" + reg_Date +
 				", update_Date=" + update_Date +
-				", check_In=" + check_In +
-				", check_Out=" + check_Out +
-				", id='" + id + '\'' +
 				'}';
 	}
 }

@@ -35,18 +35,6 @@
 		<property name="password" value="${jdbc.password}"></property>
 	</bean>
 
-
-	<!--<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">-->
-		<!--<constructor-arg ref="dataSourceOrg" />-->
-		<!--<property name="logFormatter">-->
-			<!--<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">-->
-				<!--<property name="loggingType" value="MULTI_LINE" />-->
-				<!--<property name="sqlPrefix"   value="SQL &#45;&#45;&#45;&#45;" />-->
-			<!--</bean>-->
-		<!--</property>-->
-	<!--</bean>-->
-
-
 	<!--SqlSessionFactoryBean 생성-->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>

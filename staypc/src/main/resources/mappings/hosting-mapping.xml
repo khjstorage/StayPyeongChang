@@ -3,10 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="hosting">
-    <insert id="write" parameterType="staypc_lodgeDTO">
-    INSERT INTO STAYPC_LODGE(LODGE_CODE, TITLE, ROOM_NAME, LOCATION, ENTER_TIME, OUT_TIME, CHARGE, ROOM_PHONE, MAX_PEOPLE, ROOM_TYPE, BULID_TYPE,
-                         ROOM_NUM, BED_NUM, CONVENIENT, SECURE, ROOM_EXPLAIN, REFUND_PROVISION, REG_DATE, UPDATE_DATE, CHECK_IN, CHECK_OUT, IMAGE, BED_TYPE, ID)
-    VALUES ( (SELECT (max(LODGE_CODE)+1) FROM STAYPC_LODGE), #{title}, #{room_Name}, #{location}, #{enter_Time}, #{out_Time}, #{charge}, #{room_Phone}, #{max_People}, #{room_Type}, #{bulid_Type},
-               #{room_Num}, #{bed_Num}, #{convenient}, #{secure}, #{room_Explain}, #{refund_Provision}, sysdate, null, #{check_In}, #{check_Out}, NULL, #{bed_Type}, #{id))
+    <insert id="write" parameterType="com.staypc.vo.LodgeVO">
+        INSERT INTO staypc_lodge
+            (lodge_code, id, title, room_name, location, enter_time, out_time, check_in, check_out,
+             charge, room_phone, max_people, room_type, bulid_type, room_num, bed_num, bed_type,
+             convenient, secure, room_explain,  refund_provision, image, reg_date,  update_date)
+        VALUES ( (SELECT ( Nvl(Max(lodge_code), 0) + 1 )  FROM  staypc_lodge), #{id), #{title}, #{room_Name}, #{location}, #{enter_Time}, #{out_Time}, SYSDATE, SYSDATE,
+                 #{charge}, #{room_Phone}, #{max_People}, #{room_Type},#{bulid_Type},#{room_Num},#{bed_Num},#{bed_Type},
+                  #{convenient},#{secure},#{room_Explain}, #{refund_Provision}, NULL, SYSDATE, SYSDATE )
     </insert>
 </mapper>

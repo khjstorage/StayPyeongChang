@@ -11,10 +11,10 @@ public class HostingDAO {
 
 
     @Autowired
-    private SqlSessionTemplate template;
+    SqlSessionTemplate sqlSession;
 
     public void hostinsert(LodgeVO vo){
         System.out.println(vo);
-        template.insert("hosting.insert",vo);
+        sqlSession.insert("hosting.write",vo);
     }
 }

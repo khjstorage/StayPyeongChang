@@ -36,12 +36,5 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/**"/>-->
-            <!--<bean id="loggerInterceptor" class="com.staypc.interceptor.LoggerInterceptor"></bean>-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
-
 
 </beans>
