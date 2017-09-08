@@ -36,11 +36,20 @@
                 console.log(file);
             })
         });
+        
+        
+        $(document).ready(function(){
+            $("#btnSave").click(function(){
+
+                document.form1.submit();
+            });
+        });
+        
     </script>
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
-    <form action="/host/insert.do" method="post" enctype="multipart/form-data">
+    <form action="/host/insert.do" method="post" enctype="multipart/form-data" name="form1">
         <h1>숙소 호스팅</h1>
 
         <div>
@@ -128,7 +137,7 @@
         <div class="fileDrop"></div>
         <div class="uploadedList"></div>
 
-        <input type="submit" value="숙소등록">
+        <button type="button" id="btnSave">숙소등록</button>
         <button type="button">취소</button>
     </form>
 </div>
