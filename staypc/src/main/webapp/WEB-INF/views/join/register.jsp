@@ -17,7 +17,7 @@
 		<span style="color: darkred; font-family:맑은 고딕, Malgun Gothic;"> 평창스테이 이용약관</span>		
 	</div>
 	<br>
-	<div class="section_02"  style="border:solid 1px; border-color:#b2b2b2; width:700px; height:140px" padding:10px;>
+	<div class="section_02"  style="border:solid 1px; border-color:#b2b2b2; width:700px; height:140px padding:10px; ">
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
