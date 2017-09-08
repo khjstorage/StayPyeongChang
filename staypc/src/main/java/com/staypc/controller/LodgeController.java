@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.staypc.vo.LodgeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -78,16 +80,6 @@ public class LodgeController {
 		return mav;
 	}
 	
-	@RequestMapping("lodge/write.do")
-	public String write(HttpSession session){
-			return "lodge/write";
-	}
-	
-	@RequestMapping(value="insert.do", method=RequestMethod.POST)
-	public String insert(@ModelAttribute LodgeVO vo, HttpSession session) throws Exception{
-		Service.insert(vo);
-		return "redirect:list.do";
-	}
 
 	//추가 시작 
 	@RequestMapping(value="read.do", method=RequestMethod.GET)

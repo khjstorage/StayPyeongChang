@@ -1,5 +1,7 @@
 package com.staypc.service;
 
+import com.staypc.vo.LodgeVO;
+
 import java.util.List;
 
 
@@ -10,7 +12,6 @@ public interface LodgeService {
 	public void insert(LodgeVO vo) throws Exception;
 	//추가부분 시작
 	public LodgeVO read(int lno) throws Exception;
-	//추가부분 끝
 
 }
  

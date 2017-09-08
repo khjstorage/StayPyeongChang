@@ -257,6 +257,6 @@ public class LodgeVO {
                 ", checkOut=" + checkOut +
                 '}';
     }
-	
+
 
 }
