@@ -19,7 +19,7 @@
         
 	<!-- 페이지 읽기 추가 시작 -->
 	<select id="read" resultType="staypc_lodgeDTO">
-		SELECT *FROM staypc_lodge WHERE lodge_code=#{lodge_code}
+		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
 	</select>
 	<!-- 페이지 읽기 추가 끝 -->
     

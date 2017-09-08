@@ -5,163 +5,33 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>숙소 호스팅</title>
-    <script type="text/javascript">
-        function Check() {
-            if (document.form1.title.value == "") {
-                alert("숙소명을 입력해주세요.");
-                form1.title.focus();
-                return false;
-            }
 
-            if (document.form1.location.value == "") {
-                alert("주소를 입력해주세요.");
-                form1.location.focus();
-                return false;
-            }
+    <%--<script src="/resources/js/jquery-3.2.1.min.js"></script>--%>
+    <%----%>
+    <%--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">--%>
+    <%--<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>--%>
 
-            if (document.form1.location_detail.value == "") {
-                alert("상세주소 입력해주세요.");
-                form1.location_detail.focus();
-                return false;
-            }
-
-            if (document.form1.check_in_time.value == "") {
-                alert("입실시간을 입력해주세요.");
-                form1.check_in_time.focus();
-                return false;
-            }
-
-            if (document.form1.check_out_time.value == "") {
-                alert("퇴실시간을 입력해주세요.");
-                form1.check_out_time.focus();
-                return false;
-            }
-
-            if (document.form1.res_deadline.value == "") {
-                alert("예약기한을 입력해주세요.");
-                form1.res_deadline.focus();
-                return false;
-            }
-
-            if (isNaN(document.form1.res_deadline.value)) {
-                alert("예약기한은 숫자로 입력해야 합니다.");
-                form1.res_deadline.focuse();
-                return false;
-            }
+    <%--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">--%>
+    <%--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>--%>
 
 
-            if (document.form1.charge.value == "") {
-                alert("숙박료를 입력해주세요.");
-                form1.charge.focus();
-                return false;
-            }
+    <%--<script>--%>
+        <%--$(document).ready(function () {--%>
+            <%--$('#s_time').timepicker();--%>
+            <%--$('#e_time').timepicker();--%>
+            <%--$('#s_check_in').datepicker();--%>
+            <%--$('#e_check_in').datepicker();--%>
+        <%--});--%>
+    <%--</script>--%>
 
-            if (isNaN(document.form1.charge.value)) {
-                alert("숙박료는 숫자로 입력해야 합니다.");
-                form1.charge.focuse();
-                return false;
-            }
-
-            if (document.form1.contact.value == "") {
-                alert("숙소 연락처를 입력해주세요.");
-                form1.contact.focus();
-                return false;
-            }
-
-            if (document.getElementById("r1").checked == false &&
-                document.getElementById("r2").checked == false &&
-                document.getElementById("r3").checked == false) {
-                alert("방타입을 체크해주세요.");
-                document.getElementById("r1").focus();
-                return false;
-            }
-
-
-            if (document.getElementById("r4").checked == false &&
-                document.getElementById("r5").checked == false &&
-                document.getElementById("r6").checked == false) {
-                alert("건물타입을 체크해주세요.");
-                document.getElementById("r4").focus();
-                return false;
-            }
-
-            if (document.getElementById("r7").checked == false &&
-                document.getElementById("r8").checked == false) {
-                alert("게스트 전용숙소 여부를 체크해주세요.");
-                document.getElementById("r7").focus();
-                return false;
-            }
-
-            if (document.form1.bedroom_cnt.value == "") {
-                alert("침실 개수를 입력해주세요.");
-                form1.bedroom_cnt.focus();
-                return false;
-            }
-
-            if (isNaN(document.form1.bedroom_cnt.value)) {
-                alert("침실 개수는 숫자로 입력해야 합니다.");
-                form1.bedroom_cnt.focuse();
-                return false;
-            }
-
-            if (document.form1.bed_cnt.value == "") {
-                alert("침대 개수를 입력해주세요.");
-                form1.bed_cnt.focus();
-                return false;
-            }
-
-            if (isNaN(document.form1.bed_cnt.value)) {
-                alert("침대 개수는 숫자로 입력해야 합니다.");
-                form1.bed_cnt.focuse();
-                return false;
-            }
-
-            if (document.form1.bathroom_cnt.value == "") {
-                alert("욕실 개수를 입력해주세요.");
-                form1.bathroom_cnt.focus();
-                return false;
-            }
-
-            if (isNaN(document.form1.bathroom_cnt.value)) {
-                alert("욕실 개수는 숫자로 입력해야 합니다.");
-                form1.bathroom_cnt.focuse();
-                return false;
-            }
-
-
-            if (document.getElementById("r9").checked == false &&
-                document.getElementById("r10").checked == false) {
-                alert("게스트 전용욕실 여부를 체크해주세요.");
-                document.getElementById("r9").focus();
-                return false;
-            }
-
-            if (document.form1.content.value == "") {
-                alert("숙소 설명을 입력해주세요.");
-                form1.content.focus();
-                return false;
-            }
-
-            if (document.form1.summary.value == "") {
-                alert("숙소 요약을 입력해주세요.");
-                form1.summary.focus();
-                return false;
-            }
-
-
-            if (document.form1.picture.value == "") {
-                alert("숙소 사진을 등록해주세요.");
-                form1.picture.focus();
-                return false;
-            }
-
-
-            return true;
-        }
-    </script>
 </head>
 <body>
 <form action='<c:url value="/staypc/insert.do"></c:url>' method="post" name="form1">
+
+    <%--입실시간 <input type="text" id="s_time" name="s_time">--%>
+    <%--퇴실시간 <input type="text" id="e_time" name="e_time"><br>--%>
+    <%--시작날짜 : <input type="text" name="s_check_In" id="s_check_in"> <br>--%>
+    <%--마지막날짜 : <input type="text" name="e_check_In" id="e_check_in"> <br>--%>
 
     <h1>숙소 호스팅</h1>
 

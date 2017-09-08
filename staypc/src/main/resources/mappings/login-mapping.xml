@@ -13,8 +13,8 @@
 
     <insert id="insert" parameterType="login">
         <![CDATA[
-        INSERT into STAYPC_MEMBER(id, password, email, name, picture, regdate, VERIFY_EMAIL, CREDIT)
-        VALUES (#{id}, #{password}, #{email}, #{name}, #{picture}, sysdate ,'N', 0)
+        INSERT into STAYPC_MEMBER(id, password, email, name, picture, regdate, VERIFY_EMAIL)
+        VALUES (#{id}, #{password}, #{email}, #{name}, #{picture}, sysdate ,'N')
         ]]>
     </insert>
 

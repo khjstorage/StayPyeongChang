@@ -42,8 +42,8 @@ public class LodgeServiceImpl implements LodgeService {
 	}
 	//추가 시작
 	@Override
-	public LodgeVO read(int lno) throws Exception{
-		return dao.read(lno);
+	public LodgeVO read(int  lodge_Code) throws Exception{
+		return dao.read( lodge_Code);
 	}
 	//추가 끝
 }
