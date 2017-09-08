@@ -19,8 +19,7 @@
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
-
-	<form action="/login/login.do" method="post">
+	<form action="/login/login.do" method="post" >
 	<table style="margin:auto; border:5px solid #eeeeee; padding:30px;">	
 		<tr>
 			<td colspan="2" style="text-align:center;">
@@ -29,10 +28,10 @@
 		</tr>
 		
 		<tr>
-			<td style="width:84px; text-align:right; ">
+			<td style="text-align:right; ">
 				아이디 : 
 			</td>
-			<td style="width:160px; text-align:left; ">
+			<td style="text-align:left; ">
 				<input type="text" name="id" id="id">
 			</td>
 		</tr>
