@@ -8,7 +8,7 @@ text-decoration:none;
 }
 
 #fixNextTag{
-	border: solid 1px #ff0000;  width:100%; height:400px; margin:200px  300px;
+	width:100%; height:400px;  text-align:center;
 }
 
 #box{
@@ -16,13 +16,15 @@ text-decoration:none;
 }
 
 #id{
-	margin:15px  35px;
+	
 	  
 	  letter-spacing:0.2em;
 }
 
 #password{
 
+	  
+	  letter-spacing:0.2em;
 }
 
 

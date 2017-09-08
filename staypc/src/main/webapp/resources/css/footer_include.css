@@ -13,15 +13,23 @@ text-decoration:none;
 #footer{
 	width:100%;  background-color:#F6F6F6; 
 	font-size:12px;
+	
 }
 
 #copyright{ 
-	margin:0 660px;width:1388px; height:150px; padding:10px;
+	
+ height:150px; padding:10px;
+	text-align:center;
+	word-spacing: 0.5em;
+	display:block;
+	text-align:center;
+	    margin: auto;
 	
 }
 
  #copyright li{
 	float:left; 
+	
 }
 #copyright a{ padding: 0 6px; display: block;}
 
