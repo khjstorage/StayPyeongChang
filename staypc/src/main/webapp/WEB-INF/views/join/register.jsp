@@ -8,7 +8,20 @@
 <body>
 
 <form method="post" id="joinForm" enctype="multipart/form-data">
-    <h1>회원가입</h1>
+<div class="memberMessage" style="margin-left:500px; margin-top:100px; border:solid 1px; border-color:#b2b2b2; width:800px; height:230px;">
+	<div class="text" style="margin-left:50px; margin-top:30px;">
+    <h1 style="line-height:20px; font-family:맑은 고딕, Malgun Gothic; color:#484848;">회원가입</h1>
+    <span style="line-height:50px; font-family:맑은 고딕, Malgun Gothic; color:#484848;">${id}님이 등록하신 이메일 주소로 인증 메일을 전송했습니다.</span><br>
+    <span style="line-height:15px; font-family:맑은 고딕, Malgun Gothic; color:#484848;">메일에 첨부된 링크를 클릭하시면 회원가입 절차가 완료됩니다.</span><br>    
+    <span style="line-height:25px; font-size:13px; font-family:맑은 고딕, Malgun Gothic; color:#A6A6A6;">혹시, 못 받으셨다면 받은 편지함을 확인해보세요.:)</span><br><br>
+    <a href="/login/login.do" style="font-family:맑은 고딕, Malgun Gothic;">로그인</a>
+    </div>
+</div>
+
+
+
+
+<!--     <h1>회원가입</h1>
     <h2 style="color: darkred">평창스테이 이용약관</h2>
     <div style="border: 1px solid black">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -43,6 +56,7 @@
     <input type="submit" value="회원가입">
     <input type="button" id="cancle" value="회원가입 취소">
 </form>
+ -->
 
 </body>
 
