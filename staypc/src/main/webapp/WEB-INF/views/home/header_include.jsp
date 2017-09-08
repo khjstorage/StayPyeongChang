@@ -5,6 +5,7 @@
 <html>
 <head>
     <script src="/resources/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <link href="/resources/css/reset.css" rel="stylesheet" type="text/css"/>
     <link href="/resources/css/header.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -40,11 +41,11 @@
             <ul class="menu">
                 <c:choose>
                     <c:when test="${sessionScope.userId == null }">
-                        <li><a href="#">호스팅하기</a></li>
                         <li><a href="#">도움말</a></li>
                         <li><a href='<c:url value="/login/login.do"></c:url>'>로그인</a></li>
                     </c:when>
                     <c:otherwise>
+                        <li><a href="<c:url value="/host/write.do"></c:url>">호스팅</a></li>
                         <li><a href="<c:url value="/member/modify.do"></c:url>">회원정보수정</a></li>
                         <li><a href='<c:url value="/login/logout.do"></c:url>'>로그아웃</a></li>
                     </c:otherwise>

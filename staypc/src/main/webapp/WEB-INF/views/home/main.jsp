@@ -4,12 +4,15 @@
 <html>
 <head>
     <title>stay_main</title>
+    <%--기본css--%>
     <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../script/jquery-3.2.1.min.js"></script>
+    <%--제이쿼리--%>
+    <script src="/resources/js/jquery-3.2.1.min.js"></script>
+    <%--데이터피커--%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
     <script>
         function list(page) {
             location.href = "list.do?curPage=" + page + "&num=${map.num}" + "&keyword=${map.keyword}";
@@ -109,7 +112,7 @@
         <tr>
             <c:forEach var="row" items="${map.list }" varStatus="status">
             <td align="center">
-                <a href="view.do?lno=${row.lno }" style="text-decoration: none;">
+                <a href="read.do?lno=${row.lno }" style="text-decoration: none;">
                     <img src="../resources/picture/${row.picture }" width="150">
                     <br>
                     \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>

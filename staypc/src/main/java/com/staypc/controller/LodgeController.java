@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.staypc.vo.LodgeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,9 +22,9 @@ import com.staypc.utility.BoardPager;
 import com.staypc.vo.LodgeVO;
 
 
-
 @Controller
 public class LodgeController {
+
 	@Autowired
 	LodgeService Service;
 	
@@ -81,25 +82,19 @@ public class LodgeController {
 		return mav;
 	}
 	
-	@RequestMapping("lodge/write.do")
-	public ModelAndView write(HttpSession session, HttpServletRequest request) throws Exception{
 
+	//추가 시작 
+	@RequestMapping(value="read.do", method=RequestMethod.GET)
+	public ModelAndView read(@RequestParam int  lodge_Code, HttpSession session, HttpServletRequest request) throws Exception{
 		
+		LodgeVO vo = Service.read(lodge_Code);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("lodge/write");
+		mav.addObject("vo", vo);
+		mav.setViewName("lodge/houseread");
 		
 		return mav;
-	}
-	
-	@RequestMapping(value="insert.do", method=RequestMethod.POST)
-	public String insert(@ModelAttribute LodgeVO vo, HttpSession session) throws Exception{
-		
-		
-		Service.insert(vo);
-		
-		return "redirect:list.do";
-	}
-
+	}	
+	//추가 끝
 }
 
 

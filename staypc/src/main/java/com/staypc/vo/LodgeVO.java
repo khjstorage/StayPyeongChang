@@ -1,193 +1,277 @@
 package com.staypc.vo;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 public class LodgeVO {
-	private int lno; 				         // 숙소번호
-	private int charge; 			     // 1박당 숙박료
-	private String location; 		     // 군, 면, 읍, 리까지 주소 ex) 강원 평창군 대관령면 횡계리 
-	private String location_detail;    // 리 이하 상세주소 ex) 57-1번지 201호
-	private int num; 				     // 최대 인원수
-	private String title; 			     // 숙소 제목
-	private String room_type;        // 룸타입 ex) 집전체, 개인실, 다인실 중 택1
-	private String building_type;     // 건물타입 ex) 주택, 빌딩, 기타 중 택1
-	private String guest_only;        // 게스트 전용숙소 ex) Y, N 중 택1
-	private int bedroom_cnt;   	     // 침실 총 개수
-	private int bed_cnt;   			     // 침대 총 개수
-	private String bed_type;          // 침대유형 ex) 침대없음, 1인용, 2인용, 2층침대 중 택1
-	private String bathroom_cnt;    // 욕실 개수
-	private String bath_guest_only; // 게스트 전용욕실 ex) Y, N 중 택1
-	private String convenient;        // 편의시설 ex) WiFi, TV, 수영장, 주차, 부엌 중 다중선택
-	private String secure;             // 안전시설 ex) 연기감지기, 구급상자, 소화기, 방잠금장치 중 다중선택
-	private String picture;             // 숙소사진
-	private String content;            // 숙소설명
-	private String summary;          // 숙소설명요약
-	private String contact;            // 숙소 연락처
-	private String regdate;            // 숙소 등록일
-	private String check_in_time;    // 숙소 입실시간 ex) 16:00
-	private String check_out_time;  // 숙소 퇴실시간 ex) 12:00
-	private int res_deadline;          // 숙소 예약기한 ex) 2 일전 예약기한은 0일(당일)~7일까지 설정가능
-	private String email;               // 호스트 이메일
-	
-	public int getLno() {
-		return lno;
+    //  숙소코드
+    private int lodge_Code;
+	// 유저아이디
+	private String id;
+    //  타이틀
+    private String title;
+    //  숙소명
+    private String room_Name;
+    //  주소
+    private String location;
+    //  숙소입실시간
+    private String enter_Time;
+    //  숙소퇴실시간
+    private String out_Time;
+	//  체크인
+	private Date check_In;
+	//  체크아웃
+	private Date check_Out;
+    //  1박당 숙박료
+    private int charge;
+    //  숙소연락처
+    private String room_Phone;
+    //  최대인원수
+    private String max_People;
+    //  방타입
+    private String room_Type;
+    //  건물타입
+    private String bulid_Type;
+    //  침실개수
+    private Integer room_Num;
+    //  침대개수
+    private Integer bed_Num;
+    // 침대유형
+	private String bed_Type;
+    //  편의시설
+    private String convenient;
+    //  안전시설
+    private String secure;
+    //  숙소설명
+    private String room_Explain;
+    //  환불규정
+    private String refund_Provision;
+    // 이미지
+	private String image;
+    //  생성일
+    private Date reg_Date;
+    //  수정일
+    private Date update_Date;
+
+	public int getLodge_Code() {
+		return lodge_Code;
 	}
-	public void setLno(int lno) {
-		this.lno = lno;
+
+	public void setLodge_Code(int lodge_Code) {
+		this.lodge_Code = lodge_Code;
 	}
-	public int getCharge() {
-		return charge;
+
+	public String getId() {
+		return id;
 	}
-	public void setCharge(int charge) {
-		this.charge = charge;
+
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public String getLocation_detail() {
-		return location_detail;
-	}
-	public void setLocation_detail(String location_detail) {
-		this.location_detail = location_detail;
-	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
-	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getRoom_type() {
-		return room_type;
+
+	public String getRoom_Name() {
+		return room_Name;
 	}
-	public void setRoom_type(String room_type) {
-		this.room_type = room_type;
+
+	public void setRoom_Name(String room_Name) {
+		this.room_Name = room_Name;
 	}
-	public String getBuilding_type() {
-		return building_type;
+
+	public String getLocation() {
+		return location;
 	}
-	public void setBuilding_type(String building_type) {
-		this.building_type = building_type;
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
-	public String getGuest_only() {
-		return guest_only;
+
+	public String getEnter_Time() {
+		return enter_Time;
 	}
-	public void setGuest_only(String guest_only) {
-		this.guest_only = guest_only;
+
+	public void setEnter_Time(String enter_Time) {
+		this.enter_Time = enter_Time;
 	}
-	public int getBedroom_cnt() {
-		return bedroom_cnt;
+
+	public String getOut_Time() {
+		return out_Time;
 	}
-	public void setBedroom_cnt(int bedroom_cnt) {
-		this.bedroom_cnt = bedroom_cnt;
+
+	public void setOut_Time(String out_Time) {
+		this.out_Time = out_Time;
 	}
-	public int getBed_cnt() {
-		return bed_cnt;
+
+	public Date getCheck_In() {
+		return check_In;
 	}
-	public void setBed_cnt(int bed_cnt) {
-		this.bed_cnt = bed_cnt;
+
+	public void setCheck_In(Date check_In) {
+		this.check_In = check_In;
 	}
-	public String getBed_type() {
-		return bed_type;
+
+	public Date getCheck_Out() {
+		return check_Out;
 	}
-	public void setBed_type(String bed_type) {
-		this.bed_type = bed_type;
+
+	public void setCheck_Out(Date check_Out) {
+		this.check_Out = check_Out;
 	}
-	public String getBathroom_cnt() {
-		return bathroom_cnt;
+
+	public int getCharge() {
+		return charge;
 	}
-	public void setBathroom_cnt(String bathroom_cnt) {
-		this.bathroom_cnt = bathroom_cnt;
+
+	public void setCharge(int charge) {
+		this.charge = charge;
 	}
-	public String getBath_guest_only() {
-		return bath_guest_only;
+
+	public String getRoom_Phone() {
+		return room_Phone;
 	}
-	public void setBath_guest_only(String bath_guest_only) {
-		this.bath_guest_only = bath_guest_only;
+
+	public void setRoom_Phone(String room_Phone) {
+		this.room_Phone = room_Phone;
 	}
+
+	public String getMax_People() {
+		return max_People;
+	}
+
+	public void setMax_People(String max_People) {
+		this.max_People = max_People;
+	}
+
+	public String getRoom_Type() {
+		return room_Type;
+	}
+
+	public void setRoom_Type(String room_Type) {
+		this.room_Type = room_Type;
+	}
+
+	public String getBulid_Type() {
+		return bulid_Type;
+	}
+
+	public void setBulid_Type(String bulid_Type) {
+		this.bulid_Type = bulid_Type;
+	}
+
+	public Integer getRoom_Num() {
+		return room_Num;
+	}
+
+	public void setRoom_Num(Integer room_Num) {
+		this.room_Num = room_Num;
+	}
+
+	public Integer getBed_Num() {
+		return bed_Num;
+	}
+
+	public void setBed_Num(Integer bed_Num) {
+		this.bed_Num = bed_Num;
+	}
+
+	public String getBed_Type() {
+		return bed_Type;
+	}
+
+	public void setBed_Type(String bed_Type) {
+		this.bed_Type = bed_Type;
+	}
+
 	public String getConvenient() {
 		return convenient;
 	}
+
 	public void setConvenient(String convenient) {
 		this.convenient = convenient;
 	}
+
 	public String getSecure() {
 		return secure;
 	}
+
 	public void setSecure(String secure) {
 		this.secure = secure;
 	}
-	public String getPicture() {
-		return picture;
+
+	public String getRoom_Explain() {
+		return room_Explain;
 	}
-	public void setPicture(String picture) {
-		this.picture = picture;
+
+	public void setRoom_Explain(String room_Explain) {
+		this.room_Explain = room_Explain;
 	}
-	public String getContent() {
-		return content;
+
+	public String getRefund_Provision() {
+		return refund_Provision;
 	}
-	public void setContent(String content) {
-		this.content = content;
+
+	public void setRefund_Provision(String refund_Provision) {
+		this.refund_Provision = refund_Provision;
 	}
-	public String getSummary() {
-		return summary;
+
+	public String getImage() {
+		return image;
 	}
-	public void setSummary(String summary) {
-		this.summary = summary;
+
+	public void setImage(String image) {
+		this.image = image;
 	}
-	public String getContact() {
-		return contact;
+
+	public Date getReg_Date() {
+		return reg_Date;
 	}
-	public void setContact(String contact) {
-		this.contact = contact;
+
+	public void setReg_Date(Date reg_Date) {
+		this.reg_Date = reg_Date;
 	}
-	public String getRegdate() {
-		return regdate;
+
+	public Date getUpdate_Date() {
+		return update_Date;
 	}
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
-	}
-	public String getCheck_in_time() {
-		return check_in_time;
-	}
-	public void setCheck_in_time(String check_in_time) {
-		this.check_in_time = check_in_time;
-	}
-	public String getCheck_out_time() {
-		return check_out_time;
-	}
-	public void setCheck_out_time(String check_out_time) {
-		this.check_out_time = check_out_time;
-	}
-	public int getRes_deadline() {
-		return res_deadline;
-	}
-	public void setRes_deadline(int res_deadline) {
-		this.res_deadline = res_deadline;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setUpdate_Date(Date update_Date) {
+		this.update_Date = update_Date;
 	}
 
 	@Override
 	public String toString() {
-		return "Staypc_lodgeVO [lno=" + lno + ", charge=" + charge + ", location=" + location + ", location_detail="
-				+ location_detail + ", num=" + num + ", title=" + title + ", room_type=" + room_type
-				+ ", building_type=" + building_type + ", guest_only=" + guest_only + ", bedroom_cnt=" + bedroom_cnt
-				+ ", bed_cnt=" + bed_cnt + ", bed_type=" + bed_type + ", bathroom_cnt=" + bathroom_cnt
-				+ ", bath_guest_only=" + bath_guest_only + ", convenient=" + convenient + ", secure=" + secure
-				+ ", picture=" + picture + ", content=" + content + ", summary=" + summary + ", contact=" + contact
-				+ ", regdate=" + regdate + ", check_in_time=" + check_in_time + ", check_out_time=" + check_out_time
-				+ ", res_deadline=" + res_deadline + ", email=" + email + "]";
+		return "LodgeVO{" +
+				"lodge_Code=" + lodge_Code +
+				", id='" + id + '\'' +
+				", title='" + title + '\'' +
+				", room_Name='" + room_Name + '\'' +
+				", location='" + location + '\'' +
+				", enter_Time='" + enter_Time + '\'' +
+				", out_Time='" + out_Time + '\'' +
+				", check_In=" + check_In +
+				", check_Out=" + check_Out +
+				", charge=" + charge +
+				", room_Phone='" + room_Phone + '\'' +
+				", max_People='" + max_People + '\'' +
+				", room_Type='" + room_Type + '\'' +
+				", bulid_Type='" + bulid_Type + '\'' +
+				", room_Num=" + room_Num +
+				", bed_Num=" + bed_Num +
+				", bed_Type='" + bed_Type + '\'' +
+				", convenient='" + convenient + '\'' +
+				", secure='" + secure + '\'' +
+				", room_Explain='" + room_Explain + '\'' +
+				", refund_Provision='" + refund_Provision + '\'' +
+				", image='" + image + '\'' +
+				", reg_Date=" + reg_Date +
+				", update_Date=" + update_Date +
+				'}';
 	}
-	
 }

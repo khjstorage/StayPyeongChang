@@ -3,6 +3,7 @@
 <html>
 <head>
     <link href="/resources/css/footer_include.css" rel="stylesheet" type="text/css"/>
+    <link href="/resources/css/reset.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <!-- footer -->
