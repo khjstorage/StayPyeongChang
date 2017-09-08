@@ -19,10 +19,12 @@
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
+	<div class="login_wrap" >
+		<div class="login_table" >
 	<form action="/login/login.do" method="post" >
-	<table style="margin:auto; border:5px solid #eeeeee; padding:30px;">	
+	<table style="">	
 		<tr>
-			<td colspan="2" style="text-align:center;">
+			<td colspan="2" style="text-align:center; ">
 			<div class="login_text">회원 로그인</div>
 			</td>
 		</tr>
@@ -67,6 +69,9 @@
 		</tr>
 	</table>
 	</form>
+	</div>
+	
+	</div>
 
 
 
