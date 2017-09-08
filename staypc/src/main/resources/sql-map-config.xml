@@ -5,6 +5,7 @@
     <typeAliases>
         <typeAlias alias="login" type="com.staypc.vo.LoginVO"/>
         <typeAlias alias="staypc_lodgeDTO" type="com.staypc.vo.LodgeVO"/>
+        <typeAlias alias="book" type="com.staypc.vo.LodgeBookVO"/>
     </typeAliases>
 
     <mappers>

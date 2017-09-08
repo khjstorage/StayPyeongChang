@@ -4,14 +4,15 @@
 
 <mapper namespace="hosting">
     <insert id="write" parameterType="staypc_lodgeDTO">
-
-
-                  INSERT INTO staypc_lodge (lodge_code, id, title, room_name, location, enter_time, out_time, check_in, check_out, charge, room_phone, max_people, room_type,
+        INSERT INTO staypc_lodge (lodge_code, id, title, room_name, location, enter_time, out_time, check_in, check_out, charge, room_phone, max_people, room_type,
                                     bulid_type, room_num, bed_num, bed_type, convenient, secure, room_explain,  refund_provision, image, reg_date,  update_date)
-        VALUES ( (SELECT ( Nvl(Max(lodge_code), 0) + 1 )  FROM  staypc_lodge), #{id}, #{title}, #{room_Name}, #{location}, #{enter_Time}, #{out_Time}, SYSDATE,
-                  SYSDATE,  #{charge}, #{room_Phone}, #{max_People}, #{room_Type},#{bulid_Type},#{room_Num},#{bed_Num},#{bed_Type},  #{convenient},#{secure},#{room_Explain}, #{refund_Provision}, NULL, SYSDATE, SYSDATE )
-
-
-
+        VALUES ( (SELECT ( Nvl(Max(lodge_code), 0) + 1 )  FROM  staypc_lodge), #{id}, #{title}, #{room_Name}, #{location}, #{enter_Time}, #{out_Time}, #{check_In},
+                  #{check_Out},  #{charge}, #{room_Phone}, #{max_People}, #{room_Type},#{bulid_Type},#{room_Num},#{bed_Num},#{bed_Type},  #{convenient},#{secure},#{room_Explain}, #{refund_Provision}, NULL, SYSDATE, SYSDATE )
     </insert>
+
+
+    <select id="daycal">
+      SELECT CHECK_OUT-CHECK_IN from STAYPC_LODGE WHERE
+    </select>
+
 </mapper>
