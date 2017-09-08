@@ -5,43 +5,43 @@ import java.util.Date;
 
 public class LodgeVO {
     //  숙소코드
-    private Integer lodgeCode;
+    private Integer lodge_Code;
 
     //  타이틀
     private String title;
 
     //  숙소명
-    private String roomName;
+    private String room_Name;
 
     //  주소
     private String location;
 
     //  숙소입실시간
-    private Timestamp enterTime;
+    private Timestamp enter_Time;
 
     //  숙소퇴실시간
-    private Timestamp outTime;
+    private Timestamp out_Time;
 
     //  1박당 숙박료
     private Integer charge;
 
     //  숙소연락처
-    private String roomPhone;
+    private String room_Phone;
 
     //  최대인원수
-    private Integer maxPeople;
+    private Integer max_People;
 
     //  방타입
-    private String roomType;
+    private String room_Type;
 
     //  건물타입
-    private String bulidType;
+    private String bulid_Type;
 
     //  침실개수
-    private Integer roomNum;
+    private Integer room_Num;
 
     //  침대개수
-    private Integer bedNum;
+    private Integer bed_Num;
 
     //  편의시설
     private String convenient;
@@ -50,213 +50,202 @@ public class LodgeVO {
     private String secure;
 
     //  숙소설명
-    private String roomExplain;
+    private String room_Explain;
 
     //  환불규정
-    private String refundProvision;
+    private String refund_Provision;
 
     //  생성일
-    private Date regDate;
+    private Date reg_Date;
 
     //  수정일
-    private Date updateDate;
+    private Date update_Date;
 
     //  체크인
-    private Date checkIn;
+    private Date check_In;
 
     //  체크아웃
-    private Date checkOut;
+    private Date check_Out;
 
-    public Integer getLodgeCode() {
-        return lodgeCode;
-    }
+	public Integer getLodge_Code() {
+		return lodge_Code;
+	}
 
-    public void setLodgeCode(Integer lodgeCode) {
-        this.lodgeCode = lodgeCode;
-    }
+	public void setLodge_Code(Integer lodge_Code) {
+		this.lodge_Code = lodge_Code;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public String getRoomName() {
-        return roomName;
-    }
+	public String getRoom_Name() {
+		return room_Name;
+	}
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
-    }
+	public void setRoom_Name(String room_Name) {
+		this.room_Name = room_Name;
+	}
 
-    public String getLocation() {
-        return location;
-    }
+	public String getLocation() {
+		return location;
+	}
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
-    public Timestamp getEnterTime() {
-        return enterTime;
-    }
+	public Timestamp getEnter_Time() {
+		return enter_Time;
+	}
 
-    public void setEnterTime(Timestamp enterTime) {
-        this.enterTime = enterTime;
-    }
+	public void setEnter_Time(Timestamp enter_Time) {
+		this.enter_Time = enter_Time;
+	}
 
-    public Timestamp getOutTime() {
-        return outTime;
-    }
+	public Timestamp getOut_Time() {
+		return out_Time;
+	}
 
-    public void setOutTime(Timestamp outTime) {
-        this.outTime = outTime;
-    }
+	public void setOut_Time(Timestamp out_Time) {
+		this.out_Time = out_Time;
+	}
 
-    public Integer getCharge() {
-        return charge;
-    }
+	public Integer getCharge() {
+		return charge;
+	}
 
-    public void setCharge(Integer charge) {
-        this.charge = charge;
-    }
+	public void setCharge(Integer charge) {
+		this.charge = charge;
+	}
 
-    public String getRoomPhone() {
-        return roomPhone;
-    }
+	public String getRoom_Phone() {
+		return room_Phone;
+	}
 
-    public void setRoomPhone(String roomPhone) {
-        this.roomPhone = roomPhone;
-    }
+	public void setRoom_Phone(String room_Phone) {
+		this.room_Phone = room_Phone;
+	}
 
-    public Integer getMaxPeople() {
-        return maxPeople;
-    }
+	public Integer getMax_People() {
+		return max_People;
+	}
 
-    public void setMaxPeople(Integer maxPeople) {
-        this.maxPeople = maxPeople;
-    }
+	public void setMax_People(Integer max_People) {
+		this.max_People = max_People;
+	}
 
-    public String getRoomType() {
-        return roomType;
-    }
+	public String getRoom_Type() {
+		return room_Type;
+	}
 
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
-    }
+	public void setRoom_Type(String room_Type) {
+		this.room_Type = room_Type;
+	}
 
-    public String getBulidType() {
-        return bulidType;
-    }
+	public String getBulid_Type() {
+		return bulid_Type;
+	}
 
-    public void setBulidType(String bulidType) {
-        this.bulidType = bulidType;
-    }
+	public void setBulid_Type(String bulid_Type) {
+		this.bulid_Type = bulid_Type;
+	}
 
-    public Integer getRoomNum() {
-        return roomNum;
-    }
+	public Integer getRoom_Num() {
+		return room_Num;
+	}
 
-    public void setRoomNum(Integer roomNum) {
-        this.roomNum = roomNum;
-    }
+	public void setRoom_Num(Integer room_Num) {
+		this.room_Num = room_Num;
+	}
 
-    public Integer getBedNum() {
-        return bedNum;
-    }
+	public Integer getBed_Num() {
+		return bed_Num;
+	}
 
-    public void setBedNum(Integer bedNum) {
-        this.bedNum = bedNum;
-    }
+	public void setBed_Num(Integer bed_Num) {
+		this.bed_Num = bed_Num;
+	}
 
-    public String getConvenient() {
-        return convenient;
-    }
+	public String getConvenient() {
+		return convenient;
+	}
 
-    public void setConvenient(String convenient) {
-        this.convenient = convenient;
-    }
+	public void setConvenient(String convenient) {
+		this.convenient = convenient;
+	}
 
-    public String getSecure() {
-        return secure;
-    }
+	public String getSecure() {
+		return secure;
+	}
 
-    public void setSecure(String secure) {
-        this.secure = secure;
-    }
+	public void setSecure(String secure) {
+		this.secure = secure;
+	}
 
-    public String getRoomExplain() {
-        return roomExplain;
-    }
+	public String getRoom_Explain() {
+		return room_Explain;
+	}
 
-    public void setRoomExplain(String roomExplain) {
-        this.roomExplain = roomExplain;
-    }
+	public void setRoom_Explain(String room_Explain) {
+		this.room_Explain = room_Explain;
+	}
 
-    public String getRefundProvision() {
-        return refundProvision;
-    }
+	public String getRefund_Provision() {
+		return refund_Provision;
+	}
 
-    public void setRefundProvision(String refundProvision) {
-        this.refundProvision = refundProvision;
-    }
+	public void setRefund_Provision(String refund_Provision) {
+		this.refund_Provision = refund_Provision;
+	}
 
-    public Date getRegDate() {
-        return regDate;
-    }
+	public Date getReg_Date() {
+		return reg_Date;
+	}
 
-    public void setRegDate(Date regDate) {
-        this.regDate = regDate;
-    }
+	public void setReg_Date(Date reg_Date) {
+		this.reg_Date = reg_Date;
+	}
 
-    public Date getUpdateDate() {
-        return updateDate;
-    }
+	public Date getUpdate_Date() {
+		return update_Date;
+	}
 
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
-    }
+	public void setUpdate_Date(Date update_Date) {
+		this.update_Date = update_Date;
+	}
 
-    public Date getCheckIn() {
-        return checkIn;
-    }
+	public Date getCheck_In() {
+		return check_In;
+	}
 
-    public void setCheckIn(Date checkIn) {
-        this.checkIn = checkIn;
-    }
+	public void setCheck_In(Date check_In) {
+		this.check_In = check_In;
+	}
 
-    public Date getCheckOut() {
-        return checkOut;
-    }
+	public Date getCheck_Out() {
+		return check_Out;
+	}
 
-    @Override
-    public String toString() {
-        return "LodgeVO{" +
-                "lodgeCode=" + lodgeCode +
-                ", title='" + title + '\'' +
-                ", roomName='" + roomName + '\'' +
-                ", location='" + location + '\'' +
-                ", enterTime=" + enterTime +
-                ", outTime=" + outTime +
-                ", charge=" + charge +
-                ", roomPhone='" + roomPhone + '\'' +
-                ", maxPeople=" + maxPeople +
-                ", roomType='" + roomType + '\'' +
-                ", bulidType='" + bulidType + '\'' +
-                ", roomNum=" + roomNum +
-                ", bedNum=" + bedNum +
-                ", convenient='" + convenient + '\'' +
-                ", secure='" + secure + '\'' +
-                ", roomExplain='" + roomExplain + '\'' +
-                ", refundProvision='" + refundProvision + '\'' +
-                ", regDate=" + regDate +
-                ", updateDate=" + updateDate +
-                ", checkIn=" + checkIn +
-                ", checkOut=" + checkOut +
-                '}';
-    }
+	public void setCheck_Out(Date check_Out) {
+		this.check_Out = check_Out;
+	}
+
+	@Override
+	public String toString() {
+		return "LodgeVO [lodge_Code=" + lodge_Code + ", title=" + title + ", room_Name=" + room_Name + ", location="
+				+ location + ", enter_Time=" + enter_Time + ", out_Time=" + out_Time + ", charge=" + charge
+				+ ", room_Phone=" + room_Phone + ", max_People=" + max_People + ", room_Type=" + room_Type
+				+ ", bulid_Type=" + bulid_Type + ", room_Num=" + room_Num + ", bed_Num=" + bed_Num + ", convenient="
+				+ convenient + ", secure=" + secure + ", room_Explain=" + room_Explain + ", refund_Provision="
+				+ refund_Provision + ", reg_Date=" + reg_Date + ", update_Date=" + update_Date + ", check_In="
+				+ check_In + ", check_Out=" + check_Out + "]";
+	}
 
 
+    
 }
