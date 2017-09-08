@@ -20,9 +20,7 @@ text-decoration:none;
 	
  height:150px; padding:10px;
 	text-align:center;
-	word-spacing: 0.5em;
-	display:block;
-	text-align:center;
+	
 	    margin: auto;
 	
 }
@@ -30,27 +28,32 @@ text-decoration:none;
  #copyright li{
 	float:left; 
 	
+	
 }
-#copyright a{ padding: 0 6px; display: block;}
+#copyright a{ }
 
-#service{ width:1388px; height:30px; }
+#service{ width:1388px; height:30px;     text-align: center; }
 
 #stay_pc{
-	 width:1388px; height:30px; 
+	 height:30px; 
+	  text-align: center;
 }
 
 #stya_pc li{padding: 0 6px;}
 
 #cs_center{
-	 width:1388px; height:30px; 
+	 height:30px; 
+	     text-align: center;
 }
 
 #number{
-	; width:1388px; height:30px; 
+	 height:30px; 
+	    text-align: center;
 }
 
 #copy{
-	 width:1388px; height:30px; 
+	 height:30px; 
+	     text-align: center;
 }
 
 

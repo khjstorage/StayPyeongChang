@@ -133,7 +133,9 @@ public class LoginController {
 	@RequestMapping(value = "login/login.do", method = RequestMethod.POST)
 	public ModelAndView login(ModelAndView mav, LoginVO vo, HttpSession session){
 		boolean loginresult = service.loginCheck(vo, session);
+		
 		if (loginresult == true) {
+			System.out.println("결과값"+loginresult);
 			mav.setViewName("home/main");
 		} else {
 			mav.setViewName("login/login");
