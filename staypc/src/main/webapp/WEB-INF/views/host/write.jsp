@@ -12,10 +12,18 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <style>
-        .fileDrop{
-            width: 300px;
+        .fileDrop {
+            width: 100%;
             height: 200px;
             border: 1px dotted blue;
+            background-color: lightslategray;
+            margin: auto;
+        }
+
+        small {
+            margin-left: 3px;
+            font-weight: bold;
+            color: gray;
         }
     </style>
 
@@ -26,25 +34,13 @@
             $('#check_In').datepicker();
             $('#check_Out').datepicker();
 
-            $(".fileDrop").on("dragenter dragover", function (event) {
-                event.preventDefault();
-            })
-            $(".fileDrop").on("drop", function (event) {
-                event.preventDefault();
-                var files = event.originalEvent.dataTransfer.files;
-                var file = files[0];
-                console.log(file);
-            })
-        });
-        
-        
-        $(document).ready(function(){
-            $("#btnSave").click(function(){
 
+            $("#btnSave").click(function () {
                 document.form1.submit();
             });
         });
-        
+
+
     </script>
 </head>
 <body>
@@ -56,8 +52,11 @@
             제목 : <input type="text" name="title" id="title" value="제목"> <br>
             숙소명 : <input type="text" name="room_Name" value="타이틀"> <br>
             주소 : <input type="text" name="location" value="주소"> <br>
-            숙소 입실시간 : <input type="text" name="enter_Time" id="enter_Time"> &nbsp; 숙소 퇴실시간 : <input type="text" name="out_Time" id="out_Time"> <br>
-            판매날짜 : <input type="text" name="check_In" id="check_In"> ~ <input type="text" name="check_Out" id="check_Out"> <br>
+            숙소 입실시간 : <input type="text" name="enter_Time" id="enter_Time"> &nbsp; 숙소 퇴실시간 : <input type="text"
+                                                                                                    name="out_Time"
+                                                                                                    id="out_Time"> <br>
+            판매날짜 : <input type="text" name="check_In" id="check_In"> ~ <input type="text" name="check_Out"
+                                                                              id="check_Out"> <br>
             숙소 예약기한 : <input type="text" name="res_deadline" value=2> &nbsp;* 몇일전까지 예약가능한지 숫자로 입력하세요. ex) 입실 2일전까지
             예약해야하면 2 로입력 <br>
             숙박료 : <input type="text" name="charge" value="2000"> <br>
@@ -132,14 +131,13 @@
         <div>
             환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision">안돼</textarea><br>
         </div>
-
         <h3>숙소 사진 업로드</h3>
         <div class="fileDrop"></div>
         <div class="uploadedList"></div>
-
-        <button type="button" id="btnSave">숙소등록</button>
-        <button type="button">취소</button>
+        <button type="submit" id="btnSave">숙소등록</button>
     </form>
+
 </div>
+<script src="/resources/js/upload.js"></script>
 </body>
 </html>

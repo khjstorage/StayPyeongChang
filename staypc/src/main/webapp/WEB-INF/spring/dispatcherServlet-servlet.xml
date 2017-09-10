@@ -21,20 +21,19 @@
         <property name="order" value="1"/>
     </bean>
 
-    <!--<bean id="urlFilenameViewController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>-->
-    <!--<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
-        <!--<property name="mappings">-->
-            <!--<value>/**/*.do=urlFilenameViewController</value>-->
-        <!--</property>-->
-        <!--<property name="order" value="1"/>-->
-    <!--</bean>-->
+    <bean id="urlFilenameViewController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>/**/*.do=urlFilenameViewController</value>
+        </property>
+        <property name="order" value="1"/>
+    </bean>
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/host/write.do/"/>
             <mvc:mapping path="/member/modify.do"/>
             <mvc:mapping path="/member/drop.do"/>
-            <mvc:mapping path="/host/write.do"/>
+            <!--<mvc:mapping path="/host/write.do"/>-->
             <bean class="com.staypc.interceptor.InterCeptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
