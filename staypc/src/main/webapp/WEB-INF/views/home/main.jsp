@@ -19,6 +19,7 @@
         }
 
         $(document).ready(function () {
+
             $.datepicker.regional['ko'] = {
                 closeText: '닫기',
                 prevText: '이전달',
@@ -115,8 +116,9 @@
             <c:forEach var="row" items="${map.list }" varStatus="status">
             <td align="center">
                 <a href="read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
-
-                        <img src="C:/${row.main_Image}" width="150px">
+                    <div id="displayFile">
+                        <img src="/host/displayFile.do?fileName=${row.main_Image}">
+                    </div>
                     <br>
                     \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>
                         ${row.title }

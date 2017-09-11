@@ -14,7 +14,7 @@ public class UploadFileUtils {
 
     private static String calcPath(String uploadPath){
 //        Calendar cal = Calendar.getInstance();
-        String folder = File.separator + "lodge_image";
+        String folder = File.separator + "lodgeImage";
 //        String yearPath = folder + File.separator+cal.get(Calendar.YEAR);
 //        String mothPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH)+1);
 //        String datePath = mothPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
