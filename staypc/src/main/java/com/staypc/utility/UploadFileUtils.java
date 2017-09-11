@@ -13,12 +13,15 @@ import java.util.UUID;
 public class UploadFileUtils {
 
     private static String calcPath(String uploadPath){
-        Calendar cal = Calendar.getInstance();
-        String yearPath = File.separator+cal.get(Calendar.YEAR);
-        String mothPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH)+1);
-        String datePath = mothPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
-        makeDir(uploadPath, yearPath, mothPath, datePath);
-        return datePath;
+//        Calendar cal = Calendar.getInstance();
+        String folder = File.separator + "lodge_image";
+//        String yearPath = folder + File.separator+cal.get(Calendar.YEAR);
+//        String mothPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH)+1);
+//        String datePath = mothPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
+//        makeDir(uploadPath, folder, yearPath, mothPath, datePath);
+        makeDir(uploadPath, folder);
+//        return datePath;
+        return folder;
     }
 
     private static void makeDir(String uploadPath, String... paths) {
@@ -27,12 +30,12 @@ public class UploadFileUtils {
         }
         for(String path : paths){
             File dirPath = new File(uploadPath + path);
+            System.out.println(dirPath.toString());
             if(!dirPath.exists()){
                 dirPath.mkdir();
             }
         }
     }
-
 
     public static String uploadFile(String uploadPath, String originalName, byte[] fileData) throws Exception{
         UUID uid = UUID.randomUUID();

@@ -51,6 +51,9 @@
             $('#edate').datepicker("option", "onClose", function (selectedDate) {
                 $("#sdate").datepicker("option", "maxDate", selectedDate);
             });
+
+
+
         });
     </script>
 </head>
@@ -85,9 +88,7 @@
             <td>
 
                 <form name="form1" method="post" action='<c:url value="/lodge/list.do"></c:url>'>
-                    <input type="text" id="sdate" name="sdate" value="${map.sdate }">~<input type="text" id="edate"
-                                                                                             name="edate"
-                                                                                             value="${map.edate }">
+                    <input type="text" id="sdate" name="sdate" value="${map.sdate }">~<input type="text" id="edate" name="edate" value="${map.edate }">
                     <input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
                     <select name="num">
                         <option value="">인원</option>
@@ -107,13 +108,15 @@
             </td>
         </tr>
     </table>
+
     <table border="1" width="800px">
 
         <tr>
             <c:forEach var="row" items="${map.list }" varStatus="status">
             <td align="center">
                 <a href="read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
-                    <%--<img src="/resources/picture/${row.main_image }" width="150">--%>
+
+                        <img src="C:/${row.main_Image}" width="150px">
                     <br>
                     \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>
                         ${row.title }

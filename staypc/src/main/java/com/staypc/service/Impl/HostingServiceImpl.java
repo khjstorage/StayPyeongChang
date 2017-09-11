@@ -19,6 +19,7 @@ public class HostingServiceImpl implements HostingService {
 
     @Override
     public void hostinsert(LodgeVO vo) {
+
         dao.hosting(vo);
 
         String[] files = vo.getFiles();
