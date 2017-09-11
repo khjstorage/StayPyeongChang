@@ -1,19 +1,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>houseread</title>
+    <title>houseread화면</title>
+    
     <style>
-	#sidebar{
+   body {
+  flex: 1;
+  display: flex;
+  background-color: #699EBD;
+}
+	#left{
 	     margin: 0px auto;;
 	     background: #ffcc99;
 	     float: left;
-	     width:800px;
+	     width:700px;
 	     height:500px;
 	}
 	
-	#maincontent {
-		 margin: 100px;
+	#right {
+		 margin: 50px;
   		 height:500px;
 }
 	
@@ -26,6 +34,7 @@
         margin:  100px;  
        height: 200px;
        }
+      
 </style>
     <script language="javascript">
     </script>
@@ -33,12 +42,12 @@
     </style>
 </head>
 <body>
-  <form action="read.do" method="post">
 <div class="top_con_zone" id="fixNextTag">
   <input name="lodge_Code" type="hidden" value="" />
-  <div id="sidebar"><img src="/resources/picture/${row.image }"/></div>
-  <<!--  <img width="800px" height="500px" src=<c:url value='/resources/picture/'/>/></div>-->
-  <DIV ID="maincontent">
+  <div id="left">
+  <img height="500px" width="700px" src="<c:url value='/resources/picture/${row.image }'/>" />
+  </div>
+  <DIV ID="right">
       <h1>주경기장 근거리집을 소개합니다.....</h1>
 	        집이름(주경기장 근거리집):${vo.title}<br>
                  짧은 주소(강원도 평창군 평창리):${vo.location}<br>
@@ -49,9 +58,9 @@
 	         호스트 사진${member.picture }&nbsp;
 		<a href="logout.do">호스트이름:${member.name }<br>}</a>&nbsp;
 		호스트 이메일:${member.email}<br>
-		숙소 연락처:"${vo.room_Phone}<br>
+		숙소 연락처:"${vo.room_Phone}<br>		
 </div>
-<br>
+
 <div id="main2">
 
        <button style="height:40px;width:100px;font-size:9pt;color:white;background-color:orange;"><a href="logout.do">위시리스트  담기</a></button>&nbsp;
@@ -74,8 +83,10 @@
 		침대 타입:${vo.bed_Type}<br>
 		편의시설: ${vo.convenient}<br>
 		안전시설:${vo.secure}<br>
+	
 </div>
-</div>
+
+  <form action="/lodge/read.do" method="post">
 </form>
 </body>
 </html>

@@ -81,12 +81,14 @@ public class LodgeController {
 	
 
 	//추가 시작 
-	@RequestMapping(value="read.do", method=RequestMethod.GET)
+	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
 	public ModelAndView read(@RequestParam int  lodge_Code, HttpSession session, HttpServletRequest request) throws Exception{
 		
 		LodgeVO vo = Service.read(lodge_Code);
+		List listimg =  Service.readimg(lodge_Code);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("vo", vo);
+		mav.addObject("listimg", listimg);
 		mav.setViewName("lodge/houseread");
 		
 		return mav;

@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="staypcReview">
+<mapper namespace="review">
+	
 	
 	<!-- 메인페잊이 -->
 	<select id="listMain" resultType="staypc_lodgeDTO">
@@ -17,6 +18,10 @@
         <include refid="search"></include>
     </select>
         
+	<!-- 페이지 읽기 추가 시작 -->
+	<select id="read" resultType="staypc_lodgeDTO">
+		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
+	</select>
 	<!-- 페이지 읽기 추가 시작 -->
 	<select id="read" resultType="staypc_lodgeDTO">
 		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
@@ -59,7 +64,7 @@
     </sql>
 
     	<insert id="insertBoard" parameterType="board">
-	  INSERT INTO TBL_BOARD(NO,
+	  INSERT INTO STAYPC_REVIEW(NO,
 	  						ID,
 	  						PWD,
 	  						TITLE,
@@ -69,20 +74,20 @@
 	  						PARENT,
 	  						SORT,
 	  						TAB)
-	  				VALUES  ((SELECT NVL(MAX(NO),0)+1 FROM TBL_BOARD),
+	  				VALUES  ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
 	  				         #{id},
 	  				         #{pwd},
 	  				         #{title},
 	  				         #{content},
 	  				         SYSDATE,
 	  				         0,
-	  				         (SELECT NVL(MAX(NO),0)+1 FROM TBL_BOARD),
+	  				         (SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
 	  				         0,
 	  				         0)
     </insert>
     
     <insert id="insertReply" parameterType="board">
-    	INSERT INTO TBL_BOARD(NO,
+    	INSERT INTO STAYPC_REVIEW(review_num,
     						  ID,
     						  PWD,
     						  TITLE,
@@ -92,7 +97,7 @@
     						  PARENT,
     						  SORT,
     						  TAB)
-    		    VALUES        ((SELECT NVL(MAX(no),0)+1 FROM TBL_BOARD),    
+    		    VALUES        ((SELECT NVL(MAX(no),0)+1 FROM STAYPC_REVIEW),    
     		    		      #{id},
     		    		      #{pwd},
     		    		      #{title},
@@ -105,8 +110,8 @@
     		    		      )
 	</insert>
     
-    <update id="updateBoard">
-       UPDATE TBL_BOARD
+    <update id="update">
+       UPDATE STAYPC_REVIEW
            set TITLE=#{title},
                CONTENT=#{content},
                REGDATE = SYSDATE
@@ -114,22 +119,22 @@
     </update>
     
     <update id="updateHit">
-    	UPDATE TBL_BOARD SET HIT=HIT+1 WHERE NO=#{no}
+    	UPDATE STAYPC_REVIEW SET HIT=HIT+1 WHERE NO=#{no}
     </update>
     
     <update id="updateSORT">
-    	UPDATE TBL_BOARD 
+    	UPDATE STAYPC_REVIEW 
     	   SET SORT=SORT+1 
     	WHERE PARENT=#{parent} AND SORT>#{sort}
     </update>
     
     <delete id="deleteBoard">
-    	DELETE FROM TBL_BOARD
+    	DELETE FROM STAYPC_REVIEW
     	WHERE NO=#{no} AND PWD=#{pwd}
     </delete>
     
     <delete id="deleteAll">
-    	DELETE FROM TBL_BOARD
+    	DELETE FROM STAYPC_REVIEW
     	WHERE  parent=#{parent}
     </delete>
     
@@ -144,7 +149,7 @@
                 PARENT,
                 SORT,
                 TAB
-        FROM    TBL_BOARD
+        FROM    STAYPC_REVIEW
         where   NO=#{no}
     </select>
 
@@ -162,7 +167,7 @@
 				SORT,
 				TAB,
 				ROW_NUMBER() OVER (ORDER BY PARENT DESC, SORT ASC) AS RNUM
-			   FROM TBL_BOARD
+			   FROM STAYPC_REVIEW
 		 ) A
 		 WHERE RNUM >= #{p_first} AND RNUM <= #{p_last}
 	]]>
@@ -170,7 +175,7 @@
     
     <select id="getTotalCount" resultType="int">
     	SELECT COUNT(*) as CNT 
-    	  FROM TBL_BOARD
+    	  FROM STAYPC_REVIEW
     </select>
     
     

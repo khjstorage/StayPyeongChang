@@ -50,6 +50,11 @@ public class LodgeDAO {
 	public LodgeVO read(int  lodge_Code) throws Exception{	
 		return sqlSession.selectOne("lodge.read",  lodge_Code);
 	}
+	
+	
+	public List<LodgeVO>  readimg(int  lodge_Code) throws Exception{	
+		return sqlSession.selectList("lodge.readimg",  lodge_Code);
+	}
 	//추가 부분 끝
 }
 
