@@ -73,7 +73,7 @@ function checkImageType(fileName) {
 }
 
 
-$("#registerForm").submit(function (event) {
+$("#hostingForm").submit(function (event) {
     event.preventDefault();
     var that = $(this);
     var str = "";
@@ -81,6 +81,6 @@ $("#registerForm").submit(function (event) {
         str += "<input type='hidden' name='files[" + index + "]' value='" + $(this).attr("value") + "'> ";
     });
     that.append(str);
-    that.attr("action", "host/insert.do");
+    that.attr("action", "/host/insert.do");
     that.get(0).submit();
 });
