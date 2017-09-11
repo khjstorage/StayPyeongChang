@@ -7,6 +7,9 @@
     <title>houseread화면</title>
     
     <style>
+        <script language="javascript">
+        </script>
+    <style type="text/css">
    body {
   flex: 1;
   display: flex;
@@ -34,11 +37,7 @@
         margin:  100px;  
        height: 200px;
        }
-      
-</style>
-    <script language="javascript">
-    </script>
-    <style type="text/css">
+
     </style>
 </head>
 <body>
@@ -88,5 +87,6 @@
 
   <form action="/lodge/read.do" method="post">
 </form>
+</div>
 </body>
 </html>

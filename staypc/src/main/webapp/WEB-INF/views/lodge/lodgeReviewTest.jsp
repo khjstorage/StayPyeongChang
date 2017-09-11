@@ -1,23 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
-<h5>ÈÄ±â ¸®½ºÆ®</h5>
-<form action="reviewList.do" method="post">
-<!--½Å±Ô Å×ÀÌºí-->
+<h5>í›„ê¸° ë¦¬ìŠ¤íŠ¸</h5>
+<form action="/lodge/lodgeReviewList.do" method="post">
+<!--ì‹ ê·œ í…Œì´ë¸”-->
 
 	<table>
 		<tr>
-			<th class="list" style="width: 100px">±Û¹øÈ£</th>
-			<th class="list" style="width: 200px">ÀÛ¼ºÀÚ»çÁø</th>
-			<th class="list" style="width: 200px">ÀÛ¼ºÀÚ</th>
-			<th class="list" style="width: 200px">ÀÛ¼ºÀÏ</th>
-		</tr>ÈÄ±â ±ÛÀÌ ÀûÈú ÀÚ¸® ÀÔ´Ï´Ù<tr>
+			<th class="list" style="width: 100px">ê¸€ë²ˆí˜¸</th>
+			<th class="list" style="width: 200px">ìž‘ì„±ìžì‚¬ì§„</th>
+			<th class="list" style="width: 200px">ìž‘ì„±ìž</th>
+			<th class="list" style="width: 200px">ìž‘ì„±ì¼</th>
+		</tr>í›„ê¸° ê¸€ì´ ì íž ìžë¦¬ ìž…ë‹ˆë‹¤<tr>
 			
 		</tr>
 		<c:if test="${ !empty list }">
@@ -29,22 +27,22 @@
 							<c:forEach begin="1" end="${ b.tab }">
 								&nbsp;&nbsp;
 							</c:forEach>
-							¢Ñ
+							â˜ž
 						</c:if>
 						${ b.review_num }&pg=${ pg }"></td>
 					<td class="left">&nbsp;${ b.id }</td>
-					<td class="center"><fmt:formatDate value="${ b.regdate }" pattern="yyyy³âMM¿ùddÀÏ"/></td>
+					<td class="center"><fmt:formatDate value="${ b.regdate }" pattern="yyyyë…„MMì›”ddì¼"/></td>
 				</tr>
 			</c:forEach>
 		</c:if>
 		<c:if test="${ empty list }">
 			<tr>
-				<td colspan="5" align="center">µî·ÏµÈ ÈÄ±â°¡ ¾ø½À´Ï´Ù.</td>
+				<td colspan="5" align="center">ë“±ë¡ëœ í›„ê¸°ê°€ ì—†ìŠµë‹ˆë‹¤.</td>
 			</tr>
 		</c:if>
 		<tr>
 			<td colspan="5" align="right">
-				<a href="writeform.do"><button class="linkbutton">ÈÄ±â ÀÛ¼ºÇÏ±â</button></a>
+				<a href="writeform.do"><button class="linkbutton">í›„ê¸° ìž‘ì„±í•˜ê¸°</button></a>
 			</td>
 		</tr>
 	</table>
@@ -53,27 +51,28 @@
 		<tr align="center">
 			<td>
 				<c:if test="${ pg > block }">
-					[ <a href="boardList.do?pg=1">¢¸¢¸</a> ]
-					[ <a href="boardList.do?pg=${ beginPage - 1 }">¢¸</a> ]
+					[ <a href="boardList.do?pg=1">â—€â—€</a> ]
+					[ <a href="boardList.do?pg=${ beginPage - 1 }">â—€</a> ]
 				</c:if>
 				<c:if test="${ pg <= block }">
-					[ <span style="color: gray;">¢¸¢¸</span> ]
-					[ <span style="color: gray;">¢¸</span> ]
+					[ <span style="color: gray;">â—€â—€</span> ]
+					[ <span style="color: gray;">â—€</span> ]
 				</c:if>
 				<c:forEach var="i" begin="${ beginPage }" end="${ endPage }">
 					<c:if test="${ i == pg }" > [ ${ i } ] </c:if>
 					<c:if test="${ i != pg }" > [ <a href="boardList.do?pg=${ i }">${ i }</a> ]</c:if>
 				</c:forEach>
 				<c:if test="${ endPage < allPage }">
-					[ <a href="boardList.do?pg=${ endPage + 1 }">¢º</a> ]
-					[ <a href="boardList.do?pg=${ allPage }">¢º¢º</a> ]
+					[ <a href="boardList.do?pg=${ endPage + 1 }">â–¶</a> ]
+					[ <a href="boardList.do?pg=${ allPage }">â–¶â–¶</a> ]
 				</c:if>
 				<c:if test="${ endPage >= allPage }">
-					[ <span style="color: gray;">¢º</span> ]
-					[ <span style="color: gray;">¢º¢º</span> ]
+					[ <span style="color: gray;">â–¶</span> ]
+					[ <span style="color: gray;">â–¶â–¶</span> ]
 				</c:if>
 			</td>
 		</tr>
 	</table>
+	</form>
 </body>
 </html>
