@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="staypc">
+<mapper namespace="lodge">
 	
-	<!-- 메인페잊이 -->
-	<select id="listMain" resultType="staypc_lodgeDTO">
-		SELECT lodge_code, image, charge, title FROM staypc_lodge 
+	<!-- 메인페이지 -->
+	<select id="listMain" resultType="lodge">
+		SELECT lodge_code, main_image, charge, title FROM staypc_lodge
 		where lodge_code > (SELECT MAX(lodge_code)-9 from staypc_lodge)
 		order by lodge_code DESC
 	</select>
@@ -18,12 +18,11 @@
     </select>
         
 	<!-- 페이지 읽기 추가 시작 -->
-	<select id="read" resultType="staypc_lodgeDTO">
+	<select id="read" resultType="lodge">
 		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
 	</select>
 	<!-- 페이지 읽기 추가 끝 -->
-	
-	
+
 	<!-- 숙소 게시판 기능
 	<select id="read" resultType="staypc_lodgeReviewDTO">
 		SELECT *FROM staypc_review WHERE LODGE_CODE=#{review_num}
@@ -32,12 +31,10 @@
 	<insert id="insert" resultType="staypc_lodgeReviewDTO">
 	insert 
 	  -->
-	
-	
     
-   <select id="listAll" resultType="staypc_lodgeDTO">
+   <select id="listAll" resultType="lodge">
        <include refid="pagingHeader"></include>
-        SELECT DISTINCT l.lodge_code, l.title, l.charge, l.image
+        SELECT DISTINCT l.lodge_code, l.title, l.charge, l.main_image
         FROM  staypc_lodge l, staypc_lodge_book d
        <include refid="search"></include>
         order by lodge_code DESC
@@ -48,17 +45,14 @@
                 WHERE max_people  like '%'||#{num}||'%' and 
                 location   like '%'||#{keyword}||'%' and
                 l.lodge_code = d.lodge_code
-               
                 <if test="sdate!=''">
                 <![CDATA[
                 and d.available = 'Y'
                 and d.book_date between #{sdate} and TO_DATE(#{edate})-1
-                
                 ]]>
                 </if>
     </sql>
 
-    
     <sql id="pagingHeader">
         SELECT * FROM (
            SELECT ROWNUM AS rn, A.* FROM (

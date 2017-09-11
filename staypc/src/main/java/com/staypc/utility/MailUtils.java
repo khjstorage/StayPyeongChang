@@ -11,7 +11,7 @@ import javax.mail.internet.MimeUtility;
 import java.util.Random;
 
 @Component
-public class MailUtility{
+public class MailUtils {
 
     @Autowired
     private JavaMailSenderImpl mailSender;

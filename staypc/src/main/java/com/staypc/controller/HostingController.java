@@ -28,7 +28,6 @@ import java.util.Date;
 @Controller
 public class HostingController {
 
-
     @Autowired
     private HostingService service;
 
@@ -60,7 +59,7 @@ public class HostingController {
 //        }catch(ParseException e){
 //            e.printStackTrace();
 //        }
-        System.out.println(vo);
+
         service.hostinsert(vo);
         return "redirect:/";
     }

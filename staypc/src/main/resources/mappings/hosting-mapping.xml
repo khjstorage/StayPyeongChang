@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="hosting">
-    <insert id="insert" parameterType="staypc_lodgeDTO">
+    <insert id="insert" parameterType="lodge">
         INSERT INTO staypc_lodge (lodge_code, id, title, room_name, location, enter_time, out_time, check_in, check_out, charge, room_phone, max_people, room_type,
                                     bulid_type, room_num, bed_num, bed_type, convenient, secure, room_explain,  refund_provision, reg_date,  update_date)
         VALUES ( (SELECT ( Nvl(Max(lodge_code), 0) + 1 )  FROM  staypc_lodge), 'khjzzm', #{title}, #{room_Name}, #{location}, #{enter_Time}, #{out_Time}, #{check_In},

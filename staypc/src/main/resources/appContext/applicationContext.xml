@@ -24,7 +24,7 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="mailUtil" class="com.staypc.utility.MailUtility"/>
+	<bean id="mailUtil" class="com.staypc.utility.MailUtils"/>
 
 
 	<!-- Data Source -->

@@ -29,18 +29,15 @@ public class LodgeController {
 	LodgeService Service;
 	
 
-	@RequestMapping("/")
-	public ModelAndView main() throws Exception{
+	@RequestMapping("/main.do")
+	public ModelAndView main(ModelAndView mav) throws Exception{
+
 		List<LodgeVO> list = Service.listMain();
-		
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, List> map = new HashMap<String, List>();
 		map.put("list", list);
 
-		ModelAndView mav = new ModelAndView();
 		mav.addObject("map", map);
 		mav.setViewName("home/main");
-		
-		System.out.println("홈");
 		return mav;
 	}
 	
