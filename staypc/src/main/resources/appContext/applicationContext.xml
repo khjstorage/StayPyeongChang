@@ -24,7 +24,7 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="mailUtil" class="com.staypc.utility.MailUtility"/>
+	<bean id="mailUtil" class="com.staypc.utility.MailUtils"/>
 
 
 	<!-- Data Source -->
@@ -53,7 +53,7 @@
 
 	<!--방 사진 저장 위치-->
 	<bean id="uploadPath" class="java.lang.String">
-		<constructor-arg value="/Users/kimhyunjin/Downloads"/>
+		<constructor-arg value="C:\staypc_image"/>
 	</bean>
 
 </beans>

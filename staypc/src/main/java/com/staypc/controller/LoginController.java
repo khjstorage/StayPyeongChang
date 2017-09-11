@@ -2,10 +2,9 @@ package com.staypc.controller;
 
 import com.staypc.service.LoginService;
 import com.staypc.utility.FileRename;
-import com.staypc.utility.MailUtility;
+import com.staypc.utility.MailUtils;
 import com.staypc.utility.Utility;
 import com.staypc.vo.LoginVO;
-import org.apache.taglibs.standard.lang.jstl.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +28,7 @@ public class LoginController {
 	private LoginService service;
 
 	@Autowired
-	private MailUtility mailUtility;
+	private MailUtils mailUtils;
 
 
 
@@ -66,7 +65,7 @@ public class LoginController {
 			vo.setPicture("basic_profile.jpg");
 		}
 		service.insert(vo);
-		mailUtility.joinMail(vo.getEmail());
+		mailUtils.joinMail(vo.getEmail());
 		mav.addObject("id", vo.getId());
 		mav.setViewName("join/join_message");
 		return mav;
@@ -84,7 +83,7 @@ public class LoginController {
 	//승인메일 다시 보낼때
 	@RequestMapping(value = "join/mail.do")
 	public String joinMail(LoginVO vo){
-		mailUtility.joinMail(vo.getEmail());
+		mailUtils.joinMail(vo.getEmail());
 		return "redirect:/";
 	}
 
@@ -110,7 +109,7 @@ public class LoginController {
 				mav.setViewName("member/find");
 			}else {
 				String temporaryPassword = Utility.temporaryPassword(8);
-				mailUtility.accountMail(member.getId(), temporaryPassword, member.getEmail());
+				mailUtils.accountMail(member.getId(), temporaryPassword, member.getEmail());
 				vo.setPassword(temporaryPassword);
 				service.changePassword(vo);
 				mav.addObject("email", vo.getEmail());

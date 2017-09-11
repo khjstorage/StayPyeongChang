@@ -48,7 +48,7 @@ public class LodgeVO {
     //  환불규정
     private String refund_Provision;
     // 이미지
-	private String image;
+	private String main_image;
     //  생성일
     private Date reg_Date;
     //  수정일
@@ -182,11 +182,11 @@ public class LodgeVO {
 	public void setRefund_Provision(String refund_Provision) {
 		this.refund_Provision = refund_Provision;
 	}
-	public String getImage() {
-		return image;
+	public String getMain_Image() {
+		return main_image;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setMain_Image(String image) {
+		this.main_image = main_image;
 	}
 	public Date getReg_Date() {
 		return reg_Date;
@@ -233,7 +233,7 @@ public class LodgeVO {
 				", secure='" + secure + '\'' +
 				", room_Explain='" + room_Explain + '\'' +
 				", refund_Provision='" + refund_Provision + '\'' +
-				", image='" + image + '\'' +
+				", main_image='" + main_image + '\'' +
 				", reg_Date=" + reg_Date +
 				", update_Date=" + update_Date +
 				", files=" + Arrays.toString(files) +

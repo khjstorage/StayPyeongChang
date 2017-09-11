@@ -18,7 +18,7 @@ public class LodgeDAO {
 	SqlSessionTemplate sqlSession;
 	
 	public List<LodgeVO> listMain() throws Exception{
-		return sqlSession.selectList("staypc.listMain");
+		return sqlSession.selectList("lodge.listMain");
 	}
 	
 	public int count(String num, String keyword, String sdate, String edate) throws Exception{
@@ -28,7 +28,7 @@ public class LodgeDAO {
 		map.put("sdate", sdate);
 		map.put("edate", edate);
 		
-		return sqlSession.selectOne("staypc.count",  map);
+		return sqlSession.selectOne("lodge.count",  map);
 	}
 	
 	public List<LodgeVO> listAll(int start, int end, String num, String keyword, String sdate, String edate) throws Exception{
@@ -41,14 +41,14 @@ public class LodgeDAO {
 		map.put("edate", edate);
 		
 		
-		System.out.println(sqlSession.selectList("staypc.listAll", map));
-		return sqlSession.selectList("staypc.listAll", map);
+		System.out.println(sqlSession.selectList("lodge.listAll", map));
+		return sqlSession.selectList("lodge.listAll", map);
 
 	}
 	
 	//추가부분 시작
 	public LodgeVO read(int  lodge_Code) throws Exception{	
-		return sqlSession.selectOne("staypc.read",  lodge_Code);
+		return sqlSession.selectOne("lodge.read",  lodge_Code);
 	}
 	//추가 부분 끝
 }

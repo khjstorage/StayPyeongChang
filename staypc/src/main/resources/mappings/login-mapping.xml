@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="member">
+<mapper namespace="login">
     <select id="duplicate_id" resultType="String">
         SELECT id FROM STAYPC_MEMBER WHERE id = #{id}
     </select>
