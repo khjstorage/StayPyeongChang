@@ -14,7 +14,7 @@
     <insert id="insert_image">
       INSERT INTO staypc_lodge_image (Image_code, lodge_code, fileName) VALUES (
       (SELECT ( Nvl(Max(Image_code), 0) + 1 )  FROM  staypc_lodge_image),
-      (SELECT ( Nvl(Max(lodge_code), 0) + 1 )  FROM  staypc_lodge),
+      (SELECT ( Nvl(Max(lodge_code), 0) )  FROM  staypc_lodge),
       #{fileName}
       )
     </insert>
