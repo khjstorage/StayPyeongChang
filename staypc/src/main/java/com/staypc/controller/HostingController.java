@@ -60,6 +60,12 @@ public class HostingController {
 //            e.printStackTrace();
 //        }
 
+        if(vo.getFiles()!=null){
+            vo.setMain_Image(vo.getFiles()[0]);
+        }else{
+            vo.setMain_Image("");
+        }
+
         service.hostinsert(vo);
         return "redirect:/";
     }
@@ -76,6 +82,8 @@ public class HostingController {
     @ResponseBody
     @RequestMapping("host/displayFile.do")
     public ResponseEntity<byte[]>  displayFile(String fileName)throws Exception{
+        System.out.println(fileName);
+        System.out.println(fileName.substring(fileName.indexOf("_")));
         InputStream in = null;
         ResponseEntity<byte[]> entity = null;
         try{
@@ -87,6 +95,7 @@ public class HostingController {
                 headers.setContentType(mType);
             }else{
                 fileName = fileName.substring(fileName.indexOf("_")+1);
+
                 headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
                 headers.add("Content-Disposition", "attachment; filename=\""+
                         new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
@@ -104,14 +113,20 @@ public class HostingController {
     @ResponseBody
     @RequestMapping(value="host/deleteFile.do", method=RequestMethod.POST)
     public ResponseEntity<String> deleteFile(String fileName){
+        System.out.println(fileName);
         String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
         MediaType mType = MediaUtils.getMediaType(formatName);
 
+        //원본파일 삭제
         if(mType != null){
             String front = fileName.substring(0,12);
             String end = fileName.substring(14);
+            System.out.println(front);
+            System.out.println(end);
             new File(uploadPath + (front+end).replace('/', File.separatorChar)).delete();
         }
+
+        //섬네일 삭제
         new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
