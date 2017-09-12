@@ -34,7 +34,7 @@
 							</c:forEach>
 							☞
 						</c:if>
-						<a href="read.do?no=${ b.review_num }&pg=${ pg }"></a></td>
+						<a href="lodge/read.do?review_num=${ b.review_num }&pg=${ pg }"></a></td>
 					<td class="left">&nbsp;${ b.id }</td>
 					<td class="center"><fmt:formatDate value="${ b.regdate }" pattern="yyyy년MM월dd일"/></td>
 				</tr>
