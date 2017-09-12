@@ -38,7 +38,7 @@ public class LodgeServiceImpl implements LodgeService {
 	
 	@Override
 	public void insert(LodgeVO vo)  throws Exception{
-		
+	
 	}
 	//추가 시작
 	@Override

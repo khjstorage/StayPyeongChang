@@ -55,7 +55,24 @@ public class LodgeVO {
     private Date update_Date;
     //  방사진
 	private String[] files;
-
+	// 날짜 차이
+	private int diffDay;
+	
+	private String book_date;
+	
+	
+	public String getBook_date() {
+		return book_date;
+	}
+	public void setBook_date(String book_date) {
+		this.book_date = book_date;
+	}
+	public int getDiffDay() {
+		return diffDay;
+	}
+	public void setDiffDay(int diffDay) {
+		this.diffDay = diffDay;
+	}
 	public int getLodge_Code() {
 		return lodge_Code;
 	}
@@ -211,35 +228,18 @@ public class LodgeVO {
 	public void setFiles(String[] files) {
 		this.files = files;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "LodgeVO{" +
-				"lodge_Code=" + lodge_Code +
-				", id='" + id + '\'' +
-				", title='" + title + '\'' +
-				", room_Name='" + room_Name + '\'' +
-				", location='" + location + '\'' +
-				", enter_Time='" + enter_Time + '\'' +
-				", out_Time='" + out_Time + '\'' +
-				", check_In='" + check_In + '\'' +
-				", check_Out='" + check_Out + '\'' +
-				", charge=" + charge +
-				", room_Phone='" + room_Phone + '\'' +
-				", max_People='" + max_People + '\'' +
-				", room_Type='" + room_Type + '\'' +
-				", bulid_Type='" + bulid_Type + '\'' +
-				", room_Num='" + room_Num + '\'' +
-				", bed_Num='" + bed_Num + '\'' +
-				", bed_Type='" + bed_Type + '\'' +
-				", convenient='" + convenient + '\'' +
-				", secure='" + secure + '\'' +
-				", room_Explain='" + room_Explain + '\'' +
-				", refund_Provision='" + refund_Provision + '\'' +
-				", main_Image='" + main_Image + '\'' +
-				", reg_Date=" + reg_Date +
-				", update_Date=" + update_Date +
-				", files=" + Arrays.toString(files) +
-				'}';
+		return "LodgeVO [lodge_Code=" + lodge_Code + ", id=" + id + ", title=" + title + ", room_Name=" + room_Name
+				+ ", location=" + location + ", enter_Time=" + enter_Time + ", out_Time=" + out_Time + ", check_In="
+				+ check_In + ", check_Out=" + check_Out + ", charge=" + charge + ", room_Phone=" + room_Phone
+				+ ", max_People=" + max_People + ", room_Type=" + room_Type + ", bulid_Type=" + bulid_Type
+				+ ", room_Num=" + room_Num + ", bed_Num=" + bed_Num + ", bed_Type=" + bed_Type + ", convenient="
+				+ convenient + ", secure=" + secure + ", room_Explain=" + room_Explain + ", refund_Provision="
+				+ refund_Provision + ", main_Image=" + main_Image + ", reg_Date=" + reg_Date + ", update_Date="
+				+ update_Date + ", files=" + Arrays.toString(files) + ", diffDay=" + diffDay + "]";
 	}
+
+	
 }
