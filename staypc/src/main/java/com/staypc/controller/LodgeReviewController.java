@@ -22,9 +22,10 @@ public class LodgeReviewController {
 	@Autowired
 	LodgeReviewService Service;
 	
-	@RequestMapping(value="reviewRead.do", method=RequestMethod.GET)
+	@RequestMapping(value="lodge/reviewRead.do", method=RequestMethod.GET)
 	public ModelAndView read(LodgeReviewVO vo, HttpSession session, HttpServletRequest request) throws Exception{
 		
+		Service.updateHit(vo);
 		LodgeReviewVO lodgeReviewVO = Service.read(vo);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("vo", vo);
@@ -33,7 +34,7 @@ public class LodgeReviewController {
 		return mav;
 	}	
 	
-	@RequestMapping(value="reviewList.do", method=RequestMethod.GET)
+	@RequestMapping(value="lodge/reviewList.do", method=RequestMethod.GET)
     public String ReviewList(LodgeReviewVO vo, Model model,
     		@RequestParam(value="pg", defaultValue = "1") int pg,
     		HttpServletRequest request) throws Exception {
@@ -74,7 +75,7 @@ public class LodgeReviewController {
         return  "redirect:reviewList.do"; 
     }
 	
-	@RequestMapping(value="reviewInsert.do", method=RequestMethod.POST)
+	@RequestMapping(value="lodge/reviewInsert.do", method=RequestMethod.POST)
 	public String insert( LodgeReviewVO vo, HttpSession session) throws Exception{
 						
 	     Service.insert(vo);
@@ -82,7 +83,7 @@ public class LodgeReviewController {
 		
 	}
 	
-	@RequestMapping(value="reviewInsertReply.do", method=RequestMethod.POST)
+	@RequestMapping(value="lodge/reply.do", method=RequestMethod.POST)
 	public String insertReply( LodgeReviewVO vo, Model model) throws Exception {
 		int isort = vo.getSort();
 		int itab = vo.getTab();
@@ -97,15 +98,15 @@ public class LodgeReviewController {
 		 return "redirect:list.do";
 	}
 	
-	@RequestMapping(value="reviewUpdate.do", method=RequestMethod.POST)
+	@RequestMapping(value="lodge/update.do", method=RequestMethod.POST)
 	public String update( LodgeReviewVO vo, HttpSession session) throws Exception{
 		   Service.update(vo);	
 	     return "redirect:reviewList.do";
 		
 	}
 	
-	@RequestMapping(value="reviewDeleteAll.do", method=RequestMethod.POST)
-	public String deleteAll( LodgeReviewVO vo, Model model )throws Exception{
+	@RequestMapping(value="lodge/reviewDeleteAll.do", method=RequestMethod.POST)
+	public String delete( LodgeReviewVO vo, Model model )throws Exception{
 		int iSort = vo.getSort();
 		int res = 0;
 		
@@ -120,20 +121,25 @@ public class LodgeReviewController {
 		return  "redirect:list.do";
 	}
 	
+	@RequestMapping("lodge/deleteform.do")
+	public String deletePage(Model model) {
+		return "lodge/delete";
+	}
+	
 
-	@RequestMapping(value="reviewWriteform.do", method=RequestMethod.POST)
+	@RequestMapping(value="lodge/reviewWriteform.do", method=RequestMethod.POST)
 	public String writePage(Model model, HttpServletRequest request) throws Exception{
 		return "redirect:writeform.do";
 	}
 	
-	@RequestMapping(value="reviewInsertReplyform.do", method=RequestMethod.POST)
+	@RequestMapping(value="lodge/reviewInsertReplyform.do", method=RequestMethod.POST)
 	public String replyPage(LodgeReviewVO vo, Model model) throws Exception {
 		model.addAttribute("board", Service.read(vo));
 		
 		return "redirect:reviewInsertReply";
 	}
 	
-	@RequestMapping(value="reviewUpdateform.do", method=RequestMethod.POST)
+	@RequestMapping(value="lodge/reviewUpdateform.do", method=RequestMethod.POST)
 	public String updatePage(LodgeReviewVO vo, Model model) throws Exception {
 		
 		LodgeReviewVO lodgeReviewVO = Service.read(vo);
