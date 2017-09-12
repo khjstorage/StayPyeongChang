@@ -15,14 +15,11 @@ public class HostingDAO {
     @Autowired
     SqlSessionTemplate sqlSession;
 
-    public void hostinsert(LodgeVO vo){
-        System.out.println(vo);
-        sqlSession.insert("hosting.write",vo);
+    public void hosting(LodgeVO vo){
+        sqlSession.insert("hosting.insert",vo);
     }
 
-    public String daycal(HashMap daycalMap) {
-        System.out.println(daycalMap.get("start"));
-        System.out.println(daycalMap.get("end"));
-      return  sqlSession.selectOne("hosting.daycal", daycalMap);
+    public void hosting_image(String fileName) {
+        sqlSession.insert("hosting.insert_image",fileName);
     }
 }

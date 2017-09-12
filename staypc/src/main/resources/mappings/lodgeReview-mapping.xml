@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review">
+	
+	
+	<!-- 메인페잊이 -->
+	<select id="listMain" resultType="staypc_lodgeDTO">
+		SELECT lodge_code, image, charge, title FROM staypc_lodge 
+		where lodge_code > (SELECT MAX(lodge_code)-9 from staypc_lodge)
+		order by lodge_code DESC
+	</select>
+	
+	<select id="count" resultType="int">
+        SELECT COUNT(distinct l.lodge_code) 
+         FROM  staypc_lodge l, staypc_lodge_book d
+        <include refid="search"></include>
+    </select>
+        
+	<!-- 페이지 읽기 추가 시작 -->
+	<select id="read" resultType="staypc_lodgeDTO">
+		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
+	</select>
+	<!-- 페이지 읽기 추가 시작 -->
+	<select id="read" resultType="staypc_lodgeDTO">
+		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
+	</select>
+	<!-- 페이지 읽기 추가 끝 -->
+	
+	
+	<!-- 숙소 게시판 기능
+	<select id="read" resultType="staypc_lodgeReviewDTO">
+		SELECT *FROM staypc_review WHERE LODGE_CODE=#{review_num}
+	</select>
+	
+	<insert id="insert" resultType="staypc_lodgeReviewDTO">
+	insert 
+	  -->
+	
+	
+    
+   <select id="listAll" resultType="staypc_lodgeDTO">
+       <include refid="pagingHeader"></include>
+        SELECT DISTINCT l.lodge_code, l.title, l.charge, l.image
+        FROM  staypc_lodge l, staypc_lodge_book d
+       <include refid="search"></include>
+        order by lodge_code DESC
+        <include refid="pagingFooter"></include>
+    </select>
+	
+	<sql id="search">
+                WHERE max_people  like '%'||#{num}||'%' and 
+                location   like '%'||#{keyword}||'%' and
+                l.lodge_code = d.lodge_code
+               
+                <if test="sdate!=''">
+                <![CDATA[
+                and d.available = 'Y'
+                and d.book_date between #{sdate} and TO_DATE(#{edate})-1
+                
+                ]]>
+                </if>
+    </sql>
+
+    	<insert id="insertBoard" parameterType="board">
+	  INSERT INTO STAYPC_REVIEW(NO,
+	  						ID,
+	  						PWD,
+	  						TITLE,
+	  						CONTENT,
+	  						REGDATE,
+	  						HIT,
+	  						PARENT,
+	  						SORT,
+	  						TAB)
+	  				VALUES  ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
+	  				         #{id},
+	  				         #{pwd},
+	  				         #{title},
+	  				         #{content},
+	  				         SYSDATE,
+	  				         0,
+	  				         (SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
+	  				         0,
+	  				         0)
+    </insert>
+    
+    <insert id="insertReply" parameterType="board">
+    	INSERT INTO STAYPC_REVIEW(review_num,
+    						  ID,
+    						  PWD,
+    						  TITLE,
+    						  CONTENT,
+    						  REGDATE,
+    						  HIT,
+    						  PARENT,
+    						  SORT,
+    						  TAB)
+    		    VALUES        ((SELECT NVL(MAX(no),0)+1 FROM STAYPC_REVIEW),    
+    		    		      #{id},
+    		    		      #{pwd},
+    		    		      #{title},
+    		    		      #{content},
+    		    		      SYSDATE,
+    		    		      0,
+    		    		      #{parent},
+    		    		      #{sort},
+    		    		      #{tab}
+    		    		      )
+	</insert>
+    
+    <update id="update">
+       UPDATE STAYPC_REVIEW
+           set TITLE=#{title},
+               CONTENT=#{content},
+               REGDATE = SYSDATE
+       WHERE   NO=#{no} AND PWD=#{pwd} 
+    </update>
+    
+    <update id="updateHit">
+    	UPDATE STAYPC_REVIEW SET HIT=HIT+1 WHERE NO=#{no}
+    </update>
+    
+    <update id="updateSORT">
+    	UPDATE STAYPC_REVIEW 
+    	   SET SORT=SORT+1 
+    	WHERE PARENT=#{parent} AND SORT>#{sort}
+    </update>
+    
+    <delete id="deleteBoard">
+    	DELETE FROM STAYPC_REVIEW
+    	WHERE NO=#{no} AND PWD=#{pwd}
+    </delete>
+    
+    <delete id="deleteAll">
+    	DELETE FROM STAYPC_REVIEW
+    	WHERE  parent=#{parent}
+    </delete>
+    
+    <select id="getBoard" resultType="board">
+        SELECT  NO,
+                ID,
+                PWD,
+                TITLE,
+                CONTENT,
+                REGDATE,
+                HIT,
+                PARENT,
+                SORT,
+                TAB
+        FROM    STAYPC_REVIEW
+        where   NO=#{no}
+    </select>
+
+    <select id="getBoardList" resultType="board" parameterType="java.util.HashMap">
+   	<![CDATA[					
+		SELECT * 
+		  FROM ( SELECT NO,
+				ID,
+				PWD,
+				TITLE,
+				CONTENT,
+				REGDATE,
+				HIT,
+				PARENT,
+				SORT,
+				TAB,
+				ROW_NUMBER() OVER (ORDER BY PARENT DESC, SORT ASC) AS RNUM
+			   FROM STAYPC_REVIEW
+		 ) A
+		 WHERE RNUM >= #{p_first} AND RNUM <= #{p_last}
+	]]>
+    </select>
+    
+    <select id="getTotalCount" resultType="int">
+    	SELECT COUNT(*) as CNT 
+    	  FROM STAYPC_REVIEW
+    </select>
+    
+    
+    
+    
+    <sql id="pagingHeader">
+        SELECT * FROM (
+           SELECT ROWNUM AS rn, A.* FROM (
+    </sql>
+    
+    <sql id="pagingFooter">
+           ) A
+        ) WHERE rn BETWEEN #{start} AND #{end}
+    </sql> 
+	
+</mapper>
+

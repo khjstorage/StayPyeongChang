@@ -19,13 +19,17 @@ public class HostingServiceImpl implements HostingService {
 
     @Override
     public void hostinsert(LodgeVO vo) {
-        dao.hostinsert(vo);
-    }
 
-    @Override
-    public String daycal(HashMap daycalMap) {
-        return dao.daycal(daycalMap);
-    }
+        dao.hosting(vo);
 
+        String[] files = vo.getFiles();
+        if(files==null){
+            return;
+        }
+        for(String fileName : files){
+            dao.hosting_image(fileName);
+        }
+
+    }
 
 }

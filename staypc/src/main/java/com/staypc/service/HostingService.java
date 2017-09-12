@@ -10,5 +10,4 @@ import java.util.HashMap;
 
 public interface HostingService {
     void hostinsert(LodgeVO vo);
-    String daycal(HashMap daycalMap);
 }

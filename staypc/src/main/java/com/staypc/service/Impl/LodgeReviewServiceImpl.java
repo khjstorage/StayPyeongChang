@@ -19,8 +19,8 @@ public class LodgeReviewServiceImpl implements LodgeReviewService {
 		dao.insert(vo);
 	}
 	@Override
-	public LodgeReviewVO read(int  review_num) throws Exception{
-		return dao.read(review_num);
+	public LodgeReviewVO read(LodgeReviewVO vo) throws Exception{
+		return dao.read(vo);
 	}
 	
 	@Override
@@ -29,12 +29,32 @@ public class LodgeReviewServiceImpl implements LodgeReviewService {
 	}
 	
 	@Override
-	public void delete(int  review_num) throws Exception{
-		dao.delete(review_num);
+	public int delete(LodgeReviewVO vo) throws Exception{
+		return dao.delete(vo);
 	}
 	
 	@Override
 	public List<LodgeReviewVO> reviewList(LodgeReviewVO vo) throws Exception{
 		return dao.reviewList(vo);
+	}
+	
+	@Override	
+	public int getTotalCount() throws Exception{
+		return dao.getTotalCount();
+	}
+	
+	@Override	
+	public void updateReplySort(LodgeReviewVO vo) throws Exception {
+		dao.updateReplySort(vo);
+	}
+	
+	@Override
+	public int insertReply(LodgeReviewVO vo) throws Exception{
+		return dao.insertReply(vo);
+	}
+	
+	@Override
+	public int deleteAll(LodgeReviewVO vo) throws Exception{
+		return dao.deleteAll(vo);
 	}
 }

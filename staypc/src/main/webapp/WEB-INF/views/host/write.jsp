@@ -12,10 +12,18 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <style>
-        .fileDrop{
-            width: 300px;
+        .fileDrop {
+            width: 100%;
             height: 200px;
             border: 1px dotted blue;
+            background-color: lightslategray;
+            margin: auto;
+        }
+
+        small {
+            margin-left: 3px;
+            font-weight: bold;
+            color: gray;
         }
     </style>
 
@@ -23,44 +31,60 @@
         $(document).ready(function () {
             $('#enter_Time').timepicker();
             $('#out_Time').timepicker();
+
+            $.datepicker.regional['ko'] = {
+                closeText: '닫기',
+                prevText: '이전달',
+                nextText: '다음달',
+                currentText: '오늘',
+
+                weekHeader: 'Wk',
+                dateFormat: 'yy-mm-dd',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: true,
+                yearSuffix: '',
+
+
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                yearRange: 'c-99:c+99',
+            };
+            $.datepicker.setDefaults($.datepicker.regional['ko']);
+
             $('#check_In').datepicker();
-            $('#check_Out').datepicker();
-
-            $(".fileDrop").on("dragenter dragover", function (event) {
-                event.preventDefault();
-            })
-            $(".fileDrop").on("drop", function (event) {
-                event.preventDefault();
-                var files = event.originalEvent.dataTransfer.files;
-                var file = files[0];
-                console.log(file);
-            })
-        });
-        
-        
-        $(document).ready(function(){
-            $("#btnSave").click(function(){
-
-                document.form1.submit();
+            $('#check_In').datepicker("option", "minDate", $("#check_In").val());
+            $('#check_In').datepicker("option", "onClose", function (selectedDate) {
+                $("#check_In").datepicker("option", "maxDate", selectedDate);
             });
+
+            $('#check_Out').datepicker();
+            $('#check_Out').datepicker("option", "maxDate", $("#check_Out").val());
+            $('#check_Out').datepicker("option", "onClose", function (selectedDate) {
+                $("#check_Out").datepicker("option", "minDate", selectedDate);
+            });
+
         });
-        
+
+
     </script>
+
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
-    <form action="/host/insert.do" method="post" enctype="multipart/form-data" name="form1">
+    <form action="/host/insert.do" method="post" enctype="multipart/form-data" id="hostingForm">
         <h1>숙소 호스팅</h1>
 
         <div>
             제목 : <input type="text" name="title" id="title" value="제목"> <br>
-            숙소명 : <input type="text" name="room_Name" value="타이틀"> <br>
+            숙소명 : <input type="text" name="room_Name" value="숙소명"> <br>
             주소 : <input type="text" name="location" value="주소"> <br>
             숙소 입실시간 : <input type="text" name="enter_Time" id="enter_Time"> &nbsp; 숙소 퇴실시간 : <input type="text" name="out_Time" id="out_Time"> <br>
             판매날짜 : <input type="text" name="check_In" id="check_In"> ~ <input type="text" name="check_Out" id="check_Out"> <br>
             숙소 예약기한 : <input type="text" name="res_deadline" value=2> &nbsp;* 몇일전까지 예약가능한지 숫자로 입력하세요. ex) 입실 2일전까지
             예약해야하면 2 로입력 <br>
-            숙박료 : <input type="text" name="charge" value="2000"> <br>
+            숙박료 : <input type="text" name="charge" value="100000"> <br>
             숙소 연락처 : <input type="text" name="room_Phone" value="010-8349-0706"> <br>
             최대 인원수
             <select name="max_People">
@@ -79,7 +103,7 @@
 
         <div>
             <b>방타입</b>
-            집전체: <input type="radio" name="room_Type" value="집전체">
+            집전체: <input type="radio" name="room_Type" value="집전체" checked>
             개인실: <input type="radio" name="room_Type" value="개인실">
             다인실: <input type="radio" name="room_Type" value="다인실">
             <br>
@@ -87,7 +111,7 @@
 
         <div>
             <b>건물타입</b>
-            주택: <input type="radio" name="bulid_Type" value="주택">
+            주택: <input type="radio" name="bulid_Type" value="주택" checked>
             빌딩: <input type="radio" name="bulid_Type" value="빌딩">
             기타: <input type="radio" name="bulid_Type" value="기타">
             <br>
@@ -110,36 +134,34 @@
 
         <div>
             <b>편의시설</b>
-            WiFi : <input type="checkbox" name="convenient" value="wifi">
+            WiFi : <input type="checkbox" name="convenient" value="wifi" checked>
             TV : <input type="checkbox" name="convenient" value="tv">
-            수영장 : <input type="checkbox" name="convenient" value="수영장">
+            수영장 : <input type="checkbox" name="convenient" value="수영장" checked>
             주차 : <input type="checkbox" name="convenient" value="주차">
             부엌 : <input type="checkbox" name="convenient" value="부엌">
         </div>
 
         <div>
             <b>안전시설</b>
-            연기감지기 : <input type="checkbox" name="secure" value="연기감지기">
+            연기감지기 : <input type="checkbox" name="secure" value="연기감지기" checked>
             구급상자 : <input type="checkbox" name="secure" value="구급상자">
             소화기 : <input type="checkbox" name="secure" value="소화기">
             방잠금장치 : <input type="checkbox" name="secure" value="방잠금장치">
         </div>
 
         <div>
-            숙소설명 <br> <textarea rows="15" cols="90" name="room_Explain">감사합니다</textarea><br>
+            숙소설명 <br> <textarea rows="15" cols="90" name="room_Explain">숙소설명</textarea><br>
         </div>
 
         <div>
-            환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision">안돼</textarea><br>
+            환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision">환불규정</textarea><br>
         </div>
-
         <h3>숙소 사진 업로드</h3>
         <div class="fileDrop"></div>
         <div class="uploadedList"></div>
-
-        <button type="button" id="btnSave">숙소등록</button>
-        <button type="button">취소</button>
+        <button type="submit" id="btnSave">숙소등록</button>
     </form>
 </div>
+<script src="/resources/js/upload.js"></script>
 </body>
 </html>

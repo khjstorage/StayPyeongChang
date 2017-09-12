@@ -33,7 +33,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/member/modify.do"/>
             <mvc:mapping path="/member/drop.do"/>
-            <mvc:mapping path="/host/write.do"/>
+            <!--<mvc:mapping path="/host/write.do"/>-->
             <bean class="com.staypc.interceptor.InterCeptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

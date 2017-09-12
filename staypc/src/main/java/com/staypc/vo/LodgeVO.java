@@ -1,6 +1,7 @@
 package com.staypc.vo;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 
 public class LodgeVO {
@@ -47,11 +48,14 @@ public class LodgeVO {
     //  환불규정
     private String refund_Provision;
     // 이미지
-	private String image;
+	private String main_Image;
     //  생성일
     private Date reg_Date;
     //  수정일
     private Date update_Date;
+    //  방사진
+	private String[] files;
+
 	public int getLodge_Code() {
 		return lodge_Code;
 	}
@@ -178,12 +182,15 @@ public class LodgeVO {
 	public void setRefund_Provision(String refund_Provision) {
 		this.refund_Provision = refund_Provision;
 	}
-	public String getImage() {
-		return image;
+
+	public String getMain_Image() {
+		return main_Image;
 	}
-	public void setImage(String image) {
-		this.image = image;
+
+	public void setMain_Image(String main_Image) {
+		this.main_Image = main_Image;
 	}
+
 	public Date getReg_Date() {
 		return reg_Date;
 	}
@@ -197,16 +204,42 @@ public class LodgeVO {
 		this.update_Date = update_Date;
 	}
 
-	@Override
-	public String toString() {
-		return "LodgeVO [lodge_Code=" + lodge_Code + ", id=" + id + ", title=" + title + ", room_Name=" + room_Name
-				+ ", location=" + location + ", enter_Time=" + enter_Time + ", out_Time=" + out_Time + ", check_In="
-				+ check_In + ", check_Out=" + check_Out + ", charge=" + charge + ", room_Phone=" + room_Phone
-				+ ", max_People=" + max_People + ", room_Type=" + room_Type + ", bulid_Type=" + bulid_Type
-				+ ", room_Num=" + room_Num + ", bed_Num=" + bed_Num + ", bed_Type=" + bed_Type + ", convenient="
-				+ convenient + ", secure=" + secure + ", room_Explain=" + room_Explain + ", refund_Provision="
-				+ refund_Provision + ", image=" + image + ", reg_Date=" + reg_Date + ", update_Date=" + update_Date
-				+ "]";
+	public String[] getFiles() {
+		return files;
 	}
 
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
+
+	@Override
+	public String toString() {
+		return "LodgeVO{" +
+				"lodge_Code=" + lodge_Code +
+				", id='" + id + '\'' +
+				", title='" + title + '\'' +
+				", room_Name='" + room_Name + '\'' +
+				", location='" + location + '\'' +
+				", enter_Time='" + enter_Time + '\'' +
+				", out_Time='" + out_Time + '\'' +
+				", check_In='" + check_In + '\'' +
+				", check_Out='" + check_Out + '\'' +
+				", charge=" + charge +
+				", room_Phone='" + room_Phone + '\'' +
+				", max_People='" + max_People + '\'' +
+				", room_Type='" + room_Type + '\'' +
+				", bulid_Type='" + bulid_Type + '\'' +
+				", room_Num='" + room_Num + '\'' +
+				", bed_Num='" + bed_Num + '\'' +
+				", bed_Type='" + bed_Type + '\'' +
+				", convenient='" + convenient + '\'' +
+				", secure='" + secure + '\'' +
+				", room_Explain='" + room_Explain + '\'' +
+				", refund_Provision='" + refund_Provision + '\'' +
+				", main_Image='" + main_Image + '\'' +
+				", reg_Date=" + reg_Date +
+				", update_Date=" + update_Date +
+				", files=" + Arrays.toString(files) +
+				'}';
+	}
 }

@@ -29,18 +29,15 @@ public class LodgeController {
 	LodgeService Service;
 	
 
-	@RequestMapping("/")
-	public ModelAndView main() throws Exception{
+	@RequestMapping("/main.do")
+	public ModelAndView main(ModelAndView mav) throws Exception{
+
 		List<LodgeVO> list = Service.listMain();
-		
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, List> map = new HashMap<String, List>();
 		map.put("list", list);
 
-		ModelAndView mav = new ModelAndView();
 		mav.addObject("map", map);
 		mav.setViewName("home/main");
-		
-		System.out.println("홈");
 		return mav;
 	}
 	
@@ -60,12 +57,8 @@ public class LodgeController {
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 		
-		
-		
 		List<LodgeVO> list = Service.listAll(start, end, num, keyword, sdate, edate);
-		
 		Map<String, Object> map = new HashMap<String, Object>();
-		
 		System.out.println("list값"+list);
 		map.put("list", list);
 		map.put("count", count);
@@ -84,12 +77,14 @@ public class LodgeController {
 	
 
 	//추가 시작 
-	@RequestMapping(value="read.do", method=RequestMethod.GET)
+	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
 	public ModelAndView read(@RequestParam int  lodge_Code, HttpSession session, HttpServletRequest request) throws Exception{
 		
 		LodgeVO vo = Service.read(lodge_Code);
+		List listimg =  Service.readimg(lodge_Code);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("vo", vo);
+		mav.addObject("listimg", listimg);
 		mav.setViewName("lodge/houseread");
 		
 		return mav;

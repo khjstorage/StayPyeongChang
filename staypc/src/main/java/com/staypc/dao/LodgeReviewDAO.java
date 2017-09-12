@@ -16,23 +16,37 @@ public class LodgeReviewDAO {
 	
 	
 	public void insert(LodgeReviewVO vo) throws Exception{
-		sqlSession.insert("staypc.insert",vo );		
+		sqlSession.insert("review.insert",vo );		
 	}
 
-	public LodgeReviewVO read(int  review_num) throws Exception{	
-		return sqlSession.selectOne("staypc.read",  review_num);
+	public LodgeReviewVO read(LodgeReviewVO  vo) throws Exception{	
+		return sqlSession.selectOne("review.read",  vo);
 	}
 
 	public void update(LodgeReviewVO vo) throws Exception{
-	     sqlSession.update("staypc.update",  vo);
+	     sqlSession.update("review.update",  vo);
 	}
 	
-	public void delete(int  review_num) throws Exception{
-		 sqlSession.delete("staypc.delete",review_num );
+	public int delete(LodgeReviewVO  vo) throws Exception{
+		return sqlSession.delete("review.delete",vo );
 	}
 	
 	public List<LodgeReviewVO> reviewList(LodgeReviewVO vo) throws Exception{
-		return sqlSession.selectList("staypc.reviewList",vo);
+		return sqlSession.selectList("review.reviewList",vo);
 	}
 	
+	public int getTotalCount() throws Exception {
+		return sqlSession.selectOne("review.getTotalCount");
+	}
+	
+	public void updateReplySort(LodgeReviewVO vo) throws Exception {
+		sqlSession.update("review.updateSort",vo);
+	}
+	public int insertReply(LodgeReviewVO vo) throws Exception{
+		return sqlSession.insert("review.insertReply", vo);
+	}
+	
+	public int deleteAll(LodgeReviewVO vo) throws Exception{
+		return sqlSession.delete("review.deleteAll", vo);
+	}
 }

@@ -10,6 +10,10 @@ public class LodgeReviewVO {
 	private Date reg_date;
 	private Date update_date;
 	private int grade;
+	private int parent; // �� �׷� ��ȣ
+	private int sort; // ��� ���� ��ȣ
+	private int tab; // �鿩 ����
+	
 	
 	public int getReview_num() {
 		return review_num;
@@ -53,13 +57,32 @@ public class LodgeReviewVO {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-	
+	public int getParent() {
+		return parent;
+	}
+	public void setParent(int parent) {
+		this.parent = parent;
+	}
+	public int getSort() {
+		return sort;
+	}
+	public void setSort(int sort) {
+		this.sort = sort;
+	}
+	public int getTab() {
+		return tab;
+	}
+	public void setTab(int tab) {
+		this.tab = tab;
+	}
 	
 	@Override
 	public String toString() {
 		return "LodgeReviewVO [review_num=" + review_num + ", id=" + id + ", lodge_code=" + lodge_code + ", content="
-				+ content + ", reg_date=" + reg_date + ", update_date=" + update_date + ", grade=" + grade + "]";
+				+ content + ", reg_date=" + reg_date + ", update_date=" + update_date + ", grade=" + grade + ", parent="
+				+ parent + ", sort=" + sort + ", tab=" + tab + "]";
 	}
+	
 	
 	
 	

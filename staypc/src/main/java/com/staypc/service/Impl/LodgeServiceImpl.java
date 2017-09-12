@@ -45,6 +45,11 @@ public class LodgeServiceImpl implements LodgeService {
 	public LodgeVO read(int  lodge_Code) throws Exception{
 		return dao.read( lodge_Code);
 	}
+	
+	@Override
+	public List<LodgeVO> readimg(int lodge_Code ) throws Exception{
+		return dao.readimg(lodge_Code);
+	}
 	//추가 끝
 }
 
