@@ -19,4 +19,9 @@
       )
     </insert>
 
+    <insert id="insert_date" parameterType="lodge">
+        INSERT INTO STAYPC_LODGE_BOOK(book_code, lodge_code, book_date, available)
+        VALUES((Select NVL(Max(BOOK_CODE),0)+1 From STAYPC_LODGE_BOOK), (SELECT Max(lodge_code)  FROM  staypc_lodge),
+         #{book_date}, 'Y')
+    </insert>
 </mapper>
