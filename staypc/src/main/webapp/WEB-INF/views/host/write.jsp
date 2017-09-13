@@ -78,13 +78,13 @@
 
         <div>
             제목 : <input type="text" name="title" id="title" value="제목"> <br>
-            숙소명 : <input type="text" name="room_Name" value="숙소명"> <br>
+            숙소명 : <input type="text" name="room_Name" value="타이틀"> <br>
             주소 : <input type="text" name="location" value="주소"> <br>
             숙소 입실시간 : <input type="text" name="enter_Time" id="enter_Time"> &nbsp; 숙소 퇴실시간 : <input type="text" name="out_Time" id="out_Time"> <br>
             판매날짜 : <input type="text" name="check_In" id="check_In"> ~ <input type="text" name="check_Out" id="check_Out"> <br>
             숙소 예약기한 : <input type="text" name="res_deadline" value=2> &nbsp;* 몇일전까지 예약가능한지 숫자로 입력하세요. ex) 입실 2일전까지
             예약해야하면 2 로입력 <br>
-            숙박료 : <input type="text" name="charge" value="100000"> <br>
+            숙박료 : <input type="text" name="charge" value="2000"> <br>
             숙소 연락처 : <input type="text" name="room_Phone" value="010-8349-0706"> <br>
             최대 인원수
             <select name="max_People">
@@ -150,11 +150,11 @@
         </div>
 
         <div>
-            숙소설명 <br> <textarea rows="15" cols="90" name="room_Explain">숙소설명</textarea><br>
+            숙소설명 <br> <textarea rows="15" cols="90" name="room_Explain">감사합니다</textarea><br>
         </div>
 
         <div>
-            환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision">환불규정</textarea><br>
+            환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision">안돼</textarea><br>
         </div>
         <h3>숙소 사진 업로드</h3>
         <div class="fileDrop"></div>

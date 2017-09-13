@@ -53,7 +53,7 @@
 
 	<!--방 사진 저장 위치-->
 	<bean id="uploadPath" class="java.lang.String">
-		<constructor-arg value="C:\"/>
+		<constructor-arg value="C:\staypc_image"/>
 	</bean>
 
 </beans>
