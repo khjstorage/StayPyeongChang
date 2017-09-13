@@ -25,7 +25,7 @@
 //	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
 //	public ModelAndView read(LodgeReviewVO vo, HttpSession session, HttpServletRequest request) throws Exception{
 //		
-//		Service.updateHit(vo);
+//		//Service.updateHit(vo);
 //		LodgeReviewVO lodgeReviewVO = Service.read(vo);
 //		ModelAndView mav = new ModelAndView();
 //		mav.addObject("vo", vo);

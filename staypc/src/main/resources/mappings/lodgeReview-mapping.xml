@@ -65,7 +65,6 @@
 	  						PWD,
 	  						CONTENT,
 	  						REGDATE,
-	  						HIT,
 	  						PARENT,
 	  						SORT,
 	  						TAB)
@@ -74,7 +73,6 @@
 	  				         #{pwd},
 	  				         #{content},
 	  				         SYSDATE,
-	  				         0,
 	  				         (SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
 	  				         0,
 	  				         0)
@@ -86,7 +84,6 @@
     						  PWD,
        						  CONTENT,
     						  REGDATE,
-    						  HIT,
     						  PARENT,
     						  SORT,
     						  TAB)
@@ -95,8 +92,7 @@
     		    		      #{pwd},
     		    		      #{content},
     		    		      SYSDATE,
-    		    		      0,
-    		    		      #{parent},
+      		    		      #{parent},
     		    		      #{sort},
     		    		      #{tab}
     		    		      )
@@ -108,11 +104,11 @@
                REGDATE = SYSDATE
        WHERE   REVIEW_NUM=#{review_num} AND PWD=#{pwd} 
     </update>
-    
+    <!--  
     <update id="updateHit">
     	UPDATE STAYPC_REVIEW SET HIT=HIT+1 WHERE REVIEW_NUM=#{review_num}
     </update>
-    
+    -->
     <update id="updateSort">
     	UPDATE STAYPC_REVIEW 
     	   SET SORT=SORT+1 
@@ -135,7 +131,6 @@
                 PWD,
                 CONTENT,
                 REGDATE,
-                HIT,
                 PARENT,
                 SORT,
                 TAB
@@ -151,7 +146,6 @@
 				PWD,
 				CONTENT,
 				REGDATE,
-				HIT,
 				PARENT,
 				SORT,
 				TAB,

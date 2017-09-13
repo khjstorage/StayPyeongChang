@@ -5,6 +5,7 @@ import java.sql.Date;
 public class LodgeReviewVO {
 	private int review_num;
 	private String id;
+	private String password;
 	private String lodge_code;
 	private String content;
 	private Date reg_date;
@@ -13,8 +14,6 @@ public class LodgeReviewVO {
 	private int parent; // �� �׷� ��ȣ
 	private int sort; // ��� ���� ��ȣ
 	private int tab; // �鿩 ����
-	
-	
 	public int getReview_num() {
 		return review_num;
 	}
@@ -26,6 +25,12 @@ public class LodgeReviewVO {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getLodge_code() {
 		return lodge_code;
@@ -78,12 +83,10 @@ public class LodgeReviewVO {
 	
 	@Override
 	public String toString() {
-		return "LodgeReviewVO [review_num=" + review_num + ", id=" + id + ", lodge_code=" + lodge_code + ", content="
-				+ content + ", reg_date=" + reg_date + ", update_date=" + update_date + ", grade=" + grade + ", parent="
-				+ parent + ", sort=" + sort + ", tab=" + tab + "]";
+		return "LodgeReviewVO [review_num=" + review_num + ", id=" + id + ", password=" + password + ", lodge_code="
+				+ lodge_code + ", content=" + content + ", reg_date=" + reg_date + ", update_date=" + update_date
+				+ ", grade=" + grade + ", parent=" + parent + ", sort=" + sort + ", tab=" + tab + "]";
 	}
-	
-	
 	
 	
 }

@@ -11,7 +11,7 @@
 <link href="/resources/css/board.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-	<h1>게시글 리스트</h1>
+	<h1>게시글 리스트</h1>board
 	<hr>
 	<table style="border: 0px; width: 1000px;">
 		<tr>
