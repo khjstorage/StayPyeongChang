@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+	<select id="notice_list" resultType="noticeDTO">
+		select * from board
+	</select>
+	
+	<select id="notice_view">
+		select * from board where list_no=#{list_no}
+	</select>
+	
+	<insert id="notice_insert">
+		insert into board values((select nvl(max(list_no),1)+1 from board),#{subject},#{content},#{writer},#{password},sysdate)
+	</insert>
+	
+	<update id="notice_update">
+		update board set CONTENT=#{content}, subject=#{subject} where list_no=#{list_no}
+	</update>
+	
+	<delete id="notice_delete" parameterType="noticeDTO">
+		delete board where list_no=#{list_no}
+	</delete>
+
+</mapper>
