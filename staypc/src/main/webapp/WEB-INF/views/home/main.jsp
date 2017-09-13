@@ -101,21 +101,26 @@
     </div>
     
 
-    <div class="main_section02">
-    	<div class="section_wrap" style="border: 1px solid #000000;">
-				    <table >			
+ 
+    
+				 <table style="cellspacing:5px; cellpadding:auto;">			
 				        <tr>
 				            <c:forEach var="row" items="${map.list }" varStatus="status">
 				            <td align="center">
 				                <a href="read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
-				                    <div id="displayFile">
-				                        <img src="/host/displayFile.do?fileName=${row.main_Image}">
+				                    <div id="displayFile" style="width:300px; height:300px; border:1px solid #eeeeee; margin:10px;" >
+				                    
+
+				                        <img style="width=100%;height=100%;background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280">
 				                    </div>
 				                    <br>
 				                    \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>
 				                        ${row.title }
+				                        설명
+				                        별점
+				                        후기
 				                    <!-- 후기 있으면 게시글 이름 옆에 후기갯수 출력 -->
-				                        <%-- <c:if test="${row.recnt>0 }">
+				                       <%--  <c:if test="${row.recnt>0 }">
 				                            <span style="color:red;">(${row.recnt})</span>
 				                        </c:if> --%>
 				                </a>
@@ -127,29 +132,21 @@
 				            </c:if>
 				            </c:if>
 				            </c:forEach>
-				    </table>    
-		</div>
+				    </table>
+	
+    
+    <br>
+    <br>
+    <br>
+        
+    
+    <div style="width:100px; border:1px solid  #dddddd; height:50px;"align="center"  >
+        <a href='<c:url value="/lodge/list.do" ></c:url>'>전체보기</a>
     </div>
 
-    <div style="width: 800px;" align="center">
-        <a href='<c:url value="/lodge/list.do"></c:url>'>전체보기</a>
-    </div>
 
+ 
 
-    <!-- 숙소 썸네일, 전체보기
-    <div id="imglayout">
-       <img src="image/imglayout.png" width="1388" height="800" alt=""/>
-
-      <table id="whole_view">
-          <tr>
-              <td>&nbsp;<a href="#">전체보기</a></td>
-          </tr>
-      </table>
-    </div>
-
-     여기까지 슬기가  -->
-
-    <!--  test -->
 
 
     <!--동영상재생 / 경기일정  -->
