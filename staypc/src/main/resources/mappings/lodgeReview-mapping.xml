@@ -7,16 +7,12 @@
 
     	<insert id="insertBoard" parameterType="lodgeReview">
 	  INSERT INTO STAYPC_REVIEW(REVIEW_NUM,
-	  						ID,
-	  						PWD,
 	  						CONTENT,
 	  						REGDATE,
 	  						PARENT,
 	  						SORT,
 	  						TAB)
 	  				VALUES  ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
-	  				         #{id},
-	  				         #{pwd},
 	  				         #{content},
 	  				         SYSDATE,
 	  				         (SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
@@ -26,16 +22,12 @@
     
     <insert id="insertReply" parameterType="lodgeReview">
     	INSERT INTO STAYPC_REVIEW(review_num,
-    						  ID,
-    						  PWD,
        						  CONTENT,
     						  REGDATE,
     						  PARENT,
     						  SORT,
     						  TAB)
     		    VALUES        ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),    
-    		    		      #{id},
-    		    		      #{pwd},
     		    		      #{content},
     		    		      SYSDATE,
       		    		      #{parent},
@@ -67,7 +59,7 @@
     	WHERE  parent=#{parent}
     </delete>
     
-    <select id="getBoard" resultType="board">
+    <select id="getBoard" resultType="lodgeReview">
         SELECT  REVIEW_NUM,
                 ID,
                 PWD,
@@ -86,7 +78,7 @@
 		  FROM ( SELECT REVIEW_NUM,
 				ID,
 				CONTENT,
-				REGDATE,
+				REG_DATE,
 				PARENT,
 				SORT,
 				TAB,
@@ -97,10 +89,10 @@
 	]]>
     </select>
     
-    <select id="getTotalCount" resultType="int">
+<!--     <select id="getTotalCount" resultType="int">
     	SELECT COUNT(*) as CNT 
     	  FROM STAYPC_REVIEW
-    </select>
+    </select> -->
     
     <sql id="pagingHeader">
         SELECT * FROM (

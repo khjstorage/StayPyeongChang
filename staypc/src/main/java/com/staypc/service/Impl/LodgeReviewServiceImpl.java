@@ -1,5 +1,6 @@
 package com.staypc.service.Impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,8 @@ public class LodgeReviewServiceImpl implements LodgeReviewService {
 	}
 	
 	@Override
-	public List<LodgeReviewVO> reviewList(LodgeReviewVO vo) throws Exception{
-		return dao.reviewList(vo);
+	public List<LodgeReviewVO> reviewList(HashMap<String, String> map) throws Exception{
+		return dao.reviewList(map);
 	}
 	
 	@Override	

@@ -2,6 +2,7 @@
 <!DOCTYPE>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>login</title>
     <script language="javascript">
 
@@ -12,7 +13,7 @@
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
-    	<h1>게시글 리스트</h1>board
+    	<h1>게시글 리스트</h1>
 	<hr>
 	<table style="border: 0px; width: 1000px;">
 		<tr>
@@ -37,7 +38,7 @@
 						</c:if>
 						<a href="lodge/read.do?review_num=${ b.review_num }&pg=${ pg }"></a></td>
 					<td class="left">&nbsp;${ b.id }</td>
-					<td class="center"><fmt:formatDate value="${ b.regdate }" pattern="yyyy년MM월dd일"/></td>
+					<td class="center"><fmt:formatDate value="${ b.reg_date }" pattern="yyyy년MM월dd일"/></td>
 				</tr>
 			</c:forEach>
 		</c:if>

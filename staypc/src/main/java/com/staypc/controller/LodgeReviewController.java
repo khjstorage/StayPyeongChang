@@ -42,7 +42,7 @@ public class LodgeReviewController {
 		param.put("p_first", "" + begin);
 		param.put("p_last", "" + end);
 
-		List<LodgeReviewVO> list = Service.reviewList(vo);
+		List<LodgeReviewVO> list = Service.reviewList(param);
 
 		int allPage = (int) Math.ceil(total / (double) pgSize); //
 		int block = 10; //
@@ -60,14 +60,14 @@ public class LodgeReviewController {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("allPage", allPage);
 
-        return  "redirect:boardList.do";
+		return  "lodge/boardList";
     }
 	
-	@RequestMapping(value="lodge/insert.do", method=RequestMethod.GET)
+	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.GET)
 	public String insert( LodgeReviewVO vo, HttpSession session) throws Exception{
 
 	     Service.insert(vo);
-	     return  "redirect:boardList.do";
+	     return  "redirect:lodge/boardList";
 	}
 	
 	
