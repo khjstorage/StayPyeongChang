@@ -31,7 +31,7 @@ public class HostingServiceImpl implements HostingService {
         }
         
         try{
-        	System.out.println("3번말"+vo.getCheck_In()+"/"+vo.getCheck_Out());
+        	System.out.println("시작일/마지막일"+vo.getCheck_In()+"/"+vo.getCheck_Out());
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             GregorianCalendar cal = new GregorianCalendar();
 
@@ -44,7 +44,7 @@ public class HostingServiceImpl implements HostingService {
             System.out.println("두 날짜간의 차이는 "+diffDay+"일");
             
             for(int i= 0; i <diffDay; i++) {
-            	System.out.println("4-"+i+"번말");
+            	System.out.println(i+1+"번말");
             	cal.setTime(startDate);            
             	cal.add(cal.DAY_OF_YEAR, i);
             	
