@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
     <script>
         function list(page) {
             location.href = "list.do?curPage=" + page + "&num=${map.num}" + "&keyword=${map.keyword}";
@@ -49,11 +48,6 @@
             $('#edate').datepicker("option", "onClose", function (selectedDate) {
                 $("#sdate").datepicker("option", "maxDate", selectedDate);
             });
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of ddb34f1... 업로드 폴더수정
-        });
     </script>
 </head>
 
