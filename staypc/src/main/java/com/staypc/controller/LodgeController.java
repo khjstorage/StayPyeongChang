@@ -57,8 +57,12 @@ public class LodgeController {
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 		
+		
+		
 		List<LodgeVO> list = Service.listAll(start, end, num, keyword, sdate, edate);
+		
 		Map<String, Object> map = new HashMap<String, Object>();
+		
 		System.out.println("list값"+list);
 		map.put("list", list);
 		map.put("count", count);

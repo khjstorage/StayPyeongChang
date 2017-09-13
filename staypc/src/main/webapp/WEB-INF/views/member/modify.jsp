@@ -24,6 +24,8 @@
                     <li style="margin-top:10px;"><a href="#">프로필 보기</a></li>
                     <br>
                     <li style="margin-top:10px;"><a href="#">예약 내역 확인</a></li>
+					<br>
+					<li style="margin-top:10px;"><a href="/host/list.do">호스팅 확인/수정</a></li>
                 </ul>
             </div>
 
@@ -70,7 +72,6 @@
 	                <div class="gender">
 	                    <label>성별</label>
 	                    <div class="user_gender">
-	                    
 	                    	<c:choose>
 	                    		<c:when test="${member.gender eq 'M'}">
 	                       			<label>남자</label><input type="radio" name="gender" value="M" checked="checked">
@@ -80,6 +81,10 @@
 	                       			<label>남자</label><input type="radio" name="gender" value="M">
 	                       			<label>여자</label><input type="radio" name="gender" value="F" checked="checked">
 	                       		</c:when>
+								<c:otherwise>
+									<label>남자</label><input type="radio" name="gender" value="M">
+									<label>여자</label><input type="radio" name="gender" value="F">
+								</c:otherwise>
 	                    	</c:choose>
 	                    </div>
 	                </div>
@@ -89,10 +94,23 @@
 	                    <label>생년월일</label>
 	                    <div class="user_birthDate">
 		                    <fmt:parseDate value='${member.birth_date}' var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
-		                    <input type="text" name="birth_date" id="birth_date" class="datepicker" <fmt:formatDate value='${dateFmt}' pattern="yyyy-MM-dd"/>><br>
+							<fmt:formatDate value='${dateFmt}' var="birth_date" pattern="yyyy-MM-dd"/>
+		                    <input type="text" name="birth_date" id="birth_date" class="datepicker" value=${birth_date}> <br>
 		                    <div class="radio_birthDate">
-		                    <input type="radio" id="unlock" value="Y" name="birth_yn" style="margin-left:5px;"> 공개
-		                    <input type="radio" id="lock" value="N" name="birth_yn" style="margin-left:5px;"> 비공개
+								<c:choose>
+									<c:when test="${member.birth_yn eq 'Y'}">
+										<input type="radio" id="birth_unlock" value="Y" name="birth_yn" checked="checked" style="margin-left:10px";> 공개
+										<input type="radio" id="birth_lock" value="N" name="birth_yn" style="margin-left:10px;"> 비공개
+									</c:when>
+									<c:when test="${member.birth_yn eq 'N'}">
+										<input type="radio" id="birth_unlock" value="Y" name="birth_yn" style="margin-left:10px";> 공개
+										<input type="radio" id="birth_lock" value="N" name="birth_yn" checked="checked" style="margin-left:10px;"> 비공개
+									</c:when>
+									<c:otherwise>
+										<input type="radio" id="birth_unlock" value="Y" name="birth_yn" style="margin-left:10px";> 공개
+										<input type="radio" id="birth_lock" value="N" name="birth_yn"  style="margin-left:10px;"> 비공개
+									</c:otherwise>
+								</c:choose>
 		                    </div>
 	                    </div>                    
 	                </div>
@@ -104,8 +122,20 @@
 	                        ${member.email}
 	                    </div>
 	                    <div class="radio_email">
-	                        <input type="radio" id="unlock" value="Y" name="email_yn"  style="margin-left:10px;"> 공개
-	                        <input type="radio" id="lock" value="N" name="email_yn" style="margin-left:10px;"> 비공개
+							<c:choose>
+								<c:when test="${member.email_yn eq 'Y'}">
+									<input type="radio" id="email_unlock" value="Y" name="email_yn" checked="checked" style="margin-left:10px";> 공개
+									<input type="radio" id="email_lock" value="N" name="email_yn" style="margin-left:10px;"> 비공개
+								</c:when>
+								<c:when test="${member.email_yn eq 'N'}">
+									<input type="radio" id="email_unlock" value="Y" name="email_yn" style="margin-left:10px";> 공개
+									<input type="radio" id="email_lock" value="N" name="email_yn" checked="checked" style="margin-left:10px;"> 비공개
+								</c:when>
+								<c:otherwise>
+									<input type="radio" id="email_unlock" value="Y" name="email_yn" style="margin-left:10px";> 공개
+									<input type="radio" id="email_lock" value="N" name="email_yn"  style="margin-left:10px;"> 비공개
+								</c:otherwise>
+							</c:choose>
 	                    </div>
 	                </div>
 	                <br><br>
@@ -116,8 +146,20 @@
 	                        <input type="text" name="phone" id="phone" value='${member.phone}'>
 	                    </div>
 	                    <div class="radio_phone">
-	                        <input type="radio" id="unlock" value="Y" name="phone_yn" style="margin-left:10px;"> 공개
-	                        <input type="radio" id="lock" value="N" name="phone_yn" style="margin-left:10px;"> 비공개
+							<c:choose>
+								<c:when test="${member.phone_yn eq 'Y'}">
+									<input type="radio" id="phone_unlock" value="Y" name="phone_yn" checked="checked" style="margin-left:10px";> 공개
+									<input type="radio" id="phone_lock" value="N" name="phone_yn" style="margin-left:10px;"> 비공개
+								</c:when>
+								<c:when test="${member.phone_yn eq 'N'}">
+									<input type="radio" id="phone_unlock" value="Y" name="phone_yn" style="margin-left:10px";> 공개
+									<input type="radio" id="phone_lock" value="N" name="phone_yn" checked="checked" style="margin-left:10px;"> 비공개
+								</c:when>
+								<c:otherwise>
+									<input type="radio" id="phone_unlock" value="Y" name="phone_yn" style="margin-left:10px";> 공개
+									<input type="radio" id="phone_lock" value="N" name="phone_yn"  style="margin-left:10px;"> 비공개
+								</c:otherwise>
+							</c:choose>
 	                    </div>
 	                </div>
 	                <br><br>
@@ -128,8 +170,20 @@
 	                        <input type="text" name="city" id="city" value='${member.city}'><br>
 	                    </div>
 	                    <div class="radio_city">
-	                        <input type="radio" id="unlock" value="Y" name="city_yn" style="margin-left:10px;"> 공개
-	                        <input type="radio" id="lock" value="N" name="city_yn" style="margin-left:10px;"> 비공개
+							<c:choose>
+								<c:when test="${member.city_yn eq 'Y'}">
+									<input type="radio" id="city_unlock" value="Y" name="city_yn" checked="checked" style="margin-left:10px";> 공개
+									<input type="radio" id="city_lock" value="N" name="city_yn" style="margin-left:10px;"> 비공개
+								</c:when>
+								<c:when test="${member.city_yn eq 'N'}">
+									<input type="radio" id="city_unlock" value="Y" name="city_yn" style="margin-left:10px";> 공개
+									<input type="radio" id="city_lock" value="N" name="city_yn" checked="checked" style="margin-left:10px;"> 비공개
+								</c:when>
+								<c:otherwise>
+									<input type="radio" id="city_unlock" value="Y" name="city_yn" style="margin-left:10px";> 공개
+									<input type="radio" id="city_lock" value="N" name="city_yn"  style="margin-left:10px;"> 비공개
+								</c:otherwise>
+							</c:choose>
 	                    </div>
 	                </div>
 	                <br><br>

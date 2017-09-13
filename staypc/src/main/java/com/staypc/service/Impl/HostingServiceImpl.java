@@ -10,10 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Locale;
+import java.util.*;
 
 @Service
 public class HostingServiceImpl implements HostingService {
@@ -23,16 +20,15 @@ public class HostingServiceImpl implements HostingService {
 
     @Override
     public void hostinsert(LodgeVO vo) {
-    	System.out.println("함 찍어보자"+vo.getCheck_In());
         dao.hosting(vo);
 
-//        String[] files = vo.getFiles();
-//        if(files==null){
-//            return;
-//        }
-//        for(String fileName : files){
-//            dao.hosting_image(fileName);
-//        }
+        String[] files = vo.getFiles();
+        if(files==null){
+            return;
+        }
+        for(String fileName : files){
+            dao.hosting_image(fileName);
+        }
         
         try{
         	System.out.println("3번말"+vo.getCheck_In()+"/"+vo.getCheck_Out());
@@ -64,6 +60,11 @@ public class HostingServiceImpl implements HostingService {
         }
         
 
+    }
+
+    @Override
+    public List<LodgeVO> listhost(String id) {
+        return dao.listhost(id);
     }
 
 }

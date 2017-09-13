@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,6 +26,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 @Controller
 public class HostingController {
@@ -43,18 +45,25 @@ public class HostingController {
     @RequestMapping(value="host/insert.do", method= RequestMethod.POST)
     public String hosting(LodgeVO vo, HttpSession session) throws Exception{
         vo.setId((String)session.getAttribute("userId"));
-
-
-
         if(vo.getFiles()!=null){
             vo.setMain_Image(vo.getFiles()[0]);
         }else{
             vo.setMain_Image("");
         }
-
         service.hostinsert(vo);
         return "redirect:/";
         
+    }
+
+
+    @RequestMapping(value = "host/list.do", method = RequestMethod.GET)
+    public ModelAndView hostListForm(ModelAndView mav, HttpSession session){
+        String id = (String) session.getAttribute("userId");
+        System.out.println("session"+id);
+        List<LodgeVO> list =service.listhost(id);
+        mav.setViewName("host/list");
+        mav.addObject("list",list);
+        return mav;
     }
 
 
@@ -68,8 +77,6 @@ public class HostingController {
     @ResponseBody
     @RequestMapping("host/displayFile.do")
     public ResponseEntity<byte[]>  displayFile(String fileName)throws Exception{
-        System.out.println(fileName);
-        System.out.println(fileName.substring(fileName.indexOf("_")));
         InputStream in = null;
         ResponseEntity<byte[]> entity = null;
         try{
@@ -81,7 +88,6 @@ public class HostingController {
                 headers.setContentType(mType);
             }else{
                 fileName = fileName.substring(fileName.indexOf("_")+1);
-
                 headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
                 headers.add("Content-Disposition", "attachment; filename=\""+
                         new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
@@ -99,20 +105,14 @@ public class HostingController {
     @ResponseBody
     @RequestMapping(value="host/deleteFile.do", method=RequestMethod.POST)
     public ResponseEntity<String> deleteFile(String fileName){
-        System.out.println(fileName);
         String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
         MediaType mType = MediaUtils.getMediaType(formatName);
 
-        //원본파일 삭제
         if(mType != null){
             String front = fileName.substring(0,12);
             String end = fileName.substring(14);
-            System.out.println(front);
-            System.out.println(end);
             new File(uploadPath + (front+end).replace('/', File.separatorChar)).delete();
         }
-
-        //섬네일 삭제
         new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }

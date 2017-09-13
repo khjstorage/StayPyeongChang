@@ -12,14 +12,12 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
     <script>
         function list(page) {
             location.href = "list.do?curPage=" + page + "&num=${map.num}" + "&keyword=${map.keyword}";
         }
 
         $(document).ready(function () {
-
             $.datepicker.regional['ko'] = {
                 closeText: '닫기',
                 prevText: '이전달',
@@ -32,8 +30,6 @@
                 isRTL: false,
                 showMonthAfterYear: true,
                 yearSuffix: '',
-
-
                 changeMonth: true,
                 changeYear: true,
                 showButtonPanel: true,
@@ -52,9 +48,6 @@
             $('#edate').datepicker("option", "onClose", function (selectedDate) {
                 $("#sdate").datepicker("option", "maxDate", selectedDate);
             });
-
-
-
         });
     </script>
 </head>
@@ -109,7 +102,6 @@
             </td>
         </tr>
     </table>
-
     <table border="1" width="800px">
 
         <tr>

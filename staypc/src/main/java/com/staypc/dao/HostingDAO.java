@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 
 @Repository
 public class HostingDAO {
@@ -30,5 +31,9 @@ public class HostingDAO {
     public void hosting_date(LodgeVO vo) {
     	System.out.println("값이 안찍히나 투..?"+vo.getBook_date());
     	sqlSession.insert("hosting.insert_date",vo);
+    }
+
+    public List<LodgeVO> listhost(String id){
+        return sqlSession.selectList("hosting.list_hosting",id);
     }
 }
