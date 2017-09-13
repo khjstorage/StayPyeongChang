@@ -54,10 +54,6 @@
 
 <body>
 
-<!--
-	<center>
-	<a href='<c:url value="/board/boardList.do"/>'>답변형 게시판</a>
-	</center> -->
 
 
 <div id="main">
@@ -77,57 +73,64 @@
     
     <!-- 여기서부터 슬기가  -->
     <!-- 검색바 (위치, 날짜, 인원) -->
-    <table id="search">
-        <tr>
-            <td>
+    <div class="main_section01">
+			    <table id="search">
+			        <tr>
+			            <td>			
+			                <form name="form1" method="post" action='<c:url value="/lodge/list.do"></c:url>'>
+			                    <input type="text" id="sdate" name="sdate" value="${map.sdate }">~<input type="text" id="edate" name="edate" value="${map.edate }">
+			                    <input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
+			                    <select name="num">
+			                        <option value="">인원</option>
+			                        <option value="1" <c:out value="${map.num=='1'?'selected':'' }"/>>1명</option>
+			                        <option value="2" <c:out value="${map.num=='2'?'selected':'' }"/>>2명</option>
+			                        <option value="3" <c:out value="${map.num=='3'?'selected':'' }"/>>3명</option>
+			                        <option value="4" <c:out value="${map.num=='4'?'selected':'' }"/>>4명</option>
+			                        <option value="5" <c:out value="${map.num=='5'?'selected':'' }"/>>5명</option>
+			                        <option value="6" <c:out value="${map.num=='6'?'selected':'' }"/>>6명</option>
+			                        <option value="7" <c:out value="${map.num=='7'?'selected':'' }"/>>7명</option>
+			                        <option value="8" <c:out value="${map.num=='8'?'selected':'' }"/>>8명</option>
+			                        <option value="9" <c:out value="${map.num=='9'?'selected':'' }"/>>9명</option>
+			                        <option value="10" <c:out value="${map.num=='10'?'selected':'' }"/>>10명</option>
+			                    </select>
+			                    <input type="submit" value="검색">
+			                </form>
+			            </td>
+			        </tr>
+			    </table>
+    </div>
+    
 
-                <form name="form1" method="post" action='<c:url value="/lodge/list.do"></c:url>'>
-                    <input type="text" id="sdate" name="sdate" value="${map.sdate }">~<input type="text" id="edate" name="edate" value="${map.edate }">
-                    <input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
-                    <select name="num">
-                        <option value="">인원</option>
-                        <option value="1" <c:out value="${map.num=='1'?'selected':'' }"/>>1명</option>
-                        <option value="2" <c:out value="${map.num=='2'?'selected':'' }"/>>2명</option>
-                        <option value="3" <c:out value="${map.num=='3'?'selected':'' }"/>>3명</option>
-                        <option value="4" <c:out value="${map.num=='4'?'selected':'' }"/>>4명</option>
-                        <option value="5" <c:out value="${map.num=='5'?'selected':'' }"/>>5명</option>
-                        <option value="6" <c:out value="${map.num=='6'?'selected':'' }"/>>6명</option>
-                        <option value="7" <c:out value="${map.num=='7'?'selected':'' }"/>>7명</option>
-                        <option value="8" <c:out value="${map.num=='8'?'selected':'' }"/>>8명</option>
-                        <option value="9" <c:out value="${map.num=='9'?'selected':'' }"/>>9명</option>
-                        <option value="10" <c:out value="${map.num=='10'?'selected':'' }"/>>10명</option>
-                    </select>
-                    <input type="submit" value="검색">
-                </form>
-            </td>
-        </tr>
-    </table>
-    <table border="1" width="800px">
+    <div class="main_section02">
+    	<div class="section_wrap" style="border: 1px solid #000000;">
+				    <table >			
+				        <tr>
+				            <c:forEach var="row" items="${map.list }" varStatus="status">
+				            <td align="center">
+				                <a href="read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
+				                    <div id="displayFile">
+				                        <img src="/host/displayFile.do?fileName=${row.main_Image}">
+				                    </div>
+				                    <br>
+				                    \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>
+				                        ${row.title }
+				                    <!-- 후기 있으면 게시글 이름 옆에 후기갯수 출력 -->
+				                        <%-- <c:if test="${row.recnt>0 }">
+				                            <span style="color:red;">(${row.recnt})</span>
+				                        </c:if> --%>
+				                </a>
+				            </td>
+				            <c:if test="${status.count % 3 == 0}">
+				        </tr>
+				        <c:if test="${status.count % 3 != 9 }">
+				        <tr>
+				            </c:if>
+				            </c:if>
+				            </c:forEach>
+				    </table>    
+		</div>
+    </div>
 
-        <tr>
-            <c:forEach var="row" items="${map.list }" varStatus="status">
-            <td align="center">
-                <a href="read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
-                    <div id="displayFile">
-                        <img src="/host/displayFile.do?fileName=${row.main_Image}">
-                    </div>
-                    <br>
-                    \ <fmt:formatNumber value="${row.charge}" pattern="#,###"/>
-                        ${row.title }
-                    <!-- 후기 있으면 게시글 이름 옆에 후기갯수 출력 -->
-                        <%-- <c:if test="${row.recnt>0 }">
-                            <span style="color:red;">(${row.recnt})</span>
-                        </c:if> --%>
-                </a>
-            </td>
-            <c:if test="${status.count % 3 == 0}">
-        </tr>
-        <c:if test="${status.count % 3 != 9 }">
-        <tr>
-            </c:if>
-            </c:if>
-            </c:forEach>
-    </table>
     <div style="width: 800px;" align="center">
         <a href='<c:url value="/lodge/list.do"></c:url>'>전체보기</a>
     </div>

@@ -18,6 +18,18 @@ text-decoration:none;
 
 #search{ border: solid 1px #000000; height: 60px; width: 1000px; margin:20px 255px;}
 
+
+
+
+.main_section02{
+	border: solid 1px #000000;  
+	
+}
+.section_wrap{
+	border: solid 1px #000000;
+	
+}
+
 /*imglayout*/
 #imglayout {
 	 height: 800px; width: 1388px; margin: auto;
