@@ -32,8 +32,6 @@
                 isRTL: false,
                 showMonthAfterYear: true,
                 yearSuffix: '',
-
-
                 changeMonth: true,
                 changeYear: true,
                 showButtonPanel: true,
@@ -52,8 +50,6 @@
             $('#edate').datepicker("option", "onClose", function (selectedDate) {
                 $("#sdate").datepicker("option", "maxDate", selectedDate);
             });
-
-
 
         });
     </script>
