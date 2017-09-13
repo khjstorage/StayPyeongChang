@@ -68,8 +68,6 @@ public class HostingController {
     @ResponseBody
     @RequestMapping("host/displayFile.do")
     public ResponseEntity<byte[]>  displayFile(String fileName)throws Exception{
-        System.out.println(fileName);
-        System.out.println(fileName.substring(fileName.indexOf("_")));
         InputStream in = null;
         ResponseEntity<byte[]> entity = null;
         try{
@@ -81,7 +79,6 @@ public class HostingController {
                 headers.setContentType(mType);
             }else{
                 fileName = fileName.substring(fileName.indexOf("_")+1);
-
                 headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
                 headers.add("Content-Disposition", "attachment; filename=\""+
                         new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
@@ -105,8 +102,8 @@ public class HostingController {
 
         //원본파일 삭제
         if(mType != null){
-            String front = fileName.substring(0,12);
-            String end = fileName.substring(14);
+            String front = fileName.substring(0,13);
+            String end = fileName.substring(15);
             System.out.println(front);
             System.out.println(end);
             new File(uploadPath + (front+end).replace('/', File.separatorChar)).delete();
