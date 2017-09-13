@@ -1,6 +1,5 @@
 package com.staypc.dao;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -17,37 +16,40 @@ public class LodgeReviewDAO {
 	
 	
 	public void insert(LodgeReviewVO vo) throws Exception{
-		sqlSession.insert("staypc.insert",vo );		
+		sqlSession.insert("review.insertBoard",vo );		
 	}
 
 	public LodgeReviewVO read(LodgeReviewVO  vo) throws Exception{	
-		return sqlSession.selectOne("staypc.read",  vo);
+		return sqlSession.selectOne("review.getBoard",  vo);
 	}
 
 	public void update(LodgeReviewVO vo) throws Exception{
-	     sqlSession.update("staypc.update",  vo);
+	     sqlSession.update("review.update",  vo);
 	}
 	
+	public void updateHit(LodgeReviewVO vo) throws Exception{
+		 sqlSession.update("review.updateHit", vo);
+	}
 	public int delete(LodgeReviewVO  vo) throws Exception{
-		return sqlSession.delete("staypc.delete",vo );
+		return sqlSession.delete("review.deleteBoard",vo );
 	}
 	
 	public List<LodgeReviewVO> reviewList(LodgeReviewVO vo) throws Exception{
-		return sqlSession.selectList("staypc.reviewList",vo);
+		return sqlSession.selectList("review.getBoardList",vo);
 	}
 	
 	public int getTotalCount() throws Exception {
-		return sqlSession.selectOne("staypc.getTotalCount");
+		return sqlSession.selectOne("review.getTotalCount");
 	}
 	
 	public void updateReplySort(LodgeReviewVO vo) throws Exception {
-		sqlSession.update("staypc.updateSort",vo);
+		sqlSession.update("review.updateSort",vo);
 	}
 	public int insertReply(LodgeReviewVO vo) throws Exception{
-		return sqlSession.insert("staypc.insertReply", vo);
+		return sqlSession.insert("review.insertReply", vo);
 	}
 	
 	public int deleteAll(LodgeReviewVO vo) throws Exception{
-		return sqlSession.delete("staypc.deleteAll", vo);
+		return sqlSession.delete("review.deleteAll", vo);
 	}
 }

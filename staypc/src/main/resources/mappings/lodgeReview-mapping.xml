@@ -2,9 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="staypcReview">
+<mapper namespace="review">
 	
-	<!-- 메인페잊이 -->
+	
+	<!-- 메인페잊이 
 	<select id="listMain" resultType="staypc_lodgeDTO">
 		SELECT lodge_code, image, charge, title FROM staypc_lodge 
 		where lodge_code > (SELECT MAX(lodge_code)-9 from staypc_lodge)
@@ -15,24 +16,23 @@
         SELECT COUNT(distinct l.lodge_code) 
          FROM  staypc_lodge l, staypc_lodge_book d
         <include refid="search"></include>
-    </select>
-        
-	<!-- 페이지 읽기 추가 시작 -->
+    </select>        
+
 	<select id="read" resultType="staypc_lodgeDTO">
 		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
 	</select>
-	<!-- 페이지 읽기 추가 끝 -->
-	
-	
-	<!-- 숙소 게시판 기능
+
+	<select id="read" resultType="staypc_lodgeDTO">
+		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
+	</select>	
+
 	<select id="read" resultType="staypc_lodgeReviewDTO">
 		SELECT *FROM staypc_review WHERE LODGE_CODE=#{review_num}
 	</select>
 	
 	<insert id="insert" resultType="staypc_lodgeReviewDTO">
 	insert 
-	  -->
-	
+
 	
     
    <select id="listAll" resultType="staypc_lodgeDTO">
@@ -57,45 +57,42 @@
                 ]]>
                 </if>
     </sql>
+    -->
 
-    	<insert id="insertBoard" parameterType="board">
-	  INSERT INTO TBL_BOARD(NO,
+    	<insert id="insertBoard" parameterType="lodgeReview">
+	  INSERT INTO STAYPC_REVIEW(REVIEW_NUM,
 	  						ID,
 	  						PWD,
-	  						TITLE,
 	  						CONTENT,
 	  						REGDATE,
 	  						HIT,
 	  						PARENT,
 	  						SORT,
 	  						TAB)
-	  				VALUES  ((SELECT NVL(MAX(NO),0)+1 FROM TBL_BOARD),
+	  				VALUES  ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
 	  				         #{id},
 	  				         #{pwd},
-	  				         #{title},
 	  				         #{content},
 	  				         SYSDATE,
 	  				         0,
-	  				         (SELECT NVL(MAX(NO),0)+1 FROM TBL_BOARD),
+	  				         (SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
 	  				         0,
 	  				         0)
     </insert>
     
-    <insert id="insertReply" parameterType="board">
-    	INSERT INTO TBL_BOARD(NO,
+    <insert id="insertReply" parameterType="lodgeReview">
+    	INSERT INTO STAYPC_REVIEW(review_num,
     						  ID,
     						  PWD,
-    						  TITLE,
-    						  CONTENT,
+       						  CONTENT,
     						  REGDATE,
     						  HIT,
     						  PARENT,
     						  SORT,
     						  TAB)
-    		    VALUES        ((SELECT NVL(MAX(no),0)+1 FROM TBL_BOARD),    
+    		    VALUES        ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),    
     		    		      #{id},
     		    		      #{pwd},
-    		    		      #{title},
     		    		      #{content},
     		    		      SYSDATE,
     		    		      0,
@@ -105,56 +102,53 @@
     		    		      )
 	</insert>
     
-    <update id="updateBoard">
-       UPDATE TBL_BOARD
-           set TITLE=#{title},
-               CONTENT=#{content},
+    <update id="update">
+       UPDATE STAYPC_REVIEW
+           set CONTENT=#{content},
                REGDATE = SYSDATE
-       WHERE   NO=#{no} AND PWD=#{pwd} 
+       WHERE   REVIEW_NUM=#{review_num} AND PWD=#{pwd} 
     </update>
     
     <update id="updateHit">
-    	UPDATE TBL_BOARD SET HIT=HIT+1 WHERE NO=#{no}
+    	UPDATE STAYPC_REVIEW SET HIT=HIT+1 WHERE REVIEW_NUM=#{review_num}
     </update>
     
-    <update id="updateSORT">
-    	UPDATE TBL_BOARD 
+    <update id="updateSort">
+    	UPDATE STAYPC_REVIEW 
     	   SET SORT=SORT+1 
     	WHERE PARENT=#{parent} AND SORT>#{sort}
     </update>
     
     <delete id="deleteBoard">
-    	DELETE FROM TBL_BOARD
-    	WHERE NO=#{no} AND PWD=#{pwd}
+    	DELETE FROM STAYPC_REVIEW
+    	WHERE REVIEW_NUM=#{review_num} AND PWD=#{pwd}
     </delete>
     
     <delete id="deleteAll">
-    	DELETE FROM TBL_BOARD
+    	DELETE FROM STAYPC_REVIEW
     	WHERE  parent=#{parent}
     </delete>
     
     <select id="getBoard" resultType="board">
-        SELECT  NO,
+        SELECT  REVIEW_NUM,
                 ID,
                 PWD,
-                TITLE,
                 CONTENT,
                 REGDATE,
                 HIT,
                 PARENT,
                 SORT,
                 TAB
-        FROM    TBL_BOARD
-        where   NO=#{no}
+        FROM    STAYPC_REVIEW
+        where   REVIEW_NUM=#{review_num}
     </select>
 
-    <select id="getBoardList" resultType="board" parameterType="java.util.HashMap">
+    <select id="getBoardList" resultType="lodgeReview" parameterType="java.util.HashMap">
    	<![CDATA[					
 		SELECT * 
-		  FROM ( SELECT NO,
+		  FROM ( SELECT REVIEW_NUM,
 				ID,
 				PWD,
-				TITLE,
 				CONTENT,
 				REGDATE,
 				HIT,
@@ -162,7 +156,7 @@
 				SORT,
 				TAB,
 				ROW_NUMBER() OVER (ORDER BY PARENT DESC, SORT ASC) AS RNUM
-			   FROM TBL_BOARD
+			   FROM STAYPC_REVIEW
 		 ) A
 		 WHERE RNUM >= #{p_first} AND RNUM <= #{p_last}
 	]]>
@@ -170,11 +164,8 @@
     
     <select id="getTotalCount" resultType="int">
     	SELECT COUNT(*) as CNT 
-    	  FROM TBL_BOARD
+    	  FROM STAYPC_REVIEW
     </select>
-    
-    
-    
     
     <sql id="pagingHeader">
         SELECT * FROM (

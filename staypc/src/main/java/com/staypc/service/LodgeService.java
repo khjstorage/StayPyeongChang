@@ -14,6 +14,7 @@ public interface LodgeService {
 	public void insert(LodgeVO vo) throws Exception;
 	//추가부분 시작
 	public LodgeVO read(int  lodge_Code) throws Exception;
+	public List<LodgeVO> readimg(int lodge_Code ) throws Exception;
 	//추가부분 끝
 
 }

@@ -29,6 +29,11 @@ public class LodgeReviewServiceImpl implements LodgeReviewService {
 	}
 	
 	@Override
+	public void updateHit(LodgeReviewVO vo)throws Exception{
+		dao.updateHit(vo);
+	}
+	
+	@Override
 	public int delete(LodgeReviewVO vo) throws Exception{
 		return dao.delete(vo);
 	}
