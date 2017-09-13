@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,6 +26,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 @Controller
 public class HostingController {
@@ -43,12 +45,25 @@ public class HostingController {
     @RequestMapping(value="host/insert.do", method= RequestMethod.POST)
     public String hosting(LodgeVO vo, HttpSession session) throws Exception{
         vo.setId((String)session.getAttribute("userId"));
-
-
-
+        if(vo.getFiles()!=null){
+            vo.setMain_Image(vo.getFiles()[0]);
+        }else{
+            vo.setMain_Image("");
+        }
         service.hostinsert(vo);
         return "redirect:/";
         
+    }
+
+
+    @RequestMapping(value = "host/list.do", method = RequestMethod.GET)
+    public ModelAndView hostListForm(ModelAndView mav, HttpSession session){
+        String id = (String) session.getAttribute("userId");
+        System.out.println("session"+id);
+        List<LodgeVO> list =service.listhost(id);
+        mav.setViewName("host/list");
+        mav.addObject("list",list);
+        return mav;
     }
 
 

@@ -47,7 +47,7 @@
 
     <update id="modify">
         UPDATE STAYPC_MEMBER
-        SET PASSWORD=#{password}, name=#{name}, birth_date=#{birth_date}, picture=#{picture}, phone=#{phone}, gender=#{gender}, city=#{city}, introduction=#{introduction}
+        SET PASSWORD=#{password}, name=#{name}, birth_date=#{birth_date}, picture=#{picture}, phone=#{phone}, gender=#{gender}, city=#{city}, introduction=#{introduction}, email_yn=#{email_yn}, phone_yn=#{phone_yn}, city_yn=#{city_yn}, birth_yn=#{birth_yn}
         WHERE id=#{id}
     </update>
 

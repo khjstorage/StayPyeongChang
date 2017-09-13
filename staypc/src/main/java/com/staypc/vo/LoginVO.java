@@ -21,7 +21,11 @@ public class LoginVO {
     private char verify_email;
     private char verify_phone;
     private char verify_host;
-    private int credit;
+    private String email_yn;
+    private String phone_yn;
+    private String city_yn;
+    private String birth_yn;
+
 
     @Override
     public String toString() {
@@ -34,14 +38,17 @@ public class LoginVO {
                 ", picture='" + picture + '\'' +
                 ", uploadFile=" + uploadFile +
                 ", phone='" + phone + '\'' +
-                ", gender=" + gender +
+                ", gender='" + gender + '\'' +
                 ", city='" + city + '\'' +
                 ", introduction='" + introduction + '\'' +
                 ", regdate=" + regdate +
                 ", verify_email=" + verify_email +
                 ", verify_phone=" + verify_phone +
                 ", verify_host=" + verify_host +
-                ", credit=" + credit +
+                ", email_yn=" + email_yn +
+                ", phone_yn=" + phone_yn +
+                ", city_yn=" + city_yn +
+                ", birth_yn=" + birth_yn +
                 '}';
     }
 
@@ -165,11 +172,35 @@ public class LoginVO {
         this.verify_host = verify_host;
     }
 
-    public int getCredit() {
-        return credit;
+    public String getEmail_yn() {
+        return email_yn;
     }
 
-    public void setCredit(int credit) {
-        this.credit = credit;
+    public void setEmail_yn(String email_yn) {
+        this.email_yn = email_yn;
+    }
+
+    public String getPhone_yn() {
+        return phone_yn;
+    }
+
+    public void setPhone_yn(String phone_yn) {
+        this.phone_yn = phone_yn;
+    }
+
+    public String getCity_yn() {
+        return city_yn;
+    }
+
+    public void setCity_yn(String city_yn) {
+        this.city_yn = city_yn;
+    }
+
+    public String getBirth_yn() {
+        return birth_yn;
+    }
+
+    public void setBirth_yn(String birth_yn) {
+        this.birth_yn = birth_yn;
     }
 }
