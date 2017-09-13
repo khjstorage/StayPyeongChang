@@ -9,9 +9,9 @@
 <link href="css/notice.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div class="notice_wrap">
+<div class="notice_wrap" >
 
-	<table class="notice_table">
+	<table class="notice_table" style="">
 		<tr>
 			<th style="width:100px; background-color:#eeeeee;">
 				글번호
