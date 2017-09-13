@@ -44,7 +44,9 @@ public class HostingController {
 
     @RequestMapping(value="host/insert.do", method= RequestMethod.POST)
     public String hosting(LodgeVO vo, HttpSession session) throws Exception{
-        vo.setId((String)session.getAttribute("userId"));
+       
+    	vo.setId((String)session.getAttribute("userId"));
+        
         if(vo.getFiles()!=null){
             vo.setMain_Image(vo.getFiles()[0]);
         }else{

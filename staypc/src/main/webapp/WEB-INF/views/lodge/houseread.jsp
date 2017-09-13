@@ -44,7 +44,8 @@
 <div class="top_con_zone" id="fixNextTag">
   <input name="lodge_Code" type="hidden" value="" />
   <div id="left">
-  <img height="500px" width="700px" src="<c:url value='/resources/picture/${row.image }'/>" />
+  <!--  <img height="500px" width="700px" src="<c:url value='/resources/picture/${row.image }'/>" />-->
+    <img height="500px" width="700px" src="/host/displayFile.do?fileName=/lodgeImage/2017/09/13/s_8c55b5d9-c8e4-4476-af76-42b79fdfc7e5_Desert.jpg">
   </div>
   <DIV ID="right">
       <h1>주경기장 근거리집을 소개합니다.....</h1>
