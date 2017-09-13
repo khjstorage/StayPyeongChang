@@ -13,7 +13,14 @@ public class LodgeReviewVO {
 	private int parent; 
 	private int sort; 
 	private int tab;
+	private String picture;
 	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
 	public int getReview_num() {
 		return review_num;
 	}
@@ -75,13 +82,12 @@ public class LodgeReviewVO {
 		this.tab = tab;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "LodgeReviewVO [review_num=" + review_num + ", id=" + id + ", lodge_code=" + lodge_code + ", content="
 				+ content + ", reg_date=" + reg_date + ", update_date=" + update_date + ", grade=" + grade + ", parent="
-				+ parent + ", sort=" + sort + ", tab=" + tab + "]";
-	} 
+				+ parent + ", sort=" + sort + ", tab=" + tab + ", picture=" + picture + "]";
+	}
 	
 	
 	
