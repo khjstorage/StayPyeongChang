@@ -49,10 +49,9 @@ public class HostingServiceImpl implements HostingService {
             	cal.add(cal.DAY_OF_YEAR, i);
             	
             	vo.setBook_date(sdf.format(cal.getTime()));
-            	System.out.println("값이 안찍히나 원..?"+vo.getBook_date());
+
             	
             	dao.hosting_date(vo);
-            	System.out.println("ㅅㅂ");
             }
             
         }catch(ParseException e){
