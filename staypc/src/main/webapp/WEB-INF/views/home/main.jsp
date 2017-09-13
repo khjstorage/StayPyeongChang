@@ -102,8 +102,8 @@
     
 
     <div class="main_section02">
-    	<div class="section_wrap">
-				    <table style="width:1388px; height:800px; border:1px solid #000000;">			
+    	<div class="section_wrap" style="border: 1px solid #000000;">
+				    <table >			
 				        <tr>
 				            <c:forEach var="row" items="${map.list }" varStatus="status">
 				            <td align="center">
