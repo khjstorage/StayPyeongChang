@@ -19,7 +19,7 @@
 		
             <div class="sidemenu">
                 <ul>
-                    <li style="margin-top:40px;"><a href="#">프로필 수정</a></li>
+                    <li style="margin-top:40px;"><a href="/member/modify.do">프로필 수정</a></li>
                     <br>
                     <li style="margin-top:10px;"><a href="#">프로필 보기</a></li>
                     <br>
