@@ -107,7 +107,7 @@
 				        <tr>
 				            <c:forEach var="row" items="${map.list }" varStatus="status">
 				            <td align="center">
-				                <a href="read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
+				                <a href="lodge/read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
 				                    <div id="displayFile">
 				                        <img src="/host/displayFile.do?fileName=${row.main_Image}">
 				                    </div>
