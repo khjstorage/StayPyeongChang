@@ -13,45 +13,51 @@
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
-    	<h1>게시글 리스트</h1>
+    	<h1>숙소  후기</h1>
 	<hr>
 	<table style="border: 0px; width: 1000px;">
-		<tr>
-			<th class="list" style="width: 100px">글번호</th>
-			<!-- 
-			<th class="list" style="width: 400px">제목</th>
-			 -->
-			<th class="list" style="width: 200px">작성자</th>
-			<th class="list" style="width: 200px">작성일</th>
-			<th class="list" style="width: 100px">조회수</th>
+	    <tr>
+    	  <th colspan="8"></th>
+    	</tr>
+         <tr>
+			<td colspan="8" align="right">
+				<a href="<c:url value="/lodge/insertBoard.do"/>">후기 쓰기</a>
+			</td>
 		</tr>
 		<c:if test="${ !empty list }">
 			<c:forEach items="${ list }" var="b">
 				<tr>
-					<td class="center" width="100">${ b.review_num }</td>
-					<td class="left">
+					<td rowspan="3" class="center" width="50">${ b.review_num }</td>
+					<td rowspan="2">
+					<!--  
 						<c:if test="${ b.tab > 0 }">
 							<c:forEach begin="1" end="${ b.tab }">
 								&nbsp;&nbsp;
 							</c:forEach>
 							☞
-						</c:if>
-						<a href="lodge/read.do?review_num=${ b.review_num }&pg=${ pg }"></a></td>
-					<td class="left">&nbsp;${ b.id }</td>
-					<td class="center"><fmt:formatDate value="${ b.reg_date }" pattern="yyyy년MM월dd일"/></td>
+						</c:if>	-->		
+						memberpicture						
+						</td>						
+						<td class="left">${ b.name }</td>
+						<td colspan="5"></td>
+				</tr>
+				<tr>
+						<td class="center"><fmt:formatDate value="${ b.reg_date }" pattern="yyyy년MM월dd일"/></td>
+						<td colspan="5"></td>
+				</tr>
+				<tr class="left">
+				<td colspan="7" >
+				<a href="<c:url value="/lodge/reviewread.do?review_num=${b.review_num }"/>">${ b.content}</a>
+				</td>
 				</tr>
 			</c:forEach>
 		</c:if>
 		<c:if test="${ empty list }">
 			<tr>
-				<td colspan="5" align="center">등록된 게시물이 없습니다.</td>
+				<td colspan="3" align="center">등록된 게시물이 없습니다.</td>
 			</tr>
 		</c:if>
-		<tr>
-			<td colspan="5" align="right">
-				<a href="insert.do"><button class="linkbutton">글쓰기</button></a>
-			</td>
-		</tr>
+
 	</table>
 	<br>
 	<table style="border: 0px; width: 1000px;">

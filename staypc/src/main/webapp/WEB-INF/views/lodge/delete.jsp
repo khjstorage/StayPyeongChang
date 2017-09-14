@@ -1,15 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>글 삭제 비밀번호 확인</title>
-<link href="/resources/css/board.css" rel="stylesheet" type="text/css"/>
-<script src="/resources/js/board.js"></script>
+    <title>login</title>
+<script src="../script/board.js" type="text/javascript"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link href="../css/board.css" rel="stylesheet" type="text/css">
+    <script language="javascript">
+
+    </script>
+    <style type="text/css">
+
+    </style>
+    <title>글 삭제 비밀번호 확인</title>
 </head>
 <body>
+<!--  
+<div class="top_con_zone" id="fixNextTag">
 	<h1>글 삭제 비밀번호 확인</h1>
 	<hr>
 	<form name="boardform" action='<c:url value="/board/delete.do"></c:url>' method="post">
@@ -32,6 +39,8 @@
 			</tr>
 		</table>
 	</form>
+	</div>
+	-->
 </body>
 </html>
 

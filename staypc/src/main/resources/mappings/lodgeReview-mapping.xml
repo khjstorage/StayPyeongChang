@@ -8,7 +8,7 @@
     	<insert id="insertBoard" parameterType="lodgeReview">
 	  INSERT INTO STAYPC_REVIEW(REVIEW_NUM,
 	  						CONTENT,
-	  						REGDATE,
+	  						REG_DATE,
 	  						PARENT,
 	  						SORT,
 	  						TAB)
@@ -23,13 +23,15 @@
     <insert id="insertReply" parameterType="lodgeReview">
     	INSERT INTO STAYPC_REVIEW(review_num,
        						  CONTENT,
-    						  REGDATE,
+    						  REG_DATE,
+    						  GRADE,
     						  PARENT,
     						  SORT,
     						  TAB)
     		    VALUES        ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),    
     		    		      #{content},
     		    		      SYSDATE,
+    		    		      #{grade},
       		    		      #{parent},
     		    		      #{sort},
     		    		      #{tab}
@@ -39,7 +41,7 @@
     <update id="update">
        UPDATE STAYPC_REVIEW
            set CONTENT=#{content},
-               REGDATE = SYSDATE
+               REG_DATE = SYSDATE
        WHERE   REVIEW_NUM=#{review_num} AND PWD=#{pwd} 
     </update>
 
@@ -51,7 +53,7 @@
     
     <delete id="deleteBoard">
     	DELETE FROM STAYPC_REVIEW
-    	WHERE REVIEW_NUM=#{review_num} AND PWD=#{pwd}
+    	WHERE REVIEW_NUM=#{review_num}
     </delete>
     
     <delete id="deleteAll">
@@ -62,9 +64,8 @@
     <select id="getBoard" resultType="lodgeReview">
         SELECT  REVIEW_NUM,
                 ID,
-                PWD,
                 CONTENT,
-                REGDATE,
+                REG_DATE,
                 PARENT,
                 SORT,
                 TAB

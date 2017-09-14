@@ -74,8 +74,9 @@
 		숙소 긴주소:${vo.location}<br>
 		환불 규정:${vo.refund_Provision}<br>
 		숙소 입실시간:${vo.enter_Time}&nbsp;숙소 퇴실시간${vo.out_Time}<br>
-		숙소 등록일:${vo.reg_Date}<br>
-		최근 수정일:${vo.update_Date}<br>
+	
+		숙소 등록일:<fmt:formatDate value="${vo.reg_Date}" pattern="yyyy년MM월dd일"/><br>
+		최근 수정일:<fmt:formatDate value="${vo.update_Date}" pattern="yyyy년MM월dd일"/><br>
 		건물타입:${vo.bulid_Type}<br>
 		방타입:${vo.room_Type}<br>
 		침실 개수:${vo.room_Num}<br>
