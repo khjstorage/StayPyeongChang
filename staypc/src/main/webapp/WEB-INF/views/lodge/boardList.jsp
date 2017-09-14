@@ -1,17 +1,19 @@
-<!-- list.jsp -->
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시글 리스트</title>
-<link href="/resources/css/board.css" rel="stylesheet" type="text/css"/>
+    <title>login</title>
+    <script language="javascript">
+
+    </script>
+    <style type="text/css">
+
+    </style>
 </head>
 <body>
-	<h1>게시글 리스트</h1>
+<div class="top_con_zone" id="fixNextTag">
+    	<h1>게시글 리스트</h1>
 	<hr>
 	<table style="border: 0px; width: 1000px;">
 		<tr>
@@ -36,7 +38,7 @@
 						</c:if>
 						<a href="lodge/read.do?review_num=${ b.review_num }&pg=${ pg }"></a></td>
 					<td class="left">&nbsp;${ b.id }</td>
-					<td class="center"><fmt:formatDate value="${ b.regdate }" pattern="yyyy년MM월dd일"/></td>
+					<td class="center"><fmt:formatDate value="${ b.reg_date }" pattern="yyyy년MM월dd일"/></td>
 				</tr>
 			</c:forEach>
 		</c:if>
@@ -47,7 +49,7 @@
 		</c:if>
 		<tr>
 			<td colspan="5" align="right">
-				<a href="lodge/writeform.do"><button class="linkbutton">글쓰기</button></a>
+				<a href="insert.do"><button class="linkbutton">글쓰기</button></a>
 			</td>
 		</tr>
 	</table>
@@ -78,5 +80,6 @@
 			</td>
 		</tr>
 	</table>
+</div>
 </body>
 </html>

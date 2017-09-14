@@ -4,77 +4,17 @@
 
 <mapper namespace="review">
 	
-	
-	<!-- 메인페잊이 
-	<select id="listMain" resultType="staypc_lodgeDTO">
-		SELECT lodge_code, image, charge, title FROM staypc_lodge 
-		where lodge_code > (SELECT MAX(lodge_code)-9 from staypc_lodge)
-		order by lodge_code DESC
-	</select>
-	
-	<select id="count" resultType="int">
-        SELECT COUNT(distinct l.lodge_code) 
-         FROM  staypc_lodge l, staypc_lodge_book d
-        <include refid="search"></include>
-    </select>        
-
-	<select id="read" resultType="staypc_lodgeDTO">
-		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
-	</select>
-
-	<select id="read" resultType="staypc_lodgeDTO">
-		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
-	</select>	
-
-	<select id="read" resultType="staypc_lodgeReviewDTO">
-		SELECT *FROM staypc_review WHERE LODGE_CODE=#{review_num}
-	</select>
-	
-	<insert id="insert" resultType="staypc_lodgeReviewDTO">
-	insert 
-
-	
-    
-   <select id="listAll" resultType="staypc_lodgeDTO">
-       <include refid="pagingHeader"></include>
-        SELECT DISTINCT l.lodge_code, l.title, l.charge, l.image
-        FROM  staypc_lodge l, staypc_lodge_book d
-       <include refid="search"></include>
-        order by lodge_code DESC
-        <include refid="pagingFooter"></include>
-    </select>
-	
-	<sql id="search">
-                WHERE max_people  like '%'||#{num}||'%' and 
-                location   like '%'||#{keyword}||'%' and
-                l.lodge_code = d.lodge_code
-               
-                <if test="sdate!=''">
-                <![CDATA[
-                and d.available = 'Y'
-                and d.book_date between #{sdate} and TO_DATE(#{edate})-1
-                
-                ]]>
-                </if>
-    </sql>
-    -->
 
     	<insert id="insertBoard" parameterType="lodgeReview">
 	  INSERT INTO STAYPC_REVIEW(REVIEW_NUM,
-	  						ID,
-	  						PWD,
 	  						CONTENT,
 	  						REGDATE,
-	  						HIT,
 	  						PARENT,
 	  						SORT,
 	  						TAB)
 	  				VALUES  ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
-	  				         #{id},
-	  				         #{pwd},
 	  				         #{content},
 	  				         SYSDATE,
-	  				         0,
 	  				         (SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
 	  				         0,
 	  				         0)
@@ -82,21 +22,15 @@
     
     <insert id="insertReply" parameterType="lodgeReview">
     	INSERT INTO STAYPC_REVIEW(review_num,
-    						  ID,
-    						  PWD,
        						  CONTENT,
     						  REGDATE,
-    						  HIT,
     						  PARENT,
     						  SORT,
     						  TAB)
     		    VALUES        ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),    
-    		    		      #{id},
-    		    		      #{pwd},
     		    		      #{content},
     		    		      SYSDATE,
-    		    		      0,
-    		    		      #{parent},
+      		    		      #{parent},
     		    		      #{sort},
     		    		      #{tab}
     		    		      )
@@ -108,11 +42,7 @@
                REGDATE = SYSDATE
        WHERE   REVIEW_NUM=#{review_num} AND PWD=#{pwd} 
     </update>
-    
-    <update id="updateHit">
-    	UPDATE STAYPC_REVIEW SET HIT=HIT+1 WHERE REVIEW_NUM=#{review_num}
-    </update>
-    
+
     <update id="updateSort">
     	UPDATE STAYPC_REVIEW 
     	   SET SORT=SORT+1 
@@ -129,13 +59,12 @@
     	WHERE  parent=#{parent}
     </delete>
     
-    <select id="getBoard" resultType="board">
+    <select id="getBoard" resultType="lodgeReview">
         SELECT  REVIEW_NUM,
                 ID,
                 PWD,
                 CONTENT,
                 REGDATE,
-                HIT,
                 PARENT,
                 SORT,
                 TAB
@@ -148,10 +77,8 @@
 		SELECT * 
 		  FROM ( SELECT REVIEW_NUM,
 				ID,
-				PWD,
 				CONTENT,
-				REGDATE,
-				HIT,
+				REG_DATE,
 				PARENT,
 				SORT,
 				TAB,
@@ -162,10 +89,10 @@
 	]]>
     </select>
     
-    <select id="getTotalCount" resultType="int">
+<!--     <select id="getTotalCount" resultType="int">
     	SELECT COUNT(*) as CNT 
     	  FROM STAYPC_REVIEW
-    </select>
+    </select> -->
     
     <sql id="pagingHeader">
         SELECT * FROM (

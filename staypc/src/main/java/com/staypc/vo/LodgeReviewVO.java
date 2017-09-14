@@ -10,11 +10,17 @@ public class LodgeReviewVO {
 	private Date reg_date;
 	private Date update_date;
 	private int grade;
-	private int parent; // �� �׷� ��ȣ
-	private int sort; // ��� ���� ��ȣ
-	private int tab; // �鿩 ����
+	private int parent; 
+	private int sort; 
+	private int tab;
+	private String picture;
 	
-	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
 	public int getReview_num() {
 		return review_num;
 	}
@@ -80,9 +86,8 @@ public class LodgeReviewVO {
 	public String toString() {
 		return "LodgeReviewVO [review_num=" + review_num + ", id=" + id + ", lodge_code=" + lodge_code + ", content="
 				+ content + ", reg_date=" + reg_date + ", update_date=" + update_date + ", grade=" + grade + ", parent="
-				+ parent + ", sort=" + sort + ", tab=" + tab + "]";
+				+ parent + ", sort=" + sort + ", tab=" + tab + ", picture=" + picture + "]";
 	}
-	
 	
 	
 	
