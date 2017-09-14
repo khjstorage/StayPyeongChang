@@ -6,9 +6,11 @@
 	
 	<!-- 메인페이지 -->
 	<select id="listMain" resultType="lodge">
+	   <![CDATA[
 		SELECT lodge_code, main_image, charge, title FROM staypc_lodge
-		where lodge_code > (SELECT MAX(lodge_code)-9 from staypc_lodge)
+		where rownum <= 9
 		order by lodge_code DESC
+		]]>
 	</select>
 	
 	<select id="count" resultType="int">
