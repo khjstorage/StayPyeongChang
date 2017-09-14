@@ -6,21 +6,21 @@
 <head>
 <title>profile page</title>
 <link href="css/profile_style.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/profile_style.css" rel="stylesheet" type="text/css">
 </head>
 	
 <body>	
 	
 	<div class="profile">
 	<form method="post" id="profileForm" enctype="multipart/form-data">
-		<div class="center">
-		
-		<!-- profile page -->
+	
+		<!-- profile page -->		
 		
 		<div class="sidemenu">
 			<ul>		
 				<li style="margin-top:40px;"><a href="member/modify.do">프로필 수정</a></li>
 				<br>	
-				<li style="margin-top:10px;"><a href="#">프로필 보기</a></li>
+				<li style="margin-top:10px;"><a href="member/profile.do">프로필 보기</a></li>
 				<br>
 	            <li style="margin-top:10px;"><a href="#">예약 내역 확인</a></li>
 	            <br>
@@ -88,8 +88,6 @@
 		<br><br><br>
 		<h2>내 위시리스트</h2>
 	</div>	
-	
-	</div>
 	</form>
 	</div>		
 </body>
