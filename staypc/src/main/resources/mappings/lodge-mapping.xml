@@ -6,9 +6,11 @@
 	
 	<!-- 메인페이지 -->
 	<select id="listMain" resultType="lodge">
+	   <![CDATA[
 		SELECT lodge_code, main_image, charge, title FROM staypc_lodge
-		where lodge_code > (SELECT MAX(lodge_code)-9 from staypc_lodge)
+		where rownum <= 9
 		order by lodge_code DESC
+		]]>
 	</select>
 	
 	<select id="count" resultType="int">
@@ -23,40 +25,38 @@
 	</select>	
 		
 	<select id="readimg" resultType="lodge">
-	select * from staypc_lodge a inner join staypc_lodge_image b
-    on a.lodge_code = b.lodge_code 
-    where a.lodge_code = 29	
+        select * from staypc_lodge a inner join staypc_lodge_image b
+        on a.lodge_code = b.lodge_code
+        where a.lodge_code = 29
 	</select>
+
 	<!-- 페이지 읽기 추가 끝 -->
-	
-
-
-    
    <select id="listAll" resultType="lodge">
        <include refid="pagingHeader"></include>
         SELECT DISTINCT l.lodge_code, l.title, l.charge, l.main_image
         FROM  staypc_lodge l, staypc_lodge_book d
-       <include refid="search"></include>
+        <include refid="search"></include>
         order by lodge_code DESC
         <include refid="pagingFooter"></include>
     </select>
-	
-	<sql id="search">
-                WHERE max_people  like '%'||#{num}||'%' and 
-                location   like '%'||#{keyword}||'%' and
-                l.lodge_code = d.lodge_code
-                <if test="sdate!=''">
-                <![CDATA[
-                and d.available = 'Y'
-                and d.book_date between #{sdate} and TO_DATE(#{edate})-1
-                ]]>
-                </if>
-    </sql>
 
     <sql id="pagingHeader">
         SELECT * FROM (
-           SELECT ROWNUM AS rn, A.* FROM (
+        SELECT ROWNUM AS rn, A.* FROM (
     </sql>
+
+	<sql id="search">
+        WHERE max_people  like '%'||#{num}||'%' and
+        location   like '%'||#{keyword}||'%' and
+        l.lodge_code = d.lodge_code
+        <if test="sdate!=''">
+        <![CDATA[
+        and d.available = 'Y'
+        and d.book_date between #{sdate} and TO_DATE(#{edate})-1
+        ]]>
+        </if>
+    </sql>
+
     
     <sql id="pagingFooter">
            ) A

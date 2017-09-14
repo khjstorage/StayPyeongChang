@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -68,6 +69,17 @@ public class HostingController {
         return mav;
     }
 
+    @RequestMapping(value = "host/detail.do" ,method = RequestMethod.GET)
+    public ModelAndView hostDetail(ModelAndView mav, @RequestParam String lodge_code){
+        System.out.println(lodge_code);
+        List list = service.detail_host(lodge_code);
+        System.out.println(list);
+        mav.addObject("list",list);
+        mav.setViewName("host/detail");
+        return mav;
+    }
+
+
 
     @ResponseBody
     @RequestMapping(value = "host/uploadAjax.do", method = RequestMethod.POST, produces = "text/plain; charset=UTF-8")
@@ -119,10 +131,7 @@ public class HostingController {
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
 
-
-
-
-
+    
 
 
 }

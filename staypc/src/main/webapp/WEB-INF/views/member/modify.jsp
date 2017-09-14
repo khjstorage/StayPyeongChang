@@ -16,7 +16,7 @@
 <div class="profileUpdatePage">
     <form method="post" id="modifyForm" enctype="multipart/form-data">
     <!-- profile page --> 
-		
+		<div class="align">
             <div class="sidemenu">
                 <ul>
                     <li style="margin-top:40px;"><a href="/member/modify.do">프로필 수정</a></li>
@@ -204,7 +204,8 @@
 	                    </div>
 	                </div>
             </div>            
-         </div>        
+         </div>  
+         </div>      
     </form>   
     
     </div>      

@@ -9,43 +9,49 @@
 <link href="css/notice.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+<center>
 <div class="notice_wrap" >
-
-	<table class="notice_table" style="">
+	<h2>공지사항</h2>
+	<table class="notice_table">
 		<tr>
-			<th style="width:100px; background-color:#eeeeee;">
+			<th style="width:100px;height:30px; background-color:#eeeeee; ">
 				글번호
 			</th>
-			<th style="width:500px; background-color:#eeeeee;">
+			<th style="width:500px; background-color:#eeeeee; ">
 				제목
 			</th>
-			<th style="width:100px; background-color:#eeeeee;">
+			<th style="width:100px;background-color:#eeeeee;  ">
 				작성자
 			</th>
-			<th style="width:100px; background-color:#eeeeee;">
+			<th style="width:100px; background-color:#eeeeee; ">
 				작성일
 			</th>
 		</tr>
 		<c:forEach items="${notice_list}" var="list">
-			<tr>
-				<td >
-					${list.list_no}글번호
+			<tr >				
+				<td style=" border-bottom:1px solid #eeeeee;" >
+					<center>${list.list_no}</center>
+					
 				</td>
-				<td>
-					${list.subject }
-					제목
+				<td style=" border-bottom:1px solid #eeeeee;">
+					${list.subject }	
+								
 				</td>
-				<td>
-					${list.writer}
-					작성자
+				<td style=" border-bottom:1px solid #eeeeee;">
+					<center>${list.writer}	</center>	
+								
 				</td>
-				<td>
-					${list.register_datetime}
-					작성일
-				</td>
+			 	<td style=" border-bottom:1px solid #eeeeee;">
+					<center>${list.register_datetime}	</center>									
+				</td>			
 			</tr>
 		</c:forEach>
 	</table>
+	<br>
+	<div class="botton_box" style="margin-left:40%;">
+		<input type="button" id="saveBtn" onclick="location.href='notice_insert_form.do'"  value="글쓰기" />		
+    </div>
 </div>
+</center>
 </body>
 </html>

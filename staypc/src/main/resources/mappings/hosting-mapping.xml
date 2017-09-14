@@ -6,7 +6,7 @@
     <insert id="insert" parameterType="lodge">
         INSERT INTO staypc_lodge (lodge_code, id, title, room_name, location, enter_time, out_time, check_in, check_out, charge, room_phone, max_people, room_type,
                                     bulid_type, room_num, bed_num, bed_type, convenient, secure, room_explain,  refund_provision, main_Image, reg_date,  update_date)
-        VALUES ( (SELECT ( Nvl(Max(lodge_code), 0) + 1 )  FROM  staypc_lodge), 'khjzzm', #{title}, #{room_Name}, #{location}, #{enter_Time}, #{out_Time}, #{check_In},
+        VALUES ( (SELECT ( Nvl(Max(lodge_code), 0) + 1 )  FROM  staypc_lodge), #{id}, #{title}, #{room_Name}, #{location}, #{enter_Time}, #{out_Time}, #{check_In},
                   #{check_Out},  #{charge}, #{room_Phone}, #{max_People}, #{room_Type},#{bulid_Type},#{room_Num},#{bed_Num},#{bed_Type}, #{convenient},#{secure},#{room_Explain}, #{refund_Provision}, #{main_Image}, SYSDATE, SYSDATE )
     </insert>
 
@@ -27,5 +27,28 @@
     <select id="list_hosting" resultType="lodge">
         SELECT * FROM staypc_lodge WHERE id=#{id}
     </select>
+
+
+
+
+    <resultMap id="lodgeResultMap" type="java.util.HashMap">
+        <id property="lodge_code" column="lodge_code" />
+        <result property="title" column="title"/>
+        <collection property="bookList" javaType="java.util.ArrayList" resultMap="lodgeBookResultMap"/>
+    </resultMap>
+    <resultMap id="lodgeBookResultMap" type="java.util.HashMap">
+        <id property="bookCode" column="book_code"/>
+        <result property="bookDate" column="book_date"/>
+        <result property="available" column="available"/>
+    </resultMap>
+
+    <select id="detail_host"  parameterType="String" resultMap="lodgeResultMap">
+        SELECT a.LODGE_CODE, a.title, b.book_Date, b.AVAILABLE FROM STAYPC_LODGE a
+          INNER JOIN STAYPC_LODGE_BOOK b
+          ON a.LODGE_CODE = b.LODGE_CODE
+        WHERE a.LODGE_CODE = #{lodge_code}
+    </select>
+
+
 
 </mapper>

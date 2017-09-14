@@ -36,4 +36,9 @@ public class HostingDAO {
     public List<LodgeVO> listhost(String id){
         return sqlSession.selectList("hosting.list_hosting",id);
     }
+
+
+    public List detail_host(String lodge_code){
+        return sqlSession.selectList("hosting.detail_host", lodge_code);
+    }
 }
