@@ -8,5 +8,7 @@
 </head>
 <body>
 ${notice_view.list_no}
+
+
 </body>
 </html>
