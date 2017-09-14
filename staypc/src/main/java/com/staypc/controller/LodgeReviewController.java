@@ -63,13 +63,63 @@ public class LodgeReviewController {
 		return  "lodge/boardList";
     }
 	
-	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.GET)
-	public String insert( LodgeReviewVO vo, HttpSession session) throws Exception{
+	@RequestMapping(value="lodge/reviewread.do", method=RequestMethod.GET)
+	public ModelAndView read(LodgeReviewVO param, HttpSession session, HttpServletRequest request) throws Exception{
+	
+		LodgeReviewVO vo = Service.read(param);
+		ModelAndView mav = new ModelAndView();
+		//System.out.println("결과값"+vo.toString());
+		mav.addObject("vo", vo);
+		mav.setViewName("lodge/reviewread");
 
-	     Service.insert(vo);
-	     return  "redirect:lodge/boardList";
+		return mav;
+	}	
+	
+	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.GET)
+	public String insertForm(){
+		return "lodge/insertBoard";
 	}
 	
+	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.POST)
+	public String insert( LodgeReviewVO vo, HttpSession session) throws Exception{
+		System.out.println(vo);
+	     Service.insert(vo);
+	    return "redirect:/lodge/boardList.do";
+	}
 	
+	@RequestMapping(value="lodge/update.do", method=RequestMethod.GET)
+	public String updateForm(){
+	     return "lodge/update";
+
+	}
+
+	@RequestMapping(value="lodge/update.do", method=RequestMethod.POST)
+	public String update( LodgeReviewVO vo, HttpSession session) throws Exception{
+		   Service.update(vo);
+	     return "redirect:/lodge/boardList.do";
+
+	}
+
+	
+	
+	
+	@RequestMapping(value="lodge/delete.do", method=RequestMethod.GET)
+	public String delete( LodgeReviewVO vo, Model model )throws Exception{
+		int iSort = vo.getSort();
+		int res = 0;
+		System.out.println(vo.toString());
+		if(iSort>0) {
+			res = Service.delete(vo);
+		}else
+		{
+			vo.setParent(vo.getReview_num());
+			res = Service.deleteAll(vo);
+		}
+
+		return "redirect:/lodge/boardList.do";
+	}
+
+
+
 
 }

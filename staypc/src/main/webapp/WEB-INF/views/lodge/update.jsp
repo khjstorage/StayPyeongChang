@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,6 +14,24 @@
 	<hr>
 	<form name="boardform" action='<c:url value="lodge/update.do"></c:url>' method="post">
 		<table style="border:0px; width:600px;">
+		    <tr>
+	 		<th rowspan="2" align="center" width="auto">
+	 		<input type="text" size ="auto" disabled="disabled" value="${vo.review_num }"></th>
+	 		<th align="center" width="auto">
+	 		<input type="text" size ="auto" disabled="disabled" value="${vo.id }"></th>
+	 		<th colspan="7"></th>
+	 		</tr>
+	 		<tr>
+	 		<th align="center" width="auto">
+	 		<fmt:formatDate value="${vo.update_date }" pattern="yyyy년MM월dd일"/> </th>
+	 		<th colspan="8"></th>
+	 		</tr>
+	 	<tr>
+	 		<td colspan="9">
+	 		 <textarea rows="20" cols="80" name="content">${vo.content}</textarea>
+	 		</td>
+	 	</tr>
+	 	<!-- 
 			<tr>
 				<th>글번호</th>
 				<th>아이디</th>
@@ -34,10 +51,11 @@
 			<tr>
 				<td colspan="4"><textarea rows="20" cols="110" name="content"><c:out value="${vo.content}" escapeXml="false"/></textarea></td>
 			</tr>
+			 -->
 			<tr>
 				<td colspan="4" align="right">
 					<input type="hidden" name="no" value="${vo.review_num }">
-					<input type="button" value="수정" onclick="board_update_check(this.form)">
+					<input type="button" value="리스트" onclick="location.href='boardList.do'">
 					<input type="button" value="취소" onclick="board_cancle()">
 					<input type="button" value="리스트" onclick="board_list(this.form)">
 				</td>
