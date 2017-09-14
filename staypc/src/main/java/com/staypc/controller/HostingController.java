@@ -117,10 +117,7 @@ public class HostingController {
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
 
-
-
-
-
+    
 
 
 }
