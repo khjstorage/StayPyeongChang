@@ -16,7 +16,7 @@ public class NoticeController {
 
 	@Autowired
 	NoticeService noticeService;
-	//~~~.do ¸¦ È£ÃâÇÏ´Â ÀÌ¸§À» Àû¾îÁÜ
+	//~~~.do ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("notice_list.do")
 	public String notice_list(HttpServletRequest req) {
 		req.setAttribute("notice_list",noticeService.notice_list());
@@ -24,7 +24,7 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("notice_view.do")
-	public String notice_view(NoticeVO vo,/*httpServletRequest´Â jsp·Î µ¥ÀÌÅÍ Àü¼ÛÇÒ¶§*/HttpServletRequest req) {
+	public String notice_view(NoticeVO vo,/*httpServletRequestï¿½ï¿½ jspï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½*/HttpServletRequest req) {
 		System.out.println("notice_view");
 		req.setAttribute("notice_view", noticeService.notice_view(vo));
 		return "notice/notice_view";
@@ -37,7 +37,7 @@ public class NoticeController {
 		return "notice/notice_list";
 	}
 	
-	@RequestMapping("notice_delete")
+	@RequestMapping("notice_delete.do")
 	public String notice_delete(NoticeVO vo) {
 		System.out.println("notice_delete");
 		noticeService.notice_delete(vo);

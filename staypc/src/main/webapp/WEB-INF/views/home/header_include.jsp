@@ -41,6 +41,7 @@
             <ul class="menu">
                 <c:choose>
                     <c:when test="${sessionScope.userId == null }">
+                    	<li><a href='<c:url value="/notice/notice_list.do"></c:url>'>공지사항</a></li>
                         <li><a href="#">도움말</a></li>
                         <li><a href='<c:url value="/login/login.do"></c:url>'>로그인</a></li>
                     </c:when>
