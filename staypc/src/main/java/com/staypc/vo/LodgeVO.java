@@ -60,7 +60,15 @@ public class LodgeVO {
 	
 	private String book_date;
 	
+	private String filename;
 	
+	
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	public String getBook_date() {
 		return book_date;
 	}

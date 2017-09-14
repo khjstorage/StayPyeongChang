@@ -1,5 +1,6 @@
 package com.staypc.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -34,12 +35,16 @@ public class LodgeReviewDAO {
 		return sqlSession.delete("review.deleteBoard",vo );
 	}
 	
-	public List<LodgeReviewVO> reviewList(LodgeReviewVO vo) throws Exception{
-		return sqlSession.selectList("review.getBoardList",vo);
+	public List<LodgeReviewVO> reviewList(HashMap<String, String> map) throws Exception{
+		String f = map.get("p_first");
+		String p = map.get("p_last");
+		System.out.println("시작과 끝:"+f+"/"+p);
+		return sqlSession.selectList("review.getBoardList",map);
 	}
 	
 	public int getTotalCount() throws Exception {
-		return sqlSession.selectOne("review.getTotalCount");
+		//return sqlSession.selectOne("review.getTotalCount");
+		return 1;
 	}
 	
 	public void updateReplySort(LodgeReviewVO vo) throws Exception {
