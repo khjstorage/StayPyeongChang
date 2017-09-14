@@ -12,4 +12,5 @@ import java.util.List;
 public interface HostingService {
     void hostinsert(LodgeVO vo);
     List<LodgeVO> listhost(String id);
+    List detail_host(String lodge_code);
 }

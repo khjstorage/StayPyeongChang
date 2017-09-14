@@ -66,4 +66,9 @@ public class HostingServiceImpl implements HostingService {
         return dao.listhost(id);
     }
 
+    @Override
+    public List detail_host(String lodge_code) {
+        return dao.detail_host(lodge_code);
+    }
+
 }

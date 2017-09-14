@@ -56,8 +56,7 @@ public class LodgeController {
 		BoardPager boardPager = new BoardPager(count, curPage);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
-		
-		
+
 		
 		List<LodgeVO> list = Service.listAll(start, end, num, keyword, sdate, edate);
 		

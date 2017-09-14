@@ -110,8 +110,6 @@
 
 				                <a href="lodge/read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
 				                    <div id="displayFile" style="width:300px; height:300px; border:1px solid #eeeeee; margin:10px;" >
-				                    
-
 				                        <img style="width=100%;height=100%;background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280">
 				                    </div>
 				                    <br>
