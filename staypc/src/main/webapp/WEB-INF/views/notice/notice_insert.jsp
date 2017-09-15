@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="resources/ckeditor/ckeditor.js"></script>
+<script src="/resources/ckeditor/ckeditor.js"></script>
 
 
 <title>게시글 작성</title>
@@ -22,7 +22,7 @@
 		
 			<h2>게시글 작성</h2>
 			
-			<form action="notice_insert.do" id="saveForm" method="post">	
+			<form action="notice/notice_insert.do" id="saveForm" method="post">	
 			<div class="form-inline" style="margin-bottom:10px">
 			   제목: 
 			   <input type="text" id="subject" name="subject" style="width:750px;" 

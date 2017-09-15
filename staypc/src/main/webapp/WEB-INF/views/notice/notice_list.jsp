@@ -49,7 +49,7 @@
 	</table>
 	<br>
 	<div class="botton_box" style="margin-left:40%;">
-		<input type="button" id="saveBtn" onclick="location.href='notice_insert_form.do'"  value="글쓰기" />		
+		<input type="button" id="saveBtn" onclick="location.href='notice_insert_form.do'"  value="글쓰기" />			
     </div>
 </div>
 </center>

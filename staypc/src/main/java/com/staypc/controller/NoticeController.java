@@ -23,34 +23,34 @@ public class NoticeController {
 		return "notice/notice_list";
 	}
 	
-	@RequestMapping("notice_view.do")
+	@RequestMapping("notice/notice_view.do")
 	public String notice_view(NoticeVO vo,/*httpServletRequest�� jsp�� ������ �����Ҷ�*/HttpServletRequest req) {
 		System.out.println("notice_view");
 		req.setAttribute("notice_view", noticeService.notice_view(vo));
 		return "notice/notice_view";
 	}
 	
-	@RequestMapping("notice_update.do")
+	@RequestMapping("notice/notice_update.do")
 	public String notice_update(NoticeVO vo) {
 		System.out.println("notice_update");
 		noticeService.notice_update(vo);
 		return "notice/notice_list";
 	}
 	
-	@RequestMapping("notice_delete.do")
+	@RequestMapping("notice/notice_delete.do")
 	public String notice_delete(NoticeVO vo) {
 		System.out.println("notice_delete");
 		noticeService.notice_delete(vo);
 		return "notice/notice_list";
 	}
 	
-	@RequestMapping("notice_insert_form.do")
+	@RequestMapping("notice/notice_insert_form.do")
 	public String notice_insert_form() {
 		System.out.println("notice_insert_form");
 		return "notice/notice_insert";
 	}
 	
-	@RequestMapping("notice_insert.do")
+	@RequestMapping("notice/notice_insert.do")
 	public String notice_insert(NoticeVO vo) {
 		System.out.println("notice_insert");
 		vo.setWriter("admin");
