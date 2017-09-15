@@ -19,19 +19,25 @@
 <form name="boardform" action='<c:url value="insertBoard.do"></c:url>' method="post">
 	<table style="border:0px;">
 		<tr>
-		  <td>${list.picture }</td>
-		  <td>이름${list.id}</td>
+		  <td>${vo.picture }</td>
+		  <td>아이디${vo.id}</td>
+		  <td>로지코드${vo.lodge_code }</td>
 		 </tr>
 		 <tr>
-		   <td colspan="2">
+		   <td colspan="3">
 		   	 <textarea rows="20" cols="80" name="content"></textarea>
 		   	 </td>
 		 </tr>
 		 <tr>
-		   <td align="right" colspan="2">
+		   <td align="right" colspan="3">
 		    평점 (1~5사이의 정수)
-		     <input name='grade' type="text" value='${list.grade}' size="auto">  
+		     <input name='grade' type="text" value='${vo.grade}' size="auto">  
 		   <!--  <input type="text" name="title" maxlength="100" size="59" value="[RE]${vo.title}"></td>  -->              
+		 </tr>
+		  <tr>
+		   <td align="right" colspan="3">
+		    로지코드
+		     <input name='lodge_code' type="text" value='${vo.lodge_code}' size="auto">    
 		 </tr>
 		<tr>
 			<td colspan="2" align="right">

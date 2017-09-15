@@ -36,7 +36,7 @@ function board_delete(boardform){
 	 		<td colspan="9" align="right">
 	 			<input type="button" value="리스트" onclick="location.href='boardList.do'">
 	 			<input type="button" value="삭 제" onclick="board_delete()">
-	 			<input type="button" value="수정 하기" onclick="location.href='update.do'">
+	 			<input type="button" value="수정 하기" onclick="location.href='update.do?review_num=${vo.review_num}'">
 	 			<!--  
 	 			<a href="replyform.do?no=${vo.review_num }&pg=${param.pg}"><button class="linkbutton">답글쓰기</button></a>
 	 			<a href="updateform.do?no=${vo.review_num }&pg=${param.pg}"><button class="linkbutton">수정하기</button></a>
