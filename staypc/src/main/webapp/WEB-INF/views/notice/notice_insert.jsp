@@ -39,7 +39,7 @@
 			<br>
 			<div class="botton_box" style="margin-left:85%;">
 				<input type="submit"  id="saveBtn" value="작성">
-				<input type="button" id="cancelBtn" onclick="location.href='notice_list.do'"  value="목록" />     
+				<input type="button" id="cancelBtn" onclick="location.href='/notice/notice_list.do'"  value="목록" />     
 			</div>
 		
 			</form>

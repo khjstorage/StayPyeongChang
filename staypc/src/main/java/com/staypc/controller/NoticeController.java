@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
@@ -13,9 +15,13 @@ public class NoticeController {
 
 	@Autowired
 	NoticeService noticeService;
-	@RequestMapping("notice_list.do")
+	
+	@RequestMapping("notice/notice_list.do")
 	public String notice_list(HttpServletRequest req) {
-		req.setAttribute("notice_list",noticeService.notice_list());
+		System.out.println("notice_list");
+		List<NoticeVO> list = noticeService.notice_list();
+		System.out.println(list.get(0).toString());		
+		req.setAttribute("notice_list",list);
 		return "notice/notice_list";
 	}
 	
@@ -51,6 +57,6 @@ public class NoticeController {
 		System.out.println("notice_insert");
 		vo.setId("admin");
 		noticeService.notice_insert(vo);
-		return "redirect:notice_list.do";
+		return "redirect:/notice/notice_list.do";
 	}
 }
