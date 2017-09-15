@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -7,20 +7,22 @@
 <title>profile page</title>
 <link href="css/profile_style.css" rel="stylesheet" type="text/css">
 <link href="/resources/css/profile_style.css" rel="stylesheet" type="text/css">
+<script language="javascript"></script>
+<style type="text/css"></style>
 </head>
 	
-<body>	
-	
+<body>
 	<div class="profile">
 	<form method="post" id="profileForm" enctype="multipart/form-data">
-	
-		<!-- profile page -->		
+		<div class="center">
+		
+		<!-- profile page -->
 		
 		<div class="sidemenu">
 			<ul>		
-				<li style="margin-top:40px;"><a href="member/modify.do">프로필 수정</a></li>
+				<li style="margin-top:40px;"><a href="/member/modify.do">프로필 수정</a></li>
 				<br>	
-				<li style="margin-top:10px;"><a href="member/profile.do">프로필 보기</a></li>
+				<li style="margin-top:10px;"><a href="/member/profile.do">프로필 보기</a></li>
 				<br>
 	            <li style="margin-top:10px;"><a href="#">예약 내역 확인</a></li>
 	            <br>
@@ -83,13 +85,16 @@
 	</div>
 	
 	<div class="wishList">
-		<h1>안녕하세요, ${member.name} 입니다!</h1>
+		<span style="font-size:30px;">안녕하세요, ${member.name} 입니다!</span>
 		<h4>${member.introduction}</h4>
 		<br><br><br>
-		<h2>내 위시리스트</h2>
+		<span style="font-size:20px;">내 위시리스트</span>
 	</div>	
+	
+	</div>
 	</form>
 	</div>		
+	
 </body>
 </html>
 
