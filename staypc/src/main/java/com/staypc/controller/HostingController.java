@@ -4,6 +4,7 @@ import com.staypc.service.HostingService;
 import com.staypc.utility.MediaUtils;
 import com.staypc.utility.UploadFileUtils;
 import com.staypc.vo.LodgeVO;
+import com.sun.jna.platform.win32.WinNT;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -125,8 +126,10 @@ public class HostingController {
         if(mType != null){
             String front = fileName.substring(0,12);
             String end = fileName.substring(14);
+            System.out.println(uploadPath+(front+end));
             new File(uploadPath + (front+end).replace('/', File.separatorChar)).delete();
         }
+        System.out.println(uploadPath+fileName);
         new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
