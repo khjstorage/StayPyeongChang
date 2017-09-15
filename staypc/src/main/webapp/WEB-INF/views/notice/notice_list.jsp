@@ -6,24 +6,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지사항</title>
 
-<link href="css/notice.css" rel="stylesheet" type="text/css"/>
+<link href="/resources/css/notice.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<center>
-<div class="notice_wrap" >
-	<h2>공지사항</h2>
+ 
+<div class="notice_wrap"   align="center" class="container" >	
+	<div class="teble_box" align="left" style="width:800px; padding:20px; padding-left:50px; margin-top:20px; background-color:#ffffff">
+
+	<span>공지사항</span>
+	<br><br>
 	<table class="notice_table">
 		<tr>
-			<th style="width:100px;height:30px; background-color:#eeeeee; ">
+			<th style="width:100px; ">
 				글번호
 			</th>
-			<th style="width:500px; background-color:#eeeeee; ">
+			<th style="width:500px; ">
 				제목
 			</th>
-			<th style="width:100px;background-color:#eeeeee;  ">
+			<th style="width:100px;  ">
 				작성자
 			</th>
-			<th style="width:100px; background-color:#eeeeee; ">
+			<th style="width:100px; ">
 				작성일
 			</th>
 		</tr>
@@ -47,11 +50,12 @@
 			</tr>
 		</c:forEach>
 	</table>
+	</div>
 	<br>
-	<div class="botton_box" style="margin-left:40%;">
+	<div class="botton_box" style="margin-left:55%;">
 		<input type="button" id="saveBtn" onclick="location.href='notice_insert_form.do'"  value="글쓰기" />			
     </div>
 </div>
-</center>
+
 </body>
 </html>
