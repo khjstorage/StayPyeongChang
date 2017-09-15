@@ -19,7 +19,7 @@ function test(idMyDiv){
 
  <div class="sidemenu">
   <ul>
-    <li style="margin-top:40px;"><a href="#">공지사항</a></li>
+    <li style="margin-top:40px;"><a href="/notice/notice_view.do">공지사항</a></li>
     <br>
     <li style="margin-top:10px;"><a href="#">도움말</a></li>              
   </ul>
@@ -33,28 +33,28 @@ function test(idMyDiv){
  	<div class="content">
  	<div class="contentB">
  	<div class="subject">
- 	<span style="font-size:18px;"><b>${board.subject} 제목</b></span>
+ 	<span style="font-size:18px;"><b>${list.subject}</b></span>
  	</div>
  	
  	<hr>
  	
  	<div class="writerNdate">
- 		<span id="writer">등록자 : ${board.writer}관리자</span> 	
+ 		<span id="writer">등록자 : ${list.writer}</span> 	
  		<span>&nbsp;|&nbsp;<span>
- 		<span id="date">등록일 : ${board.register_datetime}2017-01-01</span>
+ 		<span id="date">등록일 : ${list.register_datetime}</span>
  	</div> 	
  	
  	<br><br>
  	 	
  	<div class="noticeDetail">
- 	<span>${board.content} 내용입니다 내용애아얼아ㅣ러마아러ㅣㅏㄴㄹ머랑ㅁ노리ㅏㅁㅇ뇌류치ㅕㄷ무라ㅗ파ㅑㅣㅣ너룿ㅍㅎㄷ랴ㅗㅈㄷ라ㅓㄴ이ㅑㅓㅐㅑㅓㅗ가나다라마바사아ㅏ아아아아아아ㅏ아아아ㅏ안머라ㅣㅇㅁ너아ㅣ러ㅜㅌ차ㅣㅜㄹd어쩌구저쩌구 이거슨 내용입니다.. .낭ㅇ냐라아어나두랴이나ㅜㅜ</span>
+ 	<span>${list.content}</span>
  	<br><br>	 	
  	</div>
  	
  	<div class="btn">
-	 <input type="submit" id="update" value="수정" id="update"> 		
-	 <input type="button" id="drop" value="삭제">
-	 <input type="submit" id="list" value="목록">
+	 <input type="submit" id="update" onclick="location.href='notice_update.do'" value="수정"> 		
+	 <input type="button" id="drop" onclick="location.href='notice_delete.do'" value="삭제">
+	 <input type="submit" id="list" onclick="location.href='notice_list.do'" value="목록">
 	</div>
  	</div> 	 	
  	</div>

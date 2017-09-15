@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+
+.notice_wrap{
+	
+}
+.notice_table{	
+	background-color:#eeeeee;
+	display:block;
+	width:800px;
+	padding:10px;
+}
+.notice_table th{
+	border-right:1px solid #000000;
+}
+
+
+.

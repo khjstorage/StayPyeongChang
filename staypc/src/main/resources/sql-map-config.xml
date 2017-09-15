@@ -14,6 +14,7 @@
         <mapper resource="mappings/login-mapping.xml"/>
         <mapper resource="mappings/lodge-mapping.xml"/>
         <mapper resource="mappings/lodgeReview-mapping.xml"/>
+        
     </mappers>
 </configuration>
 
