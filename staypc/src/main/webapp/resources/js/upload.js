@@ -17,10 +17,11 @@ $(".fileDrop").on("drop", function (event) {
         contentType: false,
         type: 'POST',
         success: function (data) {
+            console.log(data);
             var str = "";
 
             if (checkImageType(data)) {
-                str = "<li> <a class=img value="+data+" href=/host/displayFile.do?fileName=" + getImageLink(data) +"> <img src='/host/displayFile.do?fileName=" + data + "'/></a>" +
+                str = "<li> <a class=img target='_blank' value="+getImageLink(data)+" href=/host/displayFile.do?fileName="+getImageLink(data) +"> <img src='/host/displayFile.do?fileName=" + data + "'/></a>" +
                     "<small data-src="+data+">X</small>" +
                     "</li>";
             } else {

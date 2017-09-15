@@ -7,10 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="resources/ckeditor/ckeditor.js"></script>
+<script src="/resources/ckeditor/ckeditor.js"></script>
 
 
 <title>게시글 작성</title>
+<link href="css/notice.css" rel="stylesheet" type="text/css"/>
 
 
 
@@ -20,10 +21,11 @@
  	<div align="left" style="width:800px; padding:20px; padding-left:50px; margin-top:20px; background-color:#ffffff">
 
 		
-			<h2>게시글 작성</h2>
-			
-			<form action="notice_insert.do" id="saveForm" method="post">	
+			<form action="/notice/notice_insert.do"  id="saveForm" method="post">	
 			<div class="form-inline" style="margin-bottom:10px">
+
+	<span>게시글작성</span>
+	<br><br>
 			   제목: 
 			   <input type="text" id="subject" name="subject" style="width:750px;" 
 			   placeholder="제목을 입력하세요."/>
@@ -35,9 +37,9 @@
 		
 
 			<br>
-			<div class="botton_box" style="margin-left:75%;">
+			<div class="botton_box" style="margin-left:85%;">
 				<input type="submit"  id="saveBtn" value="작성">
-				<input type="button" id="cancelBtn" onclick="location.href='notice_list.do'"  value="목록" />     
+				<input type="button" id="cancelBtn" onclick="location.href='/notice/notice_list.do'"  value="목록" />     
 			</div>
 		
 			</form>

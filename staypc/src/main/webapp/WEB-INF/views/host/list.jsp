@@ -15,8 +15,11 @@
         <table>
             <c:forEach var="row" items="${list }">
                     <tr>
-                        <td>글제목:</td>
-                        <td><a href="/host/detail.do?lodge_code=${row.lodge_Code}">${row.title}</a></td>
+                        <td rowspan="2"><img style="width=100%;height=100%;background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280"></td>
+                        <td>${row.room_Name}</td>
+                    </tr>
+                    <tr>
+                        <td>${row.check_}</td>
                     </tr>
             </c:forEach>
         </table>

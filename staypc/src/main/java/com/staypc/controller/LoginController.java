@@ -135,7 +135,7 @@ public class LoginController {
 		
 		if (loginresult == true) {
 			System.out.println("결과값"+loginresult);
-			mav.setViewName("home/main");
+			mav.setViewName("redirect:/main.do");
 		} else {
 			mav.setViewName("login/login");
 			mav.addObject("msg", "failure");

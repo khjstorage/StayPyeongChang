@@ -4,23 +4,23 @@
 
 <mapper namespace="notice">
 	<select id="notice_list" resultType="noticeDTO">
-		select * from board
+		select * from STAYPC_NOTICE
 	</select>
 	
 	<select id="notice_view">
-		select * from board where list_no=#{list_no}
+		select * from STAYPC_NOTICE where list_no=#{list_no}
 	</select>
 	
 	<insert id="notice_insert">
-		insert into board values((select nvl(max(list_no),1)+1 from board),#{subject},#{content},#{writer},#{password},sysdate)
+		insert into STAYPC_NOTICE values((select nvl(max(list_no),1)+1 from STAYPC_NOTICE),#{subject},#{content},#{id},sysdate)
 	</insert>
 	
 	<update id="notice_update">
-		update board set CONTENT=#{content}, subject=#{subject} where list_no=#{list_no}
+		update STAYPC_NOTICE set CONTENT=#{content}, subject=#{subject} where list_no=#{list_no}
 	</update>
 	
 	<delete id="notice_delete" parameterType="noticeDTO">
-		delete board where list_no=#{list_no}
+		delete STAYPC_NOTICE where list_no=#{list_no}
 	</delete>
 
 </mapper>

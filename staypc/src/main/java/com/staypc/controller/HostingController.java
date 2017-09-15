@@ -19,14 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @Controller
@@ -81,13 +76,16 @@ public class HostingController {
 
 
 
+
     @ResponseBody
     @RequestMapping(value = "host/uploadAjax.do", method = RequestMethod.POST, produces = "text/plain; charset=UTF-8")
     public ResponseEntity<String> uploadAjax(MultipartFile file)throws Exception{
+        System.out.println("uploadAjax"+file);
         ResponseEntity responseEntity = new ResponseEntity(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()), HttpStatus.CREATED);
         return responseEntity;
     }
 
+    //섬네일 보여준다.
     @ResponseBody
     @RequestMapping("host/displayFile.do")
     public ResponseEntity<byte[]>  displayFile(String fileName)throws Exception{
@@ -98,6 +96,7 @@ public class HostingController {
             MediaType mType = MediaUtils.getMediaType(formatName);
             HttpHeaders headers = new HttpHeaders();
             in = new FileInputStream(uploadPath+fileName);
+            System.out.println(uploadPath+fileName);
             if(mType != null){
                 headers.setContentType(mType);
             }else{
@@ -121,7 +120,6 @@ public class HostingController {
     public ResponseEntity<String> deleteFile(String fileName){
         String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
         MediaType mType = MediaUtils.getMediaType(formatName);
-
         if(mType != null){
             String front = fileName.substring(0,12);
             String end = fileName.substring(14);

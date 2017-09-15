@@ -59,21 +59,21 @@
 <div id="main">
 
     <!--숙박정보  -->
-    <div id="info">
-
-        <table>
-            <tbody>
-            <tr>
-                <td>&nbsp;<img src="/resources/images/info.png" width="130" height="30" alt=""/></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    
 
     
     <!-- 여기서부터 슬기가  -->
     <!-- 검색바 (위치, 날짜, 인원) -->
-    <div class="main_section01">
+    <div class="main_section01"  align="center" >
+		    <div id="info">
+		        <table>
+		            <tbody>
+		            <tr>
+		                <td>&nbsp;<img src="/resources/images/info.png" width="130" height="30" alt=""/></td>
+		            </tr>
+		            </tbody>
+		        </table>
+		    </div>
 			    <table id="search">
 			        <tr>
 			            <td>			
@@ -102,7 +102,7 @@
     
 
  
-    
+    <div align="center" >
 				 <table style="cellspacing:5px; cellpadding:auto;">			
 				        <tr>
 				            <c:forEach var="row" items="${map.list }" varStatus="status">
@@ -132,16 +132,19 @@
 				            </c:if>
 				            </c:forEach>
 				    </table>
-	
+				    
+	<br>
+	<br>
+    <div class="hostlist_view"   >
+        <a href='<c:url value="/lodge/list.do" ></c:url>'>전체보기</a>
+    </div>
+	</div>
     
     <br>
     <br>
     <br>
         
     
-    <div style="width:100px; border:1px solid  #dddddd; height:50px;"align="center"  >
-        <a href='<c:url value="/lodge/list.do" ></c:url>'>전체보기</a>
-    </div>
 
 
  

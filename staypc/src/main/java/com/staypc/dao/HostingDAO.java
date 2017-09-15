@@ -29,7 +29,6 @@ public class HostingDAO {
     }
     
     public void hosting_date(LodgeVO vo) {
-    	System.out.println("값이 안찍히나 투..?"+vo.getBook_date());
     	sqlSession.insert("hosting.insert_date",vo);
     }
 
