@@ -9,12 +9,14 @@
 	  INSERT INTO STAYPC_REVIEW(REVIEW_NUM,
 	  						CONTENT,
 	  						REG_DATE,
+	  						LODGE_CODE,
 	  						PARENT,
 	  						SORT,
 	  						TAB)
 	  				VALUES  ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
 	  				         #{content},
 	  				         SYSDATE,
+	  				         #{lodge_code}
 	  				         (SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
 	  				         0,
 	  				         0)
@@ -40,9 +42,9 @@
     
     <update id="update">
        UPDATE STAYPC_REVIEW
-           set CONTENT=#{content},
+           SET CONTENT=#{content},
                REG_DATE = SYSDATE
-       WHERE   REVIEW_NUM=#{review_num} AND PWD=#{pwd} 
+       WHERE   REVIEW_NUM=#{review_num} AND LODGE_CODE=#{lodge_code} 
     </update>
 
     <update id="updateSort">

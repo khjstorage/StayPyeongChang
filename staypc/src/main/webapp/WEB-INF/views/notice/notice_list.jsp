@@ -37,11 +37,13 @@
 					
 				</td>
 				<td style=" border-bottom:1px solid #eeeeee;">
-					${list.subject }	
+					<a href="notice/notice_view.do?list_no=${list.list_no} }">${list.subject }</a>
+					
+					
 								
 				</td>
 				<td style=" border-bottom:1px solid #eeeeee;">
-					<center>${list.writer}	</center>	
+					<center>${list.id}	</center>	
 								
 				</td>
 			 	<td style=" border-bottom:1px solid #eeeeee;">
