@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -179,6 +180,18 @@ public class LoginController {
 		service.modify(vo);
 		return "redirect:/";
 	}
+
+
+	@RequestMapping(value = "/member/profile.do", method = RequestMethod.GET)
+	public ModelAndView profile(ModelAndView mv, HttpSession session){
+		LoginVO member = service.getMember((String)session.getAttribute("userId"));
+		mv.addObject("member",member);
+		mv.setViewName("member/profile");
+		return mv;
+	}
+
+
+
 
 	@RequestMapping(value = "/member/drop.do", method = RequestMethod.GET)
 	public String dropForm(LoginVO vo, HttpSession session, HttpServletRequest request){

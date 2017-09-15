@@ -29,7 +29,7 @@
 
             <div class="userImgInfo">
                 <div class="userImg">
-                    <input type="image" id="user_proPic" src="images/user_pic.png" style="width:200px; height:200px;">
+                    <img width="100px" height="100px" style="width:200px; height:200px;" src="<c:url value='/resources/profile_photo/${member.picture}'/>"/>
                 </div>
                 <br><br>
 
@@ -53,7 +53,9 @@
                         <li>
                             <div class="userBirthDate">
                                 <span>생년월일 : </span>
-                                <span>${member.birth_date}</span>
+                                <fmt:parseDate value='${member.birth_date}' var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                <fmt:formatDate value='${dateFmt}' var="birth_date" pattern="yyyy-MM-dd"/>
+                                <span>${birth_date}</span>
                             </div>
                         </li>
 
