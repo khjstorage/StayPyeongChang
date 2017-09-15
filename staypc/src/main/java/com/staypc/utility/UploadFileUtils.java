@@ -14,14 +14,11 @@ public class UploadFileUtils {
 
     private static String calcPath(String uploadPath){
         Calendar cal = Calendar.getInstance();
-        String folder = File.separator + "lodgeImage";
-        String yearPath = folder + File.separator+cal.get(Calendar.YEAR);
+        String yearPath = File.separator+cal.get(Calendar.YEAR);
         String mothPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH)+1);
         String datePath = mothPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
-        makeDir(uploadPath, folder, yearPath, mothPath, datePath);
-//        makeDir(uploadPath, folder);
+        makeDir(uploadPath, yearPath, mothPath, datePath);
         return datePath;
-//        return folder;
     }
 
     private static void makeDir(String uploadPath, String... paths) {
@@ -47,8 +44,10 @@ public class UploadFileUtils {
         String uploadedFileName = null;
         if(MediaUtils.getMediaType(formatName)!=null){
             uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
+
         }else{
             uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
+
         }
         return uploadedFileName;
     }

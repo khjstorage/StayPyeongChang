@@ -4,7 +4,6 @@ import com.staypc.service.HostingService;
 import com.staypc.utility.MediaUtils;
 import com.staypc.utility.UploadFileUtils;
 import com.staypc.vo.LodgeVO;
-import com.sun.jna.platform.win32.WinNT;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -20,14 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @Controller
@@ -81,14 +75,15 @@ public class HostingController {
     }
 
 
-
     @ResponseBody
     @RequestMapping(value = "host/uploadAjax.do", method = RequestMethod.POST, produces = "text/plain; charset=UTF-8")
     public ResponseEntity<String> uploadAjax(MultipartFile file)throws Exception{
+        System.out.println("uploadAjax"+file);
         ResponseEntity responseEntity = new ResponseEntity(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()), HttpStatus.CREATED);
         return responseEntity;
     }
 
+    //섬네일 보여준다.
     @ResponseBody
     @RequestMapping("host/displayFile.do")
     public ResponseEntity<byte[]>  displayFile(String fileName)throws Exception{
@@ -99,6 +94,7 @@ public class HostingController {
             MediaType mType = MediaUtils.getMediaType(formatName);
             HttpHeaders headers = new HttpHeaders();
             in = new FileInputStream(uploadPath+fileName);
+            System.out.println(uploadPath+fileName);
             if(mType != null){
                 headers.setContentType(mType);
             }else{
@@ -122,14 +118,11 @@ public class HostingController {
     public ResponseEntity<String> deleteFile(String fileName){
         String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
         MediaType mType = MediaUtils.getMediaType(formatName);
-
         if(mType != null){
             String front = fileName.substring(0,12);
             String end = fileName.substring(14);
-            System.out.println(uploadPath+(front+end));
             new File(uploadPath + (front+end).replace('/', File.separatorChar)).delete();
         }
-        System.out.println(uploadPath+fileName);
         new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
