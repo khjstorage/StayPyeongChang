@@ -1,22 +1,18 @@
 package com.staypc.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.staypc.service.NoticeService;
+import com.staypc.vo.NoticeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.staypc.service.NoticeService;
-import com.staypc.vo.NoticeVO;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class NoticeController {
 
 	@Autowired
 	NoticeService noticeService;
-	//~~~.do �� ȣ���ϴ� �̸��� ������
 	@RequestMapping("notice_list.do")
 	public String notice_list(HttpServletRequest req) {
 		req.setAttribute("notice_list",noticeService.notice_list());
@@ -53,7 +49,7 @@ public class NoticeController {
 	@RequestMapping("notice/notice_insert.do")
 	public String notice_insert(NoticeVO vo) {
 		System.out.println("notice_insert");
-		vo.setWriter("admin");
+		vo.setId("admin");
 		noticeService.notice_insert(vo);
 		return "redirect:notice_list.do";
 	}
