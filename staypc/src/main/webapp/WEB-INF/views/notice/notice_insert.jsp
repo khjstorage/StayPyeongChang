@@ -21,9 +21,7 @@
  	<div align="left" style="width:800px; padding:20px; padding-left:50px; margin-top:20px; background-color:#ffffff">
 
 		
-			
-			
-			<form action="notice/notice_insert.do" id="saveForm" method="post">	
+			<form action="/notice/notice_insert.do"  id="saveForm" method="post">	
 			<div class="form-inline" style="margin-bottom:10px">
 
 	<span>게시글작성</span>
