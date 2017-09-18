@@ -22,7 +22,7 @@ public class LodgeReviewController {
 	@Autowired
 	LodgeReviewService Service;
 
-	@RequestMapping(value="lodge/boardList.do", method=RequestMethod.GET)
+	@RequestMapping(value="lodge/houseread.do", method=RequestMethod.GET)
     public String ReviewList(LodgeReviewVO vo, Model model,
     		@RequestParam(value="pg", defaultValue = "1") int pg,
     		HttpServletRequest request) throws Exception {
@@ -76,15 +76,34 @@ public class LodgeReviewController {
 	}	
 	
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.GET)
-	public String insertForm(){
-		return "lodge/insertBoard";
+	public ModelAndView insertForm(LodgeReviewVO param, HttpSession session) throws Exception{
+		String id = (String)session.getAttribute("userId");
+		param.setId(id);
+
+		System.out.println(param.getLodge_Code());
+		LodgeReviewVO vo = Service.read(param);
+		System.out.println(vo);
+		
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("vo", vo);
+		mav.setViewName("lodge/insertBoard");
+		
+		return mav;
 	}
 	
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.POST)
 	public String insert( LodgeReviewVO vo, HttpSession session) throws Exception{
-		vo.setId((String)session.getAttribute("userId"));
+
+		String id = (String)session.getAttribute("userId");
+		vo.setId(id);
+		String lodge_Code=(String)session.getAttribute("lodge_Code");
+		vo.setLodge_Code(lodge_Code);
+		System.out.println(id);
 	     Service.insert(vo);
-	    return "redirect:/lodge/boardList.do";
+		System.out.println("insert"+vo);
+	    return "redirect:/lodge/houseread.do";
 	}
 	
 	@RequestMapping(value="lodge/update.do", method=RequestMethod.GET)

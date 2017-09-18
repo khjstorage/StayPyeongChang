@@ -24,7 +24,7 @@
     </tr>
 </c:forEach>
 </table>
-<button>수정하기</button>
+
 
 </body>
 </html>
