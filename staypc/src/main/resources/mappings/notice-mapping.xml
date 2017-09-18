@@ -12,6 +12,7 @@
 	</select>
 	
 	<insert id="notice_insert">
+
 		insert into board values((select nvl(max(list_no),1)+1 from board),#{subject},#{content},#{id},sysdate)
 		insert into STAYPC_NOTICE values((select nvl(max(list_no),1)+1 from STAYPC_NOTICE),#{subject},#{content},#{id},sysdate)
 	</insert>

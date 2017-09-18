@@ -7,8 +7,9 @@
         <typeAlias alias="lodge" type="com.staypc.vo.LodgeVO"/>
         <typeAlias alias="lodgeReview" type="com.staypc.vo.LodgeReviewVO"/>
         <typeAlias alias="lodgeBook" type="com.staypc.vo.LodgeBookVO"/>
-         <typeAlias alias="noticeDTO" type="com.staypc.vo.NoticeVO"/>
-         </typeAliases>
+        <typeAlias alias="noticeDTO" type="com.staypc.vo.NoticeVO"/>
+        <typeAlias alias="payment" type="com.staypc.vo.PaymentVO"/>
+    </typeAliases>
 
     <mappers>
         <mapper resource="mappings/hosting-mapping.xml"/>
@@ -16,6 +17,7 @@
         <mapper resource="mappings/lodge-mapping.xml"/>
         <mapper resource="mappings/lodgeReview-mapping.xml"/>
         <mapper resource="mappings/notice-mapping.xml"/>
+        <mapper resource="mappings/payment-mapping.xml"/>
     </mappers>
 </configuration>
 

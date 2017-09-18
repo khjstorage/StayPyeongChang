@@ -42,7 +42,6 @@
                                 <span>${member.id}</span>
                             </div>
                         </li>
-
                         <li>
                             <div class="userGender">
                                 <span>성별 : </span>
@@ -53,30 +52,58 @@
                         <li>
                             <div class="userBirthDate">
                                 <span>생년월일 : </span>
-                                <fmt:parseDate value='${member.birth_date}' var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
-                                <fmt:formatDate value='${dateFmt}' var="birth_date" pattern="yyyy-MM-dd"/>
-                                <span>${birth_date}</span>
+                                <c:choose>
+                                    <c:when test="${member.birth_yn eq 'Y'}">
+                                        <fmt:parseDate value='${member.birth_date}' var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                        <fmt:formatDate value='${dateFmt}' var="birth_date" pattern="yyyy-MM-dd"/>
+                                        <span>${birth_date}</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span>비공개</span>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </li>
 
                         <li>
                             <div class="userEmail">
                                 <span>이메일 : </span>
+                                <c:choose>
+                                    <c:when test="${member.email_yn eq 'Y'}">
                                 <span>${member.email}</span>
+                            </c:when>
+                                <c:otherwise>
+                                    <span>비공개</span>
+                                </c:otherwise>
+                                </c:choose>
                             </div>
                         </li>
 
                         <li>
                             <div class="userPhone">
                                 <span>전화번호 : </span>
-                                <span>${member.phone}</span>
+                                <c:choose>
+                                    <c:when test="${member.phone_yn eq 'Y'}">
+                                        <span>${member.phone}</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span>비공개</span>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </li>
 
                         <li>
                             <div class="userCity">
                                 <span>거주지 : </span>
-                                <span>${member.city}</span>
+                                <c:choose>
+                                    <c:when test="${member.city_yn eq 'Y'}">
+                                        <span>${member.city}</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span>비공개</span>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </li>
                     </ul>
