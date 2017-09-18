@@ -12,11 +12,8 @@
 	</select>
 	
 	<insert id="notice_insert">
-<<<<<<< HEAD
 		insert into board values((select nvl(max(list_no),1)+1 from board),#{subject},#{content},#{id},sysdate)
-=======
 		insert into STAYPC_NOTICE values((select nvl(max(list_no),1)+1 from STAYPC_NOTICE),#{subject},#{content},#{id},sysdate)
->>>>>>> 58d9a913f40c548e97ade2ea8501c164f5746fd5
 	</insert>
 	
 	<update id="notice_update">
