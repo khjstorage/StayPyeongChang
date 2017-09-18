@@ -16,7 +16,7 @@
 <div class="top_con_zone" id="fixNextTag">
 <h1>후기 작성</h1>
 <hr>
-<form name="boardform" action='<c:url value="insertBoard.do?=lodge_Code=${vo.lodge_Code }"></c:url>' method="post">
+<form name="boardform" action='<c:url value="insertBoard.do"></c:url>' method="post">
 	<table style="border:0px;">
 		<tr>
 		  <td>${vo.picture }</td>

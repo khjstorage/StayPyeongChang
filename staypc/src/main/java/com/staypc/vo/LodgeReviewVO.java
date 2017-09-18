@@ -6,7 +6,7 @@ public class LodgeReviewVO {
 	private int review_num;
 	private String id;
 	private String name;
-	private String lodge_code;
+	private String lodge_Code;
 	private String content;
 	private Date reg_date;
 	private Date update_date;
@@ -42,11 +42,11 @@ public class LodgeReviewVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getLodge_code() {
-		return lodge_code;
+	public String getlodge_Code() {
+		return lodge_Code;
 	}
-	public void setLodge_code(String lodge_code) {
-		this.lodge_code = lodge_code;
+	public void setlodge_Code(String lodge_Code) {
+		this.lodge_Code = lodge_Code;
 	}
 	public String getContent() {
 		return content;
@@ -94,8 +94,8 @@ public class LodgeReviewVO {
 	
 	@Override
 	public String toString() {
-		return "LodgeReviewVO [review_num=" + review_num + ", id=" + id + ", name=" + name + ", lodge_code="
-				+ lodge_code + ", content=" + content + ", reg_date=" + reg_date + ", update_date=" + update_date
+		return "LodgeReviewVO [review_num=" + review_num + ", id=" + id + ", name=" + name + ", lodge_Code="
+				+ lodge_Code + ", content=" + content + ", reg_date=" + reg_date + ", update_date=" + update_date
 				+ ", grade=" + grade + ", parent=" + parent + ", sort=" + sort + ", tab=" + tab + ", picture=" + picture
 				+ "]";
 	}
