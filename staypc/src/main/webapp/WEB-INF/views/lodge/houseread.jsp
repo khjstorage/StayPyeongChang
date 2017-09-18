@@ -71,29 +71,29 @@
                 </td>
             </tr>
             <c:if test="${ !empty list }">
-                <c:forEach items="${ list }" var="b">
+                <c:forEach items="${ list }">
                     <tr>
-                        <td rowspan="3" class="center" width="50">${ b.review_num }</td>
+                        <td rowspan="3" class="center" width="50">${ vo.review_num }</td>
                         <td rowspan="2">
                             <!--
-						<c:if test="${ b.tab > 0 }">
-							<c:forEach begin="1" end="${ b.tab }">
+						<c:if test="${ vo.tab > 0 }">
+							<c:forEach begin="1" end="${ vo.tab }">
 								&nbsp;&nbsp;
 							</c:forEach>
 							☞
 						</c:if>	-->
                             memberpicture
                         </td>
-                        <td class="left">${ b.name }</td>
+                        <td class="left">${ vo.name }</td>
                         <td colspan="5"></td>
                     </tr>
                     <tr>
-                        <td class="center"><fmt:formatDate value="${ b.reg_date }" pattern="yyyy년MM월dd일"/></td>
+                        <td class="center"><fmt:formatDate value="${ vo.reg_date }" pattern="yyyy년MM월dd일"/></td>
                         <td colspan="5"></td>
                     </tr>
                     <tr class="left">
                         <td colspan="7">
-                            <a href="<c:url value="/lodge/reviewread.do?review_num=${b.review_num }"/>">${ b.content}</a>
+                            <a href="<c:url value="/lodge/reviewread.do?review_num=${vo.review_num }"/>">${ vo.content}</a>
                         </td>
                     </tr>
                 </c:forEach>

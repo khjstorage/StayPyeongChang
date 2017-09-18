@@ -76,7 +76,7 @@ public class LodgeReviewController {
 	}	
 	
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.GET)
-	public ModelAndView insertForm(LodgeReviewVO param) throws Exception{
+	public ModelAndView insertForm(LodgeReviewVO param, HttpSession session) throws Exception{
 		System.out.println(param);
 		LodgeReviewVO vo = Service.read(param);
 		ModelAndView mav = new ModelAndView();
@@ -93,7 +93,7 @@ public class LodgeReviewController {
 		String id = (String)session.getAttribute("userId");
 		vo.setId(id);
 		System.out.println(id);
-		System.out.println(vo);
+		System.out.println("insert"+vo);
 	     Service.insert(vo);
 	    return "redirect:/lodge/houseread.do";
 	}

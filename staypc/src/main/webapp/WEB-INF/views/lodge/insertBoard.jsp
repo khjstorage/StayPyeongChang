@@ -21,7 +21,7 @@
 		<tr>
 		  <td>${vo.picture }</td>
 		  <td>아이디${sessionScope.userId}</td>
-		  <td>로지코드${vo.lodge_code }</td>
+		  <td>로지코드${vo.lodge_Code }</td>
 		 </tr>
 		 <tr>
 		   <td colspan="3">
