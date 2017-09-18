@@ -18,7 +18,7 @@
 	  						TAB)
 	  				VALUES  ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
                             #{id},
-                            #{lodge_code},
+                            #{lodge_Code},
                             #{content},
 	  				         SYSDATE,
                              SYSDATE,
