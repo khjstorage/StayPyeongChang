@@ -20,7 +20,7 @@
 	<table style="border:0px;">
 		<tr>
 		  <td>${vo.picture }</td>
-		  <td>아이디${vo.id}</td>
+		  <td>아이디${sessionScope.userId}</td>
 		  <td>로지코드${vo.lodge_code }</td>
 		 </tr>
 		 <tr>
@@ -31,13 +31,14 @@
 		 <tr>
 		   <td align="right" colspan="3">
 		    평점 (1~5사이의 정수)
-		     <input name='grade' type="text" value='${vo.grade}' size="auto">  
-		   <!--  <input type="text" name="title" maxlength="100" size="59" value="[RE]${vo.title}"></td>  -->              
+		     <input name='grade' type="text" size="auto">           
 		 </tr>
 		  <tr>
 		   <td align="right" colspan="3">
+		   <!--  
 		    로지코드
-		     <input name='lodge_code' type="text" value='${vo.lodge_code}' size="auto">    
+		     <input name='lodge_code' type="text" value='${vo.lodge_code}' size="auto">  
+		     -->  
 		 </tr>
 		<tr>
 			<td colspan="2" align="right">

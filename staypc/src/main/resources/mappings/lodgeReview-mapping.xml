@@ -6,17 +6,21 @@
 	
 
     	<insert id="insertBoard" parameterType="lodgeReview">
-	  INSERT INTO STAYPC_REVIEW(REVIEW_NUM,
-	  						CONTENT,
+      	  INSERT INTO STAYPC_REVIEW(REVIEW_NUM,
+                            ID,
+     	  					CONTENT,
 	  						REG_DATE,
-	  						LODGE_CODE,
+                            UPDATE_DATE,
+                            GRADE,
 	  						PARENT,
 	  						SORT,
 	  						TAB)
 	  				VALUES  ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
-	  				         #{content},
+                            #{id},
+                            #{content},
 	  				         SYSDATE,
-	  				         #{lodge_code}
+                             SYSDATE,
+                             #{grade},
 	  				         (SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
 	  				         0,
 	  				         0)
@@ -44,8 +48,8 @@
        UPDATE STAYPC_REVIEW
            SET CONTENT=#{content},
                REG_DATE = SYSDATE
-       WHERE   REVIEW_NUM=#{review_num} AND LODGE_CODE=#{lodge_code} 
-    </update>
+       WHERE   REVIEW_NUM=#{review_num}
+       </update>
 
     <update id="updateSort">
     	UPDATE STAYPC_REVIEW 

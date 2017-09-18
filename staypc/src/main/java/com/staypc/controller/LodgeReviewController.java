@@ -82,9 +82,13 @@ public class LodgeReviewController {
 	
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.POST)
 	public String insert( LodgeReviewVO vo, HttpSession session) throws Exception{
-		vo.setId((String)session.getAttribute("userId"));
+
+		String id = (String)session.getAttribute("userId");
+		vo.setId(id);
+		System.out.println(id);
+		System.out.println(vo);
 	     Service.insert(vo);
-	    return "redirect:/lodge/boardList.do";
+	    return "redirect:/lodge/houseread.do";
 	}
 	
 	@RequestMapping(value="lodge/update.do", method=RequestMethod.GET)
