@@ -5,39 +5,16 @@
 <html>
 <head>
     <title>houseread화면</title>
-
-    <style>
-        body {
-            flex: 1;
-            display: flex;
-            background-color: #699EBD;
-        }
-        #left {
-            margin: 0px auto;;
-            background: #ffcc99;
-            float: left;
-            width: 700px;
-            height: 500px;
-        }
-
-        #right {
-            margin: 50px;
-            height: 500px;
-        }
-        #main1 {
-            margin: 100px;
-            height: 300px;
-        }
-        #main2 {
-            margin: 100px;
-            height: 200px;
-        }
-
-    </style>
+    <script>
+            function winOpen() {
+                var lodge_code = document.getElementById("lodge_Code").value
+                window.open("/payment/enrollment.do?lodge_code="+lodge_code,"new","width=500,height=500,top=100,left=100", "toolbar=no, location=no, status=no, scrollbars=auto, resizable=no");
+            }
+    </script>
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
-    <input name="lodge_Code" type="hidden" value=""/>
+    <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
     <div id="left">
         <!--  <img height="500px" width="700px" src="<c:url value='/resources/picture/${row.image }'/>" />-->
         <img height="500px" width="700px" src="/host/displayFile.do?fileName=/lodgeImage/2017/09/13/s_8c55b5d9-c8e4-4476-af76-42b79fdfc7e5_Desert.jpg">
@@ -50,16 +27,15 @@
         최대 가능 인원수:${vo.max_People}<br>
         숙소가격(1박):${vo.charge}<br>
         <br>
-        호스트 사진${member.picture }&nbsp;
-        <a href="logout.do">호스트이름:${member.name }<br>}</a>&nbsp;
+        호스트 사진${member.picture }<br>
+        호스트이름:${member.name }<br>
         호스트 이메일:${member.email}<br>
         숙소 연락처:"${vo.room_Phone}<br>
     </div>
 
     <div id="main2">
         <button style="height:40px;width:100px;font-size:9pt;color:white;background-color:orange;"><a href="logout.do">위시리스트담기</a></button>&nbsp;
-        <button color="orange"><a href="/payment/enrollment.do">예약하기</a></button>&nbsp;
-        <button color="orange"><a href="logout.do">LOG-OUT</a></button>
+        <button color="orange"><a onclick="winOpen()">예약하기</a></button>&nbsp;
 
         집이름(주경기장 근거리집):${vo.title}<br><br><br>
         숙소 정보<br>
@@ -74,8 +50,11 @@
 		숙소 긴주소:${vo.location}<br>
 		환불 규정:${vo.refund_Provision}<br>
 		숙소 입실시간:${vo.enter_Time}&nbsp;숙소 퇴실시간${vo.out_Time}<br>
-		체크인/체크아웃시간:${vo.check_In}&nbsp;${vo.check_Out}<br>
-	
+        <fmt:parseDate value='${vo.check_In}' var="check_In" pattern="yyyy-MM-dd HH:mm:ss"/>
+        <fmt:parseDate value='${vo.check_Out}' var="check_Out" pattern="yyyy-MM-dd HH:mm:ss"/>
+        <fmt:formatDate value='${check_In}' var="checkIn" pattern="yyyy-MM-dd"/>
+        <fmt:formatDate value='${check_Out}' var="checkOut" pattern="yyyy-MM-dd"/>
+		체크인:${checkIn}&nbsp; 체크아웃시간:${checkOut}<br>
 		숙소 등록일:<fmt:formatDate value="${vo.reg_Date}" pattern="yyyy년MM월dd일"/><br>
 		최근 수정일:<fmt:formatDate value="${vo.update_Date}" pattern="yyyy년MM월dd일"/><br>
 		건물타입:${vo.bulid_Type}<br>
