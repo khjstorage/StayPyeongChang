@@ -5,39 +5,39 @@ import java.util.Date;
 public class LodgeBookVO {
 
     //  예약코드
-    private int bookCode;
+    private int book_Code;
 
     //  숙소코드
-    private int lodgeCode;
+    private int lodge_Code;
 
     //  날짜
-    private Date bookDate;
+    private Date book_Date;
 
     //  예약가능여부
     private String available;
 
-    public int getBookCode() {
-        return bookCode;
+    public int getbook_Code() {
+        return book_Code;
     }
 
-    public void setBookCode(int bookCode) {
-        this.bookCode = bookCode;
+    public void setbook_Code(int book_Code) {
+        this.book_Code = book_Code;
     }
 
-    public int getLodgeCode() {
-        return lodgeCode;
+    public int getlodge_Code() {
+        return lodge_Code;
     }
 
-    public void setLodgeCode(int lodgeCode) {
-        this.lodgeCode = lodgeCode;
+    public void setlodge_Code(int lodge_Code) {
+        this.lodge_Code = lodge_Code;
     }
 
-    public Date getBookDate() {
-        return bookDate;
+    public Date getbook_Date() {
+        return book_Date;
     }
 
-    public void setBookDate(Date bookDate) {
-        this.bookDate = bookDate;
+    public void setbook_Date(Date book_Date) {
+        this.book_Date = book_Date;
     }
 
     public String getAvailable() {
@@ -51,9 +51,9 @@ public class LodgeBookVO {
     @Override
     public String toString() {
         return "LodgeBookVO{" +
-                "bookCode=" + bookCode +
-                ", lodgeCode=" + lodgeCode +
-                ", bookDate=" + bookDate +
+                "book_Code=" + book_Code +
+                ", lodge_Code=" + lodge_Code +
+                ", book_Date=" + book_Date +
                 ", available='" + available + '\'' +
                 '}';
     }

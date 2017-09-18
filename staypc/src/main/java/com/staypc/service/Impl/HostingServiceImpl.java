@@ -39,7 +39,6 @@ public class HostingServiceImpl implements HostingService {
             //두날짜 사이의 시간 차이(ms)를 하루 동안의 ms(24시*60분*60초*1000밀리초) 로 나눈다.
             long diffDay = (endDate.getTime() - startDate.getTime()) / (24*60*60*1000);
             for(int i= 0; i <diffDay; i++) {
-            	System.out.println(i+1+"번말");
             	cal.setTime(startDate);            
             	cal.add(cal.DAY_OF_YEAR, i);
             	vo.setBook_date(sdf.format(cal.getTime()));
