@@ -17,6 +17,7 @@
 <h1>후기 작성</h1>
 <hr>
 <form name="boardform" action='<c:url value="insertBoard.do"></c:url>' method="post">
+    <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
 	<table style="border:0px;">
 		<tr>
 		  <td>${vo.picture }</td>

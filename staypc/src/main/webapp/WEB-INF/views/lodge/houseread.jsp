@@ -59,7 +59,7 @@
     </div>
 
     <div class="top_con_zone">
-        <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
+       
         <h1>숙소 후기</h1>
         <hr>
         <table style="border: 0px; width: 1000px;">
@@ -68,8 +68,9 @@
             </tr>
             <tr>
                 <td colspan="8" align="right">
-                    <a href="<c:url value="/lodge/insertBoard.do"/>">후기 쓰기</a>
-                </td>
+                 <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
+                    <a href="insertBoard.do?lodge_Code=${vo.lodge_Code }"/>후기 쓰기</a>
+                 </td>
             </tr>
             <c:if test="${ !empty list }">
                 <c:forEach items="${ list }">

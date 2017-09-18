@@ -15,21 +15,6 @@ public class LodgeReviewVO {
 	private int sort; 
 	private int tab;
 	private String picture;
-	
-	
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPicture() {
-		return picture;
-	}
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
 	public int getReview_num() {
 		return review_num;
 	}
@@ -42,10 +27,16 @@ public class LodgeReviewVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getlodge_Code() {
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getLodge_Code() {
 		return lodge_Code;
 	}
-	public void setlodge_Code(String lodge_Code) {
+	public void setLodge_Code(String lodge_Code) {
 		this.lodge_Code = lodge_Code;
 	}
 	public String getContent() {
@@ -90,7 +81,12 @@ public class LodgeReviewVO {
 	public void setTab(int tab) {
 		this.tab = tab;
 	}
-	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
 	
 	@Override
 	public String toString() {
@@ -99,8 +95,6 @@ public class LodgeReviewVO {
 				+ ", grade=" + grade + ", parent=" + parent + ", sort=" + sort + ", tab=" + tab + ", picture=" + picture
 				+ "]";
 	}
-	
-	
-	
+		
 	
 }
