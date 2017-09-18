@@ -22,7 +22,7 @@ public class LodgeReviewController {
 	@Autowired
 	LodgeReviewService Service;
 
-	@RequestMapping(value="lodge/boardList.do", method=RequestMethod.GET)
+	@RequestMapping(value="lodge/houseread.do", method=RequestMethod.GET)
     public String ReviewList(LodgeReviewVO vo, Model model,
     		@RequestParam(value="pg", defaultValue = "1") int pg,
     		HttpServletRequest request) throws Exception {
@@ -76,8 +76,15 @@ public class LodgeReviewController {
 	}	
 	
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.GET)
-	public String insertForm(){
-		return "lodge/insertBoard";
+	public ModelAndView insertForm(LodgeReviewVO param) throws Exception{
+		System.out.println(param);
+		LodgeReviewVO vo = Service.read(param);
+		ModelAndView mav = new ModelAndView();
+		System.out.println("결과값"+vo.toString());
+		mav.addObject("vo", vo);
+		mav.setViewName("lodge/insertBoard");
+		
+		return mav;
 	}
 	
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.POST)
