@@ -85,10 +85,11 @@
 		침대 타입:${vo.bed_Type}<br>
 		편의시설: ${vo.convenient}<br>
 		안전시설:${vo.secure}<br>
-	
+ 	
 </div>
-<div class="top_con_zone" id="fixNextTag">
-    	<h1>숙소  후기</h1>
+<div id="main1">
+
+    &nbsp;<h1>숙소  후기</h1>
 	<hr>
 	<table style="border: 0px; width: 1000px;">
 	    <tr>
@@ -139,8 +140,8 @@
 		<tr align="center">
 			<td>
 				<c:if test="${ pg > block }">
-					[ <a href="lodge/boardList.do?pg=1">◀◀</a> ]
-					[ <a href="lodge/boardList.do?pg=${ beginPage - 1 }">◀</a> ]
+					[ <a href="lodge/houseread.do?pg=1">◀◀</a> ]
+					[ <a href="lodge/houseread.do?pg=${ beginPage - 1 }">◀</a> ]
 				</c:if>
 				<c:if test="${ pg <= block }">
 					[ <span style="color: gray;">◀◀</span> ]
@@ -148,11 +149,11 @@
 				</c:if>
 				<c:forEach var="i" begin="${ beginPage }" end="${ endPage }">
 					<c:if test="${ i == pg }" > [ ${ i } ] </c:if>
-					<c:if test="${ i != pg }" > [ <a href="lodge/boardList.do?pg=${ i }">${ i }</a> ]</c:if>
+					<c:if test="${ i != pg }" > [ <a href="lodge/houseread.do?pg=${ i }">${ i }</a> ]</c:if>
 				</c:forEach>
 				<c:if test="${ endPage < allPage }">
-					[ <a href="lodge/boardList.do?pg=${ endPage + 1 }">▶</a> ]
-					[ <a href="lodge/boardList.do?pg=${ allPage }">▶▶</a> ]
+					[ <a href="lodge/houseread.do?pg=${ endPage + 1 }">▶</a> ]
+					[ <a href="lodge/houseread.do?pg=${ allPage }">▶▶</a> ]
 				</c:if>
 				<c:if test="${ endPage >= allPage }">
 					[ <span style="color: gray;">▶</span> ]
