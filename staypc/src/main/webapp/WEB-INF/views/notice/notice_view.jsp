@@ -40,7 +40,7 @@ function test(idMyDiv){
  	
  	<div class="writerNdate">
  		<span id="writer">등록자 : ${list.writer}</span> 	
- 		<span>&nbsp;|&nbsp;<span>
+ 		<span>&nbsp;|&nbsp;</span>
  		<span id="date">등록일 : ${list.register_datetime}</span>
  	</div> 	
  	
