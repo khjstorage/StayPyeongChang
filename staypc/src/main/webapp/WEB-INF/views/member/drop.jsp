@@ -37,15 +37,19 @@
     </script>
 </head>
 <body>
-<div class="top_con_zone" id="fixNextTag">
-    <h1>회원탈퇴</h1>
-    <form id="frm" method="post">
-        <input type="hidden" value="${sessionScope.userId}" id="session">
-        패스워드 :<input type="password" id="password" name="password"> <br>
-    </form>
-    <button id="drop">탈퇴</button>
-    <button id="cancle">취소</button>
-    <br>
+<div class="top_con_zone" id="fixNextTag"   align="center"   style="margin-left:38%; width:400px; height:200px; border:1px solid #eeeeee;">
+	<div align="left" style="width:800px; padding:20px; padding-left:50px; margin-top:20px; background-color:#ffffff">
+	    <h1>회원탈퇴</h1>
+	    <br>
+	    <form id="frm" method="post">
+	        <input type="hidden" value="${sessionScope.userId}" id="session">
+	        패스워드 :<input type="password" id="password" name="password"> <br>
+	    </form>
+	    <br>
+	    <button id="drop">탈퇴</button>
+	    <button id="cancle">취소</button>
+	    <br>
+    </div>
 </div>
 </body>
 </html>
