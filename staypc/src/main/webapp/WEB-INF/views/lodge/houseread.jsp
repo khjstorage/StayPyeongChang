@@ -11,19 +11,60 @@
             window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
         }
     </script>
+
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.image_file').slick({
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
+
 </head>
 <body>
 <div class="top_con_zone">
     <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
 
     <div class="main_image">
-        <img height="500px" width="700px" src="/host/displayFile.do?fileName=${vo.main_Image }">
+        <img height="500px" width="100%" src="/host/displayFile.do?fileName=${vo.main_Image }">
     </div>
-    <div class="detail_image">
+
+
+    <div class="image_file">
         <c:forEach var="row" items="${listImg}" varStatus="status">
-               <img height="200px" width="200" src="/host/displayFile.do?fileName=${row.filename}">
+            <img src="/host/displayFile.do?fileName=${row.filename}" height="200px" width="200">
         </c:forEach>
     </div>
+
+
 
 
     <div class="right">
