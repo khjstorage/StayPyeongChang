@@ -112,7 +112,7 @@
 
             <div class="wishList">
                 <span style="font-size:30px;">안녕하세요, ${member.name} 입니다!</span>
-                <h4>${member.introduction}</h4>
+                <h4 style="line-height:25px;">${member.introduction}</h4>
                 <br><br><br>
                 <span style="font-size:20px;">내 위시리스트</span>
             </div>
