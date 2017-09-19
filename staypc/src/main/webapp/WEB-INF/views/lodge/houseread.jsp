@@ -7,33 +7,90 @@
     <title>houseread화면</title>
     <script>
         function winOpen() {
-            var lodge_code = document.getElementById("lodge_Code").value
+            var lodge_code = document.getElementById("lodge_Code");
             window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
         }
     </script>
+
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+
+            $('.slider-nav').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: true,
+                centerMode: true,
+                focusOnSelect: true,
+                variableWidth: true
+            });
+        });
+    </script>
+
+    <style>
+        .container {
+            width: 100%;
+            overflow: hidden;
+        }
+        .slider-for__item {
+            display: inline-block;
+            width: 1500px;
+            height: 700px;
+            margin: 0.5px;
+            text-align: center;
+            cursor:move;
+        }
+        .slider-for{
+            z-index: -1;
+        }
+        .slider-nav {
+            width: 100%;
+            overflow: hidden;
+        }
+        .item-nav {
+            width: 250px;
+            height: 250px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+
+
 <div class="top_con_zone">
-    <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
+    <input id="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
+    <div class="container">
+        <div class="slider-for">
+            <c:forEach var="row" items="${listImg}" varStatus="status">
+                <img class="slider-for__item" src="/host/displayFile.do?fileName=${row.filename}">
+            </c:forEach>
+        </div>
 
-    <div class="main_image">
-        <img height="500px" width="700px" src="/host/displayFile.do?fileName=${vo.main_Image }">
+        <div class="slider-nav">
+            <c:forEach var="row" items="${listImg}" varStatus="status">
+                <img class="slider-for__item item-nav " src="/host/displayFile.do?fileName=${row.filename}">
+            </c:forEach>
+        </div>
     </div>
-    <div class="detail_image">
-        <c:forEach var="row" items="${listImg}" varStatus="status">
-               <img height="200px" width="200" src="/host/displayFile.do?fileName=${row.filename}">
-        </c:forEach>
-    </div>
-
 
     <div class="right">
-        <h1>주경기장 근거리집을 소개합니다.....</h1>
         집이름(주경기장 근거리집):${vo.title}<br>
         짧은 주소(강원도 평창군 평창리):${vo.location}<br>
         숙소 설명 요약:${vo.room_Explain}<br>
         최대 가능 인원수:${vo.max_People}<br>
         숙소가격(1박):${vo.charge}<br>
-        <br>
         호스트 사진${member.picture }<br>
         호스트이름:${member.name }<br>
         호스트 이메일:${member.email}<br>
