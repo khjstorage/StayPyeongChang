@@ -94,26 +94,21 @@
 	<!--게시물 리스트-->
     <div align="center" >
 		<table style="cellspacing:5px; cellpadding:auto;">
-			<c:forEach var="row" items="${map.list }" varStatus="status">
-				<tr>
-					<td align="center">
-						<a href="lodge/read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
-							<div id="displayFile" style="width:300px; height:300px; border:1px solid #eeeeee; margin:10px;" >
-								<img style="width=100%;height=100%;background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280">
-							</div>
-							<br>
-							<fmt:formatNumber value="${row.charge}" pattern="#,###"/>원
-								${row.title }
-						</a>
-					</td>
-					<c:if test="${status.count % 3 == 0}">
-				</tr>
-			<c:if test="${status.count % 3 != 9 }">
 			<tr>
-				</c:if>
-				</c:if>
-				</c:forEach>
-		</table>
+				<c:forEach var="row" items="${map.list }" begin="0" end="8" step="1">
+				<td align="center">
+					<a href="lodge/read.do?lodge_Code=${row.lodge_Code }" style="text-decoration: none;">
+						<div id="displayFile" style="width:300px; height:300px; border:1px solid #eeeeee; margin:10px;" >
+							<img style="width=100%;height=100%;background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280">
+						</div>
+						<br>
+							${row.title }<br>
+						<fmt:formatNumber value="${row.charge}" pattern="#,###"/>원
+					</a>
+				</td>
+                </c:forEach>
+            </tr>
+        </table>
 
 		<div class="hostlist_view">
 			<a href='<c:url value="/lodge/list.do" ></c:url>'>전체보기</a>

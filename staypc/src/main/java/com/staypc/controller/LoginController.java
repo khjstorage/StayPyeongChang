@@ -135,7 +135,6 @@ public class LoginController {
 		boolean loginresult = service.loginCheck(vo, session);
 		
 		if (loginresult == true) {
-			System.out.println("결과값"+loginresult);
 			mav.setViewName("redirect:/main.do");
 		} else {
 			mav.setViewName("login/login");

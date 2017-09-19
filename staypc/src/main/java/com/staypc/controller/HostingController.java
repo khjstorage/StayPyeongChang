@@ -48,7 +48,7 @@ public class HostingController {
         }else{
             vo.setMain_Image("");
         }
-        service.hostinsert(vo);
+        service.hostInsert(vo);
         return "redirect:/";
         
     }
@@ -57,7 +57,7 @@ public class HostingController {
     @RequestMapping(value = "host/list.do", method = RequestMethod.GET)
     public ModelAndView hostListForm(ModelAndView mav, HttpSession session){
         String id = (String) session.getAttribute("userId");
-        List<LodgeVO> list =service.listhost(id);
+        List<LodgeVO> list =service.listHost(id);
         mav.setViewName("host/list");
         mav.addObject("list",list);
         return mav;
@@ -82,7 +82,7 @@ public class HostingController {
         return responseEntity;
     }
 
-    //섬네일 보여준다.
+
     @ResponseBody
     @RequestMapping("host/displayFile.do")
     public ResponseEntity<byte[]>  displayFile(String fileName)throws Exception{
@@ -125,8 +125,5 @@ public class HostingController {
         new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
-
-    
-
 
 }
