@@ -39,23 +39,21 @@ public class LodgeDAO {
 		map.put("end", end);
 		map.put("sdate", sdate);
 		map.put("edate", edate);
-		
-		
 		System.out.println(sqlSession.selectList("lodge.listAll", map));
 		return sqlSession.selectList("lodge.listAll", map);
 
 	}
 	
-	//추가부분 시작
+
 	public LodgeVO read(int  lodge_Code) throws Exception{	
-		return sqlSession.selectOne("lodge.read",  lodge_Code);
+		return sqlSession.selectOne("lodge.read", lodge_Code);
 	}
 	
 	
-	public List<LodgeVO>  readimg(int  lodge_Code) throws Exception{	
-		return sqlSession.selectList("lodge.readimg",  lodge_Code);
+	public List<LodgeVO> readImg(int  lodge_Code) throws Exception{
+		return sqlSession.selectList("lodge.readImg", lodge_Code);
 	}
-	//추가 부분 끝
+
 }
 
 

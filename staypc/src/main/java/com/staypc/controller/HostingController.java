@@ -57,7 +57,6 @@ public class HostingController {
     @RequestMapping(value = "host/list.do", method = RequestMethod.GET)
     public ModelAndView hostListForm(ModelAndView mav, HttpSession session){
         String id = (String) session.getAttribute("userId");
-        System.out.println("session"+id);
         List<LodgeVO> list =service.listhost(id);
         mav.setViewName("host/list");
         mav.addObject("list",list);
@@ -73,8 +72,6 @@ public class HostingController {
         mav.setViewName("host/detail");
         return mav;
     }
-
-
 
 
     @ResponseBody

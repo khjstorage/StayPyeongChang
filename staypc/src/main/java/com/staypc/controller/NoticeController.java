@@ -5,10 +5,12 @@ import com.staypc.vo.NoticeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class NoticeController {
@@ -17,45 +19,41 @@ public class NoticeController {
 	NoticeService noticeService;
 	
 	@RequestMapping("notice/notice_list.do")
-	public String notice_list(HttpServletRequest req) {
-		System.out.println("notice_list");
+	public ModelAndView notice_list(ModelAndView mav) {
 		List<NoticeVO> list = noticeService.notice_list();
-		System.out.println(list.get(0).toString());		
-		req.setAttribute("notice_list",list);
-		return "notice/notice_list";
+		mav.addObject("list",list);
+		mav.setViewName("notice/notice_list");
+		return mav;
 	}
 	
 	@RequestMapping("notice/notice_view.do")
-	public String notice_view(NoticeVO vo,/*httpServletRequest�� jsp�� ������ �����Ҷ�*/HttpServletRequest req) {
-		System.out.println("notice_view");
-		req.setAttribute("notice_view", noticeService.notice_view(vo));
-		return "notice/notice_view";
+	public ModelAndView notice_view(NoticeVO vo, ModelAndView mav) {
+		mav.addObject("object", noticeService.notice_view(vo));
+		System.out.println(noticeService.notice_view(vo));
+		mav.setViewName("notice/notice_view");
+		return mav;
 	}
 	
 	@RequestMapping("notice/notice_update.do")
 	public String notice_update(NoticeVO vo) {
-		System.out.println("notice_update");
 		noticeService.notice_update(vo);
-		return "notice/notice_list";
+		return "redirect:/notice/notice_list.do";
 	}
 	
 	@RequestMapping("notice/notice_delete.do")
 	public String notice_delete(NoticeVO vo) {
-		System.out.println("notice_delete");
 		noticeService.notice_delete(vo);
-		return "notice/notice_list";
+		return "redirect:/notice/notice_list.do";
 	}
 	
 	@RequestMapping("notice/notice_insert_form.do")
 	public String notice_insert_form() {
-		System.out.println("notice_insert_form");
 		return "notice/notice_insert";
 	}
 	
 	@RequestMapping("notice/notice_insert.do")
-	public String notice_insert(NoticeVO vo) {
-		System.out.println("notice_insert");
-		vo.setId("admin");
+	public String notice_insert(NoticeVO vo, HttpSession session) {
+		vo.setId((String) session.getAttribute("userId"));
 		noticeService.notice_insert(vo);
 		return "redirect:/notice/notice_list.do";
 	}

@@ -6,10 +6,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class InterCeptor extends HandlerInterceptorAdapter{
-    public InterCeptor() {
+import java.io.PrintWriter;
+
+public class LoginCeptor extends HandlerInterceptorAdapter{
+    public LoginCeptor() {
         super();
     }
+
+    //preHandle - controller 이벤트 호출전
+    //postHandle - controller 호출 후 view 페이지 출력전
+    //afterCompletion - controller + view 페이지 모두 출력 후
+    //afterConcurrentHandlingStarted - 뭐 동시에 핸들링 해주는 메서드인대 정확히는 모르겠습니다.
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
