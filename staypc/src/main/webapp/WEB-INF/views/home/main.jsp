@@ -102,15 +102,8 @@
 								<img style="width=100%;height=100%;background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280">
 							</div>
 							<br>
-							<fmt:formatNumber value="${row.charge}" pattern="#,###"/> 원
+							<fmt:formatNumber value="${row.charge}" pattern="#,###"/>원
 								${row.title }
-							설명
-							별점
-							후기
-						<!-- 후기 있으면 게시글 이름 옆에 후기갯수 출력 -->
-						   <%--  <c:if test="${row.recnt>0 }">
-								<span style="color:red;">(${row.recnt})</span>
-							</c:if> --%>
 						</a>
 					</td>
 					<c:if test="${status.count % 3 == 0}">

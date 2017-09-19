@@ -29,6 +29,9 @@
 
     <script>
         $(document).ready(function () {
+            $('#enter_Time').timepicker();
+            $('#out_Time').timepicker();
+
             $.datepicker.regional['ko'] = {
                 closeText: '닫기',
                 prevText: '이전달',
@@ -46,18 +49,8 @@
                 yearRange: 'c-99:c+99',
             };
             $.datepicker.setDefaults($.datepicker.regional['ko']);
-
-            $('#sdate').datepicker();
-            $('#sdate').datepicker("option", "maxDate", $("#edate").val());
-            $('#sdate').datepicker("option", "onClose", function (selectedDate) {
-                $("#edate").datepicker("option", "minDate", selectedDate);
-            });
-
-            $('#edate').datepicker();
-            $('#edate').datepicker("option", "minDate", $("#sdate").val());
-            $('#edate').datepicker("option", "onClose", function (selectedDate) {
-                $("#sdate").datepicker("option", "maxDate", selectedDate);
-            });
+            $('#check_In').datepicker();
+            $('#check_Out').datepicker();
         });
     </script>
 
@@ -134,18 +127,18 @@
 
         <div>
             <b>안전시설</b>
-            연기감지기 : <input type="checkbox" name="secure" value="연기감지기">
+            연기감지기 : <input type="checkbox" name="secure" value="연기감지기" checked>
             구급상자 : <input type="checkbox" name="secure" value="구급상자">
             소화기 : <input type="checkbox" name="secure" value="소화기">
             방잠금장치 : <input type="checkbox" name="secure" value="방잠금장치">
         </div>
 
         <div>
-            숙소설명 <br> <textarea rows="15" cols="90" name="room_Explain"></textarea><br>
+            숙소설명 <br> <textarea rows="15" cols="90" name="room_Explain">감사합니다</textarea><br>
         </div>
 
         <div>
-            환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision"></textarea><br>
+            환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision">안돼</textarea><br>
         </div>
         <h3>숙소 사진 업로드</h3>
         <div class="fileDrop"></div>
