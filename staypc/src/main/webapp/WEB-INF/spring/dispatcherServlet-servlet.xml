@@ -35,9 +35,19 @@
             <mvc:mapping path="/member/drop.do"/>
             <mvc:mapping path="/host/write.do"/>
             <mvc:mapping path="/host/list.do"/>
-            <bean class="com.staypc.interceptor.InterCeptor"/>
+            <bean class="com.staypc.interceptor.LoginCeptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/notice/notice_insert.do"/>
+            <mvc:mapping path="/notice/notice_insert_form.do"/>
+            <mvc:mapping path="/notice/notice_update.do"/>
+            <mvc:mapping path="/notice/notice_delete.do"/>
+            <bean class="com.staypc.interceptor.AdminCeptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

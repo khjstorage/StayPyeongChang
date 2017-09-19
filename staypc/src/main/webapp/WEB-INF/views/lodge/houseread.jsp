@@ -8,17 +8,25 @@
     <script>
         function winOpen() {
             var lodge_code = document.getElementById("lodge_Code").value
-            window.open("/payment/enrollment.do?lodge_code=" + lodge_code, "new", "width=500,height=500,top=100,left=100", "toolbar=no, location=no, status=no, scrollbars=auto, resizable=no");
+            window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
         }
     </script>
 </head>
 <body>
 <div class="top_con_zone">
-    <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
-    <div id="left">
+    <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
+
+    <div class="main_image">
         <img height="500px" width="700px" src="/host/displayFile.do?fileName=${vo.main_Image }">
     </div>
-    <div ID="right">
+    <div class="detail_image">
+        <c:forEach var="row" items="${listImg}" varStatus="status">
+               <img height="200px" width="200" src="/host/displayFile.do?fileName=${row.filename}">
+        </c:forEach>
+    </div>
+
+
+    <div class="right">
         <h1>주경기장 근거리집을 소개합니다.....</h1>
         집이름(주경기장 근거리집):${vo.title}<br>
         짧은 주소(강원도 평창군 평창리):${vo.location}<br>
@@ -32,7 +40,7 @@
         숙소 연락처:${vo.room_Phone}<br><br>
     </div>
 
-    <div id="main2">
+    <div class="info">
         <button><a href="#">위시리스트담기</a></button>&nbsp;
         <button><a onclick="winOpen()">예약하기</a></button><br>
 
@@ -41,12 +49,14 @@
         숙소 설명:${vo.room_Explain}<br>
         숙소 긴주소:${vo.location}<br>
         환불 규정:${vo.refund_Provision}<br>
-        숙소 입실시간:${vo.enter_Time}&nbsp;숙소 퇴실시간${vo.out_Time}<br>
+        숙소 입실시간: ${vo.enter_Time}<br>
+        숙소 퇴실시간: ${vo.out_Time}<br>
         <fmt:parseDate value='${vo.check_In}' var="check_In" pattern="yyyy-MM-dd HH:mm:ss"/>
         <fmt:parseDate value='${vo.check_Out}' var="check_Out" pattern="yyyy-MM-dd HH:mm:ss"/>
         <fmt:formatDate value='${check_In}' var="checkIn" pattern="yyyy-MM-dd"/>
         <fmt:formatDate value='${check_Out}' var="checkOut" pattern="yyyy-MM-dd"/>
-        체크인:${checkIn}&nbsp; 체크아웃시간:${checkOut}<br>
+        체크인:${checkIn}<br>
+        체크아웃시간:${checkOut}<br>
         숙소 등록일:<fmt:formatDate value="${vo.reg_Date}" pattern="yyyy년MM월dd일"/><br>
         최근 수정일:<fmt:formatDate value="${vo.update_Date}" pattern="yyyy년MM월dd일"/><br>
         건물타입:${vo.bulid_Type}<br>
@@ -58,8 +68,8 @@
         안전시설:${vo.secure}<br>
     </div>
 
+    <!--후기-->
     <div class="top_con_zone">
-       
         <h1>숙소 후기</h1>
         <hr>
         <table style="border: 0px; width: 1000px;">
@@ -68,7 +78,7 @@
             </tr>
             <tr>
                 <td colspan="8" align="right">
-                 <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
+                 <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
                     <a href="insertBoard.do?lodge_Code=${vo.lodge_Code }"/>후기 쓰기</a>
                  </td>
             </tr>
@@ -105,9 +115,9 @@
                     <td colspan="3" align="center">등록된 게시물이 없습니다.</td>
                 </tr>
             </c:if>
-
         </table>
         <br>
+
         <table style="border: 0px; width: 1000px;">
             <tr align="center">
                 <td>

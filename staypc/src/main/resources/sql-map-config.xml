@@ -9,6 +9,7 @@
         <typeAlias alias="lodgeBook" type="com.staypc.vo.LodgeBookVO"/>
         <typeAlias alias="noticeDTO" type="com.staypc.vo.NoticeVO"/>
         <typeAlias alias="payment" type="com.staypc.vo.PaymentVO"/>
+        <typeAlias alias="lodgeImage" type="com.staypc.vo.LodgeImageVO"/>
     </typeAliases>
 
     <mappers>

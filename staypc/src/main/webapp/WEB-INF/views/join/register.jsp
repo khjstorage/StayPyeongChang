@@ -8,8 +8,6 @@
 <body>
 
 <form method="post" id="joinForm" enctype="multipart/form-data">
-
-
 <div class="join_register" style="margin-left:550px; margin:50px 550px;  padding:30px;
 						  ">
 	<div class="section_01">

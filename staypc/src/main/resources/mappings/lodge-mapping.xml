@@ -18,19 +18,16 @@
          FROM  staypc_lodge l, staypc_lodge_book d
         <include refid="search"></include>
     </select>
-        
-	<!-- 페이지 읽기 추가 시작 -->
+
 	<select id="read" resultType="lodge">
 		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
 	</select>	
-		
-	<select id="readimg" resultType="lodge">
-        select * from staypc_lodge a inner join staypc_lodge_image b
-        on a.lodge_code = b.lodge_code
-        where a.lodge_code = 29
+
+
+	<select id="readImg" resultType="lodgeImage">
+      select * from STAYPC_LODGE_IMAGE WHERE LODGE_CODE = #{lodge_Code}
 	</select>
 
-	<!-- 페이지 읽기 추가 끝 -->
    <select id="listAll" resultType="lodge">
        <include refid="pagingHeader"></include>
         SELECT DISTINCT l.lodge_code, l.title, l.charge, l.main_image

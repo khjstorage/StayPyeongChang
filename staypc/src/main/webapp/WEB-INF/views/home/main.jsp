@@ -16,14 +16,12 @@
         function list(page) {
             location.href = "list.do?curPage=" + page + "&num=${map.num}" + "&keyword=${map.keyword}";
         }
-
         $(document).ready(function () {
             $.datepicker.regional['ko'] = {
                 closeText: '닫기',
                 prevText: '이전달',
                 nextText: '다음달',
                 currentText: '오늘',
-
                 weekHeader: 'Wk',
                 dateFormat: 'yy-mm-dd',
                 firstDay: 0,
@@ -51,17 +49,12 @@
         });
     </script>
 </head>
-
 <body>
 
 
 
 <div id="main">
-
     <!--숙박정보  -->
-    
-
-    
     <!-- 여기서부터 슬기가  -->
     <!-- 검색바 (위치, 날짜, 인원) -->
     <div class="main_section01"  align="center" >
