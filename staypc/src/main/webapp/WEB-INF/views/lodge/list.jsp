@@ -134,8 +134,7 @@
 				<a href="javascript:list('${map.boardPager.totPage }')">[끝]</a>
 			</c:if>
 			
-			</td>
-		</tr>
+			</td>		
 	</table>
 </body>
 </html>

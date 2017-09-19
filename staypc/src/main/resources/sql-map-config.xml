@@ -9,9 +9,11 @@
         <typeAlias alias="lodgeBook" type="com.staypc.vo.LodgeBookVO"/>
         <typeAlias alias="noticeDTO" type="com.staypc.vo.NoticeVO"/>
         <typeAlias alias="payment" type="com.staypc.vo.PaymentVO"/>
+        <typeAlias alias="memberDTO" type="com.staypc.vo.MemberVO"/>
     </typeAliases>
 
     <mappers>
+        <mapper resource="mappings/admin-mapping.xml"/>
         <mapper resource="mappings/hosting-mapping.xml"/>
         <mapper resource="mappings/login-mapping.xml"/>
         <mapper resource="mappings/lodge-mapping.xml"/>
