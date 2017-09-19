@@ -7,11 +7,11 @@
     <title>houseread화면</title>
     <script>
         function winOpen() {
-            var lodge_code = document.getElementById("lodge_Code").value
+            var lodge_code = document.getElementById("lodge_Code");
             window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
         }
     </script>
-    
+
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -70,7 +70,7 @@
 
 
 <div class="top_con_zone">
-    
+    <input id="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
     <div class="container">
         <div class="slider-for">
             <c:forEach var="row" items="${listImg}" varStatus="status">
@@ -85,16 +85,12 @@
         </div>
     </div>
 
-    <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
-
     <div class="right">
-        <h1>주경기장 근거리집을 소개합니다.....</h1>
         집이름(주경기장 근거리집):${vo.title}<br>
         짧은 주소(강원도 평창군 평창리):${vo.location}<br>
         숙소 설명 요약:${vo.room_Explain}<br>
         최대 가능 인원수:${vo.max_People}<br>
         숙소가격(1박):${vo.charge}<br>
-        <br>
         호스트 사진${member.picture }<br>
         호스트이름:${member.name }<br>
         호스트 이메일:${member.email}<br>
