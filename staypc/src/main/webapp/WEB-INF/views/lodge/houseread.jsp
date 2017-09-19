@@ -17,36 +17,6 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.image_file').slick({
-                centerMode: true,
-                centerPadding: '60px',
-                slidesToShow: 3,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 3
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
-
 
 </head>
 <body>
@@ -60,7 +30,7 @@
 
     <div class="image_file">
         <c:forEach var="row" items="${listImg}" varStatus="status">
-            <img src="/host/displayFile.do?fileName=${row.filename}" height="200px" width="200">
+            <img src="/host/displayFile.do?fileName=${row.filename}" height="200px" width="200px">
         </c:forEach>
     </div>
 
