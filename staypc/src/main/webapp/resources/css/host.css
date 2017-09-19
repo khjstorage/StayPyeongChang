@@ -80,13 +80,22 @@ ul,ol,li { list-style-type:none;}
 
 .hostList {
 	width : 100%;
-	/*margin-top : 120px;
-	margin-bottom : 50px;*/	
+	height : 100%;
+	/*margin-top : 120px;*/
+	padding-bottom : 80px;
 	display: block;	
+	
 }
 
 #hostListForm {
 	margin : 80px 35%;
+	width : auto;
+	height : 1000px;
+	
+}
+
+.hostingList {
+		
 }
 
 .userHostList {
@@ -94,22 +103,19 @@ ul,ol,li { list-style-type:none;}
 	height : auto;
 }
 
+.hostingList {
+	margin-top : 100px;
+}
 
+.hostingImg {
+	margin-top : -100px;
+	
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.roomNameCheck {
+	margin-top : -270px;
+	margin-left : 55%;
+}
 
 
 
