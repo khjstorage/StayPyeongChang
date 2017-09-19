@@ -11,7 +11,7 @@
             window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
         }
     </script>
-
+    
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -44,7 +44,6 @@
             width: 100%;
             overflow: hidden;
         }
-
         .slider-for__item {
             display: inline-block;
             width: 1500px;
@@ -53,16 +52,13 @@
             text-align: center;
             cursor:move;
         }
-
         .slider-for{
             z-index: -1;
         }
-
         .slider-nav {
             width: 100%;
             overflow: hidden;
         }
-
         .item-nav {
             width: 250px;
             height: 250px;
@@ -71,6 +67,7 @@
     </style>
 </head>
 <body>
+
 
 <div class="top_con_zone">
     

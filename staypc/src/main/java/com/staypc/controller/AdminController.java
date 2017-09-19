@@ -53,6 +53,9 @@ public class AdminController {
 	
 	@RequestMapping("admin/hosting_view.do")
 	public String hosting_view(@RequestParam String room_Name) {
-		return "";
+		return "admin/hosting_view";
 	}
+	
+	
+	
 }
