@@ -1,7 +1,8 @@
 package com.staypc.vo;
 
 public class PaymentVO {
-    private String id;
+
+	private String id;
     private int lodge_code;
     private String card_num;
     private String card_valid;
@@ -11,7 +12,34 @@ public class PaymentVO {
     private String sum_money;
     private String reg_date;
     private String book_cancel;
+    private String payment_code;
+    private int begin;
+    private int end;
+    
+    
+    public int getBegin() {
+		return begin;
+	}
 
+	public void setBegin(int begin) {
+		this.begin = begin;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
+	public String getPayment_code() {
+    	return payment_code;
+    }
+    
+    public void setPayment_code(String payment_code) {
+    	this.payment_code = payment_code;
+    }
     public String getId() {
         return id;
     }

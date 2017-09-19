@@ -1,25 +1,18 @@
 package com.staypc.controller;
 
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
+import com.staypc.service.LodgeService;
+import com.staypc.utility.BoardPager;
 import com.staypc.vo.LodgeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.staypc.service.LodgeService;
-import com.staypc.utility.BoardPager;
-import com.staypc.vo.LodgeVO;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -27,15 +20,12 @@ public class LodgeController {
 
 	@Autowired
 	LodgeService Service;
-	
 
 	@RequestMapping("/main.do")
 	public ModelAndView main(ModelAndView mav) throws Exception{
-
 		List<LodgeVO> list = Service.listMain();
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("list", list);
-
 		mav.addObject("map", map);
 		mav.setViewName("home/main");
 		return mav;
@@ -46,7 +36,8 @@ public class LodgeController {
 							 @RequestParam(defaultValue="") String keyword,
 							 @RequestParam(defaultValue="1") int curPage, 
 							 @RequestParam(defaultValue="") String sdate, 
-							 @RequestParam(defaultValue="") String edate) throws Exception{
+							 @RequestParam(defaultValue="") String edate,
+							 ModelAndView mav) throws Exception{
 		System.out.println("시작과 끝날:"+sdate+"+"+edate);
 		System.out.println("결과값:"+ num+"/"+keyword+"/"+sdate+"/"+edate);
 		// 레코드 객수 계산
@@ -57,12 +48,8 @@ public class LodgeController {
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 
-		
 		List<LodgeVO> list = Service.listAll(start, end, num, keyword, sdate, edate);
-		
 		Map<String, Object> map = new HashMap<String, Object>();
-		
-		System.out.println("list값"+list);
 		map.put("list", list);
 		map.put("count", count);
 		map.put("num", num);
@@ -70,29 +57,26 @@ public class LodgeController {
 		map.put("boardPager", boardPager);
 		map.put("sdate", sdate);
 		map.put("edate", edate);
-		
-		ModelAndView mav = new ModelAndView();
+
 		mav.addObject("map", map);
 		mav.setViewName("lodge/list");
 		
 		return mav;
 	}
-	
 
-	//추가 시작 
 	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
-	public ModelAndView read(@RequestParam int  lodge_Code, HttpSession session, HttpServletRequest request) throws Exception{
+	public ModelAndView read(@RequestParam int lodge_Code, ModelAndView mav) throws Exception{
 		
 		LodgeVO vo = Service.read(lodge_Code);
-		List listimg =  Service.readimg(lodge_Code);
-		ModelAndView mav = new ModelAndView();
 		mav.addObject("vo", vo);
-		mav.addObject("listimg", listimg);
+
+		List listImg =  Service.readImg(lodge_Code);
+		mav.addObject("listImg", listImg);
+
 		mav.setViewName("lodge/houseread");
-		
 		return mav;
 	}	
-	//추가 끝
+
 }
 
 

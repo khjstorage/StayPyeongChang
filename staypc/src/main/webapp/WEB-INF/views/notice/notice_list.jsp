@@ -11,46 +11,46 @@
 <body>
  <div class="notice_wrap"   align="center" >	
 		<div class="teble_box" align="left" style="width:800px; padding:20px; padding-left:50px; margin-top:20px; background-color:#ffffff">
-		<span>공지사항</span>
-		<br><br>
-		<table class="notice_table">
-			<tr style="background-color:#eeeeee; font-size:20px;"  >
-				<th style="width:100px; ">
-					글번호
-				</th>
-				<th style="width:500px; ">
-					제목
-				</th>
-				<th style="width:100px;  ">
-					작성자
-				</th>
-				<th style="width:100px; ">
-					작성일
-				</th>
-			</tr>
-			<c:forEach items="${notice_list}" var="list">
-				<tr >				
-					<td style=" border-bottom:1px solid #eeeeee;" >
-						<center>${list.list_no}</center>					
-					</td>
-					<td style=" border-bottom:1px solid #eeeeee;">
-						<a href="notice/notice_view.do?list_no=${list.list_no} }">${list.subject }</a>				
-					</td>
-					<td style=" border-bottom:1px solid #eeeeee;">
-						<center>${list.id}	</center>									
-					</td>
-				 	<td style=" border-bottom:1px solid #eeeeee;">
-						<center>${list.register_datetime}	</center>									
-					</td>			
+			<span>공지사항</span>
+			<br><br>
+			<table class="notice_table">
+				<tr style="background-color:#eeeeee; font-size:20px;"  >
+					<th style="width:100px; ">
+						글번호
+					</th>
+					<th style="width:500px; ">
+						제목
+					</th>
+					<th style="width:100px;  ">
+						작성자
+					</th>
+					<th style="width:100px; ">
+						작성일
+					</th>
 				</tr>
-			</c:forEach>
-		</table>
-		<div class="botton_box" style="margin-left:100%;">
-			<input type="button" id="saveBtn" onclick="location.href='notice_insert_form.do'"  value="글쓰기" />			
-	    </div>
+				<c:forEach items="${list}" var="list">
+					<tr >
+						<td style=" border-bottom:1px solid #eeeeee;" >
+							<center>${list.list_no}</center>
+						</td>
+						<td style=" border-bottom:1px solid #eeeeee;">
+							<a href="/notice/notice_view.do?list_no=${list.list_no}">${list.subject }</a>
+						</td>
+						<td style=" border-bottom:1px solid #eeeeee;">
+							<center>${list.id}	</center>
+						</td>
+						<td style=" border-bottom:1px solid #eeeeee;">
+							<center>${list.register_datetime}	</center>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+			<c:if test="${sessionScope.userId eq 'admin'}">
+				<div class="botton_box" style="margin-left:100%;">
+					<input type="button" id="saveBtn" onclick="location.href='notice_insert_form.do'"  value="글쓰기" />
+				</div>
+			</c:if>
 		</div>
-		
 </div>
-
 </body>
 </html>

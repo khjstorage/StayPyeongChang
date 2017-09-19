@@ -4,17 +4,16 @@
 
 <mapper namespace="notice">
 	<select id="notice_list" resultType="noticeDTO">
-		select * from STAYPC_NOTICE
+		select * from STAYPC_NOTICE order by list_no desc
 	</select>
 	
-	<select id="notice_view">
+	<select id="notice_view" resultType="noticeDTO">
 		select * from STAYPC_NOTICE where list_no=#{list_no}
 	</select>
 	
 	<insert id="notice_insert">
-
-		insert into board values((select nvl(max(list_no),1)+1 from board),#{subject},#{content},#{id},sysdate)
-		insert into STAYPC_NOTICE values((select nvl(max(list_no),1)+1 from STAYPC_NOTICE),#{subject},#{content},#{id},sysdate)
+		insert into STAYPC_NOTICE(list_no, subject, content, id, register_datetime)
+		values((select nvl(max(list_no),1)+1 from STAYPC_NOTICE),#{subject},#{content},#{id},sysdate)
 	</insert>
 	
 	<update id="notice_update">

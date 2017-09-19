@@ -21,13 +21,11 @@ public class LodgeServiceImpl implements LodgeService {
 	
 	@Override
 	public List<LodgeVO> listMain() throws Exception {
-		// TODO Auto-generated method stub
 		return dao.listMain();
 	}
 	
 	@Override
 	public int countArticle(String num, String keyword, String sdate, String edate) throws Exception{
-		
 		return dao.count(num, keyword, sdate, edate);
 	}
 	
@@ -40,17 +38,17 @@ public class LodgeServiceImpl implements LodgeService {
 	public void insert(LodgeVO vo)  throws Exception{
 	
 	}
-	//추가 시작
+
 	@Override
 	public LodgeVO read(int  lodge_Code) throws Exception{
-		return dao.read( lodge_Code);
+		return dao.read(lodge_Code);
 	}
 	
 	@Override
-	public List<LodgeVO> readimg(int lodge_Code ) throws Exception{
-		return dao.readimg(lodge_Code);
+	public List<LodgeVO> readImg(int lodge_Code ) throws Exception{
+		return dao.readImg(lodge_Code);
 	}
-	//추가 끝
+
 }
 
 
