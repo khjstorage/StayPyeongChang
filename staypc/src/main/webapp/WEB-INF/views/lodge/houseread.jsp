@@ -19,53 +19,76 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.image_file').slick({
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+
+            $('.slider-nav').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: true,
                 centerMode: true,
-                centerPadding: '60px',
-                slidesToShow: 3,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 3
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 1
-                        }
-                    }
-                ]
+                focusOnSelect: true,
+                variableWidth: true
             });
         });
     </script>
 
+    <style>
+        .container {
+            width: 100%;
+            overflow: hidden;
+        }
 
+        .slider-for__item {
+            display: inline-block;
+            width: 1500px;
+            height: 700px;
+            margin: 0.5px;
+            text-align: center;
+            cursor:move;
+        }
+
+        .slider-for{
+            z-index: -1;
+        }
+
+        .slider-nav {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .item-nav {
+            width: 250px;
+            height: 250px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+
 <div class="top_con_zone">
+    
+    <div class="container">
+        <div class="slider-for">
+            <c:forEach var="row" items="${listImg}" varStatus="status">
+                <img class="slider-for__item" src="/host/displayFile.do?fileName=${row.filename}">
+            </c:forEach>
+        </div>
+
+        <div class="slider-nav">
+            <c:forEach var="row" items="${listImg}" varStatus="status">
+                <img class="slider-for__item item-nav " src="/host/displayFile.do?fileName=${row.filename}">
+            </c:forEach>
+        </div>
+    </div>
+
     <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
-
-    <div class="main_image">
-        <img height="500px" width="100%" src="/host/displayFile.do?fileName=${vo.main_Image }">
-    </div>
-
-
-    <div class="image_file">
-        <c:forEach var="row" items="${listImg}" varStatus="status">
-            <img src="/host/displayFile.do?fileName=${row.filename}" height="200px" width="200">
-        </c:forEach>
-    </div>
-
-
-
 
     <div class="right">
         <h1>주경기장 근거리집을 소개합니다.....</h1>
