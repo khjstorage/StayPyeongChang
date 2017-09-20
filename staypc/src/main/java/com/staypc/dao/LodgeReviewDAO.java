@@ -16,8 +16,9 @@ public class LodgeReviewDAO {
 	SqlSessionTemplate sqlSession;
 	
 	
-	public void insert(LodgeReviewVO vo) throws Exception{
-		sqlSession.insert("review.insertBoard",vo );		
+	public int insert(LodgeReviewVO vo) throws Exception{
+		return sqlSession.insert("review.insertBoard", vo);
+				
 	}
 
 	public LodgeReviewVO read(LodgeReviewVO  vo) throws Exception{	

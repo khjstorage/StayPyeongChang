@@ -46,7 +46,7 @@ $(document).ready(function(){
 			<tr>
 				<td colspan="9" align="right">
 					<input type="hidden" name="no" value="${vo.review_num }">
-					<input type="button" value="리스트" onclick="location.href='boardList.do'">
+					<input type="button" value="리스트" onclick="location.href='houseread.do'">
 					<input type="button" value="취소" onclick="location.href='boardList.do'">
 					<input type="button" value="수정" id ="updateBtn" >										
 				</td>

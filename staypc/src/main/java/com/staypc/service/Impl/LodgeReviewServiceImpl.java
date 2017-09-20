@@ -16,8 +16,8 @@ public class LodgeReviewServiceImpl implements LodgeReviewService {
 	private LodgeReviewDAO dao;
 	
 	@Override
-	public void insert(LodgeReviewVO vo) throws Exception{
-		dao.insert(vo);
+	public int insert(LodgeReviewVO vo) throws Exception{
+		return dao.insert(vo);
 	}
 	@Override
 	public LodgeReviewVO read(LodgeReviewVO vo) throws Exception{

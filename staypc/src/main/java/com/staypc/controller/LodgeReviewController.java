@@ -80,31 +80,42 @@ public class LodgeReviewController {
 		String id = (String)session.getAttribute("userId");
 		param.setId(id);
 
-		System.out.println(param.getLodge_Code());
-		LodgeReviewVO vo = Service.read(param);
-		System.out.println(vo);
+		//System.out.println(param.getLodge_Code());
+		LodgeReviewVO vo = Service.read(param);		
 		
-		
-		ModelAndView mav = new ModelAndView();
-		
+		ModelAndView mav = new ModelAndView();		
 		mav.addObject("vo", vo);
+		System.out.println(vo);
 		mav.setViewName("lodge/insertBoard");
 		
 		return mav;
+		
 	}
 	
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.POST)
-	public String insert( LodgeReviewVO vo, HttpSession session) throws Exception{
-
+	public ModelAndView  insert( LodgeReviewVO vo, HttpSession session) throws Exception{
+	
 		String id = (String)session.getAttribute("userId");
 		vo.setId(id);
-		String lodge_Code=(String)session.getAttribute("lodge_Code");
-		vo.setLodge_Code(lodge_Code);
 		System.out.println(id);
-	     Service.insert(vo);
-		System.out.println("insert"+vo);
-	    return "redirect:/lodge/houseread.do";
+		
+        Service.insert(vo);
+    	ModelAndView mav = new ModelAndView();		
+		//mav.addObject("vo", vo);
+		System.out.println(vo);
+		mav.setViewName("lodge/houseread");
+		
+		return mav;
+		//return "lodge/houseread";
 	}
+	
+	
+//	public String insert(BoardVO vo, Model model, HttpServletRequest request){
+//		System.out.println(vo);
+//		boardService.insertBoard(vo);
+//		
+//		return "board/writeok";
+//	}
 	
 	@RequestMapping(value="lodge/update.do", method=RequestMethod.GET)
 	public  ModelAndView  updateForm(LodgeReviewVO param) throws Exception{

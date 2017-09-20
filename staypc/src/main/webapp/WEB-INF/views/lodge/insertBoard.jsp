@@ -16,8 +16,12 @@
 <div class="top_con_zone" id="fixNextTag">
 <h1>후기 작성</h1>
 <hr>
-<form name="boardform" action='<c:url value="insertBoard.do"></c:url>' method="post">
-    <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
+  <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
+<form name="boardform" action='<c:url value="insertBoard.do?lodge_Code=${lodge_Code }"></c:url>' method="post">   
+
+       <!--  '<c:url value="insertBoard.do?lodge_Code=${lodge_Code }"></c:url>' method="post">   
+             <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
+                    <a href="insertBoard.do?lodge_Code=${vo.lodge_Code }"/>후기 쓰기</a>--> 
 	<table style="border:0px;">
 		<tr>
 		  <td>${vo.picture }</td>

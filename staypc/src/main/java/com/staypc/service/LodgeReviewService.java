@@ -6,7 +6,7 @@ import com.staypc.vo.LodgeReviewVO;
 
 public interface LodgeReviewService {
 	
-	public void insert(LodgeReviewVO vo) throws Exception;
+	public int insert(LodgeReviewVO vo) throws Exception;
 	public LodgeReviewVO read(LodgeReviewVO vo) throws Exception;
 	public void update(LodgeReviewVO vo) throws Exception;
 	public int delete(LodgeReviewVO  vo) throws Exception;
