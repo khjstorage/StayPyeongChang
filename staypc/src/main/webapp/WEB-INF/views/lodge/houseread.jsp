@@ -160,7 +160,7 @@
                     </tr>
                     <tr class="left">
                         <td colspan="7">
-                            <a href="<c:url value="/lodge/reviewread.do?review_num=${rew.review_num }"/>">${ rew.content}</a>
+                            <a href="<c:url value="/lodge/reviewread.do?review_num=${rew.review_num }&lodge_Code=${vo.lodge_Code}"/>">${ rew.content}</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -177,8 +177,8 @@
             <tr align="center">
                 <td>
                     <c:if test="${ pg > block }">
-                        [ <a href="lodge/houseread.do?pg=1">◀◀</a> ]
-                        [ <a href="lodge/houseread.do?pg=${ beginPage - 1 }">◀</a> ]
+                        [ <a href="lodge/read.do?pg=1">◀◀</a> ]
+                        [ <a href="lodge/read.do?pg=${ beginPage - 1 }">◀</a> ]
                     </c:if>
                     <c:if test="${ pg <= block }">
                         [ <span style="color: gray;">◀◀</span> ]
@@ -186,11 +186,11 @@
                     </c:if>
                     <c:forEach var="i" begin="${ beginPage }" end="${ endPage }">
                         <c:if test="${ i == pg }"> [ ${ i } ] </c:if>
-                        <c:if test="${ i != pg }"> [ <a href="lodge/houseread.do?pg=${ i }">${ i }</a> ]</c:if>
+                        <c:if test="${ i != pg }"> [ <a href="lodge/read.do?pg=${ i }">${ i }</a> ]</c:if>
                     </c:forEach>
                     <c:if test="${ endPage < allPage }">
-                        [ <a href="lodge/houseread.do?pg=${ endPage + 1 }">▶</a> ]
-                        [ <a href="lodge/houseread.do?pg=${ allPage }">▶▶</a> ]
+                        [ <a href="lodge/read.do?pg=${ endPage + 1 }">▶</a> ]
+                        [ <a href="lodge/read.do?pg=${ allPage }">▶▶</a> ]
                     </c:if>
                     <c:if test="${ endPage >= allPage }">
                         [ <span style="color: gray;">▶</span> ]

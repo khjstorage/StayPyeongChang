@@ -64,12 +64,14 @@ public class LodgeReviewController {
     }*/
 	
 	@RequestMapping(value="lodge/reviewread.do", method=RequestMethod.GET)
-	public ModelAndView read(LodgeReviewVO param, HttpSession session, HttpServletRequest request) throws Exception{
+	public ModelAndView read(LodgeReviewVO param, HttpSession session, HttpServletRequest request, @RequestParam int lodge_Code) throws Exception{
 	
 		LodgeReviewVO vo = Service.read(param);
 		ModelAndView mav = new ModelAndView();
-		//System.out.println("결과값"+vo.toString());
-		mav.addObject("vo", vo);
+		System.out.println("결과값"+vo.toString());
+		//System.out.println(vo.getLodge_Code());
+		mav.addObject("lodge_Code", lodge_Code);
+		mav.addObject("rew", vo);
 		mav.setViewName("lodge/reviewread");
 
 		return mav;
@@ -94,6 +96,21 @@ public class LodgeReviewController {
 		
 	}
 	
+	@RequestMapping(value="lodge/update.do", method=RequestMethod.GET)
+	public  ModelAndView  updateForm(LodgeReviewVO param, HttpSession session, @RequestParam int lodge_Code) throws Exception{
+		String id = (String)session.getAttribute("userId");
+		param.setId(id);
+
+		LodgeReviewVO vo = Service.read(param);	
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("lodge_Code", lodge_Code);
+		mav.addObject("rew", vo);
+		System.out.println(vo);
+		mav.setViewName("lodge/update");
+
+		return mav;
+	}
+	
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.POST)
 	public ModelAndView  insert( LodgeReviewVO vo, HttpSession session) throws Exception{
 	
@@ -107,39 +124,33 @@ public class LodgeReviewController {
 		mav.setViewName("redirect:read.do?lodge_Code="+vo.getLodge_Code());
 		
 		return mav;
-		//return "lodge/houseread";
 	}
-	
-	
-//	public String insert(BoardVO vo, Model model, HttpServletRequest request){
-//		System.out.println(vo);
-//		boardService.insertBoard(vo);
-//		
-//		return "board/writeok";
-//	}
-	
-	@RequestMapping(value="lodge/update.do", method=RequestMethod.GET)
-	public  ModelAndView  updateForm(LodgeReviewVO param) throws Exception{
-		
-		System.out.println(param);
-		LodgeReviewVO vo = Service.read(param);
-		ModelAndView mav = new ModelAndView();
-		System.out.println("결과값"+vo.toString());
-		mav.addObject("vo", vo);
-		mav.setViewName("lodge/update");
+    
 
-		return mav;
-	}
-
+	
 	@RequestMapping(value="lodge/update.do", method=RequestMethod.POST)
-	public String update(LodgeReviewVO vo, HttpSession session) throws Exception{
-		   Service.update(vo);
-	     return "redirect:/lodge/boardList.do";
+	public ModelAndView update(LodgeReviewVO vo, HttpSession session, @RequestParam int lodge_Code) throws Exception{
+		String id = (String)session.getAttribute("userId");
+		vo.setId(id);
 
-	}	
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("lodge_Code", lodge_Code);
+		Service.update(vo);
+		mav.addObject("rew",vo);
+		System.out.println("update"+vo.toString());
+		mav.setViewName("redirect:read.do?lodge_Code="+vo.getLodge_Code());
+		return mav;
+		}	
 	
+
 	@RequestMapping(value="lodge/delete.do", method=RequestMethod.GET)
-	public String delete( LodgeReviewVO vo, Model model )throws Exception{
+	public ModelAndView delete( LodgeReviewVO vo, @RequestParam int lodge_Code)throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("lodge_Code", lodge_Code);
+		mav.addObject("rew", vo);
+		
 		int iSort = vo.getSort();
 		int res = 0;
 		System.out.println(vo.toString());
@@ -150,8 +161,9 @@ public class LodgeReviewController {
 			vo.setParent(vo.getReview_num());
 			res = Service.deleteAll(vo);
 		}
-
-		return "redirect:/lodge/boardList.do";
+		
+		mav.setViewName("redirect:read.do?lodge_Code="+vo.getLodge_Code());
+		return mav;
 	}
 
 

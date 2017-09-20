@@ -46,7 +46,7 @@
     		    		      )
 	</insert>
     
-    <update id="update">
+    <update id="update"  parameterType="lodgeReview">
        UPDATE STAYPC_REVIEW
            SET CONTENT=#{content},
                REG_DATE = SYSDATE
