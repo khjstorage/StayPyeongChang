@@ -26,7 +26,7 @@ public class LodgeReviewDAO {
 	}
 
 	public void update(LodgeReviewVO vo) throws Exception{
-	   sqlSession.update("review.update",  vo);
+	    sqlSession.update("review.update",  vo);
 	}
 	
 	public void updateHit(LodgeReviewVO vo) throws Exception{

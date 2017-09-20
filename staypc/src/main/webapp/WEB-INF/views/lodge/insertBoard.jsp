@@ -21,7 +21,7 @@
 <h1>후기 작성</h1>
 <hr>
   <input name="lodge_Code" type="hidden" value="${rew.lodge_Code}" id="lodge_Code"/>
-<form name="boardform" action='<c:url value="insertBoard.do?lodge_Code=${lodge_Code }"></c:url>' method="post">   
+<form name="boardform" action='<c:url value="insertBoard.do?lodge_Code=${lodge_Code}"></c:url>' method="post">   
 
        <!--  '<c:url value="insertBoard.do?lodge_Code=${lodge_Code }"></c:url>' method="post">   
              <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
@@ -52,7 +52,7 @@
 		<tr>
 			<td colspan="2" align="right">
 				<input type="submit" value="글쓰기" onclick="location.href='insertBoard.do?lodge_Code=${lodge_Code}'">
-				<input type="button" value="리스트" onclick="location.href='boardList.do'">
+				<input type="button" value="리스트"  onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
 				<input type="button" value="취소" onclick="board_cancle()">
 			</td>
 		</tr>

@@ -12,8 +12,9 @@
 <body>
 	<h1>게시글 수정</h1>
 	<hr>
-	<form name="boardform" method="post" action='<c:url value="/lodge/update.do"></c:url>'>
+	<form name="boardform" method="post" action='<c:url value="/lodge/update.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}"></c:url>'>
 	  <input type="hidden" value="${rew.review_num}" name="review_num"/>
+	 <input type="hidden" value="${lodge_Code}" name="lodge_Code"/>
 		<table style="border:0px; width:600px;">
 		    <tr>
 		    <th colspan="9"></th>
@@ -36,8 +37,9 @@
 				<td colspan="9" align="right">
 					<input type="button" value="리스트" onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
 					<input type="button" value="취소" onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
-					<input type="button" value="수정" onclick="location.href='update.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">							
-					<!--  <input type="button" value="수정" onclick="location.href=update.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">	-->						
+					<input type="submit" value="수정" onclick="location.href='update.do?review_num=${rew.review_num}'">	
+								<!--  	<input type="submit" value="글쓰기" onclick="location.href='insertBoard.do?lodge_Code=${lodge_Code}'">						
+				<input type="button" value="수정" onclick="location.href=update.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">	-->						
 				</td>
 			</tr>
 		</table>

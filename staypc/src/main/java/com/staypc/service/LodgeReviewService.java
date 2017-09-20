@@ -8,7 +8,7 @@ public interface LodgeReviewService {
 	
 	public int insert(LodgeReviewVO vo) throws Exception;
 	public LodgeReviewVO read(LodgeReviewVO vo) throws Exception;
-	public LodgeReviewVO update(LodgeReviewVO vo) throws Exception;
+	public void update(LodgeReviewVO vo) throws Exception;
 	public int delete(LodgeReviewVO  vo) throws Exception;
 	public void updateHit(LodgeReviewVO vo)throws Exception;
 	public List<LodgeReviewVO> reviewList(HashMap<String, String> map) throws Exception;
