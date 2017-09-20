@@ -66,9 +66,19 @@ public class LodgeVO {
 	
 	private int end;
 	
+	private int tab;
 	
 	
 	
+	
+	
+	
+	public int getTab() {
+		return tab;
+	}
+	public void setTab(int tab) {
+		this.tab = tab;
+	}
 	public int getBegin() {
 		return begin;
 	}

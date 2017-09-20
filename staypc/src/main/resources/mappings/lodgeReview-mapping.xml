@@ -91,6 +91,7 @@
 				PARENT,
 				SORT,
 				TAB,
+				lodge_code,
 				ROW_NUMBER() OVER (ORDER BY PARENT DESC, SORT ASC) AS RNUM
 			   FROM STAYPC_REVIEW
 		 ) A

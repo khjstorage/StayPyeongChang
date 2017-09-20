@@ -1,10 +1,13 @@
 package com.staypc.controller;
 
+import com.staypc.service.LodgeReviewService;
 import com.staypc.service.LodgeService;
 import com.staypc.utility.BoardPager;
+import com.staypc.vo.LodgeReviewVO;
 import com.staypc.vo.LodgeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,12 +17,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class LodgeController {
 
 	@Autowired
 	LodgeService Service;
+	@Autowired
+	LodgeReviewService reviewService;
 
 	@RequestMapping("/main.do")
 	public ModelAndView main(ModelAndView mav) throws Exception{
@@ -64,7 +71,7 @@ public class LodgeController {
 		return mav;
 	}
 
-	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
+/*	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
 	public ModelAndView read(@RequestParam int lodge_Code, ModelAndView mav) throws Exception{
 		
 		LodgeVO vo = Service.read(lodge_Code);
@@ -73,10 +80,58 @@ public class LodgeController {
 		List listImg =  Service.readImg(lodge_Code);
 		mav.addObject("listImg", listImg);
 
-		mav.setViewName("lodge/houseread");
+		mav.setViewName("redirect:houseread.do");
 		return mav;
 	}	
+*/
+	
+	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
+    public String ReviewList(LodgeReviewVO vo, Model model,
+    		@RequestParam(value="pg", defaultValue = "1") int pg,
+    		HttpServletRequest request,@RequestParam int lodge_Code) throws Exception {
+		int pgSize = 15; //
+		int total = reviewService.getTotalCount();
 
+		if (request.getParameter("pg") != null)
+			pg = Integer.parseInt(request.getParameter("pg"));
+
+		int begin = (pg * pgSize) - (pgSize - 1); // (2 * 15) - (15 - 1) = 30 -
+													// 14 = 16
+		int end = (pg * pgSize); // (2 * 15) = 30
+
+		System.out.println(begin+":"+end);
+
+		HashMap<String, String> param = new HashMap<String, String>();
+		param.put("p_first", "" + begin);
+		param.put("p_last", "" + end);
+
+		List<LodgeReviewVO> list = reviewService.reviewList(param);
+
+		int allPage = (int) Math.ceil(total / (double) pgSize); //
+		int block = 10; //
+
+		int beginPage = ((pg - 1) / block * block) + 1; //
+		int endPage = ((pg - 1) / block * block) + block; //
+
+		if (endPage > allPage)
+			endPage = allPage;
+
+		request.setAttribute("rew", list);
+		request.setAttribute("pg", pg);
+		request.setAttribute("block", block);
+		request.setAttribute("beginPage", beginPage);
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("allPage", allPage);
+		
+		
+		
+		LodgeVO vo2 = Service.read(lodge_Code);
+		List listImg =  Service.readImg(lodge_Code);
+		request.setAttribute("vo", vo2);
+		request.setAttribute("listImg", listImg);
+		return  "lodge/houseread";
+    }
+	
 }
 
 

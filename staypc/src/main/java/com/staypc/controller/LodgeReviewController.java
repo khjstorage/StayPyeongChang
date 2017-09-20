@@ -22,7 +22,7 @@ public class LodgeReviewController {
 	@Autowired
 	LodgeReviewService Service;
 
-	@RequestMapping(value="lodge/houseread.do", method=RequestMethod.GET)
+/*	@RequestMapping(value="lodge/houseread.do", method=RequestMethod.GET)
     public String ReviewList(LodgeReviewVO vo, Model model,
     		@RequestParam(value="pg", defaultValue = "1") int pg,
     		HttpServletRequest request) throws Exception {
@@ -60,8 +60,8 @@ public class LodgeReviewController {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("allPage", allPage);
 
-		return  "lodge/boardList";
-    }
+		return  "lodge/houseread";
+    }*/
 	
 	@RequestMapping(value="lodge/reviewread.do", method=RequestMethod.GET)
 	public ModelAndView read(LodgeReviewVO param, HttpSession session, HttpServletRequest request) throws Exception{
@@ -76,16 +76,18 @@ public class LodgeReviewController {
 	}	
 	
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.GET)
-	public ModelAndView insertForm(LodgeReviewVO param, HttpSession session) throws Exception{
+	public ModelAndView insertForm(LodgeReviewVO param, HttpSession session, @RequestParam int lodge_Code) throws Exception{
 		String id = (String)session.getAttribute("userId");
 		param.setId(id);
+		System.out.println(param);
 
 		//System.out.println(param.getLodge_Code());
 		LodgeReviewVO vo = Service.read(param);		
 		
-		ModelAndView mav = new ModelAndView();		
-		mav.addObject("vo", vo);
-		System.out.println(vo);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("lodge_Code", lodge_Code);
+		mav.addObject("rew", vo);
+		//System.out.println(vo);
 		mav.setViewName("lodge/insertBoard");
 		
 		return mav;
@@ -101,9 +103,8 @@ public class LodgeReviewController {
 		
         Service.insert(vo);
     	ModelAndView mav = new ModelAndView();		
-		//mav.addObject("vo", vo);
 		System.out.println(vo);
-		mav.setViewName("lodge/houseread");
+		mav.setViewName("redirect:read.do?lodge_Code="+vo.getLodge_Code());
 		
 		return mav;
 		//return "lodge/houseread";

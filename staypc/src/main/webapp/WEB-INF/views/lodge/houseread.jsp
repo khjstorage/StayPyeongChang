@@ -135,14 +135,13 @@
             </tr>
             <tr>
                 <td colspan="8" align="right">
-                 <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
-                    <a href="insertBoard.do?lodge_Code=${vo.lodge_Code }"/>후기 쓰기</a>
+                    <a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a>
                  </td>
             </tr>
-            <c:if test="${ !empty list }">
-                <c:forEach items="${ list }">
+            <c:if test="${ !empty rew }">
+                <c:forEach items="${rew}" var="rew">
                     <tr>
-                        <td rowspan="3" class="center" width="50">${ vo.review_num }</td>
+                        <td rowspan="3" class="center" width="50">${ rew.review_num }</td>
                         <td rowspan="2">
                             <!--
 						<c:if test="${ vo.tab > 0 }">
@@ -151,23 +150,22 @@
 							</c:forEach>
 							☞
 						</c:if>	-->
-                            memberpicture
                         </td>
-                        <td class="left">${ vo.name }</td>
+                        <td class="left">${ rew.name }</td>
                         <td colspan="5"></td>
                     </tr>
                     <tr>
-                        <td class="center"><fmt:formatDate value="${ vo.reg_date }" pattern="yyyy년MM월dd일"/></td>
+                        <td class="center"><fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/></td>
                         <td colspan="5"></td>
                     </tr>
                     <tr class="left">
                         <td colspan="7">
-                            <a href="<c:url value="/lodge/reviewread.do?review_num=${vo.review_num }"/>">${ vo.content}</a>
+                            <a href="<c:url value="/lodge/reviewread.do?review_num=${rew.review_num }"/>">${ rew.content}</a>
                         </td>
                     </tr>
                 </c:forEach>
             </c:if>
-            <c:if test="${ empty list }">
+            <c:if test="${ empty rew }">
                 <tr>
                     <td colspan="3" align="center">등록된 게시물이 없습니다.</td>
                 </tr>
