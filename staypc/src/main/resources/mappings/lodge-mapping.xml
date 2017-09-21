@@ -19,7 +19,7 @@
         <include refid="search"></include>
     </select>
 
-	<select id="read" resultType="lodge">
+	<select id="read" resultType="lodge" parameterType="int">
 		SELECT * FROM staypc_lodge WHERE LODGE_CODE=#{lodge_Code}
 	</select>	
 

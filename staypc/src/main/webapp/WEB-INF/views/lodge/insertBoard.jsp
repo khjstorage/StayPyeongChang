@@ -8,6 +8,10 @@
     <script language="javascript">
  
     </script>
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
     <style type="text/css">
 
     </style>
@@ -16,17 +20,17 @@
 <div class="top_con_zone" id="fixNextTag">
 <h1>후기 작성</h1>
 <hr>
-  <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
-<form name="boardform" action='<c:url value="insertBoard.do?lodge_Code=${lodge_Code }"></c:url>' method="post">   
+  <input name="lodge_Code" type="hidden" value="${rew.lodge_Code}" id="lodge_Code"/>
+<form name="boardform" action='<c:url value="insertBoard.do?lodge_Code=${lodge_Code}"></c:url>' method="post">   
 
        <!--  '<c:url value="insertBoard.do?lodge_Code=${lodge_Code }"></c:url>' method="post">   
              <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
                     <a href="insertBoard.do?lodge_Code=${vo.lodge_Code }"/>후기 쓰기</a>--> 
 	<table style="border:0px;">
 		<tr>
-		  <td>${vo.picture }</td>
+		  <td>${rew.picture }</td>
 		  <td>아이디${sessionScope.userId}</td>
-		  <td>로지코드${vo.lodge_Code }</td>
+		  <td>로지코드${lodge_Code }</td>
 		 </tr>
 		 <tr>
 		   <td colspan="3">
@@ -47,8 +51,8 @@
 		 </tr>
 		<tr>
 			<td colspan="2" align="right">
-				<input type="submit" value="글쓰기" onclick="location.href='boardList.do'">
-				<input type="button" value="리스트" onclick="location.href='boardList.do'">
+				<input type="submit" value="글쓰기" onclick="location.href='insertBoard.do?lodge_Code=${lodge_Code}'">
+				<input type="button" value="리스트"  onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
 				<input type="button" value="취소" onclick="board_cancle()">
 			</td>
 		</tr>

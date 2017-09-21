@@ -26,7 +26,7 @@ public class LodgeReviewDAO {
 	}
 
 	public void update(LodgeReviewVO vo) throws Exception{
-	   sqlSession.update("review.update",  vo);
+	    sqlSession.update("review.update",  vo);
 	}
 	
 	public void updateHit(LodgeReviewVO vo) throws Exception{
@@ -51,8 +51,8 @@ public class LodgeReviewDAO {
 	public void updateReplySort(LodgeReviewVO vo) throws Exception {
 		sqlSession.update("review.updateSort",vo);
 	}
-	public int insertReply(LodgeReviewVO vo) throws Exception{
-		return sqlSession.insert("review.insertReply", vo);
+	public void insertReply(LodgeReviewVO vo) throws Exception{
+		sqlSession.insert("review.insertReply", vo);
 	}
 	
 	public int deleteAll(LodgeReviewVO vo) throws Exception{

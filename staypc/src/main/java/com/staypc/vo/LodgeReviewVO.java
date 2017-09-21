@@ -15,6 +15,7 @@ public class LodgeReviewVO {
 	private int sort; 
 	private int tab;
 	private String picture;
+	
 	public int getReview_num() {
 		return review_num;
 	}
