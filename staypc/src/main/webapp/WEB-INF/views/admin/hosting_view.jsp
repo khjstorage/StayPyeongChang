@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>호스팅 상세페이지</title>
+<link href="/resources/css/admin.css" rel="stylesheet" type="text/css">
 <script>
         function winOpen() {
             var lodge_code = document.getElementById("lodge_Code").value
@@ -13,11 +14,13 @@
     </script>
 </head>
 <body>
+<div class="common_wrapper">
 	<div class="top_con_zone">
 	    <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>	
 	    <div class="main_image">
 	        <img height="500px" width="700px" src="/host/displayFile.do?fileName=${vo.main_Image }">
 	    </div>
+	    
 	    <div class="detail_image">
 	        <c:forEach var="row" items="${listImg}" varStatus="status">
 	               <img height="200px" width="200" src="/host/displayFile.do?fileName=${row.filename}">
@@ -151,6 +154,6 @@
 	    
 	    
     
-    
+    </div>
 </body>
 </html>
