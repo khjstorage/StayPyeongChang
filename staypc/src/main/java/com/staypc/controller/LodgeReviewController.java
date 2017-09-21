@@ -151,11 +151,11 @@ public class LodgeReviewController {
 		param.setId(id);
 		 
 		int isort = param.getSort();
-		//int itab = param.getTab();
+		int itab = param.getTab();
 		
 		Service.updateReplySort(param);
 		param.setSort(++isort);
-		//vo.setTab(++itab);
+		param.setTab(++itab);
 		param.setLodge_Code((String.valueOf(lodge_Code)));
 		System.out.println("답글쓰기"+param);
 		Service.insertReply(param);

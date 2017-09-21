@@ -12,6 +12,11 @@
 <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
 <!--  <link href="/resources/css/board.css" rel="stylesheet" type="text/css"/>
 <script src="/resources/js/board.js"></script>-->
+<style type="text/css">	
+#content {
+	padding-left: 50px;
+	}
+</style>
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
@@ -35,30 +40,15 @@
 	 		<input type="text" size="27" disabled="disabled" value='<fmt:formatDate value="${rew.reg_date }" pattern="yyyy년MM월dd일"/>' name="reg_date"/></td>	 	
 	 		</tr>
 	 		<tr>
-	 		 <td colspan="9">
-	 		<textarea rows="20" cols="110" name="content"></textarea></td>
+	 		 <td colspan="9" style="padding-left:30" >
+	 		<textarea id="content" rows="20" cols="110" name="content"></textarea></td>
 	 	   </tr>
-	 	  <!--   <tr>
-			<td>
-				<input type="hidden" name="id">
-				&nbsp;<input type="text" name="email1" maxlength="25" size="15">@
-				<input type="text" name="email2" maxlength="25" size="15" style="display:inline;">
-				<select name="email3" onchange="email_check()">
-					<option value="self">직접입력</option>
-					<option value="naver.com">naver.com</option>
-					<option value="nate.com">nate.com</option>
-					<option value="gmail.com">gmail.com</option>
-					<option value="hanmail.net">hanmail.net</option>
-					<option value="hotmail.com">hotmail.com</option>
-				</select>
-			</td>
-		</tr>
-		-->
+
 		<tr>
 			<td colspan="2" align="right">
 				<input type="hidden" value="${rew.parent }"  name="parent">
 				<input type="hidden" value="${rew.sort }"  name="sort">
-				<!-- <input type="hidden" value="${vo.tab }"  name="tab"> -->
+			    <input type="hidden" value="${rew.tab }"  name="tab">
 				<input type="submit" value="답글 쓰기" onclick="location.href='reply.do?lodge_Code=${lodge_Code}'">
 				<input type="button" value="리스트" onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
 				<input type="button" value="취소" onclick="location.href='read.do?lodge_Code=${lodge_Code}'">

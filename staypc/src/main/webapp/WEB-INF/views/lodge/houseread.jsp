@@ -126,50 +126,58 @@
     </div>
 
     <!--후기-->
+    <br><br><br><br><br>
     <div class="top_con_zone">
         <h1>숙소 후기</h1>
         <hr>
         <table style="border: 0px; width: 1000px;">
             <tr>
-                <th colspan="8"></th>
+                <th colspan="30"></th>
             </tr>
+            <br><br>
             <tr>
-                <td colspan="8" align="right">
-                    <a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a>
+                <td colspan="30" align="center">
+                   <button><a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a></button>&nbsp;
                  </td>
             </tr>
             <c:if test="${ !empty rew }">
                 <c:forEach items="${rew}" var="rew">
                     <tr>
-                        <td rowspan="3" class="center" width="50">${ rew.review_num }</td>
-                        <td rowspan="2">
-                            <!--
-						<c:if test="${ vo.tab > 0 }">
-							<c:forEach begin="1" end="${ vo.tab }">
-								&nbsp;&nbsp;
-							</c:forEach>
-							☞
-						</c:if>	-->
-                        </td>
-                        <td class="left">${ rew.name }</td>
-                        <td colspan="5"></td>
+                        <td rowspan="2" align="center"  class="center" width="50"><!-- 번호대신 사진 -->${ rew.review_num }</td>
+                         <td class="left" align="center">${ rew.id }</td>
+                         <td colspan="28"></td>
                     </tr>
                     <tr>
-                        <td class="center"><fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/></td>
-                        <td colspan="5"></td>
+                         <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/></td>
+                         <td colspan="28"></td>
+                    </tr>
+                    <tr>
+                    <td colspan="12">
+						<c:if test="${ rew.tab > 0 }">
+							<c:forEach begin="1" end="${ rew.tab }">
+								&nbsp;&nbsp;&nbsp;&nbsp;
+							</c:forEach>
+							  &nbsp;&nbsp;&nbsp;[${ rew.id }]님의 답글 
+						</c:if>	
+                        </td>
+                     <td colspan="18"></td>
                     </tr>
                     <tr class="left">
-                        <td colspan="7">
+                    	<td></td>
+                        <td colspan="12">
                             <a href="<c:url value="/lodge/reviewread.do?review_num=${rew.review_num }&lodge_Code=${vo.lodge_Code}"/>">${ rew.content}</a>
                         </td>
+                        <td colspan="18"></td>
                     </tr>
-                </c:forEach>
+				</c:forEach>
             </c:if>
             <c:if test="${ empty rew }">
                 <tr>
-                    <td colspan="3" align="center">등록된 게시물이 없습니다.</td>
+                    <td colspan="12" align="center">등록된 게시물이 없습니다.</td>
                 </tr>
+                  <td colspan="18"></td>
             </c:if>
+      
         </table>
         <br>
 
