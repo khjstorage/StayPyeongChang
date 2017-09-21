@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
 <div class="profile">
     <form method="post" id="profileForm" enctype="multipart/form-data">
         <div class="center">
@@ -118,8 +119,10 @@
             </div>
 
         </div>
+        
     </form>
 </div>
+
 </body>
 </html>
 

@@ -56,6 +56,7 @@
             z-index: -1;
         }
         .slider-nav {
+         
             width: 100%;
             overflow: hidden;
         }
@@ -71,6 +72,7 @@
 
 <div class="top_con_zone">
     <input id="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
+    
     <div class="container">
         <div class="slider-for">
             <c:forEach var="row" items="${listImg}" varStatus="status">
@@ -95,12 +97,11 @@
         호스트이름:${member.name }<br>
         호스트 이메일:${member.email}<br>
         숙소 연락처:${vo.room_Phone}<br><br>
+          <button><a href="#">위시리스트담기</a></button>&nbsp;
+        <button><a onclick="winOpen()">예약하기</a></button><br>
     </div>
 
     <div class="info">
-        <button><a href="#">위시리스트담기</a></button>&nbsp;
-        <button><a onclick="winOpen()">예약하기</a></button><br>
-
         집이름:${vo.title}<br>
         숙소 정보<br>
         숙소 설명:${vo.room_Explain}<br>
