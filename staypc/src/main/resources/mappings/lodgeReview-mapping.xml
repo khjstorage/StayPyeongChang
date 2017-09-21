@@ -30,17 +30,19 @@
     
     <insert id="insertReply" parameterType="lodgeReview">
     	INSERT INTO STAYPC_REVIEW(review_num,
+    	   					  ID,
+                              LODGE_CODE,
        						  CONTENT,
     						  REG_DATE,
-    						  GRADE,
     						  PARENT,
     						  SORT,
     						  TAB)
-    		    VALUES        ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),    
+    		    VALUES        ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW), 
+    		                  #{id},
+    		                  #{lodge_Code},   
     		    		      #{content},
     		    		      SYSDATE,
-    		    		      #{grade},
-      		    		      #{parent},
+    		    		      #{parent},
     		    		      #{sort},
     		    		      #{tab}
     		    		      )
@@ -53,7 +55,7 @@
        WHERE   REVIEW_NUM=#{review_num}
        </update>
 
-    <update id="updateSort">
+    <update id="updateSort" parameterType="lodgeReview">
     	UPDATE STAYPC_REVIEW 
     	   SET SORT=SORT+1 
     	WHERE PARENT=#{parent} AND SORT>#{sort}

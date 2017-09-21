@@ -41,6 +41,7 @@ function board_delete(boardform){
 	 			<input type="button" value="리스트" onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
 	 			<input type="button" value="삭 제" onclick="board_delete()">
 	 			<input type="button" value="수정 하기" onclick="location.href='update.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">
+	 			<input type="button" value="답글 쓰기" onclick="location.href='reply.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">
 	 			<!--  
 	 			<a href="replyform.do?no=${vo.review_num }&pg=${param.pg}"><button class="linkbutton">답글쓰기</button></a>
 	 			<a href="updateform.do?no=${vo.review_num }&pg=${param.pg}"><button class="linkbutton">수정하기</button></a>
