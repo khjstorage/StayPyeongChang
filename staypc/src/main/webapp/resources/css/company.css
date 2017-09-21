@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+/* CSS reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, 
+address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, 
+var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, 
+input, label {margin:0; padding:0;  font-weight:inherit; font-style:inherit; font-family:inherit; 
+vertical-align:baseline; color:#535353;}
+html { overflow-y:scroll; background-color:#fff;}
+body, table, input, select, textarea, button, a, p, div, span {font-family:'Noto Sans KR', snas-serif, NanumGothic, NanumBarungothic;}
+td{font-family: 'Noto Sans KR', snas-serif,NanumGothic, NanumBarungothic;}
+
+
+/**/ 
+ul,ol,li { list-style-type:none;}
+
+ * {
+text-decoration:none;
+}
+
+/* privacy Terms 이용약관 */
+.companyPage {
+	width : 100%;
+}
+
+#companyInfoForm {
+	margin : 100px 20%;
+	width : auto;
+	display : inline-block;
+}
+
+.sidemenu {
+	border : solid 1px;
+	border-color : #b2b2b2;
+	border-radius: 10px;
+	width : 150px;
+	heigth : 300px;
+	text-align : center;	
+	padding-bottom : 40px;	
+}
+
+.content {		
+	width : 850px;
+	margin-left : 250px;
+	margin-top : -140px;
+	padding-bottom : 35px;	
+}
+	
+.menu {
+	border-bottom : solid 1px #868686;
+	height : 30px;
+}
+
+
+.term1 {
+	 float : left;
+	 height : 100px;	 
+}
+
+.term1 a {
+	 display: inline;
+	 text-align: center;	 
+}
+
+
+.term2 {
+	 float : left;
+}
+
+.term2 a {
+	 display: inline;
+	 text-align: center;
+	 
+}
+
+.term3 {
+	 float : left;
+}
+
+.term3 a {
+	 display: inline;
+	 text-align: center;
+	 color : rgb(242,17,76);
+}
+
+.term4 {
+	 float : left;
+}
+
+.term4 a {
+	 display: inline;
+	 text-align: center;
+	 
+}
+
+.infoDetail {
+	width : auto;
+	height : auto;
+	
+} 
+
+/*.comIntr {
+	width : auto;
+	margin : 20px 0px;	
+}*/
+
+.textInfo {
+	margin : 20px -100px;
+	float : left;
+}
+
+.imgInfo {
+	margin-left : 45%; 
+}
