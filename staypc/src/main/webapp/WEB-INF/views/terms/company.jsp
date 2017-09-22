@@ -20,17 +20,17 @@
             <ul>
                 <li style="margin-top:40px;"><a href='<c:url value="/notice/notice_list.do"/>'>공지사항</a></li>
                 <br>
-                <li style="margin-top:10px;"><a href="#">약관 및 정책</a></li>
+                <li style="margin-top:10px;"><a href="/terms/accessTerms.do">약관 및 정책</a></li>
             </ul>
         </div>
         
         <div class="content">
         	<div class="menu">
 	        	<ul>
-	        		<li class="term1"><a href="#">이용약관</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>	        		
-	        		<li class="term2"><a href="#">개인정보 처리 방침</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-	        		<li class="term3"><a href="#"><b>회사소개</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-	        		<li class="term4"><a href="#">도움말</a></li>	        		   		
+	        		<li class="term1"><a href="/terms/accessTerms.do">이용약관</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>	        		
+	        		<li class="term2"><a href="/terms/privacy.do">개인정보 처리 방침</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+	        		<li class="term3"><a href="/terms/company.do"><b>회사소개</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+	        		<li class="term4"><a href="/terms/accessTerms.do">도움말</a></li>	        		   		
 	        	</ul>
         	</div>
         	<br><br>
