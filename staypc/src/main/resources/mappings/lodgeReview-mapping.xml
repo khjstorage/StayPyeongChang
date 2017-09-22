@@ -101,10 +101,13 @@
 	]]>
     </select>
     
-<!--     <select id="getTotalCount" resultType="int">
+     <select id="getTotalCount" resultType="int" parameterType="lodgeReview">
+      <![CDATA[
     	SELECT COUNT(*) as CNT 
     	  FROM STAYPC_REVIEW
-    </select> -->
+    	  WHERE LODGE_CODE=#{lodge_Code}
+     	   	]]>
+    </select>
     
     <sql id="pagingHeader">
         SELECT * FROM (

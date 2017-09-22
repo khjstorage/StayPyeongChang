@@ -89,8 +89,12 @@ public class LodgeController {
     public String ReviewList(LodgeReviewVO vo, Model model,
     		@RequestParam(value="pg", defaultValue = "1") int pg,
     		HttpServletRequest request,@RequestParam int lodge_Code) throws Exception {
-		int pgSize = 15; //
-		int total = reviewService.getTotalCount();
+		
+		
+		int pgSize = 10; //
+		LodgeReviewVO lodge_code = new LodgeReviewVO();
+		lodge_code.setLodge_Code(""+lodge_Code);
+		int total = reviewService.getTotalCount(lodge_code);
 
 		if (request.getParameter("pg") != null)
 			pg = Integer.parseInt(request.getParameter("pg"));
@@ -123,15 +127,13 @@ public class LodgeController {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("allPage", allPage);
 		
-		
-		
+				
 		LodgeVO vo2 = Service.read(lodge_Code);
 		List listImg =  Service.readImg(lodge_Code);
 		request.setAttribute("vo", vo2);
 		request.setAttribute("listImg", listImg);
 		return  "lodge/houseread";
     }
-	
 }
 
 

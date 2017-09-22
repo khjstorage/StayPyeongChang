@@ -141,8 +141,10 @@
                    <button><a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a></button>&nbsp;
                  </td>
             </tr>
-            <c:if test="${ !empty rew }">
+        
+            <c:if test="${ !empty rew}">           
                 <c:forEach items="${rew}" var="rew">
+                <c:if test="${rew.lodge_Code==vo.lodge_Code}">
                     <tr>
                         <td rowspan="2" align="center"  class="center" width="50"><!-- 번호대신 사진 -->${ rew.review_num }</td>
                          <td class="left" align="center">${ rew.id }</td>
@@ -170,15 +172,17 @@
                         </td>
                         <td colspan="18"></td>
                     </tr>
+                      </c:if>
 				</c:forEach>
             </c:if>
             <c:if test="${ empty rew }">
                 <tr>
                     <td colspan="12" align="center">등록된 게시물이 없습니다.</td>
+                    <td colspan="18"></td>
                 </tr>
-                  <td colspan="18"></td>
+               
             </c:if>
-      
+    
         </table>
         <br>
 
@@ -186,8 +190,8 @@
             <tr align="center">
                 <td>
                     <c:if test="${ pg > block }">
-                        [ <a href="lodge/read.do?pg=1">◀◀</a> ]
-                        [ <a href="lodge/read.do?pg=${ beginPage - 1 }">◀</a> ]
+                        [ <a href="read.do?lodge_Code=${vo.lodge_Code}&pg=1">◀◀</a> ]
+                        [ <a href="read.do?lodge_Code=${vo.lodge_Code}&pg=${ beginPage - 1 }">◀</a> ]
                     </c:if>
                     <c:if test="${ pg <= block }">
                         [ <span style="color: gray;">◀◀</span> ]
@@ -195,11 +199,11 @@
                     </c:if>
                     <c:forEach var="i" begin="${ beginPage }" end="${ endPage }">
                         <c:if test="${ i == pg }"> [ ${ i } ] </c:if>
-                        <c:if test="${ i != pg }"> [ <a href="lodge/read.do?pg=${ i }">${ i }</a> ]</c:if>
+                        <c:if test="${ i != pg }"> [ <a href="read.do?lodge_Code=${vo.lodge_Code}&pg=${ i }">${ i }</a> ]</c:if>
                     </c:forEach>
                     <c:if test="${ endPage < allPage }">
-                        [ <a href="lodge/read.do?pg=${ endPage + 1 }">▶</a> ]
-                        [ <a href="lodge/read.do?pg=${ allPage }">▶▶</a> ]
+                        [ <a href="read.do?lodge_Code=${vo.lodge_Code}&pg=${ endPage + 1 }">▶</a> ]
+                        [ <a href="read.do?lodge_Code=${vo.lodge_Code}&pg=${ allPage }">▶▶</a> ]
                     </c:if>
                     <c:if test="${ endPage >= allPage }">
                         [ <span style="color: gray;">▶</span> ]

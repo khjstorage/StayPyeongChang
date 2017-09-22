@@ -45,8 +45,8 @@ public class LodgeReviewServiceImpl implements LodgeReviewService {
 	}
 	
 	@Override	
-	public int getTotalCount() throws Exception{
-		return dao.getTotalCount();
+	public int getTotalCount(LodgeReviewVO  vo) throws Exception{
+		return dao.getTotalCount(vo);
 	}
 	
 	@Override	

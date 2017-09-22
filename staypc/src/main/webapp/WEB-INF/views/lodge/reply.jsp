@@ -12,11 +12,6 @@
 <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
 <!--  <link href="/resources/css/board.css" rel="stylesheet" type="text/css"/>
 <script src="/resources/js/board.js"></script>-->
-<style type="text/css">	
-#content {
-	padding-left: 50px;
-	}
-</style>
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
@@ -29,19 +24,19 @@
 			<th colspan="9"></th>
 			</tr>
 		    <tr>
-	 		<td rowspan="2" align="center" width="auto">${rew.review_num }</td>
+	 		<td align="center" rowspan="2" align="center" width="auto">${rew.review_num }</td>
 	 		<td align="center" width="auto">${sessionScope.userId}님의 답글</td>
 	 		<td colspan="7"></td>
 	 		</tr>
 	 		<tr>
 	 		<tr>
 	 		<td colspan="7"></td>
-	 		<td> 
+	 		<td align="center"> 
 	 		<input type="text" size="27" disabled="disabled" value='<fmt:formatDate value="${rew.reg_date }" pattern="yyyy년MM월dd일"/>' name="reg_date"/></td>	 	
 	 		</tr>
 	 		<tr>
-	 		 <td colspan="9" style="padding-left:30" >
-	 		<textarea id="content" rows="20" cols="110" name="content"></textarea></td>
+	 		 <td  align="center" colspan="9" style="padding-left:30" >
+	 		<textarea rows="20" cols="110" name="content"></textarea></td>
 	 	   </tr>
 
 		<tr>

@@ -43,9 +43,9 @@ public class LodgeReviewDAO {
 		return sqlSession.selectList("review.getBoardList",map);
 	}
 	
-	public int getTotalCount() throws Exception {
-		//return sqlSession.selectOne("review.getTotalCount");
-		return 1;
+	public int getTotalCount(LodgeReviewVO vo) throws Exception {
+		return sqlSession.selectOne("review.getTotalCount",vo);
+		//return 1;
 	}
 	
 	public void updateReplySort(LodgeReviewVO vo) throws Exception {
