@@ -26,7 +26,7 @@
         })
     </script>
 </head>
-<body>
+<body style="z-index:100;">
 <div class="wrap">
     <div class="top_bn_zone">
         <header>

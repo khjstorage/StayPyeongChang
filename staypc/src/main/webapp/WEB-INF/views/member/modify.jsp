@@ -14,7 +14,7 @@
 
 <body>
 <div class="profileUpdatePage">
-    <form method="post" id="modifyForm" enctype="multipart/form-data">
+    <div class="common_wrapper">
     <!-- profile page --> 
 		<div class="align">
             <div class="sidemenu">
@@ -206,8 +206,7 @@
             </div>            
          </div>  
          </div>      
-    </form>   
-    
+    </div>    
     </div>      
 </body>
 </html>

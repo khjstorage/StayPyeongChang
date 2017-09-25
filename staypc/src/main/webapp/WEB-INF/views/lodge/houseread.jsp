@@ -73,7 +73,7 @@
 <div class="top_con_zone">
     <input id="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
     
-    <div class="container">
+    <div class="container" style="z-index:99;">
         <div class="slider-for">
             <c:forEach var="row" items="${listImg}" varStatus="status">
                 <img class="slider-for__item" src="/host/displayFile.do?fileName=${row.filename}">

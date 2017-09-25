@@ -69,7 +69,24 @@
 <div class="top_con_zone" id="fixNextTag">
     <form action="/host/insert.do" method="post" enctype="multipart/form-data" id="hostingForm">
         <h1>숙소 호스팅</h1>
-
+<table>
+	<tr>
+		<td>
+			제목
+		</td>
+		<td colspan="3">
+			<input type="text" name="title" id="title">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			숙소명
+		</td>
+		<td colspan="3">
+			<input type="text" name="room_Name">
+		</td>
+	</tr>
+</table>
         <div>
             제목 : <input type="text" name="title" id="title"> <br>
             숙소명 : <input type="text" name="room_Name"> <br>

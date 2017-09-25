@@ -11,8 +11,8 @@
 <body>
 
 <div class="profile">
-    <form method="post" id="profileForm" enctype="multipart/form-data">
-        <div class="center">
+    <div class="common_wrapper">
+       
 
             <!-- profile page -->
 
@@ -30,7 +30,7 @@
 
             <div class="userImgInfo">
                 <div class="userImg">
-                    <img width="100px" height="100px" style="width:200px; height:200px;" src="<c:url value='/resources/profile_photo/${member.picture}'/>"/>
+                    <img id="Img" src="<c:url value='/resources/profile_photo/${member.picture}'/>"/>
                 </div>
                 <br><br>
 
@@ -125,9 +125,9 @@
                 <span style="font-size:20px;">내 위시리스트</span>
             </div>
 
-        </div>
         
-    </form>
+        
+    </div>
 </div>
 
 </body>
