@@ -31,7 +31,7 @@ text-decoration:none;
 	 height:2000px;
 	 margin:0 auto;
 	 margin-top:30px; 
-	 border:1px solid #ff0000;
+	 /*border:1px solid #ff0000;*/
  }
 
 
@@ -44,13 +44,14 @@ text-decoration:none;
 	text-align : center;	
 	padding-bottom : 40px;	
 	float : left;
-	margin-top:30px; 
+	margin-top : 30px; 
 	background-color : #ffffff;	
 }
 
 .notice {
-	margin-top:30px;
+	/*margin-top:30px;*/
 	margin-left : 20%;
+	/*padding-top : 25px;*/
 }
 	
 .content {
@@ -58,7 +59,7 @@ text-decoration:none;
 	height : auto;
 	border : solid 1px;
 	border-color : #888888;
-	background-color : #ffffff;
+	background-color : #ffffff;	
 }
 
 .contentB {

@@ -20,7 +20,7 @@
             <ul>
                 <li style="margin-top:40px;"><a href='<c:url value="/notice/notice_list.do"/>'>공지사항</a></li>
                 <br>
-                <li style="margin-top:10px;"><a href="#">약관 및 정책</a></li>
+                <li style="margin-top:10px;"><a href="/terms/accessTerms.do">약관 및 정책</a></li>
             </ul>
         </div>
         

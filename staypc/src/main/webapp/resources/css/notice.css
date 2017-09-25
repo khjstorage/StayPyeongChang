@@ -14,9 +14,7 @@ a {
  width:1300px;
  height:2000px;
  margin:0 auto;
- margin-top:30px; 
- border:1px solid #ff0000;
- 
+ margin-top:30px;  
  }
 
 .notice_table{	
@@ -31,8 +29,6 @@ a {
 	margin-top:20px;
 }
 
-
-
 .sidemenu {
 	border : solid 1px;
 	border-color : #b2b2b2;
@@ -43,4 +39,9 @@ a {
 	padding-bottom : 40px;	
 	float : left;
 	margin-top:30px;	
+}
+
+.teble_box {
+	width:800px;
+	background-color:#ffffff;
 }

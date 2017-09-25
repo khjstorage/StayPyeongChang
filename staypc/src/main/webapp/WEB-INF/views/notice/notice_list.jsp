@@ -18,7 +18,7 @@
                 <li style="margin-top:10px;"><a href="/terms/accessTerms.do">약관 및 정책</a></li>
             </ul>
         </div>	
-		<div class="teble_box" align="left" style="width:800px; padding-top:10px; margin-top:20px; background-color:#ffffff">
+		<div class="teble_box" align="left">
 			<span style="font-size:23px;">공지사항</span>
 			<br><br>
 			<table class="notice_table">
