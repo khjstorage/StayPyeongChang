@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="accessTerms">
-    <form method="post" id="accessTermsForm" enctype="multipart/form-data">
+    <div class="common_wrapper">
 
         <div class="sidemenu">
             <ul>
@@ -341,7 +341,7 @@
         		
         	</div>
         </div>
-    </form>
+    </div>
 </div>
 </body>
 </html>
