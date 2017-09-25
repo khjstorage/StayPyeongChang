@@ -137,21 +137,21 @@
 
         <div>
             <b>안전시설</b>
-            연기감지기 : <input type="checkbox" name="secure" value="연기감지기" checked>
+            연기감지기 : <input type="checkbox" name="secure" value="연기감지기">
             구급상자 : <input type="checkbox" name="secure" value="구급상자">
             소화기 : <input type="checkbox" name="secure" value="소화기">
             방잠금장치 : <input type="checkbox" name="secure" value="방잠금장치">
         </div>
 
         <div>
-            숙소설명 <br> <textarea rows="15" cols="90" name="room_Explain">감사합니다</textarea><br>
+            숙소설명 <br> <textarea rows="15" cols="90" name="room_Explain"></textarea><br>
         </div>
 
         <div>
-            환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision">안돼</textarea><br>
+            환불규정 <br> <textarea rows="15" cols="90" name="refund_Provision"></textarea><br>
         </div>
         <h3>숙소 사진 업로드</h3>
-        <div class="fileDrop"></div>
+        <div class="fileDrop">이곳에 사진을 올려주세요</div>
         <div class="uploadedList"></div>
         <button type="submit" id="btnSave">숙소등록</button>
     </form>

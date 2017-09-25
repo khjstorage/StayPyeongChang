@@ -114,7 +114,7 @@
         <fmt:formatDate value='${check_In}' var="checkIn" pattern="yyyy-MM-dd"/>
         <fmt:formatDate value='${check_Out}' var="checkOut" pattern="yyyy-MM-dd"/>
         체크인:${checkIn}<br>
-        체크아웃시간:${checkOut}<br>
+        체크아웃:${checkOut}<br>
         숙소 등록일:<fmt:formatDate value="${vo.reg_Date}" pattern="yyyy년MM월dd일"/><br>
         최근 수정일:<fmt:formatDate value="${vo.update_Date}" pattern="yyyy년MM월dd일"/><br>
         건물타입:${vo.bulid_Type}<br>
