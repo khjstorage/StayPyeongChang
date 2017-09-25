@@ -18,21 +18,20 @@
     </script>
 </head>
 <body>
-<div class="noticeView" id="fixNextTag">
-    <form method="post" id="noticeForm" enctype="multipart/form-data">
+<div class="noticeView">
+    <div class="common_wrapper">
 
         <div class="sidemenu">
             <ul>
                 <li style="margin-top:40px;"><a href='<c:url value="/notice/notice_list.do"/>'>공지사항</a></li>
                 <br>
-                <li style="margin-top:10px;"><a href="#">약관 및 정책</a></li>
+                <li style="margin-top:10px;"><a href="/terms/accessTerms.do">약관 및 정책</a></li>
             </ul>
         </div>
 
         <div class="notice">
-            <h2>공지사항</h2>
-            <br>
-            <br>
+            <span style="font-size:23px;">공지사항</span>
+            <br><br>            
             <div class="content">
                 <div class="contentB">
                     <div class="subject">
@@ -60,7 +59,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>
 </body>
 </html>
