@@ -48,7 +48,22 @@ public class LodgeServiceImpl implements LodgeService {
 	public List<LodgeVO> readImg(int lodge_Code ) throws Exception{
 		return dao.readImg(lodge_Code);
 	}
-
+   
+	//위시리스트 
+	@Override
+	public void insertWish(LodgeVO vo) throws Exception {
+		dao.insertWish(vo);
+	}
+	
+	@Override
+	public void deleteWish(LodgeVO vo) throws Exception {
+		dao.deleteWish(vo);
+	}
+	
+	@Override
+	public List<LodgeVO> listWish(LodgeVO vo) throws Exception{
+		return dao.listWish(vo);
+	}
 }
 
 
