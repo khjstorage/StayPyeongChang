@@ -118,7 +118,7 @@ public class LodgeController {
 		List listImg =  Service.readImg(lodge_Code);
 		request.setAttribute("vo", vo2);
 		request.setAttribute("listImg", listImg);
-		return  "lodge/houseread";
+		return "lodge/houseRead";
     }
 	
 	//위시리스트 1. 위시리스트 추가
