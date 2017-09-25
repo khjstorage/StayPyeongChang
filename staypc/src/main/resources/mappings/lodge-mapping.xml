@@ -53,12 +53,42 @@
         ]]>
         </if>
     </sql>
-
     
-    <sql id="pagingFooter">
+	   <sql id="pagingFooter">
            ) A
         ) WHERE rn BETWEEN #{start} AND #{end}
     </sql> 
+    
+	<!-- 위시 리스트 시작 -->
 	
+	  <insert id="insertWish" parameterType="lodge">
+      	  INSERT INTO STAYPC_WISH(LODGE_CODE,
+                             ID,
+                             TITLE,
+                             REG_DATE,
+                             CHARGE)
+	  				VALUES  (#{lodge_Code},
+                            #{id},
+                            #{title}
+           			         SYSDATE,
+                            #{charge}
+                            )
+    </insert>
+
+      <delete id="deleteWish">
+    	  DELETE FROM STAYPC_WISH
+    	  WHERE LODGE_CODE=#{lodge_Code}
+    </delete>
+
+      <select id="getWishList" resultType="lodge" parameterType="java.util.HashMap">
+   	<![CDATA[					
+		     SELECT LODGE_CODE,
+				    TITLE,
+				    REG_DATE,
+				    CHARGE
+			        FROM STAYPC_WISH WHERE ID=#{id}
+			]]>
+    </select>	
+    <!-- 위시리스트 끝 -->
 </mapper>
 

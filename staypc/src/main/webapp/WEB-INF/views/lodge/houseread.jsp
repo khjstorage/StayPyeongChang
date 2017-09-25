@@ -114,7 +114,7 @@
         <fmt:formatDate value='${check_In}' var="checkIn" pattern="yyyy-MM-dd"/>
         <fmt:formatDate value='${check_Out}' var="checkOut" pattern="yyyy-MM-dd"/>
         체크인:${checkIn}<br>
-        체크아웃시간:${checkOut}<br>
+        체크아웃:${checkOut}<br>
         숙소 등록일:<fmt:formatDate value="${vo.reg_Date}" pattern="yyyy년MM월dd일"/><br>
         최근 수정일:<fmt:formatDate value="${vo.update_Date}" pattern="yyyy년MM월dd일"/><br>
         건물타입:${vo.bulid_Type}<br>
@@ -138,8 +138,11 @@
             <br><br>
             <tr>
                 <td colspan="30" align="center">
+                  <!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
+                   <c:if test="${sessionScope.userId != null}">                
                    <button><a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a></button>&nbsp;
-                 </td>
+                   </c:if>             
+                 </td>   
             </tr>
         
             <c:if test="${ !empty rew}">           

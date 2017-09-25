@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -71,28 +72,13 @@ public class LodgeController {
 		return mav;
 	}
 
-/*	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
-	public ModelAndView read(@RequestParam int lodge_Code, ModelAndView mav) throws Exception{
-		
-		LodgeVO vo = Service.read(lodge_Code);
-		mav.addObject("vo", vo);
-
-		List listImg =  Service.readImg(lodge_Code);
-		mav.addObject("listImg", listImg);
-
-		mav.setViewName("redirect:houseread.do");
-		return mav;
-	}	
-*/
-	
 	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
     public String ReviewList(LodgeReviewVO vo, Model model,
     		@RequestParam(value="pg", defaultValue = "1") int pg,
-    		HttpServletRequest request,@RequestParam int lodge_Code) throws Exception {
-		
+    		HttpServletRequest request,@RequestParam int lodge_Code) throws Exception {		
 		
 		int pgSize = 10; //
-		LodgeReviewVO lodge_code = new LodgeReviewVO();
+		LodgeReviewVO lodge_code = new LodgeReviewVO(); 
 		lodge_code.setLodge_Code(""+lodge_Code);
 		int total = reviewService.getTotalCount(lodge_code);
 
@@ -132,8 +118,51 @@ public class LodgeController {
 		List listImg =  Service.readImg(lodge_Code);
 		request.setAttribute("vo", vo2);
 		request.setAttribute("listImg", listImg);
-		return  "lodge/houseread";
+		return "lodge/houseRead";
     }
+	
+	//위시리스트 1. 위시리스트 추가
+	@RequestMapping("lodge/insertWishList.do")
+	public ModelAndView insertWish(LodgeVO param, HttpSession session) throws Exception {
+		String id=(String)session.getAttribute("userId");
+		param.setId(id);
+		
+		Service.insertWish(param);
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("lodge/wishList");
+		
+		return mav;
+	}
+	
+	  // 2. 위시리스트 삭제
+	@RequestMapping("lodge/deleteWishList.do")
+	public ModelAndView  deleteWish(LodgeVO param, HttpSession session) throws Exception {
+		String id=(String)session.getAttribute("userId");
+		param.setId(id);
+		
+		Service.deleteWish(param);
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("lodge/wishList");
+		
+		return mav;	
+	}
+	
+	  // 3. 위시리스트 확인(위시리스트로 가기) 이거 다시 봐야 함
+	@RequestMapping("lodge/wishList.do")
+	public List<LodgeVO> listWish(LodgeVO param, HttpSession session) throws Exception{
+		String id=(String)session.getAttribute("userId");
+		param.setId(id);
+		
+		Map<String,Object> map=new HashMap<String, Object>();
+		List<LodgeVO> list=Service.listWish(param);
+	    map.put("list", list); 
+		ModelAndView mav=new ModelAndView();
+
+		mav.setViewName("lodge/wishList");	
+		
+		return (List<LodgeVO>) mav;	
+	}	
 }
 
 

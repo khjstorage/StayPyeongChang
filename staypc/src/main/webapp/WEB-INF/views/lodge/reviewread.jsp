@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,7 +18,7 @@ function board_delete(boardform){
 	}else{   //취소
 	    return;
 	}
-	}
+}
 </script>
 </head>
 <body>
@@ -39,25 +39,16 @@ function board_delete(boardform){
 	 	<tr>
 	 		<td colspan="9" align="right">
 	 			<input type="button" value="리스트" onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
-	 			<input type="button" value="삭 제" onclick="board_delete()">
-	 			<input type="button" value="수정 하기" onclick="location.href='update.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">
-	 			<input type="button" value="답글 쓰기" onclick="location.href='reply.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">
-	 			<!--  
-	 			<a href="replyform.do?no=${vo.review_num }&pg=${param.pg}"><button class="linkbutton">답글쓰기</button></a>
-	 			<a href="updateform.do?no=${vo.review_num }&pg=${param.pg}"><button class="linkbutton">수정하기</button></a>
-	 			<a href="deleteform.do?no=${vo.review_num }&pg=${param.pg}&sort=${vo.sort}"><button class="linkbutton">삭제하기</button></a>
-	 			<a href="boardList.do?pg=${param.pg}"><button class="linkbutton">리스트</button></a>
-	 			-->
+	 		    <c:if test="${sessionScope.userId == rew.id}">   
+	 				<input type="button" value="삭 제" onclick="board_delete()">
+	 				<input type="button" value="수정 하기" onclick="location.href='update.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">
+	 			</c:if>	 		
+	 			<!-- 로그인한 사용자만 답글쓰기 버튼을 활성화 -->
+	 		    <c:if test="${sessionScope.userId != null}">   
+	 				<input type="button" value="답글 쓰기" onclick="location.href='reply.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">
+	 	       	</c:if>
 	 		</td>
 	 	</tr>
-	 	<!-- 
-	 				<td colspan="2" align="right">
-				<input type="submit" value="글쓰기" onclick="location.href='boardList.do'">
-				<input type="button" value="리스트" onclick="location.href='boardList.do'">
-				<input type="button" value="취소" onclick="board_cancle()">
-			</td>
-	 	 -->
-	 	
 	</table>
 </body>
 </html>

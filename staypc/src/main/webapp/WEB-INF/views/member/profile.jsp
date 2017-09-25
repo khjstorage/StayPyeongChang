@@ -46,7 +46,14 @@
                         <li>
                             <div class="userGender">
                                 <span>성별 : </span>
-                                <span>${member.gender}</span>
+                                <c:choose>
+                                    <c:when test="${member.gender eq 'F'}">
+                                        <span>여자</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span>남자</span>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </li>
 

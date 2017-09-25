@@ -13,7 +13,6 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
     <style type="text/css">
-
     </style>
 </head>
 <body>
@@ -22,10 +21,6 @@
 <hr>
   <input name="lodge_Code" type="hidden" value="${rew.lodge_Code}" id="lodge_Code"/>
 <form name="boardform" action='<c:url value="insertBoard.do?lodge_Code=${lodge_Code}"></c:url>' method="post">   
-
-       <!--  '<c:url value="insertBoard.do?lodge_Code=${lodge_Code }"></c:url>' method="post">   
-             <input name="lodge_Code" type="hidden" value="${vo.lodge_Code}" id="lodge_Code"/>
-                    <a href="insertBoard.do?lodge_Code=${vo.lodge_Code }"/>후기 쓰기</a>--> 
 	<table style="border:0px;">
 		<tr>
 		  <td>${rew.picture }</td>
@@ -44,11 +39,7 @@
 		 </tr>
 		  <tr>
 		   <td align="right" colspan="3">
-		   <!--  
-		    로지코드
-		     <input name='lodge_code' type="text" value='${vo.lodge_code}' size="auto">  
-		     -->  
-		 </tr>
+		  </tr>
 		<tr>
 			<td colspan="2" align="right">
 				<input type="submit" value="글쓰기" onclick="location.href='insertBoard.do?lodge_Code=${lodge_Code}'">
