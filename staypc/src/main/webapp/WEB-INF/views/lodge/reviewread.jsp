@@ -39,6 +39,7 @@ function board_delete(boardform){
 	 	<tr>
 	 		<td colspan="9" align="right">
 	 			<input type="button" value="리스트" onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
+	 				<!-- 글쓴이만 수정과 삭제 버튼 활성화 -->
 	 		    <c:if test="${sessionScope.userId == rew.id}">   
 	 				<input type="button" value="삭 제" onclick="board_delete()">
 	 				<input type="button" value="수정 하기" onclick="location.href='update.do?review_num=${rew.review_num}&lodge_Code=${lodge_Code}'">
