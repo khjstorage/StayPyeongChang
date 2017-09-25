@@ -14,7 +14,7 @@
                     success: function (data) {
                         console.log(data);
                         if (data.password == $("#password").val()) {
-                            var enter = prompt('스테이평창 탈퇴하시겠습니까?', '본인의 아이디를 적어주세요');
+                            var enter = prompt('스테이평창 탈퇴하시겠습니까?\n등록한 모든 정보가 삭제됩니다.', '탈퇴를 원하시면 본인의 아이디를 적어주세요');
                             if ($("#session").val() == (enter)) {
                                 $("#frm").attr("action", "/member/dropProc.do");
                                 $("#frm").submit();

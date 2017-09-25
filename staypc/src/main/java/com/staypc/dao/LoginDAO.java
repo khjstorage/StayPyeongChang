@@ -61,7 +61,29 @@ public class LoginDAO {
         mybatis.update("login.modify", vo);
     }
 
+    //회원정보 삭제
     public void drop(LoginVO vo) {
         mybatis.delete("login.drop",vo);
+    }
+
+    //호스팅 글삭제
+    public void lodgeDrop(LoginVO vo) {
+        mybatis.delete("login.lodgeDrop",vo);
+    }
+
+    public List<Integer> getHostingList(LoginVO vo) {
+        return mybatis.selectList("login.getHostingList", vo);
+    }
+
+    public void dropHosting(int lodge_code) {
+        mybatis.delete("login.dropHosting",lodge_code);
+    }
+
+    public void dropHostingImage(int lodge_code) {
+        mybatis.delete("login.dropHostingImage",lodge_code);
+    }
+
+    public void dropHostingBook(int lodge_code) {
+        mybatis.delete("login.dropHostingBook",lodge_code);
     }
 }

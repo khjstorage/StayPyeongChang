@@ -71,6 +71,33 @@ public class LoginServiceImpl implements LoginService{
 
     @Override
     public void drop(LoginVO vo) {
+        List<Integer> lodge_code_list = getHostingList(vo);
+        System.out.println(">>"+lodge_code_list);
+        for (Integer lodge_code : lodge_code_list) {
+            System.out.println(lodge_code);
+            dropHosting(lodge_code);
+            dropHostingImage(lodge_code);
+            dropHostingBook(lodge_code);
+        }
         dao.drop(vo);
     }
+
+
+    @Override
+    public List<Integer> getHostingList(LoginVO vo) {
+        return dao.getHostingList(vo);
+    }
+
+    public void dropHosting(int lodge_code) {
+        dao.dropHosting(lodge_code);
+    }
+
+    public void dropHostingImage(int lodge_code) {
+        dao.dropHostingImage(lodge_code);
+    }
+
+    public void dropHostingBook(int lodge_code) {
+        dao.dropHostingBook(lodge_code);
+    }
+
 }

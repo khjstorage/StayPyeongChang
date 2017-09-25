@@ -51,8 +51,33 @@
         WHERE id=#{id}
     </update>
 
+
     <delete id="drop">
        DELETE STAYPC_MEMBER WHERE ID=#{id} and PASSWORD=#{password}
     </delete>
+
+    <select id="getHostingList" resultType="java.lang.Integer">
+        SELECT DISTINCT a.LODGE_CODE FROM STAYPC_LODGE a
+                INNER JOIN STAYPC_LODGE_IMAGE b
+                       ON a.LODGE_CODE = b.LODGE_CODE
+                INNER JOIN STAYPC_LODGE_BOOK c
+                       ON a.LODGE_CODE = c.LODGE_CODE
+        WHERE id = #{id}
+    </select>
+
+    <delete id="dropHosting">
+        DELETE STAYPC_LODGE WHERE lodge_code = #{lodge_code}
+    </delete>
+
+    <delete id="dropHostingImage">
+        DELETE STAYPC_LODGE_IMAGE WHERE lodge_code = #{lodge_code}
+    </delete>
+
+    <delete id="dropHostingBook">
+        DELETE STAYPC_LODGE_BOOK WHERE lodge_code = #{lodge_code}
+    </delete>
+
+
+
 
 </mapper>

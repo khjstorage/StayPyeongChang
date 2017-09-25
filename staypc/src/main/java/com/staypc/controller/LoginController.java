@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class LoginController {
@@ -208,6 +209,7 @@ public class LoginController {
 	@RequestMapping(value = "/member/dropProc.do", method = RequestMethod.POST)
 	public String dropProc(LoginVO vo, HttpSession session){
 		vo.setId((String)session.getAttribute("userId"));
+
 		service.drop(vo);
 		service.logout(session);
 		return "redirect:/";
