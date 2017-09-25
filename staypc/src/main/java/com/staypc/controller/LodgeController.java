@@ -118,7 +118,7 @@ public class LodgeController {
 		List listImg =  Service.readImg(lodge_Code);
 		request.setAttribute("vo", vo2);
 		request.setAttribute("listImg", listImg);
-		return "lodge/houseRead";
+		return  "lodge/houseread";
     }
 	
 	//위시리스트 1. 위시리스트 추가
@@ -150,24 +150,20 @@ public class LodgeController {
 	
 	  // 3. 위시리스트 확인(위시리스트로 가기) 이거 다시 봐야 함
 	@RequestMapping("lodge/wishList.do")
-	public List<LodgeVO> listWish(LodgeVO param, HttpSession session) throws Exception{
+	public String listWish(LodgeVO param, HttpSession session) throws Exception{
 		String id=(String)session.getAttribute("userId");
 		param.setId(id);
 		
 		Map<String,Object> map=new HashMap<String, Object>();
 		List<LodgeVO> list=Service.listWish(param);
 	    map.put("list", list); 
-		ModelAndView mav=new ModelAndView();
+	    map.put("wishList", param);
 
-		mav.setViewName("lodge/wishList");	
-		
-		return (List<LodgeVO>) mav;	
+		//return (List<LodgeVO>)"lodge/wishList";	
+		//return (List<LodgeVO>) list;	
+	  return "lodge/wishList";
 	}	
 }
-
-
-
-
 
 
 

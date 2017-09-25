@@ -97,10 +97,9 @@
         호스트이름:${member.name }<br>
         호스트 이메일:${member.email}<br>
         숙소 연락처:${vo.room_Phone}<br><br>
-          <button><a href="#">위시리스트담기</a></button>&nbsp;
+        <button><a href="wishList.do?id=${vo.id}">위시리스트담기</a></button>&nbsp;
         <button><a onclick="winOpen()">예약하기</a></button><br>
     </div>
-
     <div class="info">
         집이름:${vo.title}<br>
         숙소 정보<br>
