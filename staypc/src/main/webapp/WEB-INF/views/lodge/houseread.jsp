@@ -138,8 +138,11 @@
             <br><br>
             <tr>
                 <td colspan="30" align="center">
+                  <!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
+                   <c:if test="${sessionScope.userId != null}">                
                    <button><a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a></button>&nbsp;
-                 </td>
+                   </c:if>             
+                 </td>   
             </tr>
         
             <c:if test="${ !empty rew}">           
