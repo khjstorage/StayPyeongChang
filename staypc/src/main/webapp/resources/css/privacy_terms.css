@@ -23,28 +23,35 @@ text-decoration:none;
 /* privacy Terms 이용약관 */
 .privacyTerms {
 	width : 100%;
+	margin-top : 30px;
 }
 
-#privacyTermsForm {
-	margin : 100px 20%;
-	width : auto;
-	display : inline-block;
-}
+.common_wrapper{
+	 width:1300px;
+	 height:auto;
+	 margin:0 auto;
+	 margin-top:30px; 
+	 /*border:1px solid #ff0000;*/ 
+ }
 
 .sidemenu {
 	border : solid 1px;
 	border-color : #b2b2b2;
 	border-radius: 10px;
 	width : 150px;
-	heigth : 300px;
+	height : auto;
 	text-align : center;	
 	padding-bottom : 40px;	
+	float : left;
+	margin-top:30px;	
+	background-color : #ffffff;
 }
 
 .content {		
 	width : 850px;
-	margin-left : 250px;
-	margin-top : -140px;
+	height:auto;
+	margin-top : 30px;
+	margin-left : 20%;
 	padding-bottom : 35px;	
 }
 	
@@ -74,6 +81,7 @@ text-decoration:none;
 	 display: inline;
 	 text-align: center;
 	 color : rgb(242,17,76);
+	 font-weight : bold;
 }
 
 .term3 {
@@ -99,7 +107,7 @@ text-decoration:none;
 .contentDetail {
 	width : auto;
 	height : auto;
-	
+	line-height : 20px;
 } 
 
 .prvTerms {
@@ -108,7 +116,9 @@ text-decoration:none;
 	
 }
 
-.prvTerms h2{
-	margin-left : 25%;
-	
+#SPCTerms {
+	font-size : 20px;
+	/*border : solid 1px;*/	
+	font-weight : bold;
+	margin-left : 27%;
 }
