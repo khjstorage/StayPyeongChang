@@ -61,7 +61,7 @@
     
 	<!-- 위시 리스트 시작 -->
 	
-	  <insert id="insertWish" parameterType="lodge">
+	  <insert id="insertWish" parameterType="lodge" >
       	  INSERT INTO STAYPC_WISH(LODGE_CODE,
                              ID,
                              TITLE,
@@ -69,7 +69,7 @@
                              CHARGE)
 	  				VALUES  (#{lodge_Code},
                             #{id},
-                            #{title}
+                            #{title},
            			         SYSDATE,
                             #{charge}
                             )
@@ -80,7 +80,7 @@
     	  WHERE LODGE_CODE=#{lodge_Code}
     </delete>
 
-      <select id="getWishList" resultType="lodge" parameterType="java.util.HashMap">
+      <select id="getWishList" resultType="lodge" parameterType="lodge">
    	<![CDATA[					
 		     SELECT LODGE_CODE,
 				    TITLE,

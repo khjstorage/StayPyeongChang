@@ -116,12 +116,14 @@ public class LodgeController {
 	@RequestMapping("lodge/insertWishList.do")
 	public ModelAndView insertWish(LodgeVO param, HttpSession session) throws Exception {
 		String id=(String)session.getAttribute("userId");
+		LodgeVO vo2 = Service.read(param.getLodge_Code());
 		param.setId(id);
-		
+		param.setCharge(vo2.getCharge());
+		param.setTitle(vo2.getTitle());
 		Service.insertWish(param);
 		
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("lodge/wishList");
+		mav.setViewName("redirect:wishList.do");
 		
 		return mav;
 	}
@@ -141,17 +143,12 @@ public class LodgeController {
 	
 	  // 3. 위시리스트 확인(위시리스트로 가기) 이거 다시 봐야 함
 	@RequestMapping("lodge/wishList.do")
-	public String listWish(LodgeVO param, HttpSession session) throws Exception{
-		String id=(String)session.getAttribute("userId");
-		param.setId(id);
+	public String listWish(LodgeVO param, HttpSession session, HttpServletRequest req) throws Exception{
+		param.setId((String)session.getAttribute("userId"));
 		
-		Map<String,Object> map=new HashMap<String, Object>();
 		List<LodgeVO> list=Service.listWish(param);
-	    map.put("list", list); 
-	    map.put("wishList", param);
-
-		//return (List<LodgeVO>)"lodge/wishList";	
-		//return (List<LodgeVO>) list;	
+		System.out.println(list.get(0).getReg_Date());
+		req.setAttribute("list",list);
 	  return "lodge/wishList";
 	}	
 }
