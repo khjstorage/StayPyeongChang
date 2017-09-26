@@ -52,7 +52,6 @@ $(document).ready(function(){
             gender.focus();
             return false;
         }
-
         modifyForm.attr("action", "/member/modify.do");
         modifyForm.submit();
     });

@@ -157,6 +157,7 @@ public class LoginController {
 	@RequestMapping(value = "/member/modify.do", method = RequestMethod.GET)
 	public ModelAndView modifyForm(ModelAndView mv, HttpSession session){
 		LoginVO member = service.getMember((String)session.getAttribute("userId"));
+
 		mv.addObject("member",member);
 		mv.setViewName("member/modify");
 		return mv;
@@ -164,6 +165,7 @@ public class LoginController {
 
 	@RequestMapping(value = "/member/modify.do",method = RequestMethod.POST)
 	public String modify(LoginVO vo, HttpSession session, HttpServletRequest request, @RequestParam String originFile) throws IOException {
+		System.out.println(vo);
 		MultipartFile multipartFile = vo.getUploadFile();
 		if(!multipartFile.isEmpty()){
 			String fileNmae = multipartFile.getOriginalFilename();

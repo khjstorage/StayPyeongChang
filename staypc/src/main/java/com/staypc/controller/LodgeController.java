@@ -46,16 +46,12 @@ public class LodgeController {
 							 @RequestParam(defaultValue="") String sdate, 
 							 @RequestParam(defaultValue="") String edate,
 							 ModelAndView mav) throws Exception{
-		System.out.println("시작과 끝날:"+sdate+"+"+edate);
-		System.out.println("결과값:"+ num+"/"+keyword+"/"+sdate+"/"+edate);
 		// 레코드 객수 계산
 		int count = Service.countArticle(num, keyword, sdate, edate);
-		
 		// 페이지 나누기 처리
 		BoardPager boardPager = new BoardPager(count, curPage);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
-
 		List<LodgeVO> list = Service.listAll(start, end, num, keyword, sdate, edate);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
@@ -65,18 +61,14 @@ public class LodgeController {
 		map.put("boardPager", boardPager);
 		map.put("sdate", sdate);
 		map.put("edate", edate);
-
 		mav.addObject("map", map);
 		mav.setViewName("lodge/list");
-		
 		return mav;
 	}
 
 	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
-    public String ReviewList(LodgeReviewVO vo, Model model,
-    		@RequestParam(value="pg", defaultValue = "1") int pg,
-    		HttpServletRequest request,@RequestParam int lodge_Code) throws Exception {		
-		
+    public String ReviewList(@RequestParam(value="pg", defaultValue = "1") int pg, HttpServletRequest request, @RequestParam int lodge_Code) throws Exception {
+
 		int pgSize = 10; //
 		LodgeReviewVO lodge_code = new LodgeReviewVO(); 
 		lodge_code.setLodge_Code(""+lodge_Code);
@@ -112,8 +104,7 @@ public class LodgeController {
 		request.setAttribute("beginPage", beginPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("allPage", allPage);
-		
-				
+
 		LodgeVO vo2 = Service.read(lodge_Code);
 		List listImg =  Service.readImg(lodge_Code);
 		request.setAttribute("vo", vo2);
