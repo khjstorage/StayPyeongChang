@@ -12,7 +12,6 @@
     <script src="/resources/js/payment.js" type="text/javascript"></script>
 </head>
 <body>
-<h1>결제정보창</h1>
 <form id="payment">
     <table>
         <tr>
@@ -29,7 +28,7 @@
         </tr>
         <tr>
             <td>카드번호</td>
-            <td><input type="text" name="card1"> - <input type="text" name="card2"> - <input type="text" name="card3"> - <input type="text" name="card4"></td>
+            <td><input type="text" name="card1" size="4"> - <input type="text" name="card2" size="4"> - <input type="password" name="card3" size="4"> - <input type="text" name="card4" size="4"></td>
         </tr>
         <tr>
             <td>유효기간</td>
@@ -65,11 +64,11 @@
         </tr>
         <tr>
             <td>카드CVC</td>
-            <td><input type="text" name="card_cvc"></td>
+            <td><input type="password" name="card_cvc" size="3"></td>
         </tr>
         <tr>
             <td rowspan="2">
-                <button>결제하기</button><button>결제취소</button>
+                <button>결제하기</button> <button onclick="self.close()">결제취소</button>
             </td>
         </tr>
     </table>
