@@ -7,7 +7,7 @@
     <title>houseread화면</title>
     <script>
         function winOpen() {
-            var lodge_code = document.getElementById("lodge_Code");
+            var lodge_code = document.getElementById("lodge_Code").value;
             window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
         }
     </script>
