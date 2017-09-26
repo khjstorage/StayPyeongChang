@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -12,8 +12,8 @@
         }
     </script>
 
-    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
 
@@ -44,22 +44,26 @@
             width: 100%;
             overflow: hidden;
         }
+
         .slider-for__item {
             display: inline-block;
             width: 1500px;
             height: 700px;
             margin: 0.5px;
             text-align: center;
-            cursor:move;
+            cursor: move;
         }
-        .slider-for{
+
+        .slider-for {
             z-index: -1;
         }
+
         .slider-nav {
-         
+
             width: 100%;
             overflow: hidden;
         }
+
         .item-nav {
             width: 250px;
             height: 250px;
@@ -71,8 +75,9 @@
 
 
 <div class="top_con_zone">
+
     <input id="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
-    
+
     <div class="container" style="z-index:99;">
         <div class="slider-for">
             <c:forEach var="row" items="${listImg}" varStatus="status">
@@ -98,7 +103,8 @@
         호스트 이메일:${member.email}<br>
         숙소 연락처:${vo.room_Phone}<br><br>
         <button><a href="wishList.do?id=${vo.id}">위시리스트담기</a></button>&nbsp;
-        <button><a onclick="winOpen()">예약하기</a></button><br>
+        <button><a onclick="winOpen()">예약하기</a></button>
+        <br>
     </div>
     <div class="info">
         집이름:${vo.title}<br>
@@ -129,7 +135,7 @@
     <br><br><br><br><br>
     <div class="top_con_zone">
         <h1>숙소 후기</h1>
-        <hr>
+
         <table style="border: 0px; width: 1000px;">
             <tr>
                 <th colspan="30"></th>
@@ -137,56 +143,56 @@
             <br><br>
             <tr>
                 <td colspan="30" align="center">
-                  <!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
-                   <c:if test="${sessionScope.userId != null}">                
-                   <button><a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a></button>&nbsp;
-                   </c:if>             
-                 </td>   
+                    <!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
+                    <c:if test="${sessionScope.userId != null}">
+                        <button><a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a></button>
+                        &nbsp;
+                    </c:if>
+                </td>
             </tr>
-        
-            <c:if test="${ !empty rew}">           
+            <c:if test="${ !empty rew}">
                 <c:forEach items="${rew}" var="rew">
-                <c:if test="${rew.lodge_Code==vo.lodge_Code}">
-                    <tr>
-                        <td rowspan="2" align="center"  class="center" width="50"><!-- 번호대신 사진 -->${ rew.review_num }</td>
-                         <td class="left" align="center">${ rew.id }</td>
-                         <td colspan="28"></td>
-                    </tr>
-                    <tr>
-                         <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/></td>
-                         <td colspan="28"></td>
-                    </tr>
-                    <tr>
-                    <td colspan="12">
-						<c:if test="${ rew.tab > 0 }">
-							<c:forEach begin="1" end="${ rew.tab }">
-								&nbsp;&nbsp;&nbsp;&nbsp;
-							</c:forEach>
-							  &nbsp;&nbsp;&nbsp;[${ rew.id }]님의 답글 
-						</c:if>	
-                        </td>
-                     <td colspan="18"></td>
-                    </tr>
-                    <tr class="left">
-                    	<td></td>
-                        <td colspan="12">
-                            <a href="<c:url value="/lodge/reviewread.do?review_num=${rew.review_num }&lodge_Code=${vo.lodge_Code}"/>">${ rew.content}</a>
-                        </td>
-                        <td colspan="18"></td>
-                    </tr>
-                      </c:if>
-				</c:forEach>
+                    <c:if test="${rew.lodge_Code==vo.lodge_Code}">
+                        <tr>
+                            <td rowspan="2" align="center" class="center" width="50">
+                                <!-- 번호대신 사진 -->${ rew.review_num }</td>
+                            <td class="left" align="center">${ rew.id }</td>
+                            <td colspan="28"></td>
+                        </tr>
+                        <tr>
+                            <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }"
+                                                                              pattern="yyyy년MM월dd일"/></td>
+                            <td colspan="28"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="12">
+                                <c:if test="${ rew.tab > 0 }">
+                                    <c:forEach begin="1" end="${ rew.tab }">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                    </c:forEach>
+                                    &nbsp;&nbsp;&nbsp;[${ rew.id }]님의 답글
+                                </c:if>
+                            </td>
+                            <td colspan="18"></td>
+                        </tr>
+                        <tr class="left">
+                            <td></td>
+                            <td colspan="12">
+                                <a href="<c:url value="/lodge/reviewread.do?review_num=${rew.review_num }&lodge_Code=${vo.lodge_Code}"/>">${ rew.content}</a>
+                            </td>
+                            <td colspan="18"></td>
+                        </tr>
+                    </c:if>
+                </c:forEach>
             </c:if>
             <c:if test="${ empty rew }">
                 <tr>
                     <td colspan="12" align="center">등록된 게시물이 없습니다.</td>
                     <td colspan="18"></td>
                 </tr>
-               
+
             </c:if>
-    
         </table>
-        <br>
 
         <table style="border: 0px; width: 1000px;">
             <tr align="center">
@@ -201,7 +207,8 @@
                     </c:if>
                     <c:forEach var="i" begin="${ beginPage }" end="${ endPage }">
                         <c:if test="${ i == pg }"> [ ${ i } ] </c:if>
-                        <c:if test="${ i != pg }"> [ <a href="read.do?lodge_Code=${vo.lodge_Code}&pg=${ i }">${ i }</a> ]</c:if>
+                        <c:if test="${ i != pg }"> [ <a
+                                href="read.do?lodge_Code=${vo.lodge_Code}&pg=${ i }">${ i }</a> ]</c:if>
                     </c:forEach>
                     <c:if test="${ endPage < allPage }">
                         [ <a href="read.do?lodge_Code=${vo.lodge_Code}&pg=${ endPage + 1 }">▶</a> ]
