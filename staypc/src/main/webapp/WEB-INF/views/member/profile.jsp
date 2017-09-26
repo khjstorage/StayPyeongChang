@@ -4,8 +4,18 @@
     <title>profile page</title>
     <link href="css/profile_style.css" rel="stylesheet" type="text/css">
     <link href="/resources/css/profile_style.css" rel="stylesheet" type="text/css">
-    <script language="javascript"></script>
+    <script type="text/javascript">
+		function board_delete( lodge_Code){
+		if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+			document.location.href="deleteWishList.do?lodge_Code="+lodge_Code;
+			/*document.location.href="deleteWishList.do?lodge_Code="+lodge_Code;*/
+			}else{   //취소
+	    	return;
+			}
+			}
+</script>
     <style type="text/css"></style>
+    
 </head>
 
 <body>
@@ -20,7 +30,7 @@
                 <ul>
                     <li style="margin-top:40px;"><a href="/member/modify.do">프로필 수정</a></li>
                     <br>
-                    <li style="margin-top:10px;"><a href="/member/profile.do">프로필 보기</a></li>
+                    <li style="margin-top:10px;"><a href="/lodge/wishList.do">프로필 보기</a></li>
                     <br>
                     <li style="margin-top:10px;"><a href="#">예약 내역 확인</a></li>
                     <br>
@@ -117,19 +127,48 @@
                     </ul>
                 </div>
             </div>
-
+	
             <div class="wishList">
                 <span style="font-size:30px;">안녕하세요, ${member.name} 입니다!</span>
                 <h4 style="line-height:25px;">${member.introduction}</h4>
                 <br><br><br>
                 <span style="font-size:20px;">내 위시리스트</span>
+                <br><br>          
+        		<div class="wishList_Detail"> 
+        		  <tr>
+                    <th>숙소코드</th>
+                    <th>숙소명</th>
+                    <th>위시리스트 등록일</th>
+                    <th>금액</th>
+                    <th>삭제</th>
+                 </tr>
+                 <br>       
+                <c:forEach var="list" items="${list}" varStatus="i">                
+                <tr>
+                    <td align="center">
+                        ${list.lodge_Code}
+                    </td>
+                    <td style="width: 80px" align="center">
+                    <a href="<c:url value="/lodge/read.do?lodge_Code=${list.lodge_Code}"/>">
+                       ${list.title}
+                       </a>
+                    </td>
+                    <td align="center">
+                          ${list.charge}
+                    </td>
+                    <td align="center">
+                    <fmt:formatDate value="${list.reg_Date}" pattern="yy-MM-dd"/>
+                    </td>
+                    <td align="center">
+                      	<input type="button" value="삭 제" onclick="board_delete(${list.lodge_Code})">
+                    </td>
+                </tr>
+                <br>
+                </c:forEach>  
+                   </div>     
             </div>
-
-        
-        
     </div>
 </div>
-
 </body>
 </html>
 

@@ -358,7 +358,18 @@ ul,ol,li { list-style-type:none;}
 	margin-top : -400px;	
 }
 
+.wishList_Detail {
+	width : auto;
+	height : auto;
+}
 
+.wishList_table{	
+	display:block;
+	width:800px;
+	padding-top:5px;
+	padding-bottom:10px;
+	color:#535353;
+}
 
 
 

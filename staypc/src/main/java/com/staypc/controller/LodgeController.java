@@ -2,9 +2,12 @@ package com.staypc.controller;
 
 import com.staypc.service.LodgeReviewService;
 import com.staypc.service.LodgeService;
+import com.staypc.service.LoginService;
 import com.staypc.utility.BoardPager;
 import com.staypc.vo.LodgeReviewVO;
 import com.staypc.vo.LodgeVO;
+import com.staypc.vo.LoginVO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,13 +28,18 @@ import javax.servlet.http.HttpSession;
 public class LodgeController {
 
 	@Autowired
-	LodgeService Service;
+	LodgeService lodgeService;
+	
 	@Autowired
 	LodgeReviewService reviewService;
+	
+	@Autowired
+	private LoginService loginService;
 
+	
 	@RequestMapping("/main.do")
 	public ModelAndView main(ModelAndView mav) throws Exception{
-		List<LodgeVO> list = Service.listMain();
+		List<LodgeVO> list = lodgeService.listMain();
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("list", list);
 		mav.addObject("map", map);
@@ -47,12 +55,12 @@ public class LodgeController {
 							 @RequestParam(defaultValue="") String edate,
 							 ModelAndView mav) throws Exception{
 		// 레코드 객수 계산
-		int count = Service.countArticle(num, keyword, sdate, edate);
+		int count = lodgeService.countArticle(num, keyword, sdate, edate);
 		// 페이지 나누기 처리
 		BoardPager boardPager = new BoardPager(count, curPage);
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
-		List<LodgeVO> list = Service.listAll(start, end, num, keyword, sdate, edate);
+		List<LodgeVO> list = lodgeService.listAll(start, end, num, keyword, sdate, edate);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
 		map.put("count", count);
@@ -105,8 +113,8 @@ public class LodgeController {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("allPage", allPage);
 
-		LodgeVO vo2 = Service.read(lodge_Code);
-		List listImg =  Service.readImg(lodge_Code);
+		LodgeVO vo2 = lodgeService.read(lodge_Code);
+		List listImg =  lodgeService.readImg(lodge_Code);
 		request.setAttribute("vo", vo2);
 		request.setAttribute("listImg", listImg);
 		return  "lodge/houseread";
@@ -116,11 +124,11 @@ public class LodgeController {
 	@RequestMapping("lodge/insertWishList.do")
 	public ModelAndView insertWish(LodgeVO param, HttpSession session) throws Exception {
 		String id=(String)session.getAttribute("userId");
-		LodgeVO vo2 = Service.read(param.getLodge_Code());
+		LodgeVO vo2 = lodgeService.read(param.getLodge_Code());
 		param.setId(id);
 		param.setCharge(vo2.getCharge());
 		param.setTitle(vo2.getTitle());
-		Service.insertWish(param);
+		lodgeService.insertWish(param);
 		
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("redirect:wishList.do");
@@ -130,26 +138,26 @@ public class LodgeController {
 	
 	  // 2. 위시리스트 삭제
 	@RequestMapping("lodge/deleteWishList.do")
-	public ModelAndView  deleteWish(LodgeVO param, HttpSession session) throws Exception {
-		String id=(String)session.getAttribute("userId");
-		param.setId(id);
-		
-		Service.deleteWish(param);
-		ModelAndView mav=new ModelAndView();
-		mav.setViewName("lodge/wishList");
-		
-		return mav;	
+	public String  deleteWish(LodgeVO param, HttpSession session) throws Exception {
+		param.setId((String)session.getAttribute("userId"));
+		lodgeService.deleteWish(param);
+		//return "member/profile";	
+		return "redirect:/lodge/wishList.do";
 	}
 	
 	  // 3. 위시리스트 확인(위시리스트로 가기) 이거 다시 봐야 함
 	@RequestMapping("lodge/wishList.do")
-	public String listWish(LodgeVO param, HttpSession session, HttpServletRequest req) throws Exception{
+	public ModelAndView listWish(LodgeVO param, HttpSession session, ModelAndView mav) throws Exception{
 		param.setId((String)session.getAttribute("userId"));
 		
-		List<LodgeVO> list=Service.listWish(param);
-		System.out.println(list.get(0).getReg_Date());
-		req.setAttribute("list",list);
-	  return "lodge/wishList";
+		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));
+		mav.addObject("member",member);
+		
+		List<LodgeVO> list=lodgeService.listWish(param);
+		mav.addObject("list",list);
+		
+		mav.setViewName("member/profile");
+	  return mav;
 	}	
 }
 

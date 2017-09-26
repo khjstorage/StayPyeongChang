@@ -13,25 +13,12 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
     <style type="text/css"></style>
-    <script type="text/javascript">
-function board_delete( lodge_Code){
-	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-		document.location.href="deleteWishList.do?lodge_Code="+lodge_Code;
-	}else{   //취소
-	    return;
-	}
-}
-</script>
+
 </head>
 <body>
 <div class="top_con_zone" id="fixNextTag">
     <h2>위시 리스트 </h2>
-    <c:choose>
-        <c:when test="${map.count == 0}">
-            장바구니가 비어있습니다.
-        </c:when>
-        <c:otherwise>
-        
+ 
         <form name="form1" id="form1">               
             <table border="1">
                 <tr>
@@ -48,8 +35,7 @@ function board_delete( lodge_Code){
                     </td>
                     <td style="width: 80px" align="center">
                     <a href="<c:url value="/lodge/read.do?lodge_Code=${list.lodge_Code}"/>">
-                       ${list.title}
-                       </a>
+                       ${list.title}</a>
                     </td>
                     <td align="center">
                           ${list.charge}
@@ -64,9 +50,6 @@ function board_delete( lodge_Code){
                 </c:forEach>
                 </table>
         </form>
-        </c:otherwise>
-    </c:choose>
- 
-    </div>
+     </div>
 </body>
 </html>
