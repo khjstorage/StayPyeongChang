@@ -1,9 +1,11 @@
 package com.staypc.controller;
 
+import com.staypc.service.LodgeService;
 import com.staypc.service.LoginService;
 import com.staypc.utility.FileRename;
 import com.staypc.utility.MailUtils;
 import com.staypc.utility.Utility;
+import com.staypc.vo.LodgeVO;
 import com.staypc.vo.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServlet;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -27,11 +29,13 @@ public class LoginController {
 
 
 	@Autowired
-	private LoginService service;
+	private LoginService loginService;
 
 	@Autowired
 	private MailUtils mailUtils;
-
+	
+	@Autowired
+	LodgeService lodgeService;
 
 
 	/********************
@@ -44,12 +48,12 @@ public class LoginController {
 
 	@RequestMapping("join/duplicateId.do")
 	public @ResponseBody String duplicate_id(@RequestParam String id){
-		return service.duplicate_id(id);
+		return loginService.duplicate_id(id);
 	}
 
 	@RequestMapping("join/duplicateEmail.do")
 	public @ResponseBody String duplicate_email(@RequestParam String email){
-		return service.duplicate_email(email);
+		return loginService.duplicate_email(email);
 	}
 
 	@RequestMapping(value = "join/joinMembership.do", method = RequestMethod.POST)
@@ -66,7 +70,7 @@ public class LoginController {
 		}else{
 			vo.setPicture("basic_profile.jpg");
 		}
-		service.insert(vo);
+		loginService.insert(vo);
 		mailUtils.joinMail(vo.getEmail());
 		mav.addObject("id", vo.getId());
 		mav.setViewName("join/join_message");
@@ -75,7 +79,7 @@ public class LoginController {
 
 	@RequestMapping(value = "join/welcome.do")
 	public String welcome(LoginVO vo){
-		service.mailAuth(vo);
+		loginService.mailAuth(vo);
 		return "join/welcome";
 	}
 
@@ -100,7 +104,7 @@ public class LoginController {
 
 	@RequestMapping(value = "member/find.do", method = RequestMethod.POST)
 	public ModelAndView find(ModelAndView mav, LoginVO vo){
-		LoginVO member = service.findUser(vo.getEmail());
+		LoginVO member = loginService.findUser(vo.getEmail());
 		if(member==null){
 			mav.addObject("msg","nonexistent");
 			mav.setViewName("member/find");
@@ -113,7 +117,7 @@ public class LoginController {
 				String temporaryPassword = Utility.temporaryPassword(8);
 				mailUtils.accountMail(member.getId(), temporaryPassword, member.getEmail());
 				vo.setPassword(temporaryPassword);
-				service.changePassword(vo);
+				loginService.changePassword(vo);
 				mav.addObject("email", vo.getEmail());
 				mav.setViewName("member/member_message");
 			}
@@ -133,7 +137,7 @@ public class LoginController {
 
 	@RequestMapping(value = "login/login.do", method = RequestMethod.POST)
 	public ModelAndView login(ModelAndView mav, LoginVO vo, HttpSession session){
-		boolean loginresult = service.loginCheck(vo, session);
+		boolean loginresult = loginService.loginCheck(vo, session);
 		
 		if (loginresult == true) {
 			mav.setViewName("redirect:/main.do");
@@ -146,7 +150,7 @@ public class LoginController {
 
 	@RequestMapping("login/logout.do")
 	public String logout(HttpSession session) {
-		service.logout(session);
+		loginService.logout(session);
 		return "redirect:/";
 	}
 
@@ -156,7 +160,7 @@ public class LoginController {
 	 *****************************/
 	@RequestMapping(value = "/member/modify.do", method = RequestMethod.GET)
 	public ModelAndView modifyForm(ModelAndView mv, HttpSession session){
-		LoginVO member = service.getMember((String)session.getAttribute("userId"));
+		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));
 
 		mv.addObject("member",member);
 		mv.setViewName("member/modify");
@@ -179,24 +183,29 @@ public class LoginController {
 			vo.setPicture(originFile);
 		}
 		vo.setId((String)session.getAttribute("userId"));
-		service.modify(vo);
+		loginService.modify(vo);
 		return "redirect:/";
 	}
 
 
 	@RequestMapping(value = "/member/profile.do", method = RequestMethod.GET)
-	public ModelAndView profile(ModelAndView mv, HttpSession session){
-		LoginVO member = service.getMember((String)session.getAttribute("userId"));
+	public ModelAndView profile(LodgeVO param, ModelAndView mv, HttpSession session) throws Exception{
+		param.setId((String)session.getAttribute("userId"));
+		
+		List<LodgeVO> list=lodgeService.listWish(param);
+		mv.addObject("list",list);
+		
+		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));			
 		mv.addObject("member",member);
 		mv.setViewName("member/profile");
 		return mv;
 	}
 
-
-
-
 	@RequestMapping(value = "/member/drop.do", method = RequestMethod.GET)
 	public String dropForm(LoginVO vo, HttpSession session, HttpServletRequest request){
+		//LoginVO member = loginService.getMember((String)session.getAttribute("userId"));
+		//mav.addObject("member",member);
+		
 		return "member/drop";
 	}
 
@@ -204,7 +213,7 @@ public class LoginController {
 	@RequestMapping(value = "/member/dropcheck.do")
 	public @ResponseBody LoginVO dropcheck(LoginVO vo, HttpSession session){
 		vo.setId((String)session.getAttribute("userId"));
-		LoginVO member = service.viewMember(vo);
+		LoginVO member = loginService.viewMember(vo);
 		return member;
 	}
 
@@ -212,8 +221,8 @@ public class LoginController {
 	public String dropProc(LoginVO vo, HttpSession session){
 		vo.setId((String)session.getAttribute("userId"));
 
-		service.drop(vo);
-		service.logout(session);
+		loginService.drop(vo);
+		loginService.logout(session);
 		return "redirect:/";
 	}
 

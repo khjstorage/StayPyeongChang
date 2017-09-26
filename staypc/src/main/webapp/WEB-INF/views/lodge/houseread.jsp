@@ -7,9 +7,9 @@
     <title>houseread화면</title>
     <script>
         function winOpen() {
-            var lodge_code = document.getElementById("lodge_Code");
+            var lodge_code = document.getElementById("lodge_Code").value;
             window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
-        }
+        } 
     </script>
 
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css"/>
@@ -37,6 +37,7 @@
                 variableWidth: true
             });
         });
+
     </script>
 
     <style>
@@ -97,10 +98,12 @@
         호스트 이름:${member.name }<br>
         호스트 이메일:${member.email}<br>
         숙소 연락처:${vo.room_Phone}<br><br>
-        <c:if test="${sessionScope.userId !=null}">
-            <button><a href="wishList.do?id=${vo.id}">위시리스트담기</a></button>
-            <button><a onclick="winOpen()">예약하기</a></button>
+       <c:if test="${sessionScope.userId !=null}">
+        <button><a href="insertWishList.do?id=${sessionScope.userId}&lodge_Code=${vo.lodge_Code}">        
+        위시리스트 담기</a></button>&nbsp; 
+        <button><a onclick="winOpen()">예약하기</a></button><br>
         </c:if>
+
     </div>
 
     <!--전체적인 설명-->

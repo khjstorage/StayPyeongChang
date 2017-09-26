@@ -1,8 +1,9 @@
 package com.staypc.vo;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Arrays;
-import java.util.Date;
+
 
 public class LodgeVO {
     //  숙소코드
