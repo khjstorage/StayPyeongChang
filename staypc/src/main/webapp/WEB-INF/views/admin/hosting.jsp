@@ -9,7 +9,7 @@
 <style>
 .common_wrapper{
  width:1100px;
- height:2000px;
+ height:300px;
  margin:0 auto;
  margin-top:30px;
  
