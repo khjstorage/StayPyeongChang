@@ -171,7 +171,6 @@
     </div>
     <br><br><br><br><br>
 
-
     <!--전체적인 설명-->
     <div class="info">
         집이름:${vo.title}<br><br>
