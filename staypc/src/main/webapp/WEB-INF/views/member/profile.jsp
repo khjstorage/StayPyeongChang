@@ -2,18 +2,15 @@
 <!DOCTYPE>
 <head>
 <title>profile page</title>
-<link href="css/profile_style.css" rel="stylesheet" type="text/css">
-<link href="/resources/css/profile_style.css" rel="stylesheet"
-	type="text/css">
+<link href="/resources/css/profile_style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
-		function board_delete( lodge_Code){
-		if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-			document.location.href="deleteWishList.do?lodge_Code="+lodge_Code;
-			/*document.location.href="deleteWishList.do?lodge_Code="+lodge_Code;*/
-			}else{   //취소
-	    	return;
+		function board_delete(lodge_Code){
+			if (confirm("정말 삭제하시겠습니까??") == true){
+				document.location.href="/wish/deleteWishItem.do?lodge_Code="+lodge_Code;
+			}else{
+				return;
 			}
-			}
+        }
 </script>
 <style type="text/css"></style>
 
@@ -32,7 +29,7 @@
 					<li style="margin-top: 40px;"><a href="/member/modify.do">프로필
 							수정</a></li>
 					<br>
-					<li style="margin-top: 10px;"><a href="/lodge/wishList.do">프로필
+					<li style="margin-top: 10px;"><a href="/member/profile.do">프로필
 							보기</a></li>
 					<br>
 					<li style="margin-top: 10px;"><a href="#">예약 내역 확인</a></li>
@@ -77,10 +74,8 @@
 								<span>생년월일 : </span>
 								<c:choose>
 									<c:when test="${member.birth_yn eq 'Y'}">
-										<fmt:parseDate value='${member.birth_date}' var="dateFmt"
-											pattern="yyyy-MM-dd HH:mm:ss" />
-										<fmt:formatDate value='${dateFmt}' var="birth_date"
-											pattern="yyyy-MM-dd" />
+										<fmt:parseDate value='${member.birth_date}' var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss" />
+										<fmt:formatDate value='${dateFmt}' var="birth_date" pattern="yyyy-MM-dd" />
 										<span>${birth_date}</span>
 									</c:when>
 									<c:otherwise>
@@ -144,12 +139,12 @@
 				<br>
 				<div class="wishList_Detail">
 					<c:forEach var="list" items="${list}" varStatus="status">
-						<!--  <input name="lodge_Code" type="hidden" value="${list.lodge_Code}" id="lodge_Code"/> -->
 						<tr>
-							<td align="center"><a href="<c:url value="/lodge/read.do?lodge_Code=${lodge_Code}"/>">
-									<img style="background-size: cover;" src="/host/displayFile.do?fileName=${list.staypcLodge[0].main_Image}" width="300" height="280"> </a>
+							<td align="center">
+								<a href="<c:url value="/lodge/read.do?lodge_Code=${list.lodge_Code}"/>">
+								<img style="background-size: cover;" src="/host/displayFile.do?fileName=${list.staypcLodge[0].main_Image}" width="300" height="280"> </a>
 							</td>
-							<td style="width: 80px" align="center"><a href="<c:url value="/lodge/read.do?lodge_Code=${lodge_Code}"/>"> ${list.title} </a></td>
+							<td style="width: 80px" align="center">${list.title}</td>
 							<td align="center"><fmt:formatDate value="${list.reg_Date}" pattern="yy-MM-dd" /></td>
 							<td align="center"><input type="button" value="삭 제" onclick="board_delete(${list.lodge_Code})"></td>
 						</tr>

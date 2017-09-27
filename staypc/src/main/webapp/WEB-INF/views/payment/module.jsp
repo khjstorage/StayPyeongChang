@@ -20,11 +20,11 @@
         </tr>
         <tr>
             <td>상품명</td>
-            <td>상품명</td>
+            <td>${lodgeVO.title}</td>
         </tr>
         <tr>
             <td>금액</td>
-            <td>금액</td>
+            <td>${lodgeVO.charge}</td>
         </tr>
         <tr>
             <td>카드번호</td>

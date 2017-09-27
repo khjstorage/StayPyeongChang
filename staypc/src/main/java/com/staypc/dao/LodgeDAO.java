@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.staypc.vo.LodgeVO;
+import com.staypc.vo.WishVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -52,21 +53,6 @@ public class LodgeDAO {
 	
 	public List<LodgeVO> readImg(int  lodge_Code) throws Exception{
 		return sqlSession.selectList("lodge.readImg", lodge_Code);
-	}
-	
-	//위시리스트 추가
-	public void insertWish(LodgeVO vo) throws Exception{
-		sqlSession.insert("lodge.insertWish", vo);
-	}
-	
-	//위시리스트 삭제
-	public void deleteWish(LodgeVO vo) throws Exception{
-		sqlSession.delete("lodge.deleteWish",vo);
-	}
-	
-	//위시리스트의 리스트
-	public List<LodgeVO> listWish(LodgeVO vo) throws Exception{
-		return sqlSession.selectList("lodge.getWishList",vo);
 	}
 	
 }

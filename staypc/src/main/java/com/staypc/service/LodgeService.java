@@ -5,6 +5,7 @@ import com.staypc.vo.LodgeVO;
 import java.util.List;
 
 import com.staypc.vo.LodgeVO;
+import com.staypc.vo.WishVO;
 
 
 public interface LodgeService {
@@ -15,9 +16,6 @@ public interface LodgeService {
 	public LodgeVO read(int  lodge_Code) throws Exception;
 	public List<LodgeVO> readImg(int lodge_Code ) throws Exception;
 
-	//위시리스트 
-	public void insertWish(LodgeVO vo) throws Exception;
-	public void deleteWish(LodgeVO vo) throws Exception;	
-	public List<LodgeVO> listWish(LodgeVO vo) throws Exception;
+
 }
  

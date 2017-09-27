@@ -11,6 +11,7 @@
         <typeAlias alias="payment" type="com.staypc.vo.PaymentVO"/>
         <typeAlias alias="memberDTO" type="com.staypc.vo.MemberVO"/>
         <typeAlias alias="lodgeImage" type="com.staypc.vo.LodgeImageVO"/>
+        <typeAlias alias="wish" type="com.staypc.vo.WishVO"/>
     </typeAliases>
 
     <mappers>
@@ -21,6 +22,7 @@
         <mapper resource="mappings/lodgeReview-mapping.xml"/>
         <mapper resource="mappings/notice-mapping.xml"/>
         <mapper resource="mappings/payment-mapping.xml"/>
+        <mapper resource="mappings/wish-mapping.xml"/>
     </mappers>
 </configuration>
 

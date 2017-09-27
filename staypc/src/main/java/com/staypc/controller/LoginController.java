@@ -1,12 +1,15 @@
 package com.staypc.controller;
 
+import com.staypc.service.Impl.WishServiceImpl;
 import com.staypc.service.LodgeService;
 import com.staypc.service.LoginService;
+import com.staypc.service.WishService;
 import com.staypc.utility.FileRename;
 import com.staypc.utility.MailUtils;
 import com.staypc.utility.Utility;
 import com.staypc.vo.LodgeVO;
 import com.staypc.vo.LoginVO;
+import com.staypc.vo.WishVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,11 +35,10 @@ public class LoginController {
 	private LoginService loginService;
 
 	@Autowired
-	private MailUtils mailUtils;
-	
-	@Autowired
-	LodgeService lodgeService;
+	private WishService wishService;
 
+	@Autowired
+	private MailUtils mailUtils;
 
 	/********************
 	 *     회원가입     *
@@ -188,28 +190,25 @@ public class LoginController {
 	}
 
 
+	/*****************************
+	 *          프로필           *
+	 *****************************/
 	@RequestMapping(value = "/member/profile.do", method = RequestMethod.GET)
-	public ModelAndView profile(LodgeVO param, ModelAndView mv, HttpSession session) throws Exception{
-		param.setId((String)session.getAttribute("userId"));
+	public ModelAndView profile(WishVO vo, ModelAndView mv, HttpSession session) throws Exception{
+		vo.setId((String)session.getAttribute("userId"));
 		
-		List<LodgeVO> list=lodgeService.listWish(param);
+		List<WishVO> list= wishService.listWish(vo);
 		mv.addObject("list",list);
-		System.out.println("<<"+list);
-		
-		
+
 		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));			
 		mv.addObject("member",member);
-		
-		
+
 		mv.setViewName("member/profile");
 		return mv;
 	}
 
 	@RequestMapping(value = "/member/drop.do", method = RequestMethod.GET)
 	public String dropForm(LoginVO vo, HttpSession session, HttpServletRequest request){
-		//LoginVO member = loginService.getMember((String)session.getAttribute("userId"));
-		//mav.addObject("member",member);
-		
 		return "member/drop";
 	}
 
@@ -224,7 +223,6 @@ public class LoginController {
 	@RequestMapping(value = "/member/dropProc.do", method = RequestMethod.POST)
 	public String dropProc(LoginVO vo, HttpSession session){
 		vo.setId((String)session.getAttribute("userId"));
-
 		loginService.drop(vo);
 		loginService.logout(session);
 		return "redirect:/";

@@ -6,17 +6,34 @@
 <head>
     <title>houseread화면</title>
     <script>
-        function winOpen() {
-            var lodge_code = document.getElementById("lodge_Code").value;
-            window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
-        } 
+        $(document).ready(function() {
+            $('#book').on("click", function (e) {
+                var lodge_code = $('#lodge_Code').val();
+                window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
+            })
+
+            $('#wishlist').on("click", function () {
+                $.ajax({
+                    type: "get",
+                    url: "/wish/insertWishItem.do",
+                    data: {"id": "${sessionScope.userId}",
+                           "lodge_Code": $('#lodge_Code').val(),
+                            "title": $('#title').val()},
+                    success: function (data) {
+                       if(data) {
+                           alert("위시리스트에 담았습니다.");
+                       }
+                    }
+                });
+            });
+
+        });
     </script>
 
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             $('.slider-for').slick({
@@ -39,7 +56,6 @@
         });
 
     </script>
-
     <style>
         .container {
             width: 100%;
@@ -78,6 +94,7 @@
 <div class="top_con_zone">
 
     <input id="lodge_Code" type="hidden" value="${vo.lodge_Code}"/>
+    <input id="title" type="hidden" value="${vo.title}"/>
 
     <div class="container" style="z-index:99;">
         <div class="slider-for">
@@ -99,11 +116,9 @@
         호스트 이메일:${member.email}<br>
         숙소 연락처:${vo.room_Phone}<br><br>
        <c:if test="${sessionScope.userId !=null}">
-        <button><a href="insertWishList.do?id=${sessionScope.userId}&lodge_Code=${vo.lodge_Code}">        
-        위시리스트 담기</a></button>&nbsp; 
-        <button><a onclick="winOpen()">예약하기</a></button><br>
+        <button id="wishlist">위시리스트 담기</button>
+        <button id="book">예약하기</button>
         </c:if>
-
     </div>
 
     <!--전체적인 설명-->
@@ -164,8 +179,7 @@
                         <td colspan="28"></td>
                     </tr>
                     <tr>
-                        <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }"
-                                                                          pattern="yyyy년MM월dd일"/></td>
+                        <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/></td>
                         <td colspan="28"></td>
                     </tr>
                     <tr>

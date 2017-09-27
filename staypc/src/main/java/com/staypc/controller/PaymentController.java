@@ -21,16 +21,13 @@ public class PaymentController {
 
     @RequestMapping("payment/module")
     public ModelAndView paymentForm(ModelAndView mav, @RequestParam int lodge_code) throws Exception {
-        System.out.println(lodge_code);
         LodgeVO lodgeVO = lodgeService.read(lodge_code);
         mav.addObject("lodgeVO", lodgeVO);
         mav.setViewName("payment/module");
+
+
+
         return mav;
     }
-
-
-
-
-
 
 }
