@@ -3,8 +3,7 @@
 /* CSS Document */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, 
 address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, 
-var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, 
-input, label {margin:0; padding:0;  font-weight:inherit; font-style:inherit; font-family:inherit; 
+var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, input, label {margin:0; padding:0;  font-weight:inherit; font-style:inherit; font-family:inherit; 
 vertical-align:baseline; color:#535353;}
 html { overflow-y:scroll; background-color:#fff;}
 body, table, input, select, textarea, button, a, p, div, span {font-family:'Noto Sans KR', snas-serif, NanumGothic, NanumBarungothic;}
@@ -63,14 +62,27 @@ ul,ol,li { list-style-type:none;}
 
 
 /* hosting write */
+ .common_wrapper{
+	 width:1300px;
+	 height:auto;
+	 margin:0 auto;
+	 margin-top:30px;
+	 margin-bottom : 30px; 
+	 /*border:1px solid #ff0000;*/ 
+	
+ }
 
+.write {	
+	width : 800px;
+	margin-left : 20%;
+	border : solid 1px #7D7D7D;
+	padding : 10px;
+}
 
-
-
-
-
-
-
+.writeDetail {
+	border-spacing: 5px;	
+	width : 780px;
+}
 
 
 
