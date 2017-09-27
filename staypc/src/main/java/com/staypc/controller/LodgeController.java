@@ -122,17 +122,15 @@ public class LodgeController {
 	
 	//위시리스트 1. 위시리스트 추가
 	@RequestMapping("lodge/insertWishList.do")
-	public ModelAndView insertWish(LodgeVO param, HttpSession session) throws Exception {
+	public ModelAndView insertWish(ModelAndView mav, LodgeVO param, HttpSession session) throws Exception {
 		String id=(String)session.getAttribute("userId");
 		LodgeVO vo2 = lodgeService.read(param.getLodge_Code());
 		param.setId(id);
-		param.setCharge(vo2.getCharge());
 		param.setTitle(vo2.getTitle());
 		lodgeService.insertWish(param);
+		System.out.println(param);	
 		
-		ModelAndView mav=new ModelAndView();
 		mav.setViewName("redirect:wishList.do");
-		
 		return mav;
 	}
 	
@@ -147,15 +145,24 @@ public class LodgeController {
 	
 	  // 3. 위시리스트 확인(위시리스트로 가기) 이거 다시 봐야 함
 	@RequestMapping("lodge/wishList.do")
-	public ModelAndView listWish(LodgeVO param, HttpSession session, ModelAndView mav) throws Exception{
+	public ModelAndView listWish(LodgeVO param, HttpSession session, ModelAndView mav, @RequestParam int lodge_Code) throws Exception{
+		//세션값 받아와서 userId저장
 		param.setId((String)session.getAttribute("userId"));
 		
+		//1.lodge_code 넘김 : houseread 하기위해서
+		mav.addObject("lodge_Code", lodge_Code);
+		
+		
+		//2.내정보 보기 위해서 
 		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));
 		mav.addObject("member",member);
 		
+		//3.위시리스트 목록 보기 위해서		
 		List<LodgeVO> list=lodgeService.listWish(param);
 		mav.addObject("list",list);
 		
+		
+		System.out.println(">>"+list);		
 		mav.setViewName("member/profile");
 	  return mav;
 	}	

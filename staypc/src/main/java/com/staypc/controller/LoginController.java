@@ -194,9 +194,13 @@ public class LoginController {
 		
 		List<LodgeVO> list=lodgeService.listWish(param);
 		mv.addObject("list",list);
+		System.out.println("<<"+list);
+		
 		
 		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));			
 		mv.addObject("member",member);
+		
+		
 		mv.setViewName("member/profile");
 		return mv;
 	}

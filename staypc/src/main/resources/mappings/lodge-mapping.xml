@@ -60,34 +60,42 @@
     </sql> 
     
 	<!-- 위시 리스트 시작 -->
-	
 	  <insert id="insertWish" parameterType="lodge" >
       	  INSERT INTO STAYPC_WISH(LODGE_CODE,
                              ID,
                              TITLE,
-                             REG_DATE,
-                             CHARGE)
+                             REG_DATE)
 	  				VALUES  (#{lodge_Code},
                             #{id},
                             #{title},
-           			         SYSDATE,
-                            #{charge}
+           			         SYSDATE
                             )
     </insert>
 
-      <delete id="deleteWish">
-    	  DELETE FROM STAYPC_WISH
-    	  WHERE LODGE_CODE=#{lodge_Code}
-    </delete>
+     <delete id="deleteWish">
+   	  DELETE FROM STAYPC_WISH
+   	  WHERE LODGE_CODE=#{lodge_Code}
+  	 </delete>
 
-      <select id="getWishList" resultType="lodge" parameterType="lodge">
-   	<![CDATA[					
-		     SELECT LODGE_CODE,
-				    TITLE,
-				    REG_DATE,
-				    CHARGE
-			        FROM STAYPC_WISH WHERE ID=#{id}
-			]]>
+    <resultMap id="lodgeWishResultMap" type="java.util.HashMap">   
+        <id property="id" column="id" />
+        <result property="lodge_Code" column="lodge_Code"/>
+        <result property="title" column="title"/>
+        <result property="reg_Date" column="reg_Date"/>
+        <collection property="staypcLodge" javaType="java.util.ArrayList" resultMap="staypcLodgeResultMap"/>
+    </resultMap>
+    <resultMap id="staypcLodgeResultMap" type="java.util.HashMap">
+         <id property="lodge_Code" column="lodge_Code" />
+         <result property="main_Image" column="main_Image"/>
+    </resultMap>
+
+    <select id="getWishList" parameterType="lodge" resultMap="lodgeWishResultMap">
+  		<![CDATA[					
+	    	 SELECT b.MAIN_IMAGE, a.title, a.REG_DATE FROM STAYPC_WISH a
+            		inner join staypc_lodge b
+               				on a.lodge_Code = b.lodge_Code              
+            WHERE a.id=#{id}
+		]]>
     </select>	
     <!-- 위시리스트 끝 -->
 </mapper>
