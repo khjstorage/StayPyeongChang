@@ -5,7 +5,20 @@
 <head>
 <title>호스팅 조회</title>
 </head>
+
+<style>
+.common_wrapper{
+ width:1100px;
+ height:2000px;
+ margin:0 auto;
+ margin-top:30px;
+ 
+ border:1px solid #ff0000;
+ }
+</style>
 <body>
+
+<div class="common_wrapper"><!-- 공통 레이아웃 시작 -->
 <table style="width:1000px;;">
 	<tr>
 		<th>호스팅코드</th>
@@ -77,5 +90,6 @@
 			
 			</td>		
 	</table>
+</div>
 </body>
 </html>

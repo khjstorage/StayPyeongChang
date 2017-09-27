@@ -5,35 +5,11 @@
 <html>
 <head>
     <title>houseread화면</title>
-    <script>
-        $(document).ready(function() {
-            $('#book').on("click", function (e) {
-                var lodge_code = $('#lodge_Code').val();
-                window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
-            })
-
-            $('#wishlist').on("click", function () {
-                $.ajax({
-                    type: "get",
-                    url: "/wish/insertWishItem.do",
-                    data: {"id": "${sessionScope.userId}",
-                           "lodge_Code": $('#lodge_Code').val(),
-                            "title": $('#title').val()},
-                    success: function (data) {
-                       if(data) {
-                           alert("위시리스트에 담았습니다.");
-                       }
-                    }
-                });
-            });
-
-        });
-    </script>
-
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('.slider-for').slick({
@@ -43,7 +19,6 @@
                 fade: true,
                 asNavFor: '.slider-nav'
             });
-
             $('.slider-nav').slick({
                 slidesToShow: 5,
                 slidesToScroll: 1,
@@ -53,10 +28,80 @@
                 focusOnSelect: true,
                 variableWidth: true
             });
-        });
 
+            $('#book').on("click", function () {
+                var lodge_code = $('#lodge_Code').val();
+                window.open("/payment/module.do?lodge_code=" + lodge_code, "new", "width=700,height=700,top=100,left=100")
+            });
+
+            $('#wishlist').on("click", function () {
+                $.ajax({
+                    type: "get",
+                    url: "/wish/insertWishItem.do",
+                    data: {
+                        "id": "${sessionScope.userId}",
+                        "lodge_Code": $('#lodge_Code').val(),
+                        "title": $('#title').val()
+                    },
+                    success: function (data) {
+                        if (data) {
+                            alert("위시리스트에 담았습니다.");
+                        }
+                    }
+                });
+            });
+        });
     </script>
     <style>
+        table.lodgeReview {
+            font-size: 16px;
+            color: #494d4d;
+            margin-left: 60px;
+            margin-right: 1000px;
+            line-height: 1.2em;
+
+        }
+
+        table.lodgeReview td {
+            font-size: 16px;
+            color: #494d4d;
+            margin-left: 60px;
+            margin-right: 1000px;
+            line-height: 1.2em;
+
+        }
+
+        :link {
+            color: #494d4d;
+        }
+
+        :visited {
+            color: #494d4d;
+        }
+
+        .bold_large {
+            font-size: 30px;
+            font-weight: bold;
+            color: #494d4d;
+            margin-left: 70px;
+        }
+
+        .right {
+            font-size: 18px;
+            color: #494d4d;
+            margin-left: 60px;
+
+        }
+
+        .info {
+            font-size: 18px;
+            color: #494d4d;
+            margin-left: 60px;
+            margin-right: 900px;
+            line-height: 1.3em;
+
+        }
+
         .container {
             width: 100%;
             overflow: hidden;
@@ -110,52 +155,63 @@
     </div>
 
     <!--게스트 정보-->
+    <div class="bold_large">
+        ${vo.title}
+    </div>
+    <br><br><br><br><br>
     <div class="right">
         호스트 사진${member.picture }<br>
-        호스트 이름:${member.name }<br>
-        호스트 이메일:${member.email}<br>
+        ${member.name }<br>
+        ${member.email}<br>
         숙소 연락처:${vo.room_Phone}<br><br>
-       <c:if test="${sessionScope.userId !=null}">
-        <button id="wishlist">위시리스트 담기</button>
-        <button id="book">예약하기</button>
+        <c:if test="${sessionScope.userId !=null}">
+            <button id="wishlist">위시리스트 담기</button>
+            <button id="book">예약하기</button>
         </c:if>
     </div>
+    <br><br><br><br><br>
+
 
     <!--전체적인 설명-->
     <div class="info">
-        집이름:${vo.title}<br>
-        숙소가격(1박):${vo.charge}<br>
-        주소:${vo.location}<br>
-        최대 가능 인원수:${vo.max_People}<br>
+        집이름:${vo.title}<br><br>
+        숙소가격(1박):${vo.charge}<br><br>
+        긴 설명:${vo.room_Explain}<br><br>
+        주소:${vo.location}<br><br>
+        최대 가능 인원수:${vo.max_People}<br><br><br><br>
 
-        숙소 입실시간: ${vo.enter_Time}<br>
-        숙소 퇴실시간: ${vo.out_Time}<br>
+        숙소 상세 설명
+        <hr>
+        숙소 입실시간: ${vo.enter_Time}<br><br>
+        숙소 퇴실시간: ${vo.out_Time}<br><br>
         <fmt:parseDate value='${vo.check_In}' var="check_In" pattern="yyyy-MM-dd HH:mm:ss"/>
         <fmt:parseDate value='${vo.check_Out}' var="check_Out" pattern="yyyy-MM-dd HH:mm:ss"/>
         <fmt:formatDate value='${check_In}' var="checkIn" pattern="yyyy-MM-dd"/>
         <fmt:formatDate value='${check_Out}' var="checkOut" pattern="yyyy-MM-dd"/>
-        체크인:${checkIn}<br>
-        체크아웃:${checkOut}<br>
+        체크인:${checkIn}<br><br>
+        체크아웃:${checkOut}<br><br>
 
-        건물타입:${vo.bulid_Type}<br>
-        방타입:${vo.room_Type}<br>
-        침실 개수:${vo.room_Num}<br>
-        침대 개수:${vo.bed_Num}<br>
-        침대 타입:${vo.bed_Type}<br>
-        편의시설: ${vo.convenient}<br>
-        안전시설:${vo.secure}<br>
+        건물타입:${vo.bulid_Type}<br><br>
+        방타입:${vo.room_Type}<br><br>
+        침실 개수:${vo.room_Num}<br><br>
+        침대 개수:${vo.bed_Num}<br><br>
+        침대 타입:${vo.bed_Type}<br><br>
+        편의시설: ${vo.convenient}<br><br>
+        안전시설:${vo.secure}<br><br><br><br>
 
-        설명:${vo.room_Explain}<br>
-        환불 규정:${vo.refund_Provision}<br>
+        기타 안내사항
+        <hr>
+        환불 규정:${vo.refund_Provision}<br><br><br><br>
+        숙소 등록일:<fmt:formatDate value="${vo.reg_Date}" pattern="yyyy년MM월dd일"/><br><br>
+        최근 수정일:<fmt:formatDate value="${vo.update_Date}" pattern="yyyy년MM월dd일"/><br><br>
+        <br><br><br><br><br>
 
-        숙소 등록일:<fmt:formatDate value="${vo.reg_Date}" pattern="yyyy년MM월dd일"/><br>
-        최근 수정일:<fmt:formatDate value="${vo.update_Date}" pattern="yyyy년MM월dd일"/><br>
+        <!--후기-->
+        숙소 후기
+        <hr>
+        <br><br>
     </div>
-
-    <!--후기-->
-    <br>
-    <h1>숙소 후기</h1>
-    <table style="border: 0px; width: 1000px;">
+    <table class="lodgeReview" style="border: 0px; width: 1000px;">
         <tr>
             <th colspan="30"></th>
         </tr>
@@ -179,7 +235,8 @@
                         <td colspan="28"></td>
                     </tr>
                     <tr>
-                        <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/></td>
+                        <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }"
+                                                                          pattern="yyyy년MM월dd일"/></td>
                         <td colspan="28"></td>
                     </tr>
                     <tr>
