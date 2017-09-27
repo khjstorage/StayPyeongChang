@@ -1,19 +1,26 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE>
 <html>
 <head>
-<title>new_main</title>
+<title>login</title>
 <link href="resources/css/test.css" rel="stylesheet" type="text/css"/>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
-<!-- responsiveslides  -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="resources/js/responsiveslides.min.js"></script>
 
-<!--  bxslider -->
+
+
 <script src="resources/js/jquery.bxslider.min.js"></script>
 <link href="jquery.bxslider.css" rel="stylesheet" />
+
+
+<script type="text/javascript" src="resources/js/moment.min.js"></script>
+<script type="text/javascript" src="resources/js/daterangepicker.js"></script>
+
+
+
+	
 
 
 <script>
@@ -101,13 +108,22 @@ $(document).ready(function(){
 		});	
 });
 </script>
+
+
+
+
 </head>
+<style>
+
+</style>
+
 <body>
+
+
 <!-- logo image -->
 <div class="img">
 	<img src="resources/images/logo.png" width="150" height="110" alt=""/>
 </div>
-
 <!-- menu -->
 <div class="header">
   	<div class="menu" style="color:#ffffff; font-size:16px;">
@@ -120,7 +136,7 @@ $(document).ready(function(){
 	</div>	
 </div>
 
-<!-- rslider  image -->
+<!-- rslide image -->
 <div class="slide_image">
 	<ul class="rslides" style="width:1920px; height:500px; line-height:500px;
 			 text-align: center; " >
@@ -131,10 +147,16 @@ $(document).ready(function(){
 </div>
 
 	
-<!-- search -->
+
+
+<!-- togle -->
+
+
+<!-- roomsearch test -->
+
 <div class="search_wrap">
 	<div class="search_box" >
-		<table id="search">
+		 <table id="search">
         <tr>
             <td>
                 <form name="form1" method="post" action='<c:url value="/lodge/list.do"></c:url>'>
@@ -157,59 +179,91 @@ $(document).ready(function(){
             </td>
         </tr>
     </table>
-	</div>
+    
+    </div>
+    </div>
+    
+  
+
+<div class="common_wrapper"><!-- 공통 레이아웃 시작 -->
+<!--bxslider -->
+<div class="bx_box_01">
+<div>
+<span style="color:#000000; margin:35%;">PYEONGCHANG STAY 숙소 소개</span>
+<br><br>			
+</div>
+
+<div class="layout_section01">
+	<img src="resources/images/update_image.png"  alt="" >
+</div>
+<div id="s_banner_wrap">				
+	<div class="bxslider_03_box">
+		 <ul class="bxslider_03">			
+		    	<li class="banner_a1"><img src="resources/images/rslides01.png"></li>
+		      	<li class="banner_a2"><img src="resources/images/rslides03.png"></li>
+		      	<li class="banner_a3"><img src="resources/images/rslides02.png"></li>
+		      	<li class="banner_a4"><img src="resources/images/rslides01.png"></li>
+		      	<li class="banner_a4"><img src="resources/images/rslides02.png"></li>
+		      	<li class="banner_a4"><img src="resources/images/rslides03.png"></li>
+		      	<li class="banner_a4"><img src="resources/images/rslides01.png"></li>
+		      	<li class="banner_a4"><img src="resources/images/rslides02.png"></li>
+		      	<li class="banner_a4"><img src="resources/images/rslides03.png"></li>
+		</ul>
+</div>	
+</div>
+
+<div class="layout_section01">
+			<img src="resources/images/review_image.png"  alt="" >
+			
+</div>
+<div id="s_banner_wrap_01">				
+			<div class="bxslider_01_box">
+				 <ul class="bxslider_03">			
+			    	<li class="banner_a1"><img src="resources/images/rslides01.png">       </li>
+			      	<li class="banner_a2"><img src="resources/images/rslides03.png">       </li>
+			      	<li class="banner_a3"><img src="resources/images/rslides02.png">       </li>
+			      	<li class="banner_a4"><img src="resources/images/rslides01.png">       </li>
+			      	<li class="banner_a4"><img src="resources/images/rslides02.png">       </li>
+			      	<li class="banner_a4"><img src="resources/images/rslides03.png">       </li>
+			      	<li class="banner_a4"><img src="resources/images/rslides01.png">       </li>
+			      	<li class="banner_a4"><img src="resources/images/rslides02.png">       </li>
+			      	<li class="banner_a4"><img src="resources/images/rslides03.png">       </li>
+			    </ul>
+</div>	
+
 </div>
 
 
-<!-- 공통 레이아웃 시작 -->
-<div class="common_wrapper">
-		<!--bxslider -->
-		<div class="bx_box_01">
-		<div>
-					<span style="color:#000000; margin:35%;">PYEONGCHANG STAY 숙소 소개</span>
-					<br><br>			
-		</div>
-		
-		<div class="layout_section01">
-					<img src="resources/images/update_image.png"  alt="" >
-		</div>
-		<div id="s_banner_wrap">				
-			<div class="bxslider_03_box">
-				 <ul class="bxslider_03">			
-				    	<li class="banner_a1"><img src="resources/images/rslides01.png"></li>
-				      	<li class="banner_a2"><img src="resources/images/rslides03.png"></li>
-				      	<li class="banner_a3"><img src="resources/images/rslides02.png"></li>
-				      	<li class="banner_a4"><img src="resources/images/rslides01.png"></li>
-				      	<li class="banner_a4"><img src="resources/images/rslides02.png"></li>
-				      	<li class="banner_a4"><img src="resources/images/rslides03.png"></li>
-				      	<li class="banner_a4"><img src="resources/images/rslides01.png"></li>
-				      	<li class="banner_a4"><img src="resources/images/rslides02.png"></li>
-				      	<li class="banner_a4"><img src="resources/images/rslides03.png"></li>
-				</ul>
-		</div>	
-		</div>
-		
-		
-		<div id="s_banner_wrap_01">				
-					<div class="bxslider_01_box">
-						 <ul class="bxslider_01">			
-					    	<li class="banner_a1"><img src="resources/images/rslides01.png"></li>
-					      	<li class="banner_a2"><img src="resources/images/rslides03.png"></li>
-					      	<li class="banner_a3"><img src="resources/images/rslides02.png"></li>
-					      	<li class="banner_a4"><img src="resources/images/rslides01.png"></li>
-					      	<li class="banner_a4"><img src="resources/images/rslides02.png"></li>
-					      	<li class="banner_a4"><img src="resources/images/rslides03.png"></li>
-					      	<li class="banner_a4"><img src="resources/images/rslides01.png"></li>
-					      	<li class="banner_a4"><img src="resources/images/rslides02.png"></li>
-					      	<li class="banner_a4"><img src="resources/images/rslides03.png"></li>
-					    </ul>
-					</div>	
-					<div class="layout_section01">
-								<img src="resources/images/review_image.png"  alt="" >			
-					</div>
-		</div>				
-		</div>
-</div><!-- 공통 레이아웃 끝 -->
- 
+
+			
+			
+			
+			
+
+</div>
+</div> <!-- 공통 레이아웃 끝 -->
+<div class="rewards">
+<section class="goLink">
+
+
+            <ul>
+                <li>
+                    <a href="https://www.pyeongchang2018.com/en/index" target=blank onclick="gaEvent('워커힐 허브_PC_메인' ,'바로가기' ,'GRAND WALKERHILL SEOUL')">
+                        <h2> <img src="resources/images/h2_text.png"> </h2>
+                    </a>
+                </li>
+                <li>
+                    <a href="/vistawalkerhillseoul/kr/" onclick="gaEvent('워커힐 허브_PC_메인' ,'바로가기' ,'VISTA WALKERHILL SEOUL')">
+                        <h2><img src="resources/images/h2_walkerhill.png"> </h2>
+                    </a>
+                </li>
+            </ul>
+</section>
+
+</div>
+
+
+<div style="width:100%; height:300px;">
+</div>
 </body>
 </html>
