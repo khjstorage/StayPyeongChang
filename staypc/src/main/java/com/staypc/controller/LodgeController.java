@@ -76,37 +76,31 @@ public class LodgeController {
 	}
 
 	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
-    public String ReviewList(@RequestParam(value="pg", defaultValue = "1") int pg, HttpServletRequest request, @RequestParam int lodge_Code) throws Exception {
+    public ModelAndView ReviewList(@RequestParam(value="pg", defaultValue = "1") int pg,
+								   ModelAndView mav,
+								   HttpServletRequest request,
+								   @RequestParam int lodge_Code) throws Exception {
 
-		int pgSize = 10; //
-		LodgeReviewVO lodge_code = new LodgeReviewVO(); 
+		int pgSize = 10;
+		LodgeReviewVO lodge_code = new LodgeReviewVO();
 		lodge_code.setLodge_Code(""+lodge_Code);
 		int total = reviewService.getTotalCount(lodge_code);
-
-		if (request.getParameter("pg") != null)
+		if (request.getParameter("pg") != null) {
 			pg = Integer.parseInt(request.getParameter("pg"));
-
-		int begin = (pg * pgSize) - (pgSize - 1); // (2 * 15) - (15 - 1) = 30 -
-													// 14 = 16
-		int end = (pg * pgSize); // (2 * 15) = 30
-
-		System.out.println(begin+":"+end);
-
+		}
+		int begin = (pg * pgSize) - (pgSize - 1);
+		int end = (pg * pgSize);
 		HashMap<String, String> param = new HashMap<String, String>();
 		param.put("p_first", "" + begin);
 		param.put("p_last", "" + end);
-
 		List<LodgeReviewVO> list = reviewService.reviewList(param);
-
-		int allPage = (int) Math.ceil(total / (double) pgSize); //
-		int block = 10; //
-
-		int beginPage = ((pg - 1) / block * block) + 1; //
-		int endPage = ((pg - 1) / block * block) + block; //
-
-		if (endPage > allPage)
+		int allPage = (int) Math.ceil(total / (double) pgSize);
+		int block = 10;
+		int beginPage = ((pg - 1) / block * block) + 1;
+		int endPage = ((pg - 1) / block * block) + block;
+		if (endPage > allPage) {
 			endPage = allPage;
-
+		}
 		request.setAttribute("rew", list);
 		request.setAttribute("pg", pg);
 		request.setAttribute("block", block);
@@ -114,11 +108,16 @@ public class LodgeController {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("allPage", allPage);
 
+		//호스팅 글
 		LodgeVO vo2 = lodgeService.read(lodge_Code);
-		List listImg =  lodgeService.readImg(lodge_Code);
-		request.setAttribute("vo", vo2);
-		request.setAttribute("listImg", listImg);
-		return  "lodge/houseread";
+		mav.addObject("vo", vo2);
+
+		//호스팅 이미지
+		List listImg = lodgeService.readImg(lodge_Code);
+		mav.addObject("listImg", listImg);
+
+		mav.setViewName("lodge/houseread");
+		return mav;
     }
 
 }
