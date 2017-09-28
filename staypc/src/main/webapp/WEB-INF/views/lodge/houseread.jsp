@@ -53,6 +53,18 @@
         });
     </script>
     <style>
+    
+.hostImg{
+    width: 100px;
+	height: 100px;
+	background-size: cover;
+	display: block;
+	border-radius: 60px;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	
+}
+    
 table.lodgeReview {
 	font-size: 16px;
 	color: #494d4d;
@@ -67,11 +79,12 @@ table.lodgeReview td {
 	margin-left: 60px;
 	margin-right: 1000px;
 	line-height: 1.2em;
+	vertical-align: middle;
 }
 
 table.lodgeReview img{
     width: 60px;
-	height: 60px;
+	height: 55px;
 	background-size: cover;
 	display: block;
 	border-radius: 30px;
@@ -99,6 +112,7 @@ table.lodgeReview img{
 	font-size: 18px;
 	color: #494d4d;
 	margin-left: 60px;
+	line-height: 1.5em;
 }
 
 .info {
@@ -164,15 +178,15 @@ table.lodgeReview img{
     <div class="bold_large">
         ${vo.title}
     </div>
-    <br><br><br><br><br>
-    <div class="right">
-        호스트 사진${member.picture }<br>
-        ${member.name }<br>
-        ${member.email}<br>
-        숙소 연락처:${vo.room_Phone}<br><br>
+    <br><br><br>
+    <div class="right">     
+     <img class="hostImg" align="left"  src="<c:url value='/resources/profile_photo/${host.picture}'/>" />
+        &nbsp;&nbsp;&nbsp;${host.name }<br>
+        &nbsp;&nbsp;&nbsp; ${host.email}<br>
+         &nbsp;&nbsp;&nbsp; 숙소 연락처:${vo.room_Phone}<br><br>
         <c:if test="${sessionScope.userId !=null}">
-            <button id="wishlist">위시리스트 담기</button>
-            <button id="book">예약하기</button>
+             &nbsp;&nbsp;&nbsp;<button id="wishlist">위시리스트 담기</button>
+             &nbsp;<button id="book">예약하기</button>
         </c:if>
     </div>
     <br><br><br><br><br>
@@ -214,19 +228,14 @@ table.lodgeReview img{
         <!--후기-->
         숙소 후기
         <hr>
-        <br><br>
-    </div>
+      </div>
     <table class="lodgeReview" >
-        <tr>
-            <th colspan="30"></th>
-        </tr>
-        <br><br>
+      
         <tr>
             <td colspan="30" align="right">
-                <!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
+                <!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->           
                 <c:if test="${sessionScope.userId != null}">
                     <button><a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a></button>
-                    &nbsp;
                 </c:if>
             </td>
         </tr>
@@ -234,7 +243,7 @@ table.lodgeReview img{
             <c:forEach items="${rew}" var="rew">
                 <c:if test="${rew.lodge_Code==vo.lodge_Code}">
                     <tr>
-                        <td class="img-circular"  colspan="30" align="left">
+                        <td class="img-circular"  colspan="30" align="left"   vertical-align="middle">
                           <img align="left"  src="<c:url value='/resources/profile_photo/${member.picture}'/>" />&nbsp;&nbsp;&nbsp;
                           <font size="4.5px" font-weight="bold">${ rew.id }</font><br>
                           &nbsp;&nbsp;&nbsp;<fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/>

@@ -20,24 +20,42 @@ function board_delete(boardform){
 	}
 }
 </script>
+<style>
+.reviewread {
+	font-size: 16px;
+	color: #494d4d;
+	margin-left: 60px;
+	margin-right: 1000px;
+	text-align:justify
+	line-height: 1.8em;
+	vertical-align: middle;
+}
+ img{
+    width: 100px;
+	height:100px;
+	background-size: cover;
+	display: block;
+	border-radius: 60px;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;	
+}
+
+
+</style>
 </head>
 <body>
-	<h1>후기글 상세</h1>
+	 <font size="4.5px" font-weight="bold" color="#494d4d"><h1> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;후기글 상세</h1></font>
 	<hr>
-	<table style="border:0px; width:600px;">
+	<table class="reviewread">	
 	 	<tr>
-	 		<th rowspan="2" align="center" width="auto">${rew.review_num }</th>
-	 		<th align="center" width="auto">${rew.id }</th><th colspan="7"></th>
+	 		<td width="auto">
+	 		<img align="left" src="<c:url value='/resources/profile_photo/${host.picture}'/>" />&nbsp;&nbsp;${rew.id } &nbsp;
+	 		<fmt:formatDate value="${rew.reg_date }" pattern="yyyy년MM월dd일"/></td>
+	 		<td width="auto" align="left" bgcolor="#F3EDFC">${rew.content}</td>
 	 		</tr>
-	 		<tr>
-	 		<th align="center" width="auto"><fmt:formatDate value="${rew.reg_date }" pattern="yyyy년MM월dd일"/> </th>
-	 		<th colspan="8"></th>
-	 		</tr>
+	 	
 	 	<tr>
-	 		<td colspan="9">${rew.content}</td>
-	 	</tr>
-	 	<tr>
-	 		<td colspan="9" align="right">
+	 		<td colspan="2" align="right">
 	 			<input type="button" value="리스트" onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
 	 				<!-- 글쓴이만 수정과 삭제 버튼 활성화 -->
 	 		    <c:if test="${sessionScope.userId == rew.id}">   
