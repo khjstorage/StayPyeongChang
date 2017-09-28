@@ -99,33 +99,35 @@ ul,ol,li { list-style-type:none;}
 	
 }
 
- .common_wrapper{
-	 width:800px;
-	 height:2000px;
-	 margin:0 auto;
-	 margin-top:30px; 
-	 margin-bottom:30px;
-	 /*border:1px solid #ff0000;*/ 
- } 
-
 .userHostList {
 	width : auto;
 	height : auto;
+	margin-top : 30px;
+	margin-left : 20%;
+}
+
+.sidemenu {
+	border : solid 1px;
+	border-color : #b2b2b2;
+	border-radius: 10px;
+	width : 150px;
+	height : auto;
+	text-align : center;	
+	padding-bottom : 40px;	
+	float : left;		
+	background-color : #ffffff;
 }
 
 .Pagesubject {
- 
- }
-
-.hostingList {
-	margin-top : 100px;
-	margin-left : 30%;
+	margin-left : 20%;
 }
 
-.hostingImg {
-	margin-top : -100px;
-	margin-bottom : 50px;
-	
+.hostingList {	
+	margin-left : 20%;
+}
+
+.hostingImg {	
+	margin-bottom : 350px;	
 }
 
 .roomNameCheck {
