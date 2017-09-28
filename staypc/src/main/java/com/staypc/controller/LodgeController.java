@@ -2,9 +2,12 @@ package com.staypc.controller;
 
 import com.staypc.service.LodgeReviewService;
 import com.staypc.service.LodgeService;
+import com.staypc.service.LoginService;
 import com.staypc.utility.BoardPager;
 import com.staypc.vo.LodgeReviewVO;
 import com.staypc.vo.LodgeVO;
+import com.staypc.vo.LoginVO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +28,9 @@ public class LodgeController {
 
 	@Autowired
 	LodgeService lodgeService;
+	
+	@Autowired
+	LoginService loginService;
 	
 	@Autowired
 	LodgeReviewService reviewService;
@@ -68,8 +76,9 @@ public class LodgeController {
     public ModelAndView ReviewList(@RequestParam(value="pg", defaultValue = "1") int pg,
 								   ModelAndView mav,
 								   HttpServletRequest request,
-								   @RequestParam int lodge_Code) throws Exception {
+								   @RequestParam int lodge_Code, HttpSession session) throws Exception {
 
+		//리뷰 가져오기
 		int pgSize = 10;
 		LodgeReviewVO lodge_code = new LodgeReviewVO();
 		lodge_code.setLodge_Code(""+lodge_Code);
@@ -96,11 +105,16 @@ public class LodgeController {
 		request.setAttribute("beginPage", beginPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("allPage", allPage);
+		
+		//리뷰 사진 가져오기
+		
+		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));			
+		mav.addObject("member",member);
 
 		//호스팅 글
 		LodgeVO vo2 = lodgeService.read(lodge_Code);
 		mav.addObject("vo", vo2);
-
+		
 		//호스팅 이미지
 		List listImg = lodgeService.readImg(lodge_Code);
 		mav.addObject("listImg", listImg);
