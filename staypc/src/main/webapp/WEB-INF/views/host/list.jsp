@@ -42,8 +42,7 @@
 	                        <fmt:formatDate value='${check_Out}' var="checkOut" pattern="yyyy-MM-dd"/>
 	                        <div class="checkInOut">체크인,체크아웃 시간 : ${checkIn}~${checkOut}</div>                    
 	                    </div>	                        
-	                    </div>	                    
-	                    
+	                    </div>	                    	                    
 	            </c:forEach>	        
 	      </div>     
    	
