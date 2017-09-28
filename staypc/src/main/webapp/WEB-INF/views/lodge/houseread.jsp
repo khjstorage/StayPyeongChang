@@ -59,7 +59,6 @@
             margin-left: 60px;
             margin-right: 1000px;
             line-height: 1.2em;
-
         }
 
         table.lodgeReview td {
@@ -68,7 +67,6 @@
             margin-left: 60px;
             margin-right: 1000px;
             line-height: 1.2em;
-
         }
 
         :link {
@@ -234,8 +232,7 @@
                         <td colspan="28"></td>
                     </tr>
                     <tr>
-                        <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }"
-                                                                          pattern="yyyy년MM월dd일"/></td>
+                        <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/></td>
                         <td colspan="28"></td>
                     </tr>
                     <tr>
