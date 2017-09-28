@@ -53,13 +53,13 @@
         });
     </script>
     <style>
+
         table.lodgeReview {
             font-size: 16px;
             color: #494d4d;
             margin-left: 60px;
-            margin-right: 1000px;
+            margin-right: 900px;
             line-height: 1.2em;
-
         }
 
         table.lodgeReview td {
@@ -68,6 +68,16 @@
             margin-left: 60px;
             margin-right: 1000px;
             line-height: 1.2em;
+        }
+
+        table.lodgeReview img {
+            width: 60px;
+            height: 60px;
+            background-size: cover;
+            display: block;
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
 
         }
 
@@ -90,7 +100,6 @@
             font-size: 18px;
             color: #494d4d;
             margin-left: 60px;
-
         }
 
         .info {
@@ -99,7 +108,6 @@
             margin-left: 60px;
             margin-right: 900px;
             line-height: 1.3em;
-
         }
 
         .container {
@@ -121,7 +129,6 @@
         }
 
         .slider-nav {
-
             width: 100%;
             overflow: hidden;
         }
@@ -210,13 +217,13 @@
         <hr>
         <br><br>
     </div>
-    <table class="lodgeReview" style="border: 0px; width: 1000px;">
+    <table class="lodgeReview">
         <tr>
             <th colspan="30"></th>
         </tr>
         <br><br>
         <tr>
-            <td colspan="30" align="center">
+            <td colspan="30" align="right">
                 <!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
                 <c:if test="${sessionScope.userId != null}">
                     <button><a href="insertBoard.do?lodge_Code=${vo.lodge_Code}">후기 쓰기</a></button>
@@ -228,43 +235,36 @@
             <c:forEach items="${rew}" var="rew">
                 <c:if test="${rew.lodge_Code==vo.lodge_Code}">
                     <tr>
-                        <td rowspan="2" align="center" class="center" width="50">
-                            <!-- 번호대신 사진 -->${ rew.review_num }</td>
-                        <td class="left" align="center">${ rew.id }</td>
-                        <td colspan="28"></td>
+                        <td class="img-circular" colspan="30" align="left">
+                            <img align="left" src="<c:url value='/resources/profile_photo/${member.picture}'/>"/>&nbsp;&nbsp;&nbsp;
+                            <font size="4.5px" font-weight="bold">${ rew.id }</font><br>
+                            &nbsp;&nbsp;&nbsp;<fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/>
+                        </td>
                     </tr>
-                    <tr>
-                        <td class="center" align="center"><fmt:formatDate value="${ rew.reg_date }"
-                                                                          pattern="yyyy년MM월dd일"/></td>
-                        <td colspan="28"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="12">
-                            <c:if test="${ rew.tab > 0 }">
+                    <c:if test="${ rew.tab > 0 }">
+                        <tr>
+                            <td align="left" colspan="30">
                                 <c:forEach begin="1" end="${ rew.tab }">
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                 </c:forEach>
-                                &nbsp;&nbsp;&nbsp;[${ rew.id }]님의 답글
-                            </c:if>
-                        </td>
-                        <td colspan="18"></td>
-                    </tr>
+                                &nbsp;&nbsp;&nbsp;☞ 답글
+                            </td>
+                        <tr>
+                    </c:if>
                     <tr class="left">
                         <td></td>
-                        <td colspan="12">
+                        <td colspan="30">
                             <a href="<c:url value="/lodge/reviewread.do?review_num=${rew.review_num }&lodge_Code=${vo.lodge_Code}"/>">${ rew.content}</a>
+                            <br><br>
                         </td>
-                        <td colspan="18"></td>
                     </tr>
                 </c:if>
             </c:forEach>
         </c:if>
         <c:if test="${ empty rew }">
             <tr>
-                <td colspan="12" align="center">등록된 게시물이 없습니다.</td>
-                <td colspan="18"></td>
+                <td colspan="30" align="center">등록된 게시물이 없습니다.</td>
             </tr>
-
         </c:if>
     </table>
     <table style="border: 0px; width: 1000px;">

@@ -3,5 +3,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="payment">
+    <insert id="pay">
+      INSERT into STAYPC_PAYMENT(CARD_NUM, CARD_VALID, CARD_CVC, CHECK_IN, CHECK_OUT, SUM_MONEY, REG_DATE, BOOK_CANCLE)
+      VALUES (#{card_num}, #{card_valid}, #{card_cvc}, #{check_in}, #{check_out}, #{sum_money}, sysdate, 'N')
+    </insert>
 
 </mapper>

@@ -43,15 +43,10 @@ public class LodgeReviewController {
 	public ModelAndView insertForm(LodgeReviewVO param, HttpSession session, @RequestParam int lodge_Code) throws Exception{
 		String id = (String)session.getAttribute("userId");
 		param.setId(id);
-		System.out.println(param);
-
-		//System.out.println(param.getLodge_Code());
-		LodgeReviewVO vo = Service.read(param);		
-		
+		LodgeReviewVO vo = Service.read(param);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("lodge_Code", lodge_Code);
 		mav.addObject("rew", vo);
-		//System.out.println(vo);
 		mav.setViewName("lodge/insertBoard");
 		
 		return mav;
@@ -62,14 +57,11 @@ public class LodgeReviewController {
 	public  ModelAndView  updateForm(LodgeReviewVO param, HttpSession session, @RequestParam int lodge_Code) throws Exception{
 		String id = (String)session.getAttribute("userId");
 		param.setId(id);
-
 		LodgeReviewVO vo = Service.read(param);	
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("lodge_Code", lodge_Code);
 		mav.addObject("rew", vo);
-		System.out.println(vo);
 		mav.setViewName("lodge/update");
-
 		return mav;
 	}
 	
@@ -78,70 +70,53 @@ public class LodgeReviewController {
 	public ModelAndView update(LodgeReviewVO param, HttpSession session, @RequestParam int lodge_Code) throws Exception{
 		String id = (String)session.getAttribute("userId");
 		param.setId(id);
-
-		Service.update(param);
-		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("lodge_Code", lodge_Code);
-		
 		mav.setViewName("redirect:read.do?lodge_Code="+lodge_Code);
 		return mav;
-		}	
+	}
 
 
 	@RequestMapping(value="lodge/delete.do", method=RequestMethod.GET)
 	public ModelAndView delete( LodgeReviewVO vo, @RequestParam int lodge_Code)throws Exception{
-		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("lodge_Code", lodge_Code);
 		mav.addObject("rew", vo);
-		
 		int iSort = vo.getSort();
 		int res = 0;
 		System.out.println(vo.toString());
 		if(iSort>0) {
 			res = Service.delete(vo);
-		}else
-		{
+		}else {
 			vo.setParent(vo.getReview_num());
 			res = Service.deleteAll(vo);
 		}
-		
 		mav.setViewName("redirect:read.do?lodge_Code="+vo.getLodge_Code());
 		return mav;
 	}
-
-
 	
 	@RequestMapping(value="lodge/reply.do", method=RequestMethod.GET)
 	public ModelAndView replyForm(LodgeReviewVO param, HttpSession session, @RequestParam int lodge_Code) throws Exception{
 		String id = (String)session.getAttribute("userId");
 		param.setId(id);
-		
-		
+
 		LodgeReviewVO vo = Service.read(param);	
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("lodge_Code", lodge_Code);
 		mav.addObject("rew", vo);
-		System.out.println("답글"+vo);
 		mav.setViewName("lodge/reply");
-
 		return mav;
 	}
 	
 
 	@RequestMapping(value="lodge/insertBoard.do", method=RequestMethod.POST)
 	public ModelAndView  insert( LodgeReviewVO vo, HttpSession session) throws Exception{
-	
 		String id = (String)session.getAttribute("userId");
 		vo.setId(id);
 		System.out.println(id);
-		
         Service.insert(vo);
-    	ModelAndView mav = new ModelAndView();		
-		System.out.println(vo);
+    	ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:read.do?lodge_Code="+vo.getLodge_Code());
-		
 		return mav;
 	}
     
@@ -149,30 +124,19 @@ public class LodgeReviewController {
 	public ModelAndView insertReply(LodgeReviewVO param, HttpSession session, @RequestParam int lodge_Code) throws Exception {
 		String id = (String)session.getAttribute("userId");
 		param.setId(id);
-		 
 		int isort = param.getSort();
 		int itab = param.getTab();
-		
 		Service.updateReplySort(param);
 		param.setSort(++isort);
 		param.setTab(++itab);
 		param.setLodge_Code((String.valueOf(lodge_Code)));
 		System.out.println("답글쓰기"+param);
 		Service.insertReply(param);
-		
-//		if(res==0) {
-//			return "board/replyerror";
-//		}else
-//		{
-//			return "board/replyok";
-//		}
-		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("lodge_Code", lodge_Code);	
-		System.out.println("insert 이후"+param);
+		mav.addObject("lodge_Code", lodge_Code);
 		mav.setViewName("redirect:read.do?lodge_Code="+param.getLodge_Code());
 		
 		return mav;
-		}
+	}
 	
 }
