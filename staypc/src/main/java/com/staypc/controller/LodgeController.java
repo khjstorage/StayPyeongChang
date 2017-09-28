@@ -2,27 +2,20 @@ package com.staypc.controller;
 
 import com.staypc.service.LodgeReviewService;
 import com.staypc.service.LodgeService;
-import com.staypc.service.LoginService;
 import com.staypc.utility.BoardPager;
 import com.staypc.vo.LodgeReviewVO;
 import com.staypc.vo.LodgeVO;
-import com.staypc.vo.LoginVO;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -33,11 +26,7 @@ public class LodgeController {
 	
 	@Autowired
 	LodgeReviewService reviewService;
-	
-	@Autowired
-	private LoginService loginService;
 
-	
 	@RequestMapping("/main.do")
 	public ModelAndView main(ModelAndView mav) throws Exception{
 		List<LodgeVO> list = lodgeService.listMain();
