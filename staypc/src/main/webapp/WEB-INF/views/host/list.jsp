@@ -14,31 +14,39 @@
 </head>
 <body>
 <div class="hostList">
-	<form method="post" id="hostListForm" enctype="multipart/form-data">
-	 <div class="userHostList">
-	 	<div class="Pagesubject" style="font-size:25px;">	 	
+	<div class="common_wrapper">	 
+        <div class="sidemenu">
+          <ul>
+            <li style="margin-top:40px;"><a href="/member/modify.do">프로필 수정</a></li>
+            <br>
+            <li style="margin-top:10px;"><a href="/member/profile.do">프로필 보기</a></li>
+            <br>
+            <li style="margin-top:10px;"><a href="#">예약 내역 확인</a></li>
+            <br>
+            <li style="margin-top:10px;"><a href="/host/list.do">호스팅 확인/수정</a></li>
+          </ul>
+        </div>
+	 	<div class="Pagesubject" style="font-size:23px;">	 	
 	    	호스팅 확인
-	    	<br><hr><br>
-	    </div>
-	    
+	    	<br><br>
+	    </div>	    
 	    <div class="hostingList">	        
 	            <c:forEach var="row" items="${list}">
 	                    <div class="hostingImg">
-	                       <a href="/host/detail.do?lodge_code=${row.lodge_Code}"><img style="width=100%;height=100%;background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280"></a>	                        
-	                    </div>
-	                    
+	                       <a href="/host/detail.do?lodge_code=${row.lodge_Code}"><img style="background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280"></a>
 	                    <div class="roomNameCheck">
-	                  	  <div class="roomName">${row.room_Name}</div>                    
+	                  		<div class="roomName">숙소명 : ${row.room_Name}</div>	                  	          
 	                        <fmt:parseDate value='${row.check_In}' var="check_In" pattern="yyyy-MM-dd HH:mm:ss"/>
 	                        <fmt:parseDate value='${row.check_Out}' var="check_Out" pattern="yyyy-MM-dd HH:mm:ss"/>
 	                        <fmt:formatDate value='${check_In}' var="checkIn" pattern="yyyy-MM-dd"/>
 	                        <fmt:formatDate value='${check_Out}' var="checkOut" pattern="yyyy-MM-dd"/>
-	                        <div class="checkInOut">${checkIn}~${checkOut}</div>                    
-	                    </div>
+	                        <div class="checkInOut">체크인,체크아웃 시간 : ${checkIn}~${checkOut}</div>                    
+	                    </div>	                        
+	                    </div>	                    	                    
 	            </c:forEach>	        
-	        </div>
-     </div>
-   	</form>
+	      </div>     
+   	
+</div>
 </div>
 </body>
 </html>

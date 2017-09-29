@@ -28,7 +28,6 @@ public class LodgeDAO {
 		map.put("keyword", keyword);
 		map.put("sdate", sdate);
 		map.put("edate", edate);
-		
 		return sqlSession.selectOne("lodge.count",  map);
 	}
 	
@@ -40,7 +39,6 @@ public class LodgeDAO {
 		map.put("end", end);
 		map.put("sdate", sdate);
 		map.put("edate", edate);
-		System.out.println(sqlSession.selectList("lodge.listAll", map));
 		return sqlSession.selectList("lodge.listAll", map);
 
 	}

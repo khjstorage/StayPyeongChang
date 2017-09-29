@@ -3,7 +3,7 @@ package com.staypc.vo;
 public class PaymentVO {
 
 	private String id;
-    private int lodge_code;
+    private int lodge_Code;
     private String card_num;
     private String card_valid;
     private String card_cvc;
@@ -13,33 +13,24 @@ public class PaymentVO {
     private String reg_date;
     private String book_cancel;
     private String payment_code;
-    private int begin;
-    private int end;
-    
-    
-    public int getBegin() {
-		return begin;
-	}
 
-	public void setBegin(int begin) {
-		this.begin = begin;
-	}
-
-	public int getEnd() {
-		return end;
-	}
-
-	public void setEnd(int end) {
-		this.end = end;
-	}
-
-	public String getPayment_code() {
-    	return payment_code;
+    @Override
+    public String toString() {
+        return "PaymentVO{" +
+                "id='" + id + '\'' +
+                ", lodge_Code=" + lodge_Code +
+                ", card_num='" + card_num + '\'' +
+                ", card_valid='" + card_valid + '\'' +
+                ", card_cvc='" + card_cvc + '\'' +
+                ", check_in='" + check_in + '\'' +
+                ", check_out='" + check_out + '\'' +
+                ", sum_money='" + sum_money + '\'' +
+                ", reg_date='" + reg_date + '\'' +
+                ", book_cancel='" + book_cancel + '\'' +
+                ", payment_code='" + payment_code + '\'' +
+                '}';
     }
-    
-    public void setPayment_code(String payment_code) {
-    	this.payment_code = payment_code;
-    }
+
     public String getId() {
         return id;
     }
@@ -48,12 +39,12 @@ public class PaymentVO {
         this.id = id;
     }
 
-    public int getLodge_code() {
-        return lodge_code;
+    public int getLodge_Code() {
+        return lodge_Code;
     }
 
-    public void setLodge_code(int lodge_code) {
-        this.lodge_code = lodge_code;
+    public void setLodge_Code(int lodge_Code) {
+        this.lodge_Code = lodge_Code;
     }
 
     public String getCard_num() {
@@ -120,19 +111,11 @@ public class PaymentVO {
         this.book_cancel = book_cancel;
     }
 
-    @Override
-    public String toString() {
-        return "PaymentVO{" +
-                "id='" + id + '\'' +
-                ", lodge_code=" + lodge_code +
-                ", card_num='" + card_num + '\'' +
-                ", card_valid='" + card_valid + '\'' +
-                ", card_cvc='" + card_cvc + '\'' +
-                ", check_in='" + check_in + '\'' +
-                ", check_out='" + check_out + '\'' +
-                ", sum_money='" + sum_money + '\'' +
-                ", reg_date='" + reg_date + '\'' +
-                ", book_cancel='" + book_cancel + '\'' +
-                '}';
+    public String getPayment_code() {
+        return payment_code;
+    }
+
+    public void setPayment_code(String payment_code) {
+        this.payment_code = payment_code;
     }
 }

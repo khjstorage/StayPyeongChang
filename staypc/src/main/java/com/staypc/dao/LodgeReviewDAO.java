@@ -39,13 +39,11 @@ public class LodgeReviewDAO {
 	public List<LodgeReviewVO> reviewList(HashMap<String, String> map) throws Exception{
 		String f = map.get("p_first");
 		String p = map.get("p_last");
-		System.out.println("시작과 끝:"+f+"/"+p);
 		return sqlSession.selectList("review.getBoardList",map);
 	}
 	
 	public int getTotalCount(LodgeReviewVO vo) throws Exception {
 		return sqlSession.selectOne("review.getTotalCount",vo);
-		//return 1;
 	}
 	
 	public void updateReplySort(LodgeReviewVO vo) throws Exception {
