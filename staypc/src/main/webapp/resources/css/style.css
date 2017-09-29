@@ -28,14 +28,9 @@ text-decoration:none;
 }
 
 
-
-
-
-
-
 /*section4 동영상/경기일정*/
 #section4 {
-	height:500px; width:1388px; margin:100px 250px;
+	height:500px; width:1388px; margin:100px auto;
 }
 
 

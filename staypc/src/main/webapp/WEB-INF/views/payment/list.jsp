@@ -15,12 +15,21 @@
 <body>
 <div class="hostList">
     <div class="common_wrapper">
-        <div class="userHostList">
-            <div class="Pagesubject" style="font-size:25px;">
-                호스팅 확인
-                <br><hr><br>
-            </div>
-
+	    <div class="sidemenu">
+	          <ul>
+				  <li style="margin-top: 40px;"><a href="/member/modify.do">프로필수정</a></li>
+				  <br>
+				  <li style="margin-top: 10px;"><a href="/member/profile.do">프로필 보기</a></li>
+				  <br>
+				  <li style="margin-top:10px;"><a href="/payment/list.do">예약 내역 확인</a></li>
+				  <br>
+				  <li style="margin-top: 10px;"><a href="/host/list.do">호스팅 확인</a></li>
+	          </ul>
+	        </div>        
+            <div class="Pagesubject" style="font-size:23px;">
+                	예약 내역 확인
+                <br><br>            
+			</div>
             <div class="hostingList">
                 <c:forEach var="row" items="${list}">
                     <div class="hostingImg">
@@ -34,7 +43,6 @@
                 </c:forEach>
             </div>
         </div>
-    </div>
 </div>
 </body>
 </html>
