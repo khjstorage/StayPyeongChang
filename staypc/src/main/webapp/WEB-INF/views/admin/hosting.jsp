@@ -14,6 +14,21 @@
  margin-top:30px; 
  border:1px solid #ff0000;
  }
+ 
+ 
+ #content {position:relative; width:997px; height:190px; margin-top:13px;background:url(../images/portfolio_bar.png) no-repeat;}
+#content ul {padding-left:111px; width:884px; height:39px; list-style:none;}
+#content li {display:inline; float:left; width:73px; height:39px; padding-right:15px;}
+#content .tab_list {position:absolute; width:995px; height:149px;}  /*탭 선택시 나오는부분*/
+.port_back {background:url(../images/port_tab_back.png) no-repeat;}
+#tab_menu1 {cursor:pointer;}
+#tab_menu2 {cursor:pointer;}
+#tab_menu3 {cursor:pointer;}
+.tab_sub1 {}
+.tab_sub2 {display:none;}
+.tab_sub3 {display:none;}
+
+ 
 </style>
 <body>
 
@@ -92,3 +107,31 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
