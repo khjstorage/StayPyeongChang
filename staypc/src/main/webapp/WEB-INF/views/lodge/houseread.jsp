@@ -52,8 +52,16 @@
             });
         });
     </script>
-    <style>
-
+    <style>    
+ 	.hostImg{
+   		  width: 100px;
+		  height: 100px;
+		  background-size: cover;
+		  display: block;
+		  border-radius: 60px;
+		  -webkit-border-radius: 60px;
+		  -moz-border-radius: 60px;	
+		}
         table.lodgeReview {
             font-size: 16px;
             color: #494d4d;
@@ -161,15 +169,15 @@
         </div>
     </div>
 
-    <!--게스트 정보-->
+    <!--호스트 정보-->
     <div class="bold_large">
         ${vo.title}
     </div>
     <br><br><br><br><br>
     <div class="right">
-        호스트 사진${member.picture }<br>
-        ${member.name }<br>
-        ${member.email}<br>
+       <img class="hostImg" align="left" src="<c:url value='/resources/profile_photo/${host.picture}'/>"/><br>       
+        ${host.name }<br>
+        ${host.email}<br>
         숙소 연락처:${vo.room_Phone}<br><br>
         <c:if test="${sessionScope.userId !=null}">
             <button id="wishlist">위시리스트 담기</button>
