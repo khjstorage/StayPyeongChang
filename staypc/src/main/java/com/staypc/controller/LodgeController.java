@@ -34,6 +34,8 @@ public class LodgeController {
 	
 	@Autowired
 	LodgeReviewService reviewService;
+	
+	
 
 	@RequestMapping("/main.do")
 	public ModelAndView main(ModelAndView mav) throws Exception{
@@ -74,7 +76,7 @@ public class LodgeController {
 
 	@RequestMapping(value="lodge/read.do", method=RequestMethod.GET)
     public ModelAndView ReviewList(@RequestParam(value="pg", defaultValue = "1") int pg,
-								   ModelAndView mav,
+								   ModelAndView mav, LodgeReviewVO var,
 								   HttpServletRequest request,
 								   @RequestParam int lodge_Code, HttpSession session) throws Exception {
 
@@ -105,14 +107,23 @@ public class LodgeController {
 		request.setAttribute("beginPage", beginPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("allPage", allPage);
-		
-		//리뷰 사진 가져오기
-//		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));
-//		mav.addObject("member",member);
 
+		
+		for(int i=0; i<list.size(); i++) {
+			String reviewId = list.get(i).getId();
+			LoginVO member = loginService.getMember(reviewId);
+			mav.addObject("member",member);
+		}
+		
+		LodgeVO host = lodgeService.read(lodge_Code);
+		LoginVO host2=loginService.getMember(host.getId());
+		mav.addObject("host",host2);
+		
+		
 		//호스팅 글
 		LodgeVO vo2 = lodgeService.read(lodge_Code);
 		mav.addObject("vo", vo2);
+
 		
 		//호스팅 이미지
 		List listImg = lodgeService.readImg(lodge_Code);

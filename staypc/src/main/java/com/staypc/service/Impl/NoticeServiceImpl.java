@@ -13,9 +13,9 @@ public class NoticeServiceImpl implements NoticeService {
 	@Autowired
 	NoticeDAO noticeDao;
 	@Override
-	public List<NoticeVO> notice_list() {
+	public List<NoticeVO> notice_list(NoticeVO vo) {
 		// TODO Auto-generated method stub
-		return noticeDao.notice_list();
+		return noticeDao.notice_list(vo);
 	}
 
 	@Override
@@ -41,5 +41,11 @@ public class NoticeServiceImpl implements NoticeService {
 		// TODO Auto-generated method stub
 		noticeDao.notice_delete(vo);
 	}
+
+	@Override
+	public int notice_cnt() {
+		// TODO Auto-generated method stub
+		return noticeDao.notice_cnt();
+	}	
 
 }

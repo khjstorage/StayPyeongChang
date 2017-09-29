@@ -15,12 +15,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.staypc.service.LodgeReviewService;
+import com.staypc.service.LoginService;
 import com.staypc.vo.LodgeReviewVO;
+import com.staypc.vo.LodgeVO;
+import com.staypc.vo.LoginVO;
 
 @Controller
 public class LodgeReviewController {
 	@Autowired
 	LodgeReviewService Service;
+	@Autowired
+	LoginService loginService;
 
 	@RequestMapping(value="lodge/reviewread.do", method=RequestMethod.GET)
 	public ModelAndView read(LodgeReviewVO param, HttpSession session, @RequestParam int lodge_Code) throws Exception{
@@ -35,6 +40,11 @@ public class LodgeReviewController {
 		mav.addObject("rew", vo);
 		System.out.println("결과값"+vo.toString());
 		mav.setViewName("lodge/reviewread");
+		
+	
+		String host=vo.getId();
+		LoginVO host2=loginService.getMember(vo.getId());
+		mav.addObject("host",host2);
 
 		return mav;
 	}	
