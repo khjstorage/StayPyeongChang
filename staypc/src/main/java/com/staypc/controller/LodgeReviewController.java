@@ -80,6 +80,7 @@ public class LodgeReviewController {
 	public ModelAndView update(LodgeReviewVO param, HttpSession session, @RequestParam int lodge_Code) throws Exception{
 		String id = (String)session.getAttribute("userId");
 		param.setId(id);
+	     Service.update(param);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("lodge_Code", lodge_Code);
 		mav.setViewName("redirect:read.do?lodge_Code="+lodge_Code);

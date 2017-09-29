@@ -135,18 +135,20 @@
 				<br> <span style="font-size: 20px;">내 위시리스트</span> <br>
 				<br>
 				<div class="wishList_Detail">
-					<c:forEach var="list" items="${list}" varStatus="status">
+				<table style="cellspacing:5px; cellpadding:auto;">					
 						<tr>
-							<td align="center">
+						<c:forEach var="list" items="${list}" varStatus="status">
+							<td>
 								<a href="<c:url value="/lodge/read.do?lodge_Code=${list.lodge_Code}"/>">
-								<img style="background-size: cover;" src="/host/displayFile.do?fileName=${list.staypcLodge[0].main_Image}" width="300" height="280"> </a>
+								<img style="background-size: cover;" src="/host/displayFile.do?fileName=${list.staypcLodge[0].main_Image}" width="250" height="250"> </a>
+							<br>
+							${list.title}
+							<br><fmt:formatDate value="${list.reg_Date}" pattern="yy-MM-dd" />
+							<br><input type="button" value="삭 제" onclick="board_delete(${list.lodge_Code})">
 							</td>
-							<td style="width: 80px" align="center">${list.title}</td>
-							<td align="center"><fmt:formatDate value="${list.reg_Date}" pattern="yy-MM-dd" /></td>
-							<td align="center"><input type="button" value="삭 제" onclick="board_delete(${list.lodge_Code})"></td>
-						</tr>
-						<br>
-					</c:forEach>
+							</c:forEach>
+						</tr>	
+					</table>
 				</div>
 			</div>
 		</div>
