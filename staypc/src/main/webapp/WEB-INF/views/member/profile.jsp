@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<!DOCTYPE>
+<!DOCTYPE html>
 <head>
 <title>profile page</title>
 <link href="/resources/css/profile_style.css" rel="stylesheet" type="text/css">

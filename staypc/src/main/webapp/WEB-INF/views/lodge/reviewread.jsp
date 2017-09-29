@@ -21,13 +21,29 @@ function board_delete(boardform){
 }
 </script>
 <style>
-.reviewread {
+
+
+.profile {
 	font-size: 16px;
 	color: #494d4d;
 	margin-left: 60px;
 	margin-right: 1000px;
+	text-align:justify;
+	line-height: 1.5em;
+	vertical-align: middle;
+}
+.reviewread tr {border: 1px 
+			border-style: ridge;
+			border-color: #494d4d;}
+
+
+.reviewread {
+	font-size: 18px;
+	color: #494d4d;
+	margin-left: 60px;
+	margin-right: 1000px;
 	text-align:justify
-	line-height: 1.8em;
+	line-height: 2.2em;
 	vertical-align: middle;
 }
  img{
@@ -44,16 +60,16 @@ function board_delete(boardform){
 </style>
 </head>
 <body>
-	 <font size="4.5px" font-weight="bold" color="#494d4d"><h1> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;후기글 상세</h1></font>
-	<hr>
+	 <!--  <font size="4.5px" font-weight="bold" color="#494d4d"><h1> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;후기글 상세</h1></font>-->
+
 	<table class="reviewread">	
-	 	<tr>
-	 		<td width="auto">
-	 		<img align="left" src="<c:url value='/resources/profile_photo/${host.picture}'/>" />&nbsp;&nbsp;${rew.id } &nbsp;
-	 		<fmt:formatDate value="${rew.reg_date }" pattern="yyyy년MM월dd일"/></td>
-	 		<td width="auto" align="left" bgcolor="#F3EDFC">${rew.content}</td>
-	 		</tr>
-	 	
+	<br>
+	 	<tr class="reviewbox" >
+	 		<td class="profile" width="17%">
+	 		<img align="center" src="<c:url value='/resources/profile_photo/${host.picture}'/>" />${rew.id }님의 글
+	 		<br> &nbsp;<font size="2.0px" ><fmt:formatDate value="${rew.reg_date }" pattern="yyyy년MM월dd일"/></font></td>
+	 		<td width="auto" align="left" bgcolor="#FFF5EE" style="line-height:1.2em" >${rew.content}</td>
+	 		</tr>	 	
 	 	<tr>
 	 		<td colspan="2" align="right">
 	 			<input type="button" value="리스트" onclick="location.href='read.do?lodge_Code=${lodge_Code}'">
