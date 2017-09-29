@@ -13,8 +13,8 @@ public class NoticeDAO {
 	@Autowired
 	public SqlSessionTemplate mybatis;
 	
-	public List<NoticeVO> notice_list(){
-		return mybatis.selectList("notice_list");
+	public List<NoticeVO> notice_list(NoticeVO vo){
+		return mybatis.selectList("notice_list",vo);
 	};
 	public NoticeVO notice_view(NoticeVO vo) {
 		return mybatis.selectOne("notice_view", vo);
@@ -27,5 +27,8 @@ public class NoticeDAO {
 	};
 	public void notice_delete(NoticeVO vo) {
 		mybatis.delete("notice_delete", vo);
+	};
+	public int notice_cnt() {
+		return mybatis.selectOne("notice_cnt");
 	};
 }

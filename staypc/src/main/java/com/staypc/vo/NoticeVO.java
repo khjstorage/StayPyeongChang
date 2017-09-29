@@ -6,6 +6,35 @@ public class NoticeVO {
 	private String list_no;
 	private String subject, content, id;
 	private Date register_datetime;
+	private int begin;
+	private int end;
+	private int tab;
+
+	
+	
+	public int getBegin() {
+		return begin;
+	}
+
+	public void setBegin(int begin) {
+		this.begin = begin;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
+	public int getTab() {
+		return tab;
+	}
+
+	public void setTab(int tab) {
+		this.tab = tab;
+	}
 
 	public String getList_no() {
 		return list_no;
