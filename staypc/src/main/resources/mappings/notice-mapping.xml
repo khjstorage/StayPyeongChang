@@ -3,8 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="notice">
-	<select id="notice_list" resultType="noticeDTO">
-		select * from STAYPC_NOTICE order by list_no desc
+	<select id="notice_list" resultType="noticeDTO" parameterType="noticeDTO">
+		select list_no, id, subject, content, register_datetime
+		from (
+		        select rownum rn, list_no, id, subject, content, register_datetime 
+		        from (
+		                select  list_no, id, subject, content, register_datetime
+		                from STAYPC_NOTICE
+		                order by STAYPC_NOTICE.LIST_NO desc))
+		where rn between #{begin} and #{end}
+		order by rn asc
 	</select>
 	
 	<select id="notice_view" resultType="noticeDTO">
@@ -23,5 +31,11 @@
 	<delete id="notice_delete" parameterType="noticeDTO">
 		delete STAYPC_NOTICE where list_no=#{list_no}
 	</delete>
+	
+	<select id="notice_cnt" resultType="Integer">
+	<![CDATA[
+	select count(*) from staypc_notice
+	]]>
+	</select>
 
 </mapper>

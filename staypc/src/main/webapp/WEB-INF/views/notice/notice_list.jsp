@@ -55,11 +55,58 @@
 			</table>
 			<c:if test="${sessionScope.userId eq 'admin'}">
 				<div class="botton_box" style="margin-left:100%;">
-					<input type="button" id="saveBtn" onclick="location.href='notice_insert_form.do'"  value="글쓰기" />
+					<input type="button" id="saveBtn" onclick="location.href='notice_insert_form.do'" value="글쓰기" />
 				</div>
 			</c:if>
+			<!-- 페이징 처리 -->
+			<table style="align-content:center; width:800px;">
+				<td colspan="3" align="center">
+				<!-- 처음 페이지 이동 -->
+				<c:if test="${np.curPage > 1}">
+					<a href="notice_list.do?curPage=1">[처음]</a>
+				</c:if>
+				
+				<!-- 이전 페이지 이동 -->
+				<c:if test="${np.curBlock > 1}">
+					<a href="notice_list.do?curPage=${np.prevPage}">[이전]</a>
+				</c:if>
+				
+				<!-- 한 블럭에 표현될 페이지 번호 출력 -->
+				<c:forEach var="num" begin="${np.blockBegin}" end="${np.blockEnd}">
+					<c:choose>
+						<c:when test="${num == np.curPage}">
+							<span style="color:red">${num}</span>&nbsp;
+						</c:when>
+						<c:otherwise>
+							<a href="notice_list.do?curPage=${num}">${num}</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				
+				<!-- 다음 페이지 이동 -->
+				<c:if test="${np.curBlock <= np.totBlock}">
+					<a href="notice_list.do?curPage=${np.nextPage}">[다음]</a>
+				</c:if>
+				
+				<!-- 맨 마지막 페이지 이동 -->
+				<c:if test="${np.curPage < np.totPage}">
+					<a href="notice_list.do?curPage=${np.totPage}">[끝]</a>
+				</c:if>
+				</td>
+			</table>		
 		</div>
 		</div>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

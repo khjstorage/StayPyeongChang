@@ -1,10 +1,12 @@
 package com.staypc.controller;
 
 import com.staypc.service.NoticeService;
+import com.staypc.utility.Notice_Pager;
 import com.staypc.vo.NoticeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -19,9 +21,15 @@ public class NoticeController {
 	NoticeService noticeService;
 	
 	@RequestMapping("notice/notice_list.do")
-	public ModelAndView notice_list(ModelAndView mav) {
-		List<NoticeVO> list = noticeService.notice_list();
-		mav.addObject("list",list);
+	public ModelAndView notice_list(@RequestParam(defaultValue="1") int curPage, ModelAndView mav) {
+		Notice_Pager np = new Notice_Pager(noticeService.notice_cnt(), curPage);		
+		NoticeVO vo = new NoticeVO();
+		vo.setBegin(np.getPageBegin());
+		vo.setEnd(np.getPageEnd());
+		List<NoticeVO> list = noticeService.notice_list(vo);
+		System.out.println(np.toString());
+		mav.addObject("np",np);
+		mav.addObject("list",list);		
 		mav.setViewName("notice/notice_list");
 		return mav;
 	}
@@ -57,4 +65,39 @@ public class NoticeController {
 		noticeService.notice_insert(vo);
 		return "redirect:/notice/notice_list.do";
 	}
+	
+
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
