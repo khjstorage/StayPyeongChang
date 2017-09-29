@@ -19,13 +19,13 @@
         <div class="align">
             <div class="sidemenu">
                 <ul>
-                    <li style="margin-top:40px;"><a href="/member/modify.do">프로필 수정</a></li>
+                    <li style="margin-top: 40px;"><a href="/member/modify.do">프로필수정</a></li>
                     <br>
-                    <li style="margin-top:10px;"><a href="/member/profile.do">프로필 보기</a></li>
+                    <li style="margin-top: 10px;"><a href="/member/profile.do">프로필 보기</a></li>
                     <br>
-                    <li style="margin-top:10px;"><a href="#">예약 내역 확인</a></li>
+                    <li style="margin-top:10px;"><a href="/payment/list.do">예약 내역 확인</a></li>
                     <br>
-                    <li style="margin-top:10px;"><a href="/host/list.do">호스팅 확인/수정</a></li>
+                    <li style="margin-top: 10px;"><a href="/host/list.do">호스팅 확인</a></li>
                 </ul>
             </div>
 

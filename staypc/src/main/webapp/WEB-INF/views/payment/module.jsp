@@ -28,7 +28,9 @@
                     url: "/payment/pay.do",
                     data: data,
                     success: function (data) {
-                        alert("예약성공");
+                        if(data==1){
+                            alert("결제완료");
+                        }
                     }
                 });
             });
@@ -49,6 +51,7 @@
         </tr>
         <tr>
             <td>숙박기간</td>
+            ${lodgeVO.check_In}
             <fmt:parseDate value='${lodgeVO.check_In}' var="check_In" pattern="yyyy-MM-dd HH:mm:ss"/>
             <fmt:parseDate value='${lodgeVO.check_Out}' var="check_Out" pattern="yyyy-MM-dd HH:mm:ss"/>
             <fmt:formatDate value='${check_In}' var="checkIn" pattern="yyyy년 MM월 dd일"/>
