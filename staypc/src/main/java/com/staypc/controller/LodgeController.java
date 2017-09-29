@@ -119,7 +119,7 @@ public class LodgeController {
 		LoginVO host2=loginService.getMember(host.getId());
 		mav.addObject("host",host2);
 		
-		
+
 		//호스팅 글
 		LodgeVO vo2 = lodgeService.read(lodge_Code);
 		mav.addObject("vo", vo2);
