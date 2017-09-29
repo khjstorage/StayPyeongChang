@@ -107,9 +107,8 @@ public class LodgeController {
 		request.setAttribute("allPage", allPage);
 		
 		//리뷰 사진 가져오기
-		
-		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));			
-		mav.addObject("member",member);
+//		LoginVO member = loginService.getMember((String)session.getAttribute("userId"));
+//		mav.addObject("member",member);
 
 		//호스팅 글
 		LodgeVO vo2 = lodgeService.read(lodge_Code);

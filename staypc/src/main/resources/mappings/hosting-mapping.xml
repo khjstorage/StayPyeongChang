@@ -29,8 +29,6 @@
     </select>
 
 
-
-
     <resultMap id="lodgeResultMap" type="java.util.HashMap">
         <id property="lodge_code" column="lodge_code" />
         <result property="title" column="title"/>

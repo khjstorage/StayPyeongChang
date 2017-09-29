@@ -4,8 +4,34 @@
 
 <mapper namespace="payment">
     <insert id="pay">
-      INSERT into STAYPC_PAYMENT(CARD_NUM, CARD_VALID, CARD_CVC, CHECK_IN, CHECK_OUT, SUM_MONEY, REG_DATE, BOOK_CANCLE)
-      VALUES (#{card_num}, #{card_valid}, #{card_cvc}, #{check_in}, #{check_out}, #{sum_money}, sysdate, 'N')
+      INSERT into STAYPC_PAYMENT(id , lodge_code, CARD_NUM, CARD_VALID, CARD_CVC, CHECK_IN, CHECK_OUT, SUM_MONEY, REG_DATE, BOOK_CANCLE)
+      VALUES (#{id}, #{lodge_Code}, #{card_num}, #{card_valid}, #{card_cvc}, #{check_in}, #{check_out}, #{sum_money}, sysdate, 'N')
     </insert>
+    
+    <update id="soldY">
+       UPDATE STAYPC_LODGE SET SOLD = 'Y' WHERE LODGE_CODE = #{lodge_code}
+    </update>
+
+    <resultMap id="lodgeResultMap" type="java.util.HashMap">
+        <id property="lodge_Code" column="lodge_code" />
+        <result property="title" column="title"/>
+        <result property="charge" column="charge"/>
+        <result property="check_in" column="check_in"/>
+        <result property="check_out" column="check_out"/>
+        <result property="main_image" column="main_image"/>
+        <collection property="paymentList" javaType="java.util.ArrayList" resultMap="paymentResultMap"/>
+    </resultMap>
+    <resultMap id="paymentResultMap" type="java.util.HashMap">
+        <id property="lodge_Code" column="lodge_code" />
+        <result property="check_in" column="check_in"/>
+        <result property="check_out" column="check_out"/>
+    </resultMap>
+
+    <select id="list" resultMap="lodgeResultMap">
+         SELECT a.LODGE_CODE, a.TITLE, a.CHARGE, b.CHECK_IN, b.CHECK_OUT, a.MAIN_IMAGE FROM STAYPC_LODGE a
+            INNER JOIN STAYPC_PAYMENT b
+                ON a.LODGE_CODE = b.LODGE_CODE
+          WHERE b.ID = #{id}
+    </select>
 
 </mapper>

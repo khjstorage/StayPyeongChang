@@ -53,7 +53,6 @@ public class HostingController {
         
     }
 
-
     @RequestMapping(value = "host/list.do", method = RequestMethod.GET)
     public ModelAndView hostListForm(ModelAndView mav, HttpSession session){
         String id = (String) session.getAttribute("userId");
@@ -81,7 +80,6 @@ public class HostingController {
         ResponseEntity responseEntity = new ResponseEntity(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()), HttpStatus.CREATED);
         return responseEntity;
     }
-
 
     @ResponseBody
     @RequestMapping("host/displayFile.do")

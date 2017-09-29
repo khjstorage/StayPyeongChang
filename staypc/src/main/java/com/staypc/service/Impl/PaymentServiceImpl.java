@@ -7,6 +7,8 @@ import com.staypc.vo.PaymentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
@@ -15,7 +17,13 @@ public class PaymentServiceImpl implements PaymentService {
     private PaymentDAO dao;
 
     @Override
-    public void pay(PaymentVO vo) {
-        dao.pay(vo);
+    public int pay(PaymentVO vo) {
+        dao.soldY(vo.getLodge_Code());
+        return dao.pay(vo);
+    }
+
+    @Override
+    public List list(String id) {
+        return dao.list(id);
     }
 }

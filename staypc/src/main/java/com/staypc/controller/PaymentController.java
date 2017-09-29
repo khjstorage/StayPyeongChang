@@ -7,9 +7,13 @@ import com.staypc.vo.PaymentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class PaymentController {
@@ -30,10 +34,21 @@ public class PaymentController {
     }
 
     @RequestMapping("payment/pay")
-    public @ResponseBody String payment(PaymentVO vo){
+    public @ResponseBody int payment(PaymentVO vo){
         System.out.println(vo);
-        paymentService.pay(vo);
-        return null;
+        int result = paymentService.pay(vo);
+        return result;
     }
+
+    @RequestMapping(value = "payment/list.do", method = RequestMethod.GET)
+    public ModelAndView payListForm(ModelAndView mav, HttpSession session){
+        String id = (String) session.getAttribute("userId");
+        List list = paymentService.list(id);
+        System.out.println(list);
+        mav.addObject("list",list);
+        mav.setViewName("payment/list");
+        return mav;
+    }
+
 
 }
