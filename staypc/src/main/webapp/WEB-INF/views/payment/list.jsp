@@ -39,7 +39,6 @@
                             <div class="checkInOut">체크인,체크아웃 시간 : ${checkIn}~${checkOut}</div>
                         </div>
                     </div>
-
                 </c:forEach>
             </div>
         </div>

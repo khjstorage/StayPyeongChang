@@ -60,20 +60,16 @@ public class LodgeVO {
 	private int diffDay;
 	
 	private String book_date;
-	
+
 	private String filename;
-	
+
 	private int begin;
-	
+
 	private int end;
-	
+
 	private int tab;
-	
-	
-	
-	
-	
-	
+
+
 	public int getTab() {
 		return tab;
 	}

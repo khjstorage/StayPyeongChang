@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <typeAlias alias="login" type="com.staypc.vo.LoginVO"/>
+        <typeAlias alias="lodge" type="com.staypc.vo.LodgeVO"/>
+        <typeAlias alias="lodgeReview" type="com.staypc.vo.LodgeReviewVO"/>
+        <typeAlias alias="lodgeBook" type="com.staypc.vo.LodgeBookVO"/>
+        <typeAlias alias="noticeDTO" type="com.staypc.vo.NoticeVO"/>
+        <typeAlias alias="payment" type="com.staypc.vo.PaymentVO"/>
+        <typeAlias alias="memberDTO" type="com.staypc.vo.MemberVO"/>
+        <typeAlias alias="lodgeImage" type="com.staypc.vo.LodgeImageVO"/>
+        <typeAlias alias="payment" type="com.staypc.vo.PaymentVO"/>
+        <typeAlias alias="wish" type="com.staypc.vo.WishVO"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mysql_mappings/admin-mapping.xml"/>
+        <mapper resource="mysql_mappings/hosting-mapping.xml"/>
+        <mapper resource="mysql_mappings/login-mapping.xml"/>
+        <mapper resource="mysql_mappings/lodge-mapping.xml"/>
+        <mapper resource="mysql_mappings/lodgeReview-mapping.xml"/>
+        <mapper resource="mysql_mappings/notice-mapping.xml"/>
+        <mapper resource="mysql_mappings/payment-mapping.xml"/>
+        <mapper resource="mysql_mappings/wish-mapping.xml"/>
+    </mappers>
+</configuration>
+
+
