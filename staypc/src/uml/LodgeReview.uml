@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1.1368683772161603E-13" y="0.0">com.staypc.service.LodgeReviewService</node>
+    <node x="0.0" y="616.0">com.staypc.dao.LodgeReviewDAO</node>
+    <node x="455.0" y="616.0">com.staypc.controller.LodgeReviewController</node>
+    <node x="455.0000000000001" y="0.0">com.staypc.vo.LodgeReviewVO</node>
+    <node x="0.0" y="299.0">com.staypc.service.Impl.LodgeReviewServiceImpl</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.staypc.service.Impl.LodgeReviewServiceImpl" target="com.staypc.service.LodgeReviewService">
+      <point x="1.1368683772161603E-13" y="-136.0" />
+      <point x="0.0" y="124.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9122448979591838" x="523.6107382550334" y="679.9999999999999" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-20.5" y="690.0">com.staypc.controller.AdminController</node>
+    <node x="-1.5" y="-15.5">com.staypc.service.AdminService</node>
+    <node x="-1.5" y="333.0">com.staypc.service.Impl.AdminServiceImpl</node>
+    <node x="678.5" y="-27.0">com.staypc.dao.AdminDAO</node>
+    <node x="369.0" y="-7.0">com.staypc.utility.Admin_Pager</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.staypc.service.Impl.AdminServiceImpl" target="com.staypc.service.AdminService">
+      <point x="0.0" y="-147.0" />
+      <point x="0.0" y="135.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7848990342405618" x="816.4026845637585" y="539.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

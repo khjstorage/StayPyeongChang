@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="236.26249999999993" y="984.0">com.staypc.controller.LoginController</node>
+    <node x="1109.0" y="520.0">com.staypc.dao.LoginDAO</node>
+    <node x="514.0" y="696.5">com.staypc.utility.Utility</node>
+    <node x="0.0" y="673.5">com.staypc.utility.FileRename</node>
+    <node x="1007.8625" y="0.0">com.staypc.vo.LoginVO</node>
+    <node x="776.0" y="564.5">com.staypc.service.LoginService</node>
+    <node x="208.0" y="674.0">com.staypc.utility.MailUtils</node>
+    <node x="1082.9" y="1017.0">com.staypc.service.Impl.LoginServiceImpl</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.staypc.service.Impl.LoginServiceImpl" target="com.staypc.vo.LoginVO">
+      <point x="104.33333333333326" y="-202.0" />
+      <point x="1343.7333333333331" y="964.0" />
+      <point x="1402.5" y="964.0" />
+      <point x="1402.5" y="490.0" />
+      <point x="1167.1125" y="490.0" />
+      <point x="68.25" y="235.0" />
+    </edge>
+    <edge source="com.staypc.service.Impl.LoginServiceImpl" target="com.staypc.service.LoginService">
+      <point x="-104.33333333333326" y="-202.0" />
+      <point x="1135.0666666666666" y="964.0" />
+      <point x="1010.75" y="964.0" />
+      <point x="78.25" y="157.5" />
+    </edge>
+    <edge source="com.staypc.controller.LoginController" target="com.staypc.utility.Utility">
+      <point x="42.66666666666663" y="-235.0" />
+      <point x="534.9291666666666" y="944.0" />
+      <point x="634.5" y="944.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.staypc.controller.LoginController" target="com.staypc.utility.FileRename">
+      <point x="-127.99999999999994" y="-235.0" />
+      <point x="364.2625" y="954.0" />
+      <point x="141.0" y="954.0" />
+      <point x="47.0" y="48.5" />
+    </edge>
+    <edge source="com.staypc.controller.LoginController" target="com.staypc.vo.LoginVO">
+      <point x="128.0" y="-235.0" />
+      <point x="620.2624999999999" y="954.0" />
+      <point x="765.5" y="954.0" />
+      <point x="765.5" y="490.0" />
+      <point x="1030.6125" y="490.0" />
+      <point x="-68.25" y="235.0" />
+    </edge>
+    <edge source="com.staypc.controller.LoginController" target="com.staypc.service.LoginService">
+      <point x="213.33333333333337" y="-235.0" />
+      <point x="705.5958333333333" y="964.0" />
+      <point x="854.25" y="964.0" />
+      <point x="-78.25" y="157.5" />
+    </edge>
+    <edge source="com.staypc.dao.LoginDAO" target="com.staypc.vo.LoginVO">
+      <point x="0.0" y="-202.0" />
+      <point x="1250.5" y="500.0" />
+      <point x="1121.6125" y="500.0" />
+      <point x="22.75" y="235.0" />
+    </edge>
+    <edge source="com.staypc.service.LoginService" target="com.staypc.vo.LoginVO">
+      <point x="0.0" y="-157.5" />
+      <point x="932.5" y="500.0" />
+      <point x="1076.1125" y="500.0" />
+      <point x="-22.75" y="235.0" />
+    </edge>
+    <edge source="com.staypc.controller.LoginController" target="com.staypc.utility.MailUtils">
+      <point x="-42.66666666666663" y="-235.0" />
+      <point x="449.5958333333333" y="944.0" />
+      <point x="351.0" y="944.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="com.staypc.service.Impl.LoginServiceImpl" target="com.staypc.dao.LoginDAO">
+      <point x="0.0" y="-202.0" />
+      <point x="1239.4" y="964.0" />
+      <point x="1250.5" y="964.0" />
+      <point x="0.0" y="202.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6459537572254332" x="799.0765475876217" y="744.938523112364" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
