@@ -5,10 +5,10 @@
   <nodes>
     <node x="236.26249999999993" y="984.0">com.staypc.controller.LoginController</node>
     <node x="1109.0" y="520.0">com.staypc.dao.LoginDAO</node>
-    <node x="514.0" y="696.5">com.staypc.utility.Utility</node>
     <node x="0.0" y="673.5">com.staypc.utility.FileRename</node>
-    <node x="1007.8625" y="0.0">com.staypc.vo.LoginVO</node>
+    <node x="514.0" y="696.5">com.staypc.utility.Utility</node>
     <node x="776.0" y="564.5">com.staypc.service.LoginService</node>
+    <node x="1007.8625" y="0.0">com.staypc.vo.LoginVO</node>
     <node x="208.0" y="674.0">com.staypc.utility.MailUtils</node>
     <node x="1082.9" y="1017.0">com.staypc.service.Impl.LoginServiceImpl</node>
   </nodes>
@@ -79,14 +79,16 @@
       <point x="0.0" y="202.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.6459537572254332" x="799.0765475876217" y="744.938523112364" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="0.5065128900949797" x="701.8187919463087" y="727.0" />
+  <SelectedNodes>
+    <node>com.staypc.dao.LoginDAO</node>
+  </SelectedNodes>
   <Categories>
-    <Category>Constructors</Category>
-    <Category>Inner Classes</Category>
-    <Category>Methods</Category>
-    <Category>Properties</Category>
     <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>

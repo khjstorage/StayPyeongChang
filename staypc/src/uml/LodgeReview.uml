@@ -3,27 +3,69 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1.1368683772161603E-13" y="0.0">com.staypc.service.LodgeReviewService</node>
-    <node x="0.0" y="616.0">com.staypc.dao.LodgeReviewDAO</node>
-    <node x="455.0" y="616.0">com.staypc.controller.LodgeReviewController</node>
-    <node x="455.0000000000001" y="0.0">com.staypc.vo.LodgeReviewVO</node>
-    <node x="0.0" y="299.0">com.staypc.service.Impl.LodgeReviewServiceImpl</node>
+    <node x="453.05357142857144" y="377.5">com.staypc.service.LodgeReviewService</node>
+    <node x="0.0" y="366.0">com.staypc.dao.LodgeReviewDAO</node>
+    <node x="627.2916666666667" y="699.0">com.staypc.controller.LodgeReviewController</node>
+    <node x="450.25" y="0.0">com.staypc.vo.LodgeReviewVO</node>
+    <node x="164.25" y="688.0">com.staypc.service.Impl.LodgeReviewServiceImpl</node>
   </nodes>
   <notes />
   <edges>
+    <edge source="com.staypc.service.Impl.LodgeReviewServiceImpl" target="com.staypc.dao.LodgeReviewDAO">
+      <point x="-136.66666666666663" y="-136.0" />
+      <point x="232.58333333333337" y="663.0" />
+      <point x="205.0" y="663.0" />
+      <point x="0.0" y="136.0" />
+    </edge>
+    <edge source="com.staypc.controller.LodgeReviewController" target="com.staypc.service.LodgeReviewService">
+      <point x="-105.75" y="-125.0" />
+      <point x="733.0416666666667" y="663.0" />
+      <point x="760.5535714285714" y="663.0" />
+      <point x="102.5" y="124.5" />
+    </edge>
     <edge source="com.staypc.service.Impl.LodgeReviewServiceImpl" target="com.staypc.service.LodgeReviewService">
-      <point x="1.1368683772161603E-13" y="-136.0" />
-      <point x="0.0" y="124.5" />
+      <point x="136.66666666666663" y="-136.0" />
+      <point x="505.91666666666663" y="663.0" />
+      <point x="555.5535714285714" y="663.0" />
+      <point x="-102.5" y="124.5" />
+    </edge>
+    <edge source="com.staypc.service.Impl.LodgeReviewServiceImpl" target="com.staypc.vo.LodgeReviewVO">
+      <point x="2.8421709430404007E-14" y="-136.0" />
+      <point x="369.25" y="663.0" />
+      <point x="420.5" y="663.0" />
+      <point x="420.5" y="346.0" />
+      <point x="508.75" y="346.0" />
+      <point x="-19.5" y="158.0" />
+    </edge>
+    <edge source="com.staypc.controller.LodgeReviewController" target="com.staypc.vo.LodgeReviewVO">
+      <point x="105.75" y="-125.0" />
+      <point x="944.5416666666667" y="663.0" />
+      <point x="884.172619047619" y="663.0" />
+      <point x="884.172619047619" y="336.0" />
+      <point x="586.75" y="336.0" />
+      <point x="58.5" y="158.0" />
+    </edge>
+    <edge source="com.staypc.dao.LodgeReviewDAO" target="com.staypc.vo.LodgeReviewVO">
+      <point x="0.0" y="-136.0" />
+      <point x="205.0" y="336.0" />
+      <point x="469.75" y="336.0" />
+      <point x="-58.5" y="158.0" />
+    </edge>
+    <edge source="com.staypc.service.LodgeReviewService" target="com.staypc.vo.LodgeReviewVO">
+      <point x="0.0" y="-124.5" />
+      <point x="658.0535714285714" y="346.0" />
+      <point x="547.75" y="346.0" />
+      <point x="19.5" y="158.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.9122448979591838" x="523.6107382550334" y="679.9999999999999" />
+  <settings layout="Hierarchic Group" zoom="0.8" x="469.33333333333337" y="498.6666666666667" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
-    <Category>Constructors</Category>
-    <Category>Methods</Category>
-    <Category>Properties</Category>
     <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
