@@ -35,23 +35,23 @@
 		<property name="password" value="${jdbc.password}"></property>
 	</bean>
 
-	<!--oracle SqlSessionFactoryBean 생성-->
-	<!--<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">-->
-		<!--<property name="dataSource" ref="dataSource"/>-->
-		<!--<property name="configLocation" value="classpath:oracle-sql-map-config.xml"/>-->
-	<!--</bean>-->
-	<!--<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">-->
-		<!--<constructor-arg index="0" ref="sqlSession" />-->
-	<!--</bean>-->
-
-	<!--mysql SqlSessionFactoryBean 생성-->
+	<!--oracle SqlSessionFactoryBeanionFactoryBean 생성-->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="configLocation" value="classpath:mysql-sql-map-config.xml"/>
+		<property name="configLocation" value="classpath:oracle-sql-map-config.xml"/>
 	</bean>
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSession" />
 	</bean>
+
+	<!--mysql SqlSessionFactoryBean 생성-->
+	<!--<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+		<!--<property name="dataSource" ref="dataSource"/>-->
+		<!--<property name="configLocation" value="classpath:mysql-sql-map-config.xml"/>-->
+	<!--</bean>-->
+	<!--<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">-->
+		<!--<constructor-arg index="0" ref="sqlSession" />-->
+	<!--</bean>-->
 
 
 
@@ -61,13 +61,13 @@
 	</bean>
 
 	<!--windows 방 사진 저장 위치-->
-	<!--<bean id="uploadPath" class="java.lang.String">-->
-		<!--<constructor-arg value="C:\lodgeImage"/>-->
-	<!--</bean>-->
+	<bean id="uploadPath" class="java.lang.String">
+		<constructor-arg value="C:\lodgeImage"/>
+	</bean>
 
 	<!-- mac os 사진 저장 위치 -->
-	<bean id="uploadPath" class="java.lang.String">
-		<constructor-arg value="/Users/kimhyunjin/Project"/>
-	</bean>
+	<!--<bean id="uploadPath" class="java.lang.String">-->
+		<!--<constructor-arg value="/Users/kimhyunjin/Project"/>-->
+	<!--</bean>-->
 
 </beans>
