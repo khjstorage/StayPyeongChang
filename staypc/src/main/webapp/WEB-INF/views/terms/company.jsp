@@ -29,8 +29,7 @@
 	        	<ul>
 	        		<li class="term1"><a href="/terms/accessTerms.do">이용약관</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>	        		
 	        		<li class="term2"><a href="/terms/privacy.do">개인정보 처리 방침</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-	        		<li class="term3"><a href="/terms/company.do">회사소개</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-	        		<li class="term4"><a href="/terms/accessTerms.do">도움말</a></li>	        		   		
+	        		<li class="term3"><a href="/terms/company.do">회사소개</a></li>	        			        		   		
 	        	</ul>
         	</div>
         	<br><br>

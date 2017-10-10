@@ -53,12 +53,11 @@ text-decoration:none;
 	margin-left : 20%;
 	margin-top : 30px;
 }
-	
-.menu ul{
-	border-bottom : solid 1px #868686;
-	height : 30px;
-}
 
+.Tmenu {	
+	margin-left : 20%;
+	width:500px;	
+}
 
 
 .term1 {
@@ -73,8 +72,6 @@ text-decoration:none;
 	 color : rgb(242,17,76);
 	 font-weight : bold;
 }
-
-
 
 .term2 {
 	 float : left;
@@ -119,8 +116,8 @@ text-decoration:none;
 }
 
 #SPCTerms {
-	font-size : 20px;
-	/*border : solid 1px;*/	
+	font-size : 20px;	
+	margin-left:-5%;	
 	font-weight : bold;
-	margin-left : 32%;
+	
 }

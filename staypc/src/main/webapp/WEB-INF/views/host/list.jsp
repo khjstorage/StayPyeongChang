@@ -40,7 +40,7 @@
 	                        <fmt:parseDate value='${row.check_Out}' var="check_Out" pattern="yyyy-MM-dd HH:mm:ss"/>
 	                        <fmt:formatDate value='${check_In}' var="checkIn" pattern="yyyy-MM-dd"/>
 	                        <fmt:formatDate value='${check_Out}' var="checkOut" pattern="yyyy-MM-dd"/>
-	                        <div class="checkInOut">체크인,체크아웃 시간 : ${checkIn}~${checkOut}</div>                    
+	                        <div class="checkInOut">예약가능 날짜 : ${checkIn} ~ ${checkOut}</div>                    
 	                    </div>	                        
 	                    </div>	                    	                    
 	            </c:forEach>	        
