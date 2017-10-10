@@ -13,7 +13,7 @@ text-decoration:none;
 	width:100%;
 }
 #info{
-	margin:100px 0px 14px 250px;
+	/*margin:100px;*/
 }
 
 #search{ height: 60px; width: 1000px; }
@@ -34,9 +34,18 @@ text-decoration:none;
 }
 
 
+.common_wrapper{
+ width:auto;
+ height:auto;
+ margin:0 auto;
+ margin-top:30px; 
+ margin-bottom : 200px;
+ 
+ }
 
 
-
-
-
+.main_section01 {
+	margin-left : 33%;	
+	width:800px;
+}
 

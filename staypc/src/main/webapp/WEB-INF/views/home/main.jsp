@@ -52,9 +52,9 @@
 <body>
 
 <div id="main">
-
+<div class="common_wrapper">
 	<!--검색-->
-    <div class="main_section01" align="center">
+    <div class="main_section01">
 		<div id="info">
 			<table>
 				<tbody>
@@ -109,6 +109,7 @@
                 </c:forEach>
             </tr>
         </table>
+		<br><br>
 
 		<div class="hostlist_view">
 			<a href='<c:url value="/lodge/list.do" ></c:url>'>전체보기</a>
@@ -124,7 +125,7 @@
             </tr>
         </table>
     </div>
-
+</div>
 </div>
 </body>
 </html>

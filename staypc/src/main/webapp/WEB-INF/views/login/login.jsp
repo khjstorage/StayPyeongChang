@@ -25,7 +25,7 @@
                 <table style="">
                     <tr>
                         <td colspan="2" style="text-align:center; ">
-                            <div class="login_text">회원 로그인</div>
+                            <div class="login_text">회원 로그인</div><br>
                         </td>
                     </tr>
                     <tr>
@@ -47,8 +47,8 @@
                     <tr>
                         <td colspan="2" style="text-align:center;">
                             <div class="login_input" style="width:100%">
-                                <input type="submit" value="로그인" style="font-size:16px; text-align:center;
-						background-color:#feb032; color:#ffffff; font-size:24px;
+                                <input type="submit" value="로그인" style="font-size:14px; text-align:center;
+						background-color:#3DB7CC; color:#ffffff; font-size:24px;
 						font-weight:bold; width:200px;">
                             </div>
                         </td>
