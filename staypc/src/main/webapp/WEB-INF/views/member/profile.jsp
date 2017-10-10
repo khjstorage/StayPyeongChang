@@ -1,7 +1,13 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <!DOCTYPE html>
 <head>
 <title>profile page</title>
+    <%--제이쿼리--%>
+    <script src="/resources/js/jquery-3.2.1.min.js"></script>
+    <%--데이터피커--%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link href="/resources/css/profile_style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 		function board_delete(lodge_Code){
@@ -135,10 +141,11 @@
 				<br> <span style="font-size: 20px;">내 위시리스트</span> <br>
 				<br>
 				<div class="wishList_Detail">
-				<table style="cellspacing:5px; cellpadding:auto;">					
+				<table style="cellspacing:5px;cellpadding:auto;">					
+				<!--	<table style="cellspacing:5px;cellpadding:auto;table-layout:fixed; word-break:break-all; width:500px;" >  -->						
 						<tr>
 						<c:forEach var="list" items="${list}" varStatus="status">
-							<td>
+							<td align="center">
 								<a href="<c:url value="/lodge/read.do?lodge_Code=${list.lodge_Code}"/>">
 								<img style="background-size: cover;" src="/host/displayFile.do?fileName=${list.staypcLodge[0].main_Image}" width="250" height="250"> </a>
 							<br>
