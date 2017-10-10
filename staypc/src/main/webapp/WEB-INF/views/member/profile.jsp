@@ -6,16 +6,6 @@
  html {
             overflow: scroll;
         }
-.scrollbar
-{
-	margin-left: 30px;
-	float: left;
-	height: 300px;
-	width: 65px;
-	background: #F5F5F5;
-	overflow-y: scroll;
-	margin-bottom: 25px;
-}
 </style>
 <title>profile page</title>
     <%--제이쿼리--%>
