@@ -4,6 +4,10 @@
 <head>
     <title>공지사항 상세</title>
     <link href="/resources/css/notice_view.css" rel="stylesheet" type="text/css">
+    
+
+   
+    
     <script>
         function test(idMyDiv) {
             var objDiv = document.getElementById(idMyDiv);
