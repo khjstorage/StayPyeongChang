@@ -109,16 +109,11 @@ public class LodgeController {
 		request.setAttribute("allPage", allPage);
 
 
-
-
-
-//		for(int i=0; i<list.size(); i++) {
-//			String reviewId = list.get(i).getId();
-//			LoginVO member = loginService.getMember(reviewId);
-//			mav.addObject("member",member);
-//		}
-//		
-
+		for(int i=0; i<list.size(); i++) {
+			String reviewId = list.get(i).getId();
+			LoginVO member = loginService.getMember(reviewId);
+			mav.addObject("member",member);
+		}
 
 		mav.addObject("rew", list);
 		System.out.println("[][]"+list);
@@ -130,7 +125,6 @@ public class LodgeController {
 		//호스팅 글
 		LodgeVO vo2 = lodgeService.read(lodge_Code);
 		mav.addObject("vo", vo2);
-
 
 		//호스팅 이미지
 		List listImg = lodgeService.readImg(lodge_Code);

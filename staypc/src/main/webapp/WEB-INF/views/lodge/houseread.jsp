@@ -242,10 +242,9 @@
         <c:if test="${ !empty rew}">
             <c:forEach items="${rew}" var="rew">
                 <c:if test="${rew.lodge_Code==vo.lodge_Code}">
-
                     <tr>
                         <td class="img-circular" colspan="30" align="left">
-                            <img align="left" src="<c:url value='/resources/profile_photo/${rew.picture}'/>"/>&nbsp;&nbsp;&nbsp;
+                            <img align="left" src="<c:url value='/resources/profile_photo/${member.picture}'/>"/>&nbsp;&nbsp;&nbsp;
                             <font size="4.5px" font-weight="bold">${ rew.id }</font><br>
                             &nbsp;&nbsp;&nbsp;<fmt:formatDate value="${ rew.reg_date }" pattern="yyyy년MM월dd일"/>
                         </td>
