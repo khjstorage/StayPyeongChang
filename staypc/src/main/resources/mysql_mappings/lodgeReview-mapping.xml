@@ -84,15 +84,15 @@
     </select>
     
     <resultMap id="lodgeReview" type="java.util.HashMap">
-        <id property="id" column="id" />
+        <id property="lodge_code" column="lodge_code" />
         <result property="REVIEW_NUM" column="REVIEW_NUM"/>
+        <result property="id" column="id"/>
         <result property="CONTENT" column="CONTENT"/>
         <result property="REG_DATE" column="REG_DATE"/>
         <result property="PARENT" column="PARENT"/>
         <result property="SORT" column="SORT"/>
         <result property="TAB" column="TAB"/>
-        <result property="lodge_code" column="lodge_code"/>
-        <collection property="reviewList" javaType="java.util.ArrayList" resultMap="lodgeReviewResultMap"/>
+       <collection property="reviewList" javaType="java.util.ArrayList" resultMap="lodgeReviewResultMap"/>
     </resultMap>   
     
     <resultMap id="lodgeReviewResultMap" type="java.util.HashMap">
