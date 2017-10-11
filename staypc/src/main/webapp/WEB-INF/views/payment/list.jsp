@@ -36,6 +36,10 @@
                         <a href="/host/detail.do?lodge_code=${row.lodge_Code}"><img style="background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280"></a>
                         <div class="roomNameCheck">
                             <div class="roomName">숙소코드 : ${row.lodge_Code}</div>
+<<<<<<< HEAD
+=======
+                            <div class="checkInOut">체크인,체크아웃 날짜 : ${checkIn} ~ ${checkOut}</div>
+>>>>>>> fc658ea0d9aa8fc3c20791acbd02439f253042b1
                         </div>
                     </div>
                 </c:forEach>

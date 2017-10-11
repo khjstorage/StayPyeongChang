@@ -70,8 +70,6 @@ ul,ol,li { list-style-type:none;}
 }
 
 
-
-
 /* profile update page */
 
 .profileUpdatePage {
@@ -84,13 +82,10 @@ ul,ol,li { list-style-type:none;}
  height:auto;
  margin:0 auto;
  margin-top:30px;
- margin-bottom : 100px;
+ margin-bottom : 300px;
  }
 
 
-/*#modifyForm {
-	margin : 100px 20%;
-}*/
 
 .sidemenu {
 	border : solid 1px;
@@ -285,6 +280,7 @@ ul,ol,li { list-style-type:none;}
 .userImgInfo {
 	margin-left : 20%;
 	margin-top : 30px;
+	
 }
 
 .userInfo {

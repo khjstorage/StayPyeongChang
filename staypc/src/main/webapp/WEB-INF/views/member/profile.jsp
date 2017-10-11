@@ -24,7 +24,7 @@
         }
 </script>
 </head>
-<body >
+<body>
 	<div class="profile" >
 		<div class="common_wrapper">
 			<!-- profile page -->

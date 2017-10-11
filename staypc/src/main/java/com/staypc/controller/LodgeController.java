@@ -110,14 +110,14 @@ public class LodgeController {
 		request.setAttribute("allPage", allPage);
 
 		
-		for(int i=0; i<list.size(); i++) {
-			String reviewId = list.get(i).getId();
-			System.out.println(reviewId);
-			LoginVO member = loginService.getMember(reviewId);
-			System.out.println(member);
-			mav.addObject("member",member);
-		}
 
+//		for(int i=0; i<list.size(); i++) {
+//			String reviewId = list.get(i).getId();
+//			LoginVO member = loginService.getMember(reviewId);
+//			mav.addObject("member",member);
+//		}
+//		
+		
 
 		LodgeVO host = lodgeService.read(lodge_Code);
 		LoginVO host2=loginService.getMember(host.getId());
