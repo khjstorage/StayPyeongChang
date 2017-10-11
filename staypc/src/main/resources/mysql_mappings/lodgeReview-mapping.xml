@@ -82,8 +82,25 @@
         FROM    STAYPC_REVIEW
         where   REVIEW_NUM=#{review_num}
     </select>
+    
+    <resultMap id="lodgeReview" type="java.util.HashMap">
+        <id property="lodge_code" column="lodge_code" />
+        <result property="REVIEW_NUM" column="REVIEW_NUM"/>
+        <result property="id" column="id"/>
+        <result property="CONTENT" column="CONTENT"/>
+        <result property="REG_DATE" column="REG_DATE"/>
+        <result property="PARENT" column="PARENT"/>
+        <result property="SORT" column="SORT"/>
+        <result property="TAB" column="TAB"/>
+       <collection property="reviewList" javaType="java.util.ArrayList" resultMap="lodgeReviewResultMap"/>
+    </resultMap>   
+    
+    <resultMap id="lodgeReviewResultMap" type="java.util.HashMap">
+        <id property="id" column="id"/>
+        <result property="PICTURE" column="PICTURE"/>
+    </resultMap>
 
-    <select id="getBoardList" resultType="lodgeReview" parameterType="java.util.HashMap">
+    <select id="getBoardList" resultMap="lodgeReview" parameterType="java.util.HashMap">
    	<![CDATA[					
 		SELECT * 
 		  FROM ( SELECT p.REVIEW_NUM,
