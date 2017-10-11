@@ -52,8 +52,12 @@
                     </div>
 
                     <div class="btn">
-                        <input type="button" id="update" onclick="location.href='notice_update.do'" value="수정">
-                        <input type="button" id="drop" value="삭제">
+                    <c:if test="${sessionScope.userId eq 'admin'}">						
+						<input type="button" id="update" onclick="location.href='notice_update.do'" value="수정" />						
+					</c:if>
+                    <c:if test="${sessionScope.userId eq 'admin'}">						
+						<input type="button" id="drop" onclick="#" value="삭제" />						
+					</c:if>                        
                         <input type="button" id="list" value="목록" onclick="location.href='notice_list.do'">
                     </div>
                 </div>
