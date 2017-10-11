@@ -69,20 +69,20 @@
 				<td>
 					<form name="form1" method="post" action='<c:url value="/lodge/list.do"></c:url>'>
 						<input type="text" id="sdate" name="sdate" value="${map.sdate }">~<input type="text" id="edate" name="edate" value="${map.edate }">
-						<input type="text" value="${map.keyword }" name="keyword" placeholder="위치">
-						<select name="num">
-							<option value="">인원</option>
-							<option value="1" <c:out value="${map.num=='1'?'selected':'' }"/>>1명</option>
-							<option value="2" <c:out value="${map.num=='2'?'selected':'' }"/>>2명</option>
-							<option value="3" <c:out value="${map.num=='3'?'selected':'' }"/>>3명</option>
-							<option value="4" <c:out value="${map.num=='4'?'selected':'' }"/>>4명</option>
-							<option value="5" <c:out value="${map.num=='5'?'selected':'' }"/>>5명</option>
-							<option value="6" <c:out value="${map.num=='6'?'selected':'' }"/>>6명</option>
-							<option value="7" <c:out value="${map.num=='7'?'selected':'' }"/>>7명</option>
-							<option value="8" <c:out value="${map.num=='8'?'selected':'' }"/>>8명</option>
-							<option value="9" <c:out value="${map.num=='9'?'selected':'' }"/>>9명</option>
-							<option value="10" <c:out value="${map.num=='10'?'selected':'' }"/>>10명</option>
-						</select>
+						<%--<input type="text" value="${map.keyword }" name="keyword" placeholder="위치">--%>
+						<%--<select name="num">--%>
+							<%--<option value="">인원</option>--%>
+							<%--<option value="1" <c:out value="${map.num=='1'?'selected':'' }"/>>1명</option>--%>
+							<%--<option value="2" <c:out value="${map.num=='2'?'selected':'' }"/>>2명</option>--%>
+							<%--<option value="3" <c:out value="${map.num=='3'?'selected':'' }"/>>3명</option>--%>
+							<%--<option value="4" <c:out value="${map.num=='4'?'selected':'' }"/>>4명</option>--%>
+							<%--<option value="5" <c:out value="${map.num=='5'?'selected':'' }"/>>5명</option>--%>
+							<%--<option value="6" <c:out value="${map.num=='6'?'selected':'' }"/>>6명</option>--%>
+							<%--<option value="7" <c:out value="${map.num=='7'?'selected':'' }"/>>7명</option>--%>
+							<%--<option value="8" <c:out value="${map.num=='8'?'selected':'' }"/>>8명</option>--%>
+							<%--<option value="9" <c:out value="${map.num=='9'?'selected':'' }"/>>9명</option>--%>
+							<%--<option value="10" <c:out value="${map.num=='10'?'selected':'' }"/>>10명</option>--%>
+						<%--</select>--%>
 						<input type="submit" value="검색">
 					</form>
 				</td>
@@ -110,7 +110,6 @@
             </tr>
         </table>
 		<br><br>
-
 		<div class="hostlist_view">
 			<a href='<c:url value="/lodge/list.do" ></c:url>'>전체보기</a>
 		</div>

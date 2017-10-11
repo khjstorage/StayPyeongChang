@@ -4,7 +4,6 @@
 <head>
     <title>공지사항 상세</title>
     <link href="/resources/css/notice_view.css" rel="stylesheet" type="text/css">
-    <link href="css/notice_view.css" rel="stylesheet" type="text/css">
     <script>
         function test(idMyDiv) {
             var objDiv = document.getElementById(idMyDiv);
@@ -15,6 +14,15 @@
                 objDiv.style.display = "none";
             }
         }
+
+        $(document).ready(function(){
+           $("#drop").on("click", function () {
+               var num = $("#list_no").val();
+               if(confirm("삭제하시겠습니까?")){
+                   location.href="notice_delete.do?list_no="+num;
+               }
+           })
+        });
     </script>
 </head>
 <body>
@@ -50,12 +58,14 @@
                         <c:out value="${object.content}" escapeXml="false"/>
                         <br><br>
                     </div>
-
-                    <div class="btn">
-                        <input type="button" id="update" onclick="location.href='notice_update.do'" value="수정">
-                        <input type="button" id="drop" value="삭제">
-                        <input type="button" id="list" value="목록" onclick="location.href='notice_list.do'">
-                    </div>
+                        <div class="btn">
+                            <c:if test="${sessionScope.userId eq 'admin'}">
+                                <input type="button" id="update" onclick="location.href='notice_update_form.do?list_no=${object.list_no}'" value="수정">
+                                <input type="hidden" id="list_no" value="${object.list_no}">
+                                <input type="button" id="drop" value="삭제">
+                            </c:if>
+                            <input type="button" id="list" value="목록" onclick="location.href='notice_list.do'">
+                        </div>
                 </div>
             </div>
         </div>
