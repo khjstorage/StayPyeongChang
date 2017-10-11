@@ -57,65 +57,7 @@ text-decoration:none;
 	margin-left : 20%;	
 	margin-top : 30px;
 }
-	
-.Tmenu {
-	margin-left : 40%;
-	width:500px;	
-}
 
-.term1 {
-	 float : left;
-	 height : 100px;	 
-}
-
-.term1 a {
-	 display: inline;
-	 text-align: center;
-	 color : #868686;	 
-}
-
-
-.term2 {
-	 float : left;
-}
-
-.term2 a {
-	 display: inline;
-	 text-align: center;
-	 color : #868686;	 
-}
-
-.term3 {
-	 float : left;
-}
-
-.term3 a {
-	 display: inline;
-	 text-align: center;
-	 color : rgb(242,17,76);
-	 font-weight : bold;
-}
-
-.term4 {
-	 float : left;
-}
-
-.term4 a {
-	 display: inline;
-	 text-align: center;
-	 color : #868686;
-}
-
-.infoDetail {
-	width : auto;
-	height : auto;
-	
-} 
-
-/*.comIntr {
-	width : auto;
-	margin : 20px 0px;	
-}*/
 
 .textInfo {
 	margin : 20px;
