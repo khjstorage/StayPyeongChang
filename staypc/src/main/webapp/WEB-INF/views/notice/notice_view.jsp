@@ -62,7 +62,6 @@
                         <c:out value="${object.content}" escapeXml="false"/>
                         <br><br>
                     </div>
-<<<<<<< HEAD
                         <div class="btn">
                             <c:if test="${sessionScope.userId eq 'admin'}">
                                 <input type="button" id="update" onclick="location.href='notice_update_form.do?list_no=${object.list_no}'" value="수정">
@@ -71,18 +70,6 @@
                             </c:if>
                             <input type="button" id="list" value="목록" onclick="location.href='notice_list.do'">
                         </div>
-=======
-
-                    <div class="btn">
-                    <c:if test="${sessionScope.userId eq 'admin'}">						
-						<input type="button" id="update" onclick="location.href='notice_update.do'" value="수정" />						
-					</c:if>
-                    <c:if test="${sessionScope.userId eq 'admin'}">						
-						<input type="button" id="drop" onclick="#" value="삭제" />						
-					</c:if>                        
-                        <input type="button" id="list" value="목록" onclick="location.href='notice_list.do'">
-                    </div>
->>>>>>> fc658ea0d9aa8fc3c20791acbd02439f253042b1
                 </div>
             </div>
         </div>
