@@ -51,7 +51,7 @@
                         <li><a href='<c:url value="/login/logout.do"></c:url>'>로그아웃</a></li>
                     </c:otherwise>
                 </c:choose>
-                <li id="profile_icon"><a href=""><img src="/resources/images/profile.png"></a></li>
+               
             </ul>
         </nav>
     </div>

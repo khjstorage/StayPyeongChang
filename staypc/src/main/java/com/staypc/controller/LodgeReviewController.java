@@ -38,6 +38,7 @@ public class LodgeReviewController {
 		//System.out.println(vo.getLodge_Code());
 		mav.addObject("lodge_Code", lodge_Code);
 		mav.addObject("rew", vo);
+		
 		System.out.println("결과값"+vo.toString());
 		mav.setViewName("lodge/reviewread");
 		
@@ -59,6 +60,7 @@ public class LodgeReviewController {
 		mav.addObject("rew", vo);
 		mav.setViewName("lodge/insertBoard");
 		
+			
 		return mav;
 		
 	}	
@@ -128,6 +130,7 @@ public class LodgeReviewController {
         Service.insert(vo);
     	ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:read.do?lodge_Code="+vo.getLodge_Code());
+		
 		return mav;
 	}
     

@@ -6,6 +6,7 @@ import com.staypc.vo.NoticeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -42,12 +43,20 @@ public class NoticeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "notice/notice_update_form.do", method = RequestMethod.GET)
+	public ModelAndView notice_update_form(NoticeVO vo, ModelAndView mav) {
+		mav.addObject("vo", noticeService.notice_view(vo));
+		mav.setViewName("notice/notice_update");
+		return mav;
+	}
+
 	@RequestMapping("notice/notice_update.do")
 	public String notice_update(NoticeVO vo) {
 		noticeService.notice_update(vo);
 		return "redirect:/notice/notice_list.do";
 	}
-	
+
+
 	@RequestMapping("notice/notice_delete.do")
 	public String notice_delete(NoticeVO vo) {
 		noticeService.notice_delete(vo);

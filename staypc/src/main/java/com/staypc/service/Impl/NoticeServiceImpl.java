@@ -46,6 +46,11 @@ public class NoticeServiceImpl implements NoticeService {
 	public int notice_cnt() {
 		// TODO Auto-generated method stub
 		return noticeDao.notice_cnt();
-	}	
+	}
+
+	@Override
+	public NoticeVO getNotice(NoticeVO vo) {
+		return noticeDao.getNotice(vo);
+	}
 
 }

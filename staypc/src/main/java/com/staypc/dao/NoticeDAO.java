@@ -31,4 +31,7 @@ public class NoticeDAO {
 	public int notice_cnt() {
 		return mybatis.selectOne("notice_cnt");
 	};
+    public NoticeVO getNotice(NoticeVO vo) {
+    	return mybatis.selectOne("notice_getNotice", vo);
+    }
 }

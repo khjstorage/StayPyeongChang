@@ -86,16 +86,17 @@
     <select id="getBoardList" resultType="lodgeReview" parameterType="java.util.HashMap">
    	<![CDATA[					
 		SELECT * 
-		  FROM ( SELECT REVIEW_NUM,
-				ID,
-				CONTENT,
-				REG_DATE,
-				PARENT,
-				SORT,
-				TAB,
-				lodge_code,
+		  FROM ( SELECT p.REVIEW_NUM,
+				p.ID,
+				c.PICTURE,
+				p.CONTENT,
+				p.REG_DATE,
+				p.PARENT,
+				p.SORT,
+				p.TAB,
+				p.lodge_code,
 				ROW_NUMBER() OVER (ORDER BY PARENT DESC, SORT ASC) AS RNUM
-			   FROM STAYPC_REVIEW
+			   FROM STAYPC_REVIEW p LEFT JOIN STAYPC_MEMBER c on p.ID=c.ID
 		 ) A
 		 WHERE RNUM >= #{p_first} AND RNUM <= #{p_last}
 	]]>
