@@ -54,12 +54,20 @@ text-decoration:none;
     text-decoration:none;
 }
 ul,ol,li { list-style-type:none;}
-
+.scrollbar
+{
+	margin-left: 30px;
+	float: left;
+	height: 300px;
+	width: 65px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+</
 #profile_icon {
 	margin-top:8px;
 }
-
-
 
 
 /* profile update page */
@@ -74,13 +82,10 @@ ul,ol,li { list-style-type:none;}
  height:auto;
  margin:0 auto;
  margin-top:30px;
- margin-bottom : 100px;
+ margin-bottom : 300px;
  }
 
 
-/*#modifyForm {
-	margin : 100px 20%;
-}*/
 
 .sidemenu {
 	border : solid 1px;
@@ -275,6 +280,7 @@ ul,ol,li { list-style-type:none;}
 .userImgInfo {
 	margin-left : 20%;
 	margin-top : 30px;
+	
 }
 
 .userInfo {

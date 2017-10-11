@@ -1,7 +1,18 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <!DOCTYPE html>
 <head>
+<style type="text/css">
+ html {
+            overflow: scroll;
+        }
+</style>
 <title>profile page</title>
+    <%--제이쿼리--%>
+    <script src="/resources/js/jquery-3.2.1.min.js"></script>
+    <%--데이터피커--%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link href="/resources/css/profile_style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 		function board_delete(lodge_Code){
@@ -12,21 +23,14 @@
 			}
         }
 </script>
-<style type="text/css"></style>
-
 </head>
-
 <body>
-
-	<div class="profile">
+	<div class="profile" >
 		<div class="common_wrapper">
-
-
 			<!-- profile page -->
-
 			<div class="sidemenu">
 				<ul>
-					<li style="margin-top: 40px;"><a href="/member/modify.do">프로필수정</a></li>
+					<li style="margin-top: 40px;"><a href="/member/modify.do">프로필 수정</a></li>
 					<br>
 					<li style="margin-top: 10px;"><a href="/member/profile.do">프로필 보기</a></li>
 					<br>
@@ -126,8 +130,7 @@
 					</ul>
 				</div>
 			</div>
-
-			<div class="wishList">
+			<div class="wishList" style="height:auto;">
 				<span style="font-size: 30px;">안녕하세요, ${member.name} 입니다!</span>
 				<h4 style="line-height: 25px;">${member.introduction}</h4>
 				<br>
@@ -135,22 +138,34 @@
 				<br> <span style="font-size: 20px;">내 위시리스트</span> <br>
 				<br>
 				<div class="wishList_Detail">
-					<c:forEach var="list" items="${list}" varStatus="status">
+				<table style="cellspacing:5px;cellpadding:auto;">			
 						<tr>
+						<c:set var="i" value="0"/>
+						<c:set var="j" value="3"/>
+						<c:forEach var="list" items="${list}" varStatus="status">
+						<c:if test="${i%j==0 }">
+						<tr>
+						</c:if>
 							<td align="center">
 								<a href="<c:url value="/lodge/read.do?lodge_Code=${list.lodge_Code}"/>">
-								<img style="background-size: cover;" src="/host/displayFile.do?fileName=${list.staypcLodge[0].main_Image}" width="300" height="280"> </a>
+								<img style="background-size: cover;" src="/host/displayFile.do?fileName=${list.staypcLodge[0].main_Image}" width="250" height="250"> </a>
+							<br>
+							${list.title}
+							<br><fmt:formatDate value="${list.reg_Date}" pattern="yy-MM-dd" />
+							<br><input type="button" value="삭 제" onclick="board_delete(${list.lodge_Code})">
 							</td>
-							<td style="width: 80px" align="center">${list.title}</td>
-							<td align="center"><fmt:formatDate value="${list.reg_Date}" pattern="yy-MM-dd" /></td>
-							<td align="center"><input type="button" value="삭 제" onclick="board_delete(${list.lodge_Code})"></td>
-						</tr>
-						<br>
-					</c:forEach>
+							<c:if test="${i%j==j-1 }">
+							</tr>
+							</c:if>
+							<c:set var="i" value="${i+1 }"/>
+							</c:forEach>
+						</tr>	
+					</table>
+				</div>
+				</div>
 				</div>
 			</div>
-		</div>
-	</div>
+	
 </body>
 </html>
 

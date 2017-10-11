@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin">
+	<select id="member_view" parameterType="memberDTO" resultType="memberDTO">
+        SELECT *
+        FROM   staypc_member
+        WHERE  id = # {id}
+	</select>
+
+	<select id="member_list" parameterType="memberDTO" resultType="memberDTO">
+            SELECT id,
+               password,
+               email,
+               NAME,
+               birth_date,
+               picture,
+               phone,
+               gender,
+               city,
+               introduction,
+               regdate,
+               verify_email,
+               email_yn,
+               phone_yn,
+               city_yn,
+               birth_yn
+        FROM   (SELECT rownum rn,
+                       id,
+                       password,
+                       email,
+                       NAME,
+                       birth_date,
+                       picture,
+                       phone,
+                       gender,
+                       city,
+                       introduction,
+                       regdate,
+                       verify_email,
+                       email_yn,
+                       phone_yn,
+                       city_yn,
+                       birth_yn
+                FROM   staypc_member)
+        WHERE  rn BETWEEN # {begin} AND # {end}
+	</select>
+
+	<select id="member_cnt" resultType="Integer">
+        SELECT Count(*)
+          FROM staypc_member
+	</select>
+		
+	<!-- 호스팅 -->
+	<select id="lodge_view" parameterType="lodge" resultType="lodge">
+	    select * from STAYPC_LODGE  where lodge_code=#{lodge_code}
+	</select>
+
+	<delete id="lodge_delete"  parameterType="lodge" >
+		delete STAYPC_LODGE where lodge_code=#{lodge_code}
+	</delete>
+
+	<select id="lodge_list" parameterType="lodge" resultType="lodge">
+	select  LODGE_CODE,
+        ID,
+        TITLE,
+        ROOM_NAME,
+        LOCATION,
+        ENTER_TIME,
+        OUT_TIME,
+        CHECK_IN,
+        CHECK_OUT,
+        CHARGE,
+        ROOM_PHONE,
+        MAX_PEOPLE,
+        ROOM_TYPE,
+        BULID_TYPE,
+        ROOM_NUM,
+        BED_NUM,
+        BED_TYPE,
+        CONVENIENT,
+        SECURE,
+        ROOM_EXPLAIN,
+        REFUND_PROVISION,
+        MAIN_IMAGE,
+        REG_DATE,
+        UPDATE_DATE
+from (
+    select  rownum rn,
+            LODGE_CODE,
+            ID,
+            TITLE,
+            ROOM_NAME,
+            LOCATION,
+            ENTER_TIME,
+            OUT_TIME,
+            CHECK_IN,
+            CHECK_OUT,
+            CHARGE,
+            ROOM_PHONE,
+            MAX_PEOPLE,
+            ROOM_TYPE,
+            BULID_TYPE,
+            ROOM_NUM,
+            BED_NUM,
+            BED_TYPE,
+            CONVENIENT,
+            SECURE,
+            ROOM_EXPLAIN,
+            REFUND_PROVISION,
+            MAIN_IMAGE,
+            REG_DATE,
+            UPDATE_DATE
+    from staypc_lodge)
+where rn between #{begin} and #{end}
+	</select>
+
+    <select id="lodge_cnt" resultType="Integer">
+	    select count(*) from staypc_lodge
+	</select>
+		
+	
+	<!-- 결제 -->	
+	<select id="payment_total_list"  resultType="payment">
+		select * from STAYPC_PAYMENT
+	</select>	
+	<select id="payment_view" parameterType="payment" resultType="payment">
+		select * from STAYPC_PAYMENT   where payment_code=#{payment_code}
+	</select>
+	<select id="payment_list" parameterType="payment" resultType="payment">
+	select  ID,
+        LODGE_CODE,
+        CARD_NUM,
+        CARD_VALID,
+        CARD_CVC,
+        CHECK_IN,
+        CHECK_OUT,
+        SUM_MONEY,
+        REG_DATE,
+        BOOK_CANCLE,
+        PAYMENT_CODE
+from (
+    select  rownum rn,
+            ID,
+            LODGE_CODE,
+            CARD_NUM,
+            CARD_VALID,
+            CARD_CVC,
+            CHECK_IN,
+            CHECK_OUT,
+            SUM_MONEY,
+            REG_DATE,
+            BOOK_CANCLE,
+            PAYMENT_CODE
+    from staypc_payment)
+where rn between #{begin} and #{end}
+	</select>
+		<select id="payment_cnt" resultType="Integer">
+	select count(*) from staypc_payment
+	</select>
+		
+	
+	
+</mapper>

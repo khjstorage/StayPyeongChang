@@ -8,7 +8,6 @@
         VALUES  (#{lodge_Code},#{id}, #{title}, SYSDATE)
     </insert>
 
-    <!--todo ok 아이디까지 검사했습니다-->
     <delete id="deleteWish">
         DELETE FROM STAYPC_WISH WHERE LODGE_CODE=#{lodge_Code} and id=#{id}
     </delete>

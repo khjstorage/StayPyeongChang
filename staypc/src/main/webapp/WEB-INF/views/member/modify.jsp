@@ -19,7 +19,7 @@
         <div class="align">
             <div class="sidemenu">
                 <ul>
-                    <li style="margin-top: 40px;"><a href="/member/modify.do">프로필수정</a></li>
+                    <li style="margin-top: 40px;"><a href="/member/modify.do">프로필 수정</a></li>
                     <br>
                     <li style="margin-top: 10px;"><a href="/member/profile.do">프로필 보기</a></li>
                     <br>
@@ -97,27 +97,20 @@
                             <div class="user_birthDate">
                                 <fmt:parseDate value='${member.birth_date}' var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
                                 <fmt:formatDate value='${dateFmt}' var="birth_date" pattern="yyyy-MM-dd"/>
-                                <input type="text" name="birth_date" id="birth_date" class="datepicker"
-                                       value='${birth_date}' style="width:200px;"> <br>
+                                <input type="text" name="birth_date" id="birth_date" class="datepicker" value='${birth_date}' style="width:200px;"> <br>
                                 <div class="radio_birthDate">
                                     <c:choose>
                                         <c:when test="${member.birth_yn eq 'Y'}">
-                                            <input type="radio" id="birth_unlock" value="Y" name="birth_yn"
-                                                   checked="checked" style="margin-left:70px;"> 공개
-                                            <input type="radio" id="birth_lock" value="N" name="birth_yn"
-                                                   style="margin-left:10px;"> 비공개
+                                            <input type="radio" id="birth_unlock" value="Y" name="birth_yn" checked="checked" style="margin-left:70px;"> 공개
+                                            <input type="radio" id="birth_lock" value="N" name="birth_yn" style="margin-left:10px;"> 비공개
                                         </c:when>
                                         <c:when test="${member.birth_yn eq 'N'}">
-                                            <input type="radio" id="birth_unlock" value="Y" name="birth_yn"
-                                                   style="margin-left:70px;"> 공개
-                                            <input type="radio" id="birth_lock" value="N" name="birth_yn"
-                                                   checked="checked" style="margin-left:10px;"> 비공개
+                                            <input type="radio" id="birth_unlock" value="Y" name="birth_yn" style="margin-left:70px;"> 공개
+                                            <input type="radio" id="birth_lock" value="N" name="birth_yn" checked="checked" style="margin-left:10px;"> 비공개
                                         </c:when>
                                         <c:otherwise>
-                                            <input type="radio" id="birth_unlock" value="Y" name="birth_yn"
-                                                   style="margin-left:70px;"> 공개
-                                            <input type="radio" id="birth_lock" value="N" name="birth_yn"
-                                                   style="margin-left:10px;"> 비공개
+                                            <input type="radio" id="birth_unlock" value="Y" name="birth_yn" style="margin-left:70px;"> 공개
+                                            <input type="radio" id="birth_lock" value="N" name="birth_yn" style="margin-left:10px;"> 비공개
                                         </c:otherwise>
                                     </c:choose>
                                 </div>

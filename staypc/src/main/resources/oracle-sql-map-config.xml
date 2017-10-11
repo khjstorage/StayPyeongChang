@@ -16,14 +16,14 @@
     </typeAliases>
 
     <mappers>
-        <mapper resource="mappings/admin-mapping.xml"/>
-        <mapper resource="mappings/hosting-mapping.xml"/>
-        <mapper resource="mappings/login-mapping.xml"/>
-        <mapper resource="mappings/lodge-mapping.xml"/>
-        <mapper resource="mappings/lodgeReview-mapping.xml"/>
-        <mapper resource="mappings/notice-mapping.xml"/>
-        <mapper resource="mappings/payment-mapping.xml"/>
-        <mapper resource="mappings/wish-mapping.xml"/>
+        <mapper resource="oracle_mappings/admin-mapping.xml"/>
+        <mapper resource="oracle_mappings/hosting-mapping.xml"/>
+        <mapper resource="oracle_mappings/login-mapping.xml"/>
+        <mapper resource="oracle_mappings/lodge-mapping.xml"/>
+        <mapper resource="oracle_mappings/lodgeReview-mapping.xml"/>
+        <mapper resource="oracle_mappings/notice-mapping.xml"/>
+        <mapper resource="oracle_mappings/payment-mapping.xml"/>
+        <mapper resource="oracle_mappings/wish-mapping.xml"/>
     </mappers>
 </configuration>
 

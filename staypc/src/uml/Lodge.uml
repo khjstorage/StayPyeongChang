@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="158.2500000000001" y="1262.0">com.staypc.service.Impl.LodgeServiceImpl</node>
+    <node x="450.91666666666663" y="917.5">com.staypc.service.LodgeService</node>
+    <node x="899.84375" y="784.0">com.staypc.utility.BoardPager</node>
+    <node x="610.8072916666667" y="1273.0">com.staypc.controller.LodgeController</node>
+    <node x="0.0" y="917.0">com.staypc.dao.LodgeDAO</node>
+    <node x="417.75" y="0.0">com.staypc.vo.LodgeVO</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.staypc.service.Impl.LodgeServiceImpl" target="com.staypc.dao.LodgeDAO">
+      <point x="-131.33333333333348" y="-92.0" />
+      <point x="223.91666666666663" y="1237.0" />
+      <point x="197.0" y="1237.0" />
+      <point x="0.0" y="81.0" />
+    </edge>
+    <edge source="com.staypc.controller.LodgeController" target="com.staypc.utility.BoardPager">
+      <point x="80.5" y="-81.0" />
+      <point x="1013.3072916666667" y="1237.0" />
+      <point x="947.09375" y="1237.0" />
+      <point x="-47.25" y="214.0" />
+    </edge>
+    <edge source="com.staypc.dao.LodgeDAO" target="com.staypc.vo.LodgeVO">
+      <point x="0.0" y="-81.0" />
+      <point x="197.0" y="754.0" />
+      <point x="440.375" y="754.0" />
+      <point x="-67.875" y="367.0" />
+    </edge>
+    <edge source="com.staypc.service.Impl.LodgeServiceImpl" target="com.staypc.service.LodgeService">
+      <point x="131.33333333333326" y="-92.0" />
+      <point x="486.58333333333337" y="1237.0" />
+      <point x="549.4166666666666" y="1237.0" />
+      <point x="-98.5" y="80.5" />
+    </edge>
+    <edge source="com.staypc.service.Impl.LodgeServiceImpl" target="com.staypc.vo.LodgeVO">
+      <point x="0.0" y="-92.0" />
+      <point x="355.2500000000001" y="1237.0" />
+      <point x="404.5" y="1237.0" />
+      <point x="404.5" y="764.0" />
+      <point x="485.625" y="764.0" />
+      <point x="-22.625" y="367.0" />
+    </edge>
+    <edge source="com.staypc.service.LodgeService" target="com.staypc.vo.LodgeVO">
+      <point x="0.0" y="-80.5" />
+      <point x="647.9166666666666" y="764.0" />
+      <point x="530.875" y="764.0" />
+      <point x="22.625" y="367.0" />
+    </edge>
+    <edge source="com.staypc.controller.LodgeController" target="com.staypc.vo.LodgeVO">
+      <point x="-80.5" y="-81.0" />
+      <point x="852.3072916666667" y="1237.0" />
+      <point x="889.34375" y="1237.0" />
+      <point x="889.34375" y="754.0" />
+      <point x="576.125" y="754.0" />
+      <point x="67.875" y="367.0" />
+    </edge>
+    <edge source="com.staypc.controller.LodgeController" target="com.staypc.service.LodgeService">
+      <point x="-241.5" y="-81.0" />
+      <point x="691.3072916666667" y="1237.0" />
+      <point x="746.4166666666666" y="1237.0" />
+      <point x="98.5" y="80.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.35252365930599366" x="869.5" y="1258.0" />
+  <SelectedNodes>
+    <node>com.staypc.controller.LodgeController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

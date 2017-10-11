@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="wish">
+    <insert id="insertWish" parameterType="wish" >
+        INSERT INTO STAYPC_WISH(LODGE_CODE, ID, TITLE, REG_DATE)
+        VALUES  (#{lodge_Code},#{id}, #{title}, SYSDATE())
+    </insert>
+
+    <delete id="deleteWish">
+        DELETE FROM STAYPC_WISH WHERE LODGE_CODE=#{lodge_Code} and id=#{id}
+    </delete>
+
+    <resultMap id="lodgeWishResultMap" type="java.util.HashMap">
+        <id property="id" column="id" />
+        <result property="lodge_Code" column="lodge_Code"/>
+        <result property="title" column="title"/>
+        <result property="reg_Date" column="reg_Date"/>
+        <collection property="staypcLodge" javaType="java.util.ArrayList" resultMap="staypcLodgeResultMap"/>
+    </resultMap>
+    <resultMap id="staypcLodgeResultMap" type="java.util.HashMap">
+        <id property="lodge_Code" column="lodge_Code" />
+        <result property="main_Image" column="main_Image"/>
+    </resultMap>
+
+    <select id="getWishList" parameterType="lodge" resultMap="lodgeWishResultMap">
+        <![CDATA[
+	    	 SELECT a.lodge_Code, b.MAIN_IMAGE, a.title, a.REG_DATE FROM STAYPC_WISH a
+            		inner join staypc_lodge b
+               				on a.lodge_Code = b.lodge_Code
+            WHERE a.id=#{id}
+		]]>
+    </select>
+
+    <select id="getWishItem" parameterType="wish">
+        SELECT * FROM STAYPC_WISH WHERE LODGE_CODE=${lodge_Code} and id=${id}
+    </select>
+
+</mapper>
+

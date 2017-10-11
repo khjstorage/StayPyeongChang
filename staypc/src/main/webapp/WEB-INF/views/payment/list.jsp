@@ -17,7 +17,7 @@
     <div class="common_wrapper">
 	    <div class="sidemenu">
 	          <ul>
-				  <li style="margin-top: 40px;"><a href="/member/modify.do">프로필수정</a></li>
+				  <li style="margin-top: 40px;"><a href="/member/modify.do">프로필 수정</a></li>
 				  <br>
 				  <li style="margin-top: 10px;"><a href="/member/profile.do">프로필 보기</a></li>
 				  <br>
@@ -36,10 +36,9 @@
                         <a href="/host/detail.do?lodge_code=${row.lodge_Code}"><img style="background-size: cover;" src="/host/displayFile.do?fileName=${row.main_Image}" width="300" height="280"></a>
                         <div class="roomNameCheck">
                             <div class="roomName">숙소코드 : ${row.lodge_Code}</div>
-                            <div class="checkInOut">체크인,체크아웃 시간 : ${checkIn}~${checkOut}</div>
+                            <div class="checkInOut">체크인,체크아웃 날짜 : ${checkIn} ~ ${checkOut}</div>
                         </div>
                     </div>
-
                 </c:forEach>
             </div>
         </div>

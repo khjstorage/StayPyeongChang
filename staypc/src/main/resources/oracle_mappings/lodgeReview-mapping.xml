@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review">
+	
+
+    	<insert id="insertBoard" parameterType="lodgeReview">
+      	  INSERT INTO STAYPC_REVIEW(REVIEW_NUM,
+                            ID,
+                            LODGE_CODE,
+     	  					CONTENT,
+	  						REG_DATE,
+                            UPDATE_DATE,
+                            GRADE,
+	  						PARENT,
+	  						SORT,
+	  						TAB)
+	  				VALUES  ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
+                            #{id},
+                            #{lodge_Code},
+                            #{content},
+	  				         SYSDATE,
+                             SYSDATE,
+                             #{grade},
+	  				         (SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW),
+	  				         0,
+	  				         0)
+    </insert>
+    
+    <insert id="insertReply" parameterType="lodgeReview">
+    	INSERT INTO STAYPC_REVIEW(review_num,
+    	   					  ID,
+                              LODGE_CODE,
+       						  CONTENT,
+    						  REG_DATE,
+    						  PARENT,
+    						  SORT,
+    						  TAB)
+    		    VALUES        ((SELECT NVL(MAX(review_num),0)+1 FROM STAYPC_REVIEW), 
+    		                  #{id},
+    		                  #{lodge_Code},   
+    		    		      #{content},
+    		    		      SYSDATE,
+    		    		      #{parent},
+    		    		      #{sort},
+    		    		      #{tab}
+    		    		      )
+	</insert>
+    
+    <update id="update"  parameterType="lodgeReview">
+       UPDATE STAYPC_REVIEW
+           SET CONTENT=#{content},
+               REG_DATE = SYSDATE
+       WHERE   REVIEW_NUM=#{review_num}
+       </update>
+
+    <update id="updateSort" parameterType="lodgeReview">
+    	UPDATE STAYPC_REVIEW 
+    	   SET SORT=SORT+1 
+    	WHERE PARENT=#{parent} AND SORT>#{sort}
+    </update>
+    
+    <delete id="deleteBoard">
+    	DELETE FROM STAYPC_REVIEW
+    	WHERE REVIEW_NUM=#{review_num}
+    </delete>
+    
+    <delete id="deleteAll">
+    	DELETE FROM STAYPC_REVIEW
+    	WHERE  parent=#{parent}
+    </delete>
+    
+    <select id="getBoard" resultType="lodgeReview">
+        SELECT  REVIEW_NUM,
+                ID,
+                CONTENT,
+                REG_DATE,
+                PARENT,
+                SORT,
+                TAB
+        FROM    STAYPC_REVIEW
+        where   REVIEW_NUM=#{review_num}
+    </select>
+
+    <select id="getBoardList" resultType="lodgeReview" parameterType="java.util.HashMap">
+   	<![CDATA[					
+		SELECT * 
+		  FROM ( SELECT REVIEW_NUM,
+				ID,
+				CONTENT,
+				REG_DATE,
+				PARENT,
+				SORT,
+				TAB,
+				lodge_code,
+				ROW_NUMBER() OVER (ORDER BY PARENT DESC, SORT ASC) AS RNUM
+			   FROM STAYPC_REVIEW
+		 ) A
+		 WHERE RNUM >= #{p_first} AND RNUM <= #{p_last}
+	]]>
+    </select>
+    
+     <select id="getTotalCount" resultType="int" parameterType="lodgeReview">
+      <![CDATA[
+    	SELECT COUNT(*) as CNT 
+    	  FROM STAYPC_REVIEW
+    	  WHERE LODGE_CODE=#{lodge_Code}
+     	   	]]>
+    </select>
+    
+    <sql id="pagingHeader">
+        SELECT * FROM (
+           SELECT ROWNUM AS rn, A.* FROM (
+    </sql>
+    
+    <sql id="pagingFooter">
+           ) A
+        ) WHERE rn BETWEEN #{start} AND #{end}
+    </sql> 
+	
+</mapper>
+

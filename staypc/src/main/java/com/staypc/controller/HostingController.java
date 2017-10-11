@@ -34,7 +34,7 @@ public class HostingController {
     private String uploadPath;
 
     @RequestMapping("host/write.do")
-    public String hostForm(HttpSession session){
+    public String hostForm(){
         return "host/write";
     }
 

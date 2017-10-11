@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+	<select id="notice_list" resultType="noticeDTO" parameterType="noticeDTO">
+		select  list_no, id, subject, content, register_datetime
+		  from STAYPC_NOTICE
+		 order by STAYPC_NOTICE.LIST_NO desc
+		LIMIT #{begin}, #{end};
+	</select>
+	
+	<select id="notice_view" resultType="noticeDTO">
+		select * from STAYPC_NOTICE where list_no=#{list_no}
+	</select>
+	
+	<insert id="notice_insert">
+		insert into STAYPC_NOTICE(list_no, subject, content, id, register_datetime)
+		values((select nvl(max(list_no),1)+1 from STAYPC_NOTICE),#{subject},#{content},#{id},sysdate)
+	</insert>
+	
+	<update id="notice_update">
+		update STAYPC_NOTICE set CONTENT=#{content}, subject=#{subject} where list_no=#{list_no}
+	</update>
+	
+	<delete id="notice_delete" parameterType="noticeDTO">
+		delete STAYPC_NOTICE where list_no=#{list_no}
+	</delete>
+	
+	<select id="notice_cnt" resultType="Integer">
+	<![CDATA[
+	select count(*) from staypc_notice
+	]]>
+	</select>
+
+</mapper>
