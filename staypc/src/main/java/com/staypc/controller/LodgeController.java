@@ -101,7 +101,6 @@ public class LodgeController {
 		if (endPage > allPage) {
 			endPage = allPage;
 		}
-		request.setAttribute("rew", list);
 		request.setAttribute("pg", pg);
 		request.setAttribute("block", block);
 		request.setAttribute("beginPage", beginPage);
@@ -109,27 +108,30 @@ public class LodgeController {
 		request.setAttribute("allPage", allPage);                                           
 		request.setAttribute("allPage", allPage);
 
-		
+
+
+
+
 //		for(int i=0; i<list.size(); i++) {
 //			String reviewId = list.get(i).getId();
 //			LoginVO member = loginService.getMember(reviewId);
 //			mav.addObject("member",member);
 //		}
 //		
-		
+
+
+		mav.addObject("rew", list);
+		System.out.println("[][]"+list);
+
 		LodgeVO host = lodgeService.read(lodge_Code);
 		LoginVO host2=loginService.getMember(host.getId());
 		mav.addObject("host",host2);
-		
 
 		//호스팅 글
 		LodgeVO vo2 = lodgeService.read(lodge_Code);
 		mav.addObject("vo", vo2);
 
-		
-		
-		
-		
+
 		//호스팅 이미지
 		List listImg = lodgeService.readImg(lodge_Code);
 		mav.addObject("listImg", listImg);

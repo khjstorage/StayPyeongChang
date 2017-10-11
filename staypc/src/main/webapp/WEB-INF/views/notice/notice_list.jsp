@@ -15,7 +15,11 @@
             <ul>
                 <li style="margin-top:40px;"><a href='<c:url value="/notice/notice_list.do"/>'>공지사항</a></li>
                 <br>
-                <li style="margin-top:10px;"><a href="/terms/accessTerms.do">약관 및 정책</a></li>
+                <li style="margin-top:10px;"><a href="/terms/accessTerms.do">이용약관</a></li>
+                <br>
+                <li style="margin-top:10px;"><a href="/terms/privacy.do">개인정보처리방침</a></li>
+                <br>
+                <li style="margin-top:10px;"><a href="/terms/company.do">회사소개</a></li>
             </ul>
         </div>	
 		<div class="teble_box" align="left">

@@ -11,4 +11,5 @@ public interface NoticeService {
 	void notice_update(NoticeVO vo);
 	void notice_delete(NoticeVO vo);
 	int notice_cnt();
+	NoticeVO getNotice(NoticeVO vo);
 }

@@ -242,6 +242,7 @@
         <c:if test="${ !empty rew}">
             <c:forEach items="${rew}" var="rew">
                 <c:if test="${rew.lodge_Code==vo.lodge_Code}">
+
                     <tr>
                         <td class="img-circular" colspan="30" align="left">
                             <img align="left" src="<c:url value='/resources/profile_photo/${rew.picture}'/>"/>&nbsp;&nbsp;&nbsp;

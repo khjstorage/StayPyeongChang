@@ -20,20 +20,15 @@
             <ul>
                 <li style="margin-top:40px;"><a href='<c:url value="/notice/notice_list.do"/>'>공지사항</a></li>
                 <br>
-                <li style="margin-top:10px;"><a href="/terms/accessTerms.do">약관 및 정책</a></li>
+                <li style="margin-top:10px;"><a href="/terms/accessTerms.do">이용약관</a></li>
+                <br>
+                <li style="margin-top:10px;"><a href="/terms/privacy.do">개인정보처리방침</a></li>
+                <br>
+                <li style="margin-top:10px;"><a href="/terms/company.do">회사소개</a></li>
             </ul>
         </div>
         
         <div class="content">
-        	<div class="Tmenu">
-	        	<ul style="border-bottom : solid 1px #868686; height : 30px;">
-	        		<li class="term1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/terms/accessTerms.do">이용약관</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>	        		
-	        		<li class="term2"><a href="/terms/privacy.do">개인정보 처리 방침</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-	        		<li class="term3"><a href="/terms/company.do">회사소개</a></li>	        			        		   		
-	        	</ul>
-        	</div>
-        	<br>
-        	
         	<div class="contentDetail">
         		<article class="acsTerms">
         			<span id="SPCTerms">Stay PyeongChang 이용약관</span><br><br><br><br>
