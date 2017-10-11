@@ -279,8 +279,7 @@
                     <tr>
                         <td colspan="4">
                             <button type="submit" id="btnSave"
-                                    style="float:right; width:200px; height:40px; font-size:16px; background-color:#474747; color:#ffffff;">
-                                숙소등록
+                                    style="float:right; width:200px; height:40px; font-size:16px; background-color:#474747; color:#ffffff; border-radius:10px;">숙소등록
                             </button>
                         </td>
                     </tr>
