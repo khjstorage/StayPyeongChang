@@ -18,7 +18,7 @@
 <script type="text/javascript" src="resources/js/moment.min.js"></script>
 <script type="text/javascript" src="resources/js/daterangepicker.js"></script>
 
-
+ 
 
 	
 
@@ -128,11 +128,20 @@ $(document).ready(function(){
 <div class="header">
   	<div class="menu" style="color:#ffffff; font-size:16px;">
 			<ul>
-				<li><a href="#">공지사항</a></li>
-				<li><a href="#">호스팅</a></li>
-				<li><a href="#">도움말</a></li>
-				<li><a href="#">로그인</a></li>
-			</ul>
+                <c:choose>
+                    <c:when test="${sessionScope.userId == null }">
+                    	<li><a href='<c:url value="/notice/notice_list.do"></c:url>'>공지사항</a></li>                        
+                        <li><a href='<c:url value="/login/login.do"></c:url>'>로그인</a></li>
+                    </c:when>
+                    <c:otherwise>
+                   	    <li><a href='<c:url value="/notice/notice_list.do"></c:url>'>공지사항</a></li>
+                        <li><a href="<c:url value="/host/write.do"></c:url>">호스팅</a></li>                        
+                        <li><a href="<c:url value="/member/modify.do"></c:url>">회원정보수정</a></li>
+                        <li><a href='<c:url value="/login/logout.do"></c:url>'>로그아웃</a></li>
+                    </c:otherwise>
+                </c:choose>
+               
+            </ul>
 	</div>	
 </div>
 
